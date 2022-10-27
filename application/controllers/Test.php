@@ -20,6 +20,10 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
+<<<<<<< Updated upstream
 		$this->load->view('test/hello_world');
+=======
+		$this->load->view('Test');
+>>>>>>> Stashed changes
 	}
 }

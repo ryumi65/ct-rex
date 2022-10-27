@@ -1,36 +1,36 @@
 <?= validation_errors(); ?>
 <?= form_open('dosen/create') ?>
-    NIK<br>
-    <input type="text" name="nik"><br><br>
+    <p>NIK</p>
+    <input type="text" name="nik"><br>
 
-    Nama<br>
-    <input type="text" name="nama"><br><br>
+    <p>Nama</p>
+    <input type="text" name="nama"><br>
 
-    Jenis Kelamin<br>
+    <p>Jenis Kelamin</p>
     <input type="radio" name="jenis_kelamin" value="L">Laki-laki<br>
-    <input type="radio" name="jenis_kelamin" value="P">Perempuan<br><br>
+    <input type="radio" name="jenis_kelamin" value="P">Perempuan<br>
 
-    Tempat Lahir<br>
-    <input type="text" name="tempat_lahir"><br><br>
+    <p>Tempat Lahir</p>
+    <input type="text" name="tempat_lahir"><br>
 
-    Tanggal Lahir<br>
-    <input type="date" name="tanggal_lahir"><br><br>
+    <p>Tanggal Lahir</p>
+    <input type="date" name="tanggal_lahir"><br>
 
-    Email<br>
-    <input type="email" name="email"><br><br>
+    <p>Email</p>
+    <input type="email" name="email"><br>
 
-    No Hp<br>
-    <input type="text" name="no_hp"><br><br>
+    <p>No Hp</p>
+    <input type="text" name="no_hp"><br>
 
-    Kewarganegaraan<br>
+    <p>Kewarganegaraan</p>
     <input type="radio" name="kewarganegaraan" value="wni">WNI<br>
-    <input type="radio" name="kewarganegaraan" value="wna">WNA<br><br>
+    <input type="radio" name="kewarganegaraan" value="wna">WNA<br>
 
-    Agama<br>
-    <input type="text" name="agama"><br><br>
+    <p>Agama</p>
+    <input type="text" name="agama"><br>
 
-    Alamat<br>
-    <input type="text" name="alamat"><br><br>
+    <p>Alamat</p>
+    <input type="text" name="alamat"><br>
 
-    <input type="submit" value="simpan">
+    <input type="submit" value="Simpan">
 </form>

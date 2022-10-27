@@ -1,23 +1,23 @@
 <?= validation_errors(); ?>
 <?= form_open('matkul/update/' . $matkul['id_matkul']) ?>
-	ID MATKUL<br>
-	<input type="text" name="id_matkul" value="<?= $matkul['id_matkul'] ?>"><br><br>
+	<p>ID Matkul</p>
+	<input type="text" name="id_matkul" value="<?= $matkul['id_matkul'] ?>"><br>
 
-	Nama<br>
-	<input type="text" name="nama" value="<?= $matkul['nama'] ?>"><br><br>
+	<p>Nama</p>
+	<input type="text" name="nama" value="<?= $matkul['nama'] ?>"><br>
 
-	SKS<br>
-	<input type="text" name="sks" value="<?= $matkul['sks'] ?>"><br><br>
+	<p>SKS</p>
+	<input type="text" name="sks" value="<?= $matkul['sks'] ?>"><br>
 
-	STATUS MATKUL<br>
-	<input type="radio" name="status_matkul" value="T">TEORI<br>
-	<input type="radio" name="status_matkul" value="P">PRAKTIKUM<br><br>
+	<p>Status Matkul</p>
+	<input type="radio" name="status_matkul" value="T">Teori<br>
+	<input type="radio" name="status_matkul" value="P">Praktikum<br>
 
-	LEVEL MATKUL<br>
-	<input type="text" name="level_matkul" value="<?= $matkul['level_matkul'] ?>"><br><br>
+	<p>Level Matkul</p>
+	<input type="text" name="level_matkul" value="<?= $matkul['level_matkul'] ?>"><br>
 
-	NIK DOSEN<br>
-	<input type="text" name="nik_dosen" value="<?= $matkul['nik_dosen'] ?>"><br><br>
+	<p>NIK Dosen</p>
+	<input type="text" name="nik_dosen" value="<?= $matkul['nik_dosen'] ?>"><br>
 
 	<input type="submit" value="Simpan">
 </form>

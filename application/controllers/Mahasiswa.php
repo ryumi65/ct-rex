@@ -13,7 +13,7 @@ class Mahasiswa extends CI_Controller
 	{
 		$data['list'] = $this->model_mahasiswa->get_mahasiswa();
 
-		$this->load->view('mahasiswa', $data);
+		$this->load->view('mahasiswa/mahasiswa', $data);
 	}
 
 	public function create()
@@ -26,7 +26,7 @@ class Mahasiswa extends CI_Controller
 		$this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
 
 		if (!$this->form_validation->run()) {
-			$this->load->view('create');
+			$this->load->view('mahasiswa/create');
 		} else {
 			$this->model_mahasiswa->set_mahasiswa();
 			redirect('mahasiswa');
@@ -45,7 +45,7 @@ class Mahasiswa extends CI_Controller
 		$this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
 
 		if (!$this->form_validation->run()) {
-			$this->load->view('update', $data);
+			$this->load->view('mahasiswa/update', $data);
 		} else {
 			$this->model_mahasiswa->update_mahasiswa($nim);
 			redirect('mahasiswa');

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller {
+class renal extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,10 +20,6 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-<<<<<<< Updated upstream
-		$this->load->view('test/hello_world');
-=======
-		$this->load->view('Test');
->>>>>>> Stashed changes
+		$this->load->view('renal');
 	}
 }

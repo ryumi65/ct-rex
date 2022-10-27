@@ -32,5 +32,23 @@
     <p>Alamat</p>
 	<input type="text" name="alamat" value="<?= $dosen['alamat'] ?>"><br>
 
+	<p>ID Prodi</p>
+	<input type="text" name="id_prodi" value="<?= $dosen['id_prodi'] ?>"><br>
+
+    <p>Kode Dosen</p>
+	<input type="text" name="kode_dosen" value="<?= $dosen['kode_dosen'] ?>"><br>
+
+	<p>Password Dosen</p>
+	<input type="text" name="password_dosen" value="<?= $dosen['password_dosen'] ?>"><br>
+
+    <p>NIDN Dosen</p>
+	<input type="text" name="nidn_dosen" value="<?= $dosen['nidn_dosen'] ?>"><br>
+
+	<p>Status Dosen</p>
+	<input type="text" name="status_dosen" value="<?= $dosen['status_dosen'] ?>"><br>
+
+    <p>Status Kerja</p>
+	<input type="text" name="status_kerja" value="<?= $dosen['status_kerja'] ?>"><br>
+
 	<input type="submit" value="Simpan">
 </form>

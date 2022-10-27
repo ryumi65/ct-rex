@@ -28,6 +28,13 @@ class Model_dosen extends CI_Model {
         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
         'agama' => $this->input->post('agama'),
         'alamat' => $this->input->post('alamat'),
+        'id_prodi' => $this->input->post('id_prodi'),
+        'kode_dosen' => $this->input->post('kode_dosen'),
+        'password_dosen' => $this->input->post('password_dosen'),
+        'nidn_dosen' => $this->input->post('nidn_dosen'),
+        'status_dosen' => $this->input->post('status_dosen'),
+        'status_kerja' => $this->input->post('status_kerja'),
+
         ];
 
         return $this->db->insert('dosen',$data);
@@ -44,6 +51,12 @@ class Model_dosen extends CI_Model {
         'kewarganegaraan' => $this->input->post('kewarganegaraan'),
         'agama' => $this->input->post('agama'),
         'alamat' => $this->input->post('alamat'),
+        'id_prodi' => $this->input->post('id_prodi'),
+        'kode_dosen' => $this->input->post('kode_dosen'),
+        'password_dosen' => $this->input->post('password_dosen'),
+        'nidn_dosen' => $this->input->post('nidn_dosen'),
+        'status_dosen' => $this->input->post('status_dosen'),
+        'status_kerja' => $this->input->post('status_kerja'),
         ];
 
 		return $this->db->update('dosen', $data, ['nik' => $nik]);

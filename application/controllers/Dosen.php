@@ -26,6 +26,12 @@ class Dosen extends CI_Controller {
         $this->form_validation->set_rules('kewarganegaraan', 'kewarganegaraan', 'required');
         $this->form_validation->set_rules('agama', 'Agama', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
+        $this->form_validation->set_rules('kode_dosen', 'Kode Dosen', 'required');
+        $this->form_validation->set_rules('password_dosen', 'Password Dosen', 'required');
+        $this->form_validation->set_rules('nidn_dosen', 'NIDN Dosen', 'required');
+        $this->form_validation->set_rules('status_dosen', 'Status Dosen', 'required');
+        $this->form_validation->set_rules('status_kerja', 'Status Kerja', 'required');
 
     if (!$this->form_validation->run()) {
         $this->load->view('dosen/create');
@@ -48,6 +54,12 @@ class Dosen extends CI_Controller {
         $this->form_validation->set_rules('kewarganegaraan', 'kewarganegaraan', 'required');
         $this->form_validation->set_rules('agama', 'Agama', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
+        $this->form_validation->set_rules('kode_dosen', 'Kode Dosen', 'required');
+        $this->form_validation->set_rules('password_dosen', 'Password Dosen', 'required');
+        $this->form_validation->set_rules('nidn_dosen', 'NIDN Dosen', 'required');
+        $this->form_validation->set_rules('status_dosen', 'Status Dosen', 'required');
+        $this->form_validation->set_rules('status_kerja', 'Status Kerja', 'required');
 
 		if (!$this->form_validation->run()) {
 			$this->load->view('dosen/update', $data);

@@ -23,9 +23,10 @@ class model_matkul extends CI_Model {
             'nama'=>$this->input->post('nama'),
             'sks'=>$this->input->post('sks'),
             'status_matkul'=>$this->input->post('status_matkul'),
+			'level_matkul'=>$this->input->post('level_matkul'),
             'nik_dosen'=>$this->input->post('nik_dosen'),
         ];
-        return $this->db->insert('id_matkul',$data);
+        return $this->db->insert('matkul',$data);
     }
     public function update_matkul($id_matkul) {
 		$data = [
@@ -33,6 +34,7 @@ class model_matkul extends CI_Model {
             'nama'=>$this->input->post('nama'),
             'sks'=>$this->input->post('sks'),
             'status_matkul'=>$this->input->post('status_matkul'),
+			'level_matkul'=>$this->input->post('level_matkul'),
             'nik_dosen'=>$this->input->post('nik_dosen'),
 		];
 

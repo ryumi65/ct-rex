@@ -8,6 +8,7 @@
         <td>status matkul</td>
         <td>level matkul</td>
         <td>nik dosen</td>
+		<td>Aksi</td>
     </tr>
 
     <?php foreach ($list as $matkul):?>

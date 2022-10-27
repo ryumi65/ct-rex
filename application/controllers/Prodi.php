@@ -26,7 +26,7 @@ class Prodi extends CI_Controller {
 	public function index()
 	{
         $data['list'] = $this->model_prodi->get_prodi();
-		$this->load->view('prodi',$data);
+		$this->load->view('prodi/prodi',$data);
 	}
     public function create()
     {
@@ -35,7 +35,7 @@ class Prodi extends CI_Controller {
         $this->form_validation->set_rules('id_fakultas','id_fakultas harus diisi','required');
 
         if (!$this->form_validation->run()){
-            $this->load->view('create');
+            $this->load->view('prodi/create');
         } else{
             $this->model_prodi->set_prodi();
             redirect('prodi');
@@ -51,7 +51,7 @@ class Prodi extends CI_Controller {
 		
 
 		if (!$this->form_validation->run()) {
-			$this->load->view('update', $data);
+			$this->load->view('prodi/update', $data);
 		} else {
 			$this->model_prodi->update_prodi($id_prodi);
 			redirect('prodi');

@@ -10,9 +10,8 @@
 	<input type="text" name="sks" value="<?= $matkul['sks'] ?>"><br><br>
 
 	STATUS MATKUL<br>
-	<input type="radio" name="status_matkul" value="T">teori<br>
-	<input type="radio" name="status_matkul" value="P">praktikum<br><br>
-
+	<input type="radio" name="status_matkul" value="T">TEORI<br>
+	<input type="radio" name="status_matkul" value="P">PRAKTIKUM<br><br>
 
 	LEVEL MATKUL<br>
 	<input type="text" name="level_matkul" value="<?= $matkul['level_matkul'] ?>"><br><br>

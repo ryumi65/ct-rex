@@ -13,7 +13,7 @@ class Dosen extends CI_Controller {
 	{
         $data['list'] = $this->model_dosen->get_dosen();
 
-		$this->load->view('dosen', $data);
+		$this->load->view('dosen/dosen', $data);
     }
     public function create(){
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -28,7 +28,7 @@ class Dosen extends CI_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
 
     if (!$this->form_validation->run()) {
-        $this->load->view('create');
+        $this->load->view('dosen/create');
     } else {
             $this->model_dosen->set_dosen();
             redirect('dosen');
@@ -50,7 +50,7 @@ class Dosen extends CI_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
 
 		if (!$this->form_validation->run()) {
-			$this->load->view('update', $data);
+			$this->load->view('dosen/update', $data);
 		} else {
 			$this->model_dosen->update_dosen($nik);
 			redirect('dosen');

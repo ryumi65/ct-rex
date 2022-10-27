@@ -1,14 +1,10 @@
 <?php
-
-class Model_mahasiswa extends CI_Model
-{
-	public function __construct()
-	{
+class Model_mahasiswa extends CI_Model {
+	public function __construct() {
 		$this->load->database();
 	}
 
-	public function get_mahasiswa($nim = null)
-	{
+	public function get_mahasiswa($nim = null) {
 		if ($nim === null) {
 			$query = $this->db->get('mahasiswa');
 			return $query->result_array();
@@ -18,8 +14,7 @@ class Model_mahasiswa extends CI_Model
 		}
 	}
 
-	public function set_mahasiswa()
-	{
+	public function set_mahasiswa() {
 		$data = [
 			'nim' => $this->input->post('nim'),
 			'nama' => $this->input->post('nama'),
@@ -27,6 +22,7 @@ class Model_mahasiswa extends CI_Model
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'tahun_angkatan' => $this->input->post('tahun_angkatan'),
+			'id_prodi' => $this->input->post('id_prodi'),
 		];
 
 		return $this->db->insert('mahasiswa', $data);
@@ -40,6 +36,7 @@ class Model_mahasiswa extends CI_Model
 			'tempat_lahir' => $this->input->post('tempat_lahir'),
 			'tanggal_lahir' => $this->input->post('tanggal_lahir'),
 			'tahun_angkatan' => $this->input->post('tahun_angkatan'),
+			'id_prodi' => $this->input->post('id_prodi'),
 		];
 
 		return $this->db->update('mahasiswa', $data, ['nim' => $nim]);

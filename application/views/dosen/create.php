@@ -7,8 +7,8 @@
     <input type="text" name="nama"><br>
 
     <p>Jenis Kelamin</p>
-    <input type="radio" name="jenis_kelamin" value="L">Laki-laki<br>
-    <input type="radio" name="jenis_kelamin" value="P">Perempuan<br>
+    <input type="radio" name="jenis_kelamin" value="l">Laki-laki<br>
+    <input type="radio" name="jenis_kelamin" value="p">Perempuan<br>
 
     <p>Tempat Lahir</p>
     <input type="text" name="tempat_lahir"><br>
@@ -33,7 +33,14 @@
     <input type="text" name="alamat"><br>
 
     <p>ID Prodi</p>
-    <input type="text" name="id_prodi"><br>
+	<select name="id_prodi">
+		<option selected disabled>Pilih Prodi</option>
+		<?php foreach ($listp as $prodi) : ?>
+			<option value="<?= $prodi['id_prodi'] ?>">
+				<?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+			</option>
+		<?php endforeach ?>
+	</select><br>
 
     <p>Kode Dosen</p>
     <input type="text" name="kode_dosen"><br>
@@ -50,5 +57,5 @@
     <p>Status Kerja</p>
     <input type="text" name="status_kerja"><br>
 
-    <input type="submit" value="Simpan">
+    <br><input type="submit" value="Simpan">
 </form>

@@ -6,5 +6,5 @@
     <p>Nama Fakultas</p>
     <input type= "text" name= "nama"><br>
 
-	<input type = "submit" value="simpan">
+	<br><input type = "submit" value="simpan">
 </form>

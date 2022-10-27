@@ -7,8 +7,13 @@
 	<input type="text" name="nama" value="<?= $dosen['nama'] ?>"><br>
 
 	<p>Jenis Kelamin</p>
-	<input type="radio" name="jenis_kelamin" value="L">Laki-laki<br>
-	<input type="radio" name="jenis_kelamin" value="P">Perempuan<br>
+	<?php if ($dosen['jenis_kelamin'] === 'l') : ?>
+		<input type="radio" name="jenis_kelamin" value="l" checked>Laki-laki<br>
+		<input type="radio" name="jenis_kelamin" value="p">Perempuan<br>
+	<?php else : ?>
+		<input type="radio" name="jenis_kelamin" value="l">Laki-laki<br>
+		<input type="radio" name="jenis_kelamin" value="p" checked>Perempuan<br>
+	<?php endif ?>
 
 	<p>Tempat Lahir</p>
 	<input type="text" name="tempat_lahir" value="<?= $dosen['tempat_lahir'] ?>"><br>
@@ -23,8 +28,13 @@
 	<input type="text" name="no_hp" value="<?= $dosen['no_hp'] ?>"><br>
 
 	<p>Kewarganegaraan</p>
-	<input type="radio" name="kewarganegaraan" value="wni">WNI<br>
-	<input type="radio" name="kewarganegaraan" value="wna">WNA<br>
+	<?php if ($dosen['kewarganegaraan'] === 'wni') : ?>
+		<input type="radio" name="kewarganegaraan" value="wni" checked>WNI<br>
+		<input type="radio" name="kewarganegaraan" value="wna">WNA<br>
+	<?php else : ?>
+		<input type="radio" name="kewarganegaraan" value="wni">WNI<br>
+		<input type="radio" name="kewarganegaraan" value="wna" checked>WNA<br>
+	<?php endif ?>
 
     <p>Agama</p>
 	<input type="text" name="agama" value="<?= $dosen['agama'] ?>"><br>
@@ -33,7 +43,20 @@
 	<input type="text" name="alamat" value="<?= $dosen['alamat'] ?>"><br>
 
 	<p>ID Prodi</p>
-	<input type="text" name="id_prodi" value="<?= $dosen['id_prodi'] ?>"><br>
+	<select name="id_prodi">
+		<option selected disabled>Pilih Prodi</option>
+		<?php foreach ($listp as $prodi) : ?>
+			<?php if ($prodi['id_prodi'] === $dosen['id_prodi']) : ?>
+				<option selected value="<?= $prodi['id_prodi'] ?>">
+					<?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+				</option>
+			<?php else : ?>
+				<option value="<?= $prodi['id_prodi'] ?>">
+					<?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+				</option>
+			<?php endif ?>
+		<?php endforeach ?>
+	</select><br>
 
     <p>Kode Dosen</p>
 	<input type="text" name="kode_dosen" value="<?= $dosen['kode_dosen'] ?>"><br>
@@ -50,5 +73,5 @@
     <p>Status Kerja</p>
 	<input type="text" name="status_kerja" value="<?= $dosen['status_kerja'] ?>"><br>
 
-	<input type="submit" value="Simpan">
+	<br><input type="submit" value="Simpan">
 </form>

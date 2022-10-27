@@ -6,5 +6,5 @@
 	<p>Nama Fakultas</p>
 	<input type="text" name="nama" value="<?= $fakultas['nama'] ?>"><br>
 
-    <input type="submit" value="Simpan">
+    <br><input type="submit" value="Simpan">
 </form>

@@ -4,10 +4,17 @@
     <input type="text" name="id_prodi"><br>
 
     <p>Nama</p>
-    <input type="text" name="Nama"><br>
+    <input type="text" name="nama"><br>
 
     <p>ID Fakultas</p>
-    <input type="text" name="id_fakultas"><br>
+	<select name="id_fakultas">
+		<option selected disabled>Pilih Fakultas</option>
+		<?php foreach ($listf as $fakultas) : ?>
+			<option value="<?= $fakultas['id_fakultas'] ?>">
+				<?= $fakultas['id_fakultas'] . ' - ' . $fakultas['nama'] ?>
+			</option>
+		<?php endforeach ?>
+	</select><br>
 
-    <input type="submit" value="Simpan">
+    <br><input type="submit" value="Simpan">
 </form>

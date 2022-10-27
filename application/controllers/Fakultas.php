@@ -7,7 +7,12 @@ class Fakultas extends CI_Controller { //
     {
         parent::__construct();
         $this->load->model('model_fakultas');
+		$this->load->model('model_dosen');
+		$this->load->model('model_mahasiswa');
+		$this->load->model('model_prodi');
+		$this->load->model('model_matkul');
     }
+
     public function index() //fungsi utama
 	{
 		$data ['list'] = $this -> model_fakultas -> get_fakultas (); //untuk menginisiasi (mengakses) model (list = inisiasi)
@@ -40,9 +45,7 @@ class Fakultas extends CI_Controller { //
 		}
 	}
 
-	public function delete($id_fakultas) {
-		$this->db->delete('fakultas', ['id_fakultas' => $id_fakultas]);
-		redirect('fakultas');
-	}
+	
+
 
 }

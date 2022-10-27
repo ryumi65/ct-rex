@@ -2,6 +2,12 @@
 
 <a href="<?= site_url('mahasiswa/create') ?>">Tambah</a><br><br>
 
+<a href="<?= site_url('mahasiswa') ?>">Mahasiswa</a></td>
+<a href="<?= site_url('dosen') ?>">Dosen</a></td>
+<a href="<?= site_url('prodi') ?>">Prodi</a></td>
+<a href="<?= site_url('fakultas') ?>">Fakultas</a></td>
+<a href="<?= site_url('matkul') ?>">Mata Kuliah</a></td>
+
 <table border=1>
 	<tr>
 		<td>NIM</td>

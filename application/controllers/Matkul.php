@@ -16,11 +16,13 @@ class Matkul extends CI_Controller {
 		$this->load->view('matkul/matkul', $data);
 	}
     public function create() {
+        $this->form_validation->set_rules('program_studi','PRODI','required');
         $this->form_validation->set_rules('id_matkul','IDMATKUL','required');
-        $this->form_validation->set_rules('nama','NAMA','required');
+        $this->form_validation->set_rules('nama_matkul','NAMA','required');
+        $this->form_validation->set_rules('nama_matkul_inggris','NAMAINGGRIS','required');
+        $this->form_validation->set_rules('jenis_matkul','JENIS','required');
         $this->form_validation->set_rules('sks','SKS','required');
-        $this->form_validation->set_rules('status_matkul','STATUS','required');
-		$this->form_validation->set_rules('level_matkul','LEVEL','required');
+        $this->form_validation->set_rules('sks_praktikum','SKSPRAK','required');
         $this->form_validation->set_rules('nik_dosen','NIK','required');
 
         if (!$this->form_validation->run()){
@@ -34,11 +36,13 @@ class Matkul extends CI_Controller {
 	{
 		$data['matkul'] = $this->model_matkul->get_matkul($id_matkul);
 
+        $this->form_validation->set_rules('program_studi','PRODI','required');
         $this->form_validation->set_rules('id_matkul','IDMATKUL','required');
-        $this->form_validation->set_rules('nama','NAMA','required');
+        $this->form_validation->set_rules('nama_matkul','NAMA','required');
+        $this->form_validation->set_rules('nama_matkul_inggris','NAMAINGGRIS','required');
+        $this->form_validation->set_rules('jenis_matkul','JENIS','required');
         $this->form_validation->set_rules('sks','SKS','required');
-        $this->form_validation->set_rules('status_matkul','STATUS','required');
-		$this->form_validation->set_rules('level_matkul','LEVEL','required');
+        $this->form_validation->set_rules('sks_praktikum','SKSPRAK','required');
         $this->form_validation->set_rules('nik_dosen','NIK','required');
 
 		if (!$this->form_validation->run()) {

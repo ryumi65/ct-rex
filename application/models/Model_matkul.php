@@ -19,23 +19,28 @@ class model_matkul extends CI_Model {
     public function set_matkul()
     {
         $data = [
+            'program_studi'=>$this->input->post('program_studi'),
             'id_matkul'=>$this->input->post('id_matkul'),
-            'nama'=>$this->input->post('nama'),
+            'nama_matkul'=>$this->input->post('nama_matkul'),
+            'nama_matkul_inggris'=>$this->input->post('nama_matkul_inggris'),
+            'jenis_matkul'=>$this->input->post('jenis_matkul'),
             'sks'=>$this->input->post('sks'),
-            'status_matkul'=>$this->input->post('status_matkul'),
-			'level_matkul'=>$this->input->post('level_matkul'),
+            'sks_praktikum'=>$this->input->post('sks_praktikum'),
             'nik_dosen'=>$this->input->post('nik_dosen'),
         ];
         return $this->db->insert('matkul',$data);
     }
     public function update_matkul($id_matkul) {
 		$data = [
+            'program_studi'=>$this->input->post('program_studi'),
             'id_matkul'=>$this->input->post('id_matkul'),
-            'nama'=>$this->input->post('nama'),
+            'nama_matkul'=>$this->input->post('nama_matkul'),
+            'nama_matkul_inggris'=>$this->input->post('nama_matkul_inggris'),
+            'jenis_matkul'=>$this->input->post('jenis_matkul'),
             'sks'=>$this->input->post('sks'),
-            'status_matkul'=>$this->input->post('status_matkul'),
-			'level_matkul'=>$this->input->post('level_matkul'),
+            'sks_praktikum'=>$this->input->post('sks_praktikum'),
             'nik_dosen'=>$this->input->post('nik_dosen'),
+      
 		];
 
 		return $this->db->update('matkul', $data, ['id_matkul' => $id_matkul]);

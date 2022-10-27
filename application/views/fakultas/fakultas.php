@@ -10,6 +10,7 @@
     <tr>
         <td>id_fakultas</td>
         <td>nama</td>
+		<td>Aksi</td>
     </tr>
 <?php foreach ($list as $fakultas) : ?> <!--foreach adalah perulangan-->
     <tr>

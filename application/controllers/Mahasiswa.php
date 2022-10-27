@@ -32,4 +32,28 @@ class Mahasiswa extends CI_Controller
 			redirect('mahasiswa');
 		}
 	}
+
+	public function update($nim)
+	{
+		$data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($nim);
+
+		$this->form_validation->set_rules('nim', 'NIM', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+		$this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
+
+		if (!$this->form_validation->run()) {
+			$this->load->view('update', $data);
+		} else {
+			$this->model_mahasiswa->update_mahasiswa($nim);
+			redirect('mahasiswa');
+		}
+	}
+
+	public function delete($nim) {
+		$this->db->delete('mahasiswa', ['nim' => $nim]);
+		redirect('mahasiswa');
+	}
 }

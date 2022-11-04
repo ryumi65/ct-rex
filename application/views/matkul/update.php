@@ -1,4 +1,4 @@
-<?= validation_errors(); ?>
+<?= validation_errors() ?>
 <?= form_open('matkul/update/' . $matkul['id_matkul']) ?>
 	<p>ID Matkul</p>
 	<input type="text" name="id_matkul" value="<?= $matkul['id_matkul'] ?>"><br>
@@ -25,7 +25,7 @@
 	<select name="id_prodi">
 		<option selected disabled>Pilih Prodi</option>
 		<?php foreach ($listp as $prodi) : ?>
-			<?php if ($prodi['id_prodi'] === $matkul['id_prodi']) : ?>
+			<?php if ($prodi['id_prodi'] === $matku['id_prodi']) : ?>
 				<option selected value="<?= $prodi['id_prodi'] ?>">
 					<?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
 				</option>

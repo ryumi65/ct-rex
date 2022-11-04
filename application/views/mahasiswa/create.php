@@ -1,5 +1,5 @@
-<?= validation_errors(); ?>
-<?= form_open('mahasiswa/create'); ?>
+<?= validation_errors() ?>
+<?= form_open('mahasiswa/create') ?>
 	<p>NIM</p>
 	<input type="text" name="nim"><br>
 

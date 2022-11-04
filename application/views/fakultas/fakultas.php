@@ -1,6 +1,7 @@
 <h1>Selamat datang di halaman Fakultas!</h1>
 
-<a href="<?= site_url('fakultas/create') ?>">Tambah</a><br><br>
+<a href="<?= site_url('fakultas/create') ?>">Tambah</a>
+<a href="<?= site_url('akun/logout') ?>">Logout</a><br><br>
 <a href="<?= site_url('mahasiswa') ?>">Mahasiswa</a>
 <a href="<?= site_url('dosen') ?>">Dosen</a>
 <a href="<?= site_url('prodi') ?>">Prodi</a>

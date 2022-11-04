@@ -1,5 +1,5 @@
-<?= validation_errors(); ?>
-<?= form_open('mahasiswa/update/' . $mahasiswa['nim']); ?>
+<?= validation_errors() ?>
+<?= form_open('mahasiswa/update/' . $mahasiswa['nim']) ?>
 	<p>NIM</p>
 	<input type="text" name="nim" value="<?= $mahasiswa['nim'] ?>"><br>
 

@@ -1,4 +1,4 @@
-<?= validation_errors(); ?>
+<?= validation_errors() ?>
 <?= form_open('dosen/create') ?>
     <p>NIK</p>
     <input type="text" name="nik"><br>

@@ -11,7 +11,7 @@ class Mahasiswa extends CI_Controller {
 	public function index() {
 		$data['list'] = $this->model_mahasiswa->get_mahasiswa();
 
-		$this->load->view('mahasiswa/mahasiswa', $data);
+        $this->load->view('mahasiswa/mahasiswa', $data);
 	}
 
 	public function create() {

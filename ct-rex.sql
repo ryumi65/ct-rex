@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2022 at 05:47 PM
+-- Generation Time: Nov 04, 2022 at 06:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `ct-rex`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akun`
+--
+
+CREATE TABLE `akun` (
+  `id_akun` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('y','n') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `akun`
+--
+
+INSERT INTO `akun` (`id_akun`, `username`, `password`, `status`, `level`) VALUES
+('09977665414', 'Dosen', '123', 'y', 3),
+('200102083', 'Mahasiswa Reza', '124', 'y', 4),
+('FST', 'Fakultas Sains dan Teknologi', '121', 'y', 1),
+('IF', 'Prodi Informatika', '122', 'y', 2);
 
 -- --------------------------------------------------------
 
@@ -172,6 +196,12 @@ INSERT INTO `prodi` (`id_prodi`, `nama`, `id_fakultas`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `akun`
+--
+ALTER TABLE `akun`
+  ADD PRIMARY KEY (`id_akun`);
 
 --
 -- Indexes for table `dosen`

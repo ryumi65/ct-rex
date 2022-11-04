@@ -1,5 +1,5 @@
-<?= validation_errors(); ?>
-<?= form_open ('matkul/create'); ?>
+<?= validation_errors() ?>
+<?= form_open ('matkul/create') ?>
 	<p>ID Matkul</p>
 	<input type="text" name="id_matkul"><br>
 

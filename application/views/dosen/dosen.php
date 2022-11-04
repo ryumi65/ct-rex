@@ -1,6 +1,7 @@
 <h1>Selamat datang di halaman Dosen!</h1>
 
-<a href="<?= site_url('dosen/create') ?>">Tambah</a><br><br>
+<a href="<?= site_url('dosen/create') ?>">Tambah</a>
+<a href="<?= site_url('akun/logout') ?>">Logout</a><br><br>
 <a href="<?= site_url('mahasiswa') ?>">Mahasiswa</a>
 <a href="<?= site_url('dosen') ?>">Dosen</a>
 <a href="<?= site_url('prodi') ?>">Prodi</a>

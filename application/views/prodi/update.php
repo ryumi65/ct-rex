@@ -1,4 +1,4 @@
-<?= validation_errors(); ?>
+<?= validation_errors() ?>
 <?= form_open('prodi/update/' . $prodi['id_prodi']) ?>
 	<p>ID Prodi</p>
 	<input type="text" name="id_prodi" value="<?= $prodi['id_prodi'] ?>"><br>

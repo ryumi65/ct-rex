@@ -1,5 +1,5 @@
-<?= validation_errors(); ?>
-<?= form_open('prodi/create'); ?>
+<?= validation_errors() ?>
+<?= form_open('prodi/create') ?>
     <p>ID Prodi</p>
     <input type="text" name="id_prodi"><br>
 

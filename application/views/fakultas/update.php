@@ -1,4 +1,4 @@
-<?= validation_errors(); ?>
+<?= validation_errors() ?>
 <?= form_open('fakultas/update/' . $fakultas['id_fakultas']) ?>
 	<p>ID Fakultas</p>
 	<input type="text" name="id_fakultas" value="<?= $fakultas['id_fakultas'] ?>"><br>

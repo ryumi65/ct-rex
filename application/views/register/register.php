@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="d-grid mx-auto">
-                        <button type="submit" class="btn btn-secondary btn-sm">Register</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Register</button>
                     </div>
 
                     <div class="fw-light link-secondary text-center mt-2">

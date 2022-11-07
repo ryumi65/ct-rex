@@ -4,13 +4,13 @@
 	<input type="text" name="id_matkul" value="<?= $matkul['id_matkul'] ?>"><br>
 
 	<p>Nama Matkul</p>
-	<input type="text" name="nama_matkul" value="<?= $matkul['nama_matkul'] ?>"><br>
+	<input type="text" name="nama" value="<?= $matkul['nama'] ?>"><br>
 
 	<p>Nama Matkul B. Inggris</p>
-	<input type="text" name="nama_matkul_inggris" value="<?= $matkul['nama_matkul_inggris'] ?>"><br>
+	<input type="text" name="nama_inggris" value="<?= $matkul['nama_inggris'] ?>"><br>
 
 	<p>Jenis Matkul</p>
-	<input type="text" name="jenis_matkul" value="<?= $matkul['jenis_matkul'] ?>"><br>
+	<input type="text" name="jenis" value="<?= $matkul['jenis'] ?>"><br>
 
 	<p>SKS</p>
 	<input type="text" name="sks" value="<?= $matkul['sks'] ?>"><br>

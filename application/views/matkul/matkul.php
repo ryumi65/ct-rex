@@ -24,9 +24,9 @@
 	<?php foreach ($list as $matkul) : ?>
 		<tr>
 			<td><?= $matkul['id_matkul'] ?></td>
-			<td><?= $matkul['nama_matkul'] ?></td>
-			<td><?= $matkul['nama_matkul_inggris'] ?></td>
-			<td><?= $matkul['jenis_matkul'] ?></td>
+			<td><?= $matkul['nama'] ?></td>
+			<td><?= $matkul['nama_inggris'] ?></td>
+			<td><?= $matkul['jenis'] ?></td>
 			<td><?= $matkul['sks'] ?></td>
 			<td><?= $matkul['sks_praktikum'] ?></td>
 			<td><?= $matkul['nik_dosen'] ?></td>

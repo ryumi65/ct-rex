@@ -4,13 +4,13 @@
 	<input type="text" name="id_matkul"><br>
 
 	<p>Nama Matkul</p>
-	<input type="text" name="nama_matkul"><br>
+	<input type="text" name="nama"><br>
 
 	<p>Nama Matkul B. Inggris</p>
-	<input type="text" name="nama_matkul_inggris"><br>
+	<input type="text" name="nama_inggris"><br>
 
 	<p>Jenis Matkul</p>
-	<input type="text" name="jenis_matkul"><br>
+	<input type="text" name="jenis"><br>
 
 	<p>SKS</p>
 	<input type="text" name="sks"><br>

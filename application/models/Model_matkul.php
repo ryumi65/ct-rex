@@ -17,9 +17,9 @@ class model_matkul extends CI_Model {
 	public function set_matkul() {
 		$data = [
 			'id_matkul' => $this->input->post('id_matkul'),
-			'nama_matkul' => $this->input->post('nama_matkul'),
-			'nama_matkul_inggris' => $this->input->post('nama_matkul_inggris'),
-			'jenis_matkul' => $this->input->post('jenis_matkul'),
+			'nama' => $this->input->post('nama'),
+			'nama_inggris' => $this->input->post('nama_inggris'),
+			'jenis' => $this->input->post('jenis'),
 			'sks' => $this->input->post('sks'),
 			'sks_praktikum' => $this->input->post('sks_praktikum'),
 			'nik_dosen' => $this->input->post('nik_dosen'),
@@ -31,9 +31,9 @@ class model_matkul extends CI_Model {
 	public function update_matkul($id_matkul) {
 		$data = [
 			'id_matkul' => $this->input->post('id_matkul'),
-			'nama_matkul' => $this->input->post('nama_matkul'),
-			'nama_matkul_inggris' => $this->input->post('nama_matkul_inggris'),
-			'jenis_matkul' => $this->input->post('jenis_matkul'),
+			'nama' => $this->input->post('nama'),
+			'nama_inggris' => $this->input->post('nama_inggris'),
+			'jenis' => $this->input->post('jenis'),
 			'sks' => $this->input->post('sks'),
 			'sks_praktikum' => $this->input->post('sks_praktikum'),
 			'nik_dosen' => $this->input->post('nik_dosen'),

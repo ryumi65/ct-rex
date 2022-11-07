@@ -1,7 +1,7 @@
-    <div class="container d-flex justify-content-between my-3">
+    <div class="container-fluid col-8 d-flex justify-content-between my-3">
         <div>
             <?php $logoUmb = [
-                'src' => 'bootstrap/assets/logoumb.png',
+                'src' => 'assets/img/logoumb.png',
                 'width' => '220',
                 'height' => '80',
             ] ?>
@@ -10,15 +10,15 @@
 
         <div>
             <?php $logoKM = [
-                'src' => 'bootstrap/assets/kampusmerdeka.png',
+                'src' => 'assets/img/kampusmerdeka.png',
                 'width' => '150',
                 'height' => '80',
             ] ?>
             <?= img($logoKM) ?>
         </div>
     </div>
-    <div class="container d-flex justify-content-center">
-        <div class="card col-9 me-1 mb-auto">
+    <div class="container-fluid col-8 d-flex justify-content-center my-3">
+        <div class="card col-8 mx-1 mb-auto">
             <div class="card-body fw-light">
                 <h4 class="card-title text-center fw-light">PENGUMUMAN</h4>
 
@@ -43,7 +43,7 @@
                 </p>
             </div>
         </div>
-        <div class="card col-3 ms-1 mb-auto">
+        <div class="card col-4 mx-1 mb-auto">
             <div class="card-body fw-light">
                 <?= validation_errors() ?>
                 <?= form_open('login/auth') ?>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="d-grid mx-auto">
-                    <button type="submit" class="btn btn-secondary btn-sm">Login</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Login</button>
                 </div>
 
                 <div class="fw-light link-secondary text-center mt-2">

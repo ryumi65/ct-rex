@@ -11,8 +11,10 @@ class Model_login extends CI_Model {
     }
 
     public function query_validasi_password($username, $password) {
+        $pw = password_verify($password, PASSWORD_BCRYPT);
+
         return $this->db->get_where('akun', ['username' => $username,
-            'password' => $password], 1);
+            'password' => $pw], 1);
     }
 
     public function get_db($database, $pk, $id_akun) {

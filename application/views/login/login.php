@@ -47,27 +47,27 @@
             <div class="card-body fw-light">
                 <?= validation_errors() ?>
                 <?= form_open('login/auth') ?>
-                <h4 class="card-title text-center fw-light">LOGIN</h4>
+                    <h4 class="card-title text-center fw-light">LOGIN</h4>
 
-                <div class="d-grid gap-2 mb-3">
-                    <div>
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" id="username" class="form-control form-select-sm" size="30" required>
+                    <div class="d-grid gap-2 mb-3">
+                        <div>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" class="form-control form-select-sm" size="30" required>
+                        </div>
+
+                        <div>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control form-select-sm" size="30" required>
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control form-select-sm" size="30" required>
+                    <div class="d-grid mx-auto">
+                        <button type="submit" class="btn btn-primary btn-sm">Login</button>
                     </div>
-                </div>
 
-                <div class="d-grid mx-auto">
-                    <button type="submit" class="btn btn-primary btn-sm">Login</button>
-                </div>
-
-                <div class="fw-light link-secondary text-center mt-2">
-                    <a href="<?= site_url('akun/register') ?>" class="text-decoration-none">Don't have an account? <u>Register!</u></a>
-                </div>
+                    <div class="fw-light link-secondary text-center mt-2">
+                        <a href="<?= site_url('akun/register') ?>" class="text-decoration-none">Don't have an account? <u>Register!</u></a>
+                    </div>
                 </form>
             </div>
         </div>

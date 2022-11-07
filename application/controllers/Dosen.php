@@ -13,6 +13,11 @@ class Dosen extends CI_Controller {
 
 		$this->load->view('dosen/dosen', $data);
 	}
+    
+    public function profile() {
+        $this->load->view('template/header');
+        $this->load->view('dosen/profile');
+    }
 
 	public function create() {
 		$data['listp'] = $this->model_prodi->get_prodi();

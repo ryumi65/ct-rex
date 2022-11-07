@@ -63,7 +63,7 @@ class Login extends CI_Controller {
                             'dosen', 'nik', $pw['id_akun']
                         ));
 
-                        return redirect('dosen');
+                        return redirect('dosen/profile');
 
                     case 4:
                         $this->session->set_userdata('access', 'Mahasiswa');
@@ -72,7 +72,7 @@ class Login extends CI_Controller {
                             'mahasiswa', 'nim', $pw['id_akun']
                         ));
 
-                        return redirect('mahasiswa');
+                        return redirect('mahasiswa/profile');
 
                     default:
                         return false;

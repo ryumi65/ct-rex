@@ -10,7 +10,7 @@ class Login extends CI_Controller {
     public function index() {
         if (!$this->session->userdata('logged')) {
             $this->load->view('template/header');
-            $this->load->view('login/login');
+            $this->load->view('login/login2');
         } else {
             redirect(strtolower($this->session->userdata('access')));
         }

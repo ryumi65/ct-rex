@@ -1,0 +1,13 @@
+$primary: #2cb72c;
+$info: #0c87f2;
+
+$primary-gradient: #0c87f2;
+$primary-gradient-state: #2cb72c;
+
+$input-focus-border-color: #8fc28f;
+$input-focus-width: 2px;
+$input-focus-box-shadow: 0 0 0 $input-focus-width #8fc28f;
+
+$text-gradient-bg-primary: linear-gradient(310deg, #0c87f2, #2cb72c);
+
+@import "/opt/lampp/htdocs/ct-rex/assets/scss/soft-ui-dashboard";

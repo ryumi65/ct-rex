@@ -9,8 +9,9 @@ class Login extends CI_Controller {
 
     public function index() {
         if (!$this->session->userdata('logged')) {
-            $this->load->view('template/header');
-            $this->load->view('login/login2');
+            $this->load->view('_partials/head');
+            $this->load->view('login/login');
+            $this->load->view('_partials/script');
         } else {
             redirect(strtolower($this->session->userdata('access')));
         }
@@ -63,7 +64,7 @@ class Login extends CI_Controller {
                             'dosen', 'nik', $pw['id_akun']
                         ));
 
-                        return redirect('dosen/profile');
+                        return redirect('dosen');
 
                     case 4:
                         $this->session->set_userdata('access', 'Mahasiswa');

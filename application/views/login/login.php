@@ -4,10 +4,10 @@
         <section>
             <div class="page-header pt-4">
                 <div class="container">
-                    <img src="<?= base_url() ?>/assets/img/logoumb.png" alt="logoumb" height="80" width="220">
+                    <img src="<?= base_url() ?>/assets/img/logoumb-gradient.png" alt="logoumb" height="80" width="220">
                     <div class="row">
                         <!-- Form -->
-                        <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="col-xl-4 col-lg-5 col-md-6 mt-3 d-flex flex-column mx-auto">
                             <div class="card card-plain">
 
                                 <!-- Judul -->
@@ -45,14 +45,6 @@
                                         </div>
                                     </form>
                                 </div>
-
-                                <!-- Sign Up -->
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-4 text-sm mx-auto">
-                                        Don't have an account?
-                                        <a href="<?= site_url('akun/register') ?>" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                                    </p>
-                                </div>
                             </div>
                         </div>
 
@@ -73,12 +65,12 @@
     <!-- Footer -->
     <footer class="footer py-5">
         <div class="container">
-            <div class="row mt-3 mb-5">
+            <div class="d-flex flex-wrap justify-content-between mt-3 mb-5">
 
                 <!-- Keterangan Kampus -->
-                <div class="col-lg-7">
+                <div class="">
                     <h4>Universitas Muhammadiyah Bandung</h4>
-                    <p class="text-wrap">Jl. Soekarno - Hatta No. 752, Cipadung Kidul,<br>
+                    <p>Jl. Soekarno - Hatta No. 752, Cipadung Kidul,<br>
                         Panyileukan, Kota Bandung</p>
                     <p><b>Phone</b>: (022) 63744992/ 63745992<br>
                         <b>Email</b>: info@umbandung.ac.id
@@ -86,7 +78,7 @@
                 </div>
 
                 <!-- Logo Medsos -->
-                <div class="col-lg-5 mx-auto">
+                <div class="">
                     <h4>Follow Our Social Media!</h4>
                     <div class="mt-3">
                         <button type="button" class="btn btn-youtube btn-icon-only rounded-circle me-2" onclick="window.open('https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ')">

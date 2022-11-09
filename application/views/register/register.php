@@ -22,16 +22,16 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-7">
                                 <label class="form-label">Status</label><br>
                                 <div class="d-flex justify-content-evenly">
                                     <input type="radio" class="btn-check" name="status" id="y" value="y" required>
-                                    <label class="btn btn-outline-secondary text-white btn-sm fw-light" for="y">Y</label>
+                                    <label class="btn btn-outline-primary btn-sm" for="y">Y</label>
                                     <input type="radio" class="btn-check" name="status" id="n" value="n" required>
-                                    <label class="btn btn-outline-secondary text-white btn-sm fw-light" for="n">N</label>
+                                    <label class="btn btn-outline-primary btn-sm" for="n">N</label>
                                 </div>
                             </div>
-                            <div class="col-7">
+                            <div class="col-5">
                                 <label for="level" class="form-label">Level</label>
                                 <select class="form-select form-select-sm fw-light" name="level" id="level" required>
                                     <option selected disabled>Pilih Level</option>

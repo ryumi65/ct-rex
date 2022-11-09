@@ -15,7 +15,7 @@ class Akun extends CI_Controller {
         $this->form_validation->set_rules('level', 'Level', 'required');
 
         if (!$this->form_validation->run()) {
-            $this->load->view('template/header');
+            $this->load->view('_partials/head');
             $this->load->view('register/register');
         } else {
             $this->model_akun->set_akun();

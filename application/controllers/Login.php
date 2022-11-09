@@ -1,16 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller
-{
-    public function __construct()
-    {
+class Login extends CI_Controller {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_login');
     }
 
-    public function index()
-    {
+    public function index() {
         if (!$this->session->userdata('logged')) {
             $this->load->view('_partials/head');
             $this->load->view('login/login');
@@ -20,8 +17,7 @@ class Login extends CI_Controller
         }
     }
 
-    public function auth()
-    {
+    public function auth() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $validasi_username = $this->model_login->query_validasi_username($username);

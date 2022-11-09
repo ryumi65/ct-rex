@@ -18,8 +18,10 @@
             <ul class="navbar-nav">
 
                 <!-- Home -->
+                <?php if (uri_string() === 'dosen') $navlinkHome = 'nav-link active';
+                else $navlinkHome = 'nav-link'; ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="<?= $navlinkHome ?>" href="<?= site_url('dosen') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-house-user" style="color: #000"></i>
                         </div>
@@ -101,8 +103,10 @@
                 </li>
 
                 <!-- Profil -->
+                <?php if (uri_string() === 'dosen/profile') $navlinkProfile = 'nav-link active';
+                else $navlinkProfile = 'nav-link'; ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#profil" class="nav-link active" aria-controls="profil" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfile ?>" aria-controls="profil" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
                             <i class="fa-solid fa-user" style="color: #000"></i>
                         </div>
@@ -111,12 +115,12 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link  " href="<?= site_url('mahasiswa/profile') ?>">
+                                <a class="nav-link  " href="<?= site_url('dosen/profile') ?>">
                                     Lihat Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('mahasiswa/update/') ?>">
+                                <a class="nav-link" href="<?= site_url('dosen/update/' . $_SESSION['nik']) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

@@ -21,28 +21,28 @@
                                     <?= validation_errors() ?>
                                     <?= form_open('login/auth') ?>
 
-                                        <!-- Username -->
-                                        <label>Username</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon">
-                                        </div>
+                                    <!-- Username -->
+                                    <label>Username</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon">
+                                    </div>
 
-                                        <!-- Password -->
-                                        <label>Password</label>
-                                        <div class="mb-3">
-                                            <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
-                                        </div>
+                                    <!-- Password -->
+                                    <label>Password</label>
+                                    <div class="mb-3">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                    </div>
 
-                                        <!-- Remember Me -->
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="remember-me" checked="">
-                                            <label class="form-check-label" for="remember-me">Remember me</label>
-                                        </div>
+                                    <!-- Remember Me -->
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="remember-me" checked="">
+                                        <label class="form-check-label" for="remember-me">Remember me</label>
+                                    </div>
 
-                                        <!-- Sign In -->
-                                        <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign in</button>
-                                        </div>
+                                    <!-- Sign In -->
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign in</button>
+                                    </div>
                                     </form>
                                 </div>
                             </div>
@@ -62,52 +62,45 @@
         </section>
     </main>
 
+    <!-- Keterangan Kampus -->
+    <div class="container my-2">
+        <h5>Universitas Muhammadiyah Bandung</h5>
+        <p>Jl. Soekarno - Hatta No. 752, Cipadung Kidul,<br>
+            Panyileukan, Kota Bandung</p>
+        <p><b>Phone</b>: (022) 63744992/ 63745992<br>
+            <b>Email</b>: info@umbandung.ac.id
+        </p>
+    </div>
+
     <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="d-flex flex-wrap justify-content-between mt-3 mb-5">
+    <footer class="footer py-3">
 
-                <!-- Keterangan Kampus -->
-                <div class="">
-                    <h4>Universitas Muhammadiyah Bandung</h4>
-                    <p>Jl. Soekarno - Hatta No. 752, Cipadung Kidul,<br>
-                        Panyileukan, Kota Bandung</p>
-                    <p><b>Phone</b>: (022) 63744992/ 63745992<br>
-                        <b>Email</b>: info@umbandung.ac.id
-                    </p>
-                </div>
+        <!-- Logo Medsos -->
+        <div class="col-lg-8 mx-auto text-center my-2">
+            <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
+                <i class="text-lg fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <i class="text-lg fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <i class="text-lg fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <i class="text-lg fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <i class="text-lg fa-brands fa-tiktok"></i>
+            </a>
+        </div>
 
-                <!-- Logo Medsos -->
-                <div class="">
-                    <h4>Follow Our Social Media!</h4>
-                    <div class="mt-3">
-                        <button type="button" class="btn btn-youtube btn-icon-only rounded-circle me-2" onclick="window.open('https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ')">
-                            <span class="btn-inner--icon"><i class="fa-brands fa-youtube"></i></span>
-                        </button>
-                        <button type="button" class="btn btn-facebook btn-icon-only rounded-circle mx-2" onclick="window.open('https://id-id.facebook.com/universitasmuhammadiyahbandung')">
-                            <span class="btn-inner--icon"><i class="fa-brands fa-facebook"></i></span>
-                        </button>
-                        <button type="button" class="btn btn-dribbble btn-icon-only rounded-circle mx-2" onclick="window.open('https://www.instagram.com/umbandung')">
-                            <span class="btn-inner--icon"><i class="fa-brands fa-instagram"></i></span>
-                        </button>
-                        <button type="button" class="btn btn-twitter btn-icon-only rounded-circle mx-2" onclick="window.open('https://www.twitter.com/umbandung')">
-                            <span class="btn-inner--icon"><i class="fa-brands fa-twitter"></i></span>
-                        </button>
-                        <button type="button" class="btn btn-github btn-icon-only rounded-circle ms-2" onclick="window.open('https://www.tiktok.com/@umbandung')">
-                            <span class="btn-inner--icon"><i class="fa-brands fa-tiktok"></i></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="col-8 mx-auto text-center">
-                <p class="mb-0 text-secondary">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
+        <!-- Copyright -->
+        <div class="col-lg-8 mx-auto text-center">
+            <p class="mb-0 text-secondary">
+                Copyright ©
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+            </p>
         </div>
     </footer>

@@ -20,8 +20,6 @@
 		<td>Agama</td>
 		<td>Alamat</td>
 		<td>ID Prodi</td>
-		<td>Kode Dosen</td>
-		<td>Password Dosen</td>
 		<td>NIDN Dosen</td>
 		<td>Status Dosen</td>
 		<td>Status Kerja</td>
@@ -41,8 +39,6 @@
 			<td><?= $dosen['agama'] ?></td>
 			<td><?= $dosen['alamat'] ?></td>
 			<td><?= $dosen['id_prodi'] ?></td>
-			<td><?= $dosen['kode_dosen'] ?></td>
-			<td><?= $dosen['password_dosen'] ?></td>
 			<td><?= $dosen['nidn_dosen'] ?></td>
 			<td><?= $dosen['status_dosen'] ?></td>
 			<td><?= $dosen['status_kerja'] ?></td>

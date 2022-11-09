@@ -77,12 +77,12 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link active" href="<?= site_url('mahasiswa/profile') ?>">
+                                <a class="nav-link" href="#">
                                     Lihat Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('mahasiswa/update/' . $_SESSION['nim']) ?>">
+                                <a class="nav-link" href="#">
                                     Edit Data Diri
                                 </a>
                             </li>

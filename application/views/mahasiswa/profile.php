@@ -24,4 +24,54 @@
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card h-100">
+                <div class="card-header pb-0 p-3">
+                    <div class="row">
+                        <div class="col-md-8 d-flex align-items-center">
+                            <h6 class="mb-0">Profil Anda</h6>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <a href="javascript:;">
+                                <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                            </a>
+                        </div>
+                        <div class="card-body p-3">
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nama Lengkap:</strong>
+                                    &nbsp; Luthfi</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nomor Telepon:</strong> &nbsp;
+                                    0000 0000 0000</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp;
+                                    alexturner@gmail.com</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Alamat:</strong>
+                                    &nbsp; Indonesia</li>
+                                <li class="list-group-item border-0 ps-0 pb-0">
+                                    <strong class="text-dark text-sm">Social:</strong> &nbsp;
+                                    <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
+                                        <i class="fab fa-facebook fa-lg"></i>
+                                    </a>
+                                    <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
+                                        <i class="fab fa-twitter fa-lg"></i>
+                                    </a>
+                                    <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
+                                        <i class="fab fa-instagram fa-lg"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="col-8 mx-auto my-5 text-center">
+                <p class="mb-0 text-secondary">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>

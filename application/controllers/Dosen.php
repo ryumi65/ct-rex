@@ -1,28 +1,35 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dosen extends CI_Controller {
-	public function __construct() {
+class Dosen extends CI_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('model_dosen');
 		$this->load->model('model_prodi');
 	}
 
-	public function index() {
-		$data['list'] = $this->model_dosen->get_dosen();
-
-		$this->load->view('dosen/dosen', $data);
+	public function index()
+	{
+		$this->load->view('_partials/head');
+		$this->load->view('_partials/sidebardsn');
+		$this->load->view('_partials/header');
+		$this->load->view('dosen/dashboard');
+		$this->load->view('_partials/script');
 	}
-    
-    public function profile() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('_partials/header');
-        $this->load->view('dosen/profile');
-        $this->load->view('_partials/script');
-    }
 
-	public function create() {
+	public function profile()
+	{
+		$this->load->view('_partials/head');
+		$this->load->view('_partials/sidebardsn');
+		$this->load->view('_partials/header');
+		$this->load->view('dosen/profile');
+		$this->load->view('_partials/script');
+	}
+
+	public function create()
+	{
 		$data['listp'] = $this->model_prodi->get_prodi();
 
 		$this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -48,7 +55,8 @@ class Dosen extends CI_Controller {
 		}
 	}
 
-	public function update($nik) {
+	public function update($nik)
+	{
 		$data['dosen'] = $this->model_dosen->get_dosen($nik);
 		$data['listp'] = $this->model_prodi->get_prodi();
 
@@ -75,7 +83,8 @@ class Dosen extends CI_Controller {
 		}
 	}
 
-	public function delete($nik) {
+	public function delete($nik)
+	{
 		$this->db->delete('dosen', ['nik' => $nik]);
 		redirect('dosen');
 	}

@@ -21,7 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-house" style="color: #000"></i>
+                            <i class="fa-solid fa-house-user" style="color: #000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Home</span>
                     </a>
@@ -29,12 +29,41 @@
 
                 <!-- Perkuliahan -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-book-open" style="color: #000"></i>
+                    <a data-bs-toggle="collapse" href="#perkuliahan" class="nav-link" aria-controls="perkuliahan" role="button" aria-expanded="false">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <i class="fa-solid fa-chalkboard-user" style="color: #000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Perkuliahan</span>
                     </a>
+                    <div class="collapse" id="perkuliahan">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Lihat Jadwal
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Input Presensi
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Membuat BAP
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Kelola Nilai Akhir
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Cetak Transkrip
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
 
                 <!-- Perwalian -->
@@ -49,12 +78,17 @@
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    Lihat Logbook
+                                    Daftar Mahasiswa
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    Lihat Riwayat
+                                    Persetujuan KRS
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Logbook
                                 </a>
                             </li>
                         </ul>
@@ -70,19 +104,19 @@
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#profil" class="nav-link active" aria-controls="profil" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-user" style="color: #000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profil</span>
                     </a>
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link  " href="<?= site_url('mahasiswa/profile') ?>">
                                     Lihat Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('mahasiswa/update/') ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

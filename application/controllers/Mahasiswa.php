@@ -1,28 +1,35 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mahasiswa extends CI_Controller {
-	public function __construct() {
+class Mahasiswa extends CI_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('model_mahasiswa');
 		$this->load->model('model_prodi');
 	}
 
-	public function index() {
-		$data['list'] = $this->model_mahasiswa->get_mahasiswa();
-
-        $this->load->view('mahasiswa/mahasiswa', $data);
+	public function index()
+	{
+		$this->load->view('_partials/head');
+		$this->load->view('_partials/sidebarmhs');
+		$this->load->view('_partials/header');
+		$this->load->view('mahasiswa/dashboard');
+		$this->load->view('_partials/script');
 	}
 
-    public function profile() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebar');
-        $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/profile');
-        $this->load->view('_partials/script');
-    }
+	public function profile()
+	{
+		$this->load->view('_partials/head');
+		$this->load->view('_partials/sidebarmhs');
+		$this->load->view('_partials/header');
+		$this->load->view('mahasiswa/profile');
+		$this->load->view('_partials/script');
+	}
 
-	public function create() {
+	public function create()
+	{
 		$data['listp'] = $this->model_prodi->get_prodi();
 
 		$this->form_validation->set_rules('nim', 'NIM', 'required');
@@ -41,7 +48,8 @@ class Mahasiswa extends CI_Controller {
 		}
 	}
 
-	public function update($nim) {
+	public function update($nim)
+	{
 		$data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($nim);
 		$data['listp'] = $this->model_prodi->get_prodi();
 
@@ -61,7 +69,8 @@ class Mahasiswa extends CI_Controller {
 		}
 	}
 
-	public function delete($nim) {
+	public function delete($nim)
+	{
 		$this->db->delete('mahasiswa', ['nim' => $nim]);
 		redirect('mahasiswa');
 	}

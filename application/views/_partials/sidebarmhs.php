@@ -18,12 +18,17 @@
             <ul class="navbar-nav">
 
                 <!-- Home -->
-                <?php if (uri_string() === 'mahasiswa') $navlinkHome = 'nav-link active';
-                else $navlinkHome = 'nav-link'; ?>
+                <?php if (uri_string() === 'mahasiswa') {
+                    $navlinkHome = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkHome = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
                     <a class="<?= $navlinkHome ?>" href="<?= site_url('mahasiswa') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-house-user" style="color: #000"></i>
+                            <i class="fa-solid fa-house-user" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Home</span>
                     </a>
@@ -132,12 +137,17 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (uri_string() === 'mahasiswa/profile') $navlinkProfile = 'nav-link active';
-                else $navlinkProfile = 'nav-link'; ?>
+                <?php if (uri_string() === 'mahasiswa/profile') {
+                    $navlinkProfile = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkProfile = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfile ?>" aria-controls="profil" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
-                            <i class="fa-solid fa-user" style="color: #000"></i>
+                            <i class="fa-solid fa-user" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profil</span>
                     </a>

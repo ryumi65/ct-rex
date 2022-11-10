@@ -11,12 +11,12 @@ class Akun extends CI_Controller {
         $this->form_validation->set_rules('id_akun', 'ID Akun', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
         $this->form_validation->set_rules('level', 'Level', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
             $this->load->view('register/register');
+            $this->load->view('_partials/script');
         } else {
             $this->model_akun->set_akun();
             redirect('login');

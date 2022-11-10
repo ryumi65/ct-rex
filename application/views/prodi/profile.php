@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="ms-auto">
-                        <a href="<?= site_url('akun/logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                                 <h6 class="mb-0">Profil Prodi</h6>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('prodi/update/' . $_SESSION['id_prodi']) ?>">
+                                <a href="<?= site_url('prodi/profile/edit/' . $_SESSION['id_prodi']) ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>

@@ -1,17 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mahasiswa extends CI_Controller
-{
-    public function __construct()
-    {
+class Mahasiswa extends CI_Controller {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
         $this->load->model('model_prodi');
     }
 
-    public function index()
-    {
+    public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
         $this->load->view('_partials/head');
@@ -21,8 +18,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profile()
-    {
+    public function profile() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -31,17 +27,27 @@ class Mahasiswa extends CI_Controller
     }
 
 
-    public function create()
-    {
+    public function create() {
         $data['listp'] = $this->model_prodi->get_prodi();
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('agama', 'Agama', 'required');
+        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
+        $this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
+        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('kelurahan', 'Kelurahan', 'required');
+        $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
+        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
+        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
+        $this->form_validation->set_rules('kode_pos', 'Kode Pos', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('mahasiswa/create', $data);
@@ -51,18 +57,26 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    public function update($nim)
-    {
+    public function update($nim) {
         $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($nim);
         $data['listp'] = $this->model_prodi->get_prodi();
 
-        $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('agama', 'Agama', 'required');
+        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
+        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('kelurahan', 'Kelurahan', 'required');
+        $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
+        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
+        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
+        $this->form_validation->set_rules('kode_pos', 'Kode Pos', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -72,12 +86,11 @@ class Mahasiswa extends CI_Controller
             $this->load->view('_partials/script');
         } else {
             $this->model_mahasiswa->update_mahasiswa($nim);
-            redirect('mahasiswa');
+            redirect('mahasiswa/profile');
         }
     }
 
-    public function delete($nim)
-    {
+    public function delete($nim) {
         $this->db->delete('mahasiswa', ['nim' => $nim]);
         redirect('mahasiswa');
     }

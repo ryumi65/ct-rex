@@ -1,11 +1,13 @@
 <body>
+
     <!-- Main -->
-    <main class="main-content  mt-0">
+    <main class="main-content mt-0">
         <section>
             <div class="page-header pt-4">
                 <div class="container">
                     <img src="<?= base_url() ?>/assets/img/logoumb-gradient.png" alt="logoumb" height="80" width="220">
                     <div class="row">
+
                         <!-- Form -->
                         <div class="col-xl-4 col-lg-5 col-md-6 mt-3 d-flex flex-column mx-auto">
                             <div class="card card-plain">
@@ -18,19 +20,18 @@
                                     <p class="mb-0">di Portal Akademik Universitas Muhammadiyah Bandung.</p>
                                 </div>
                                 <div class="card-body">
-                                    <?= validation_errors() ?>
                                     <?= form_open('login/auth') ?>
 
                                     <!-- Username -->
                                     <label>Username</label>
                                     <div class="mb-3">
-                                        <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon">
+                                        <input type="text" name="username" class="form-control" placeholder="Username" required>
                                     </div>
 
                                     <!-- Password -->
                                     <label>Password</label>
                                     <div class="mb-3">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                                     </div>
 
                                     <!-- Remember Me -->
@@ -61,16 +62,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Keterangan Kampus -->
-    <div class="container my-2">
-        <h5>Universitas Muhammadiyah Bandung</h5>
-        <p>Jl. Soekarno - Hatta No. 752, Cipadung Kidul,<br>
-            Panyileukan, Kota Bandung</p>
-        <p><b>Phone</b>: (022) 63744992/ 63745992<br>
-            <b>Email</b>: info@umbandung.ac.id
-        </p>
-    </div>
 
     <!-- Footer -->
     <footer class="footer py-3">

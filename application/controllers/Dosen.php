@@ -75,7 +75,7 @@ class Dosen extends CI_Controller {
             $this->load->view('dosen/update', $data);
         } else {
             $this->model_dosen->update_dosen($nik);
-            redirect('dosen');
+            redirect('dosen/profile');
         }
     }
 

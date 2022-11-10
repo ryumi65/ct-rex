@@ -10,7 +10,7 @@
                     <div class="row gx-4">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
@@ -24,7 +24,7 @@
                         <p class="mx-2">Mahasiswa Wali</p>
                         <p class="mx-2">Data Mengajar</p>
                         <p class="mx-2">SKS Mengajar</p>
-                        <a href="<?= site_url('akun/logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                                 <h6 class="mb-0">Profil Anda</h6>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('dosen/update/' . $_SESSION['nik']) ?>">
+                                <a href="<?= site_url('dosen/profile/edit/' . $_SESSION['nik']) ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>

@@ -52,3 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['signup'] = 'akun/register';
+$route['logout'] = 'akun/logout';
+
+$route['fakultas/profile/edit/(:any)'] = 'fakultas/update/$1';
+$route['dosen/profile/edit/(:any)'] = 'dosen/update/$1';
+$route['mahasiswa/profile/edit/(:any)'] = 'mahasiswa/update/$1';
+$route['prodi/profile/edit/(:any)'] = 'prodi/update/$1';

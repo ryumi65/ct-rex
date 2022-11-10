@@ -18,7 +18,7 @@
             <ul class="navbar-nav">
 
                 <!-- Home -->
-                <?php if (uri_string() === 'dosen') {
+                <?php if (uri_string() === 'fakultas') {
                     $navlinkHome = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -26,7 +26,7 @@
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a class="<?= $navlinkHome ?>" href="<?= site_url('dosen') ?>">
+                    <a class="<?= $navlinkHome ?>" href="<?= site_url('fakultas') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-house-user" style="color: <?= $color ?>"></i>
                         </div>
@@ -120,7 +120,7 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (uri_string() === 'fakultas/profile') {
+                <?php if (fnmatch('fakultas/profile*', uri_string())) {
                     $navlinkProfile = 'nav-link active';
                     $color = '#fff';
                 } else {

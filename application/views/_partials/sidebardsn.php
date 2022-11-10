@@ -108,7 +108,7 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (uri_string() === 'dosen/profile') {
+                <?php if (fnmatch('dosen/profile*', uri_string())) {
                     $navlinkProfile = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -130,7 +130,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('dosen/update/' . $_SESSION['nik']) ?>">
+                                <a class="nav-link" href="<?= site_url('dosen/profile/edit/' . $_SESSION['nik']) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

@@ -68,7 +68,7 @@
                     </div>
                 </li>
 
-                <!-- Pendaftarab -->
+                <!-- Pendaftaran -->
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#pendaftaran" class="nav-link" aria-controls="pendaftaran" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -137,7 +137,7 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (uri_string() === 'mahasiswa/profile') {
+                <?php if (fnmatch('mahasiswa/profile*', uri_string())) {
                     $navlinkProfile = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -159,7 +159,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('mahasiswa/update/' . $_SESSION['nim']) ?>">
+                                <a class="nav-link" href="<?= site_url('mahasiswa/profile/edit/' . $_SESSION['nim']) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

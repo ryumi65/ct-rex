@@ -10,18 +10,18 @@
                     <div class="row gx-4">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['nim'] ?></p>
                             </div>
                         </div>
                     </div>
                     <div class="ms-auto">
-                        <a href="<?= site_url('akun/logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -35,97 +35,150 @@
                                 <h6 class="mb-0">Edit Profil</h6>
                             </div>
                             <div class="card-body p-3">
-                                <?= form_open('akun/register') ?>
+                                <?= validation_errors() ?>
+                                <?= form_open('mahasiswa/update/' . $_SESSION['nim']) ?>
                                 <div class="row">
-
-                                    <!-- Bagian Kiri -->
                                     <div class="col-md-6">
-                                        <label>NIM</label>
+                                        <label>Nomor Induk Mahasiswa</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nim" class="form-control" placeholder="NIM">
-                                        </div>
-                                        <label>Nama Lengkap</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap">
-                                        </div>
-                                        <label>Jenis Kelamin</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin">
-                                        </div>
-                                        <label>Email</label>
-                                        <div class="mb-3">
-                                            <input type="email" name="email" class="form-control" placeholder="Email">
-                                        </div>
-                                        <label>Agama</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="agama" class="form-control" placeholder="Agama">
-                                        </div>
-                                        <label>Alamat Tempat Tinggal</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal">
-                                        </div>
-                                        <label>Kabupaten/Kota</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="kabupaten" class="form-control" placeholder="Kabupaten/Kota">
-                                        </div>
-                                        <label>Provinsi</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi">
-                                        </div>
-                                        <label>Kode Pos</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="tahun_angkatan" class="form-control" placeholder="Tahun Angkat">
+                                            <input type="text" name="nim" class="form-control" placeholder="NIM" value="<?= $mahasiswa['nim'] ?>" disabled>
                                         </div>
                                     </div>
-
-                                    <!-- Bagian Kanan -->
+                                    <div class="col-md-6">
+                                        <label>Nama Lengkap</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= $mahasiswa['nama'] ?>" required>
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <label>Tempat Lahir</label>
                                         <div class="mb-3">
-                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir">
+                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>" required>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir">
+                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>" required>
                                         </div>
-                                        <label>Tahun Angkatan</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Jenis Kelamin</label>
                                         <div class="mb-3">
-                                            <input type="text" name="tahun_angkatan" class="form-control" placeholder="Password">
-                                        </div>
-                                        <label>Nomor Handphone</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone">
-                                        </div>
-                                        <label>Kewarganegaraan</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="kewarganegaraan" class="form-control" placeholder="Kewarganegaraan">
-                                        </div>
-                                        <label>Nomor Induk Kependudukan</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="nik" class="form-control" placeholder="Nomor Induk Kependudukan">
-                                        </div>
-                                        <label>Kelurahan</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="kelurahan" class="form-control" placeholder="Kelurahan">
-                                        </div>
-                                        <label>Tahun Angkatan</label>
-                                        <div class="mb-3">
-                                            <input type="text" name="tahun_angkatan" class="form-control" placeholder="Tahun Angkatan">
-                                        </div>
-                                        <label>ID Prodi</label>
-                                        <div class="mb-3">
-                                            <select class="form-select" name="level" required>
-                                                <option selected disabled>Pilih Level</option>
-                                                <option value="0">Admin</option>
-                                                <option value="1">Fakultas</option>
-                                                <option value="2">Prodi</option>
-                                                <option value="3">Dosen</option>
-                                                <option value="4">Mahasiswa</option>
+                                            <select class="form-select" name="jenis_kelamin" required>
+                                                <option selected disabled>Pilih Jenis Kelamin</option>
+                                                <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
+                                                    <option selected value="l">Laki-laki</option>
+                                                    <option value="p">Perempuan</option>
+                                                <?php else : ?>
+                                                    <option value="l">Laki-laki</option>
+                                                    <option selected value="p">Perempuan</option>
+                                                <?php endif ?>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label>Agama</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $mahasiswa['agama'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nomor Handphone</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $mahasiswa['no_hp'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                        <div class="mb-3">
+                                            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $mahasiswa['email'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Program Studi</label>
+                                        <div class="mb-3">
+                                            <select class="form-select" name="id_prodi" required>
+                                                <option selected disabled>Pilih Program Studi</option>
+                                                <?php foreach ($listp as $prodi) : ?>
+                                                    <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
+                                                        <option selected value="<?= $prodi['id_prodi'] ?>">
+                                                            <?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+                                                        </option>
+                                                    <?php else : ?>
+                                                        <option value="<?= $prodi['id_prodi'] ?>">
+                                                            <?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+                                                        </option>
+                                                    <?php endif ?>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tahun Angkatan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="tahun_angkatan" class="form-control" placeholder="Tahun Angkatan" value="<?= $mahasiswa['tahun_angkatan'] ?>" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Kewarganegaraan</label>
+                                        <div class="mb-3">
+                                            <select class="form-select" name="kewarganegaraan" required>
+                                                <option selected disabled>Pilih Kewarganegaraan</option>
+                                                <?php if ($mahasiswa['kewarganegaraan'] === 'wni') : ?>
+                                                    <option selected value="wni">Warga Negara Indonesia</option>
+                                                    <option value="wna">Warga Negara Asing</option>
+                                                <?php else : ?>
+                                                    <option value="wni">Warga Negara Indonesia</option>
+                                                    <option selected value="wna">Warga Negara Asing</option>
+                                                <?php endif ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nomor Induk Kependudukan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nik" class="form-control" placeholder="Nomor Induk Kependudukan" value="<?= $mahasiswa['nik'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Alamat Tempat Tinggal</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $mahasiswa['alamat'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Desa/Kelurahan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="kelurahan" class="form-control" placeholder="Desa/Kelurahan" value="<?= $mahasiswa['kelurahan'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Kecamatan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan" value="<?= $mahasiswa['kecamatan'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Kabupaten/Kota</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="kabupaten" class="form-control" placeholder="Kabupaten/Kota" value="<?= $mahasiswa['kabupaten'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Provinsi</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi" value="<?= $mahasiswa['provinsi'] ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Kode Pos</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" value="<?= $mahasiswa['kode_pos'] ?>" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="hidden" name="status" value="y">
+
                                 <div class="d-flex justify-content-end text-center">
                                     <button type="submit" class="btn btn-primary my-4">Simpan</button>
                                 </div>

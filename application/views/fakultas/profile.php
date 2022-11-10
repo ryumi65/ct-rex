@@ -24,7 +24,7 @@
                         <p class="mx-2">Mahasiswa</p>
                         <p class="mx-2">Dosen</p>
                         <p class="mx-2">Program Studi</p>
-                        <a href="<?= site_url('akun/logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>

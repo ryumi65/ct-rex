@@ -89,17 +89,17 @@
                     <div class="collapse" id="datacivitas">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('prodi/datadsn') ?>">
                                     Data Dosen
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('prodi/datamhs') ?>">
                                     Data Mahasiswa
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('prodi/datadsnwl') ?>">
                                     Data Dosen Wali
                                 </a>
                             </li>

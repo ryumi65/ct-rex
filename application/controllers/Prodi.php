@@ -1,14 +1,17 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Prodi extends CI_Controller {
-    public function __construct() {
+class Prodi extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_prodi');
         $this->load->model('model_fakultas');
     }
 
-    public function index() {
+    public function index()
+    {
         if (uri_string() === 'prodi/index') return redirect('prodi');
 
         $this->load->view('_partials/head');
@@ -18,7 +21,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profile() {
+    public function profile()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
@@ -26,7 +30,53 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function create() {
+    public function datadsn()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/datadsn');
+        $this->load->view('_partials/script');
+    }
+
+    public function datamhs()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/datamhs');
+        $this->load->view('_partials/script');
+    }
+
+    public function profilmhs()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/profilmhs');
+        $this->load->view('_partials/script');
+    }
+
+    public function profildsn()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/profildsn');
+        $this->load->view('_partials/script');
+    }
+
+    public function profildsnwl()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/datadsnwl');
+        $this->load->view('_partials/script');
+    }
+
+    public function create()
+    {
         $data['listf'] = $this->model_fakultas->get_fakultas();
 
         $this->form_validation->set_rules('id_prodi', 'id_prodi harus diisi', 'required');
@@ -41,7 +91,8 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function update($id_prodi) {
+    public function update($id_prodi)
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($id_prodi);
         $data['listf'] = $this->model_fakultas->get_fakultas();
 
@@ -58,7 +109,8 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function delete($id_prodi) {
+    public function delete($id_prodi)
+    {
         $this->db->delete('prodi', ['id_prodi' => $id_prodi]);
         redirect('prodi');
     }

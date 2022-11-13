@@ -10,18 +10,22 @@ class Fakultas extends CI_Controller {
     public function index() {
         if (uri_string() === 'fakultas/index') return redirect('fakultas');
 
+        $data['fakultas'] = $this->model_fakultas->get_fakultas($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/dashboard');
+        $this->load->view('fakultas/dashboard', $data);
         $this->load->view('_partials/script');
     }
 
     public function profile() {
+        $data['fakultas'] = $this->model_fakultas->get_fakultas($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/profile');
+        $this->load->view('fakultas/profile', $data);
         $this->load->view('_partials/script');
     }
 
@@ -37,8 +41,8 @@ class Fakultas extends CI_Controller {
         }
     }
 
-    public function update($id_fakultas) {
-        $data['fakultas'] = $this->model_fakultas->get_fakultas($id_fakultas);
+    public function update() {
+        $data['fakultas'] = $this->model_fakultas->get_fakultas($this->session->id);
 
         $this->form_validation->set_rules('id_fakultas', 'id_fakultas', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -46,13 +50,8 @@ class Fakultas extends CI_Controller {
         if (!$this->form_validation->run()) {
             $this->load->view('fakultas/update', $data);
         } else {
-            $this->model_fakultas->update_fakultas($id_fakultas);
+            $this->model_fakultas->update_fakultas($this->session->id);
             redirect('fakultas/profile');
         }
-    }
-
-    public function delete($id_fakultas) {
-        $this->db->delete('fakultas', ['id_fakultas' => $id_fakultas]);
-        redirect('fakultas');
     }
 }

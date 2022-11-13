@@ -15,7 +15,7 @@
 
         <!-- Sidebar Body -->
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-content-center flex-column">
 
                 <!-- Home -->
                 <?php if (uri_string() === 'mahasiswa') {
@@ -131,6 +131,7 @@
                         <span class="nav-link-text ms-1">Pembayaran</span>
                     </a>
                 </li>
+
                 <!-- Pembatas Halaman Profil -->
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Profil</h6>
@@ -159,7 +160,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('mahasiswa/profile/edit/' . $_SESSION['nim']) ?>">
+                                <a class="nav-link" href="<?= site_url('mahasiswa/profile/edit') ?>">
                                     Edit Data Diri
                                 </a>
                             </li>
@@ -170,6 +171,16 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+
+                <!-- Logout -->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('logout') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-arrow-right-from-bracket" style="color:#000"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Logout</span>
+                    </a>
                 </li>
             </ul>
         </div>

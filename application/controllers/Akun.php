@@ -7,20 +7,36 @@ class Akun extends CI_Controller {
         $this->load->model('model_akun');
     }
 
-    public function register() {
-        $this->form_validation->set_rules('id_akun', 'ID Akun', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('level', 'Level', 'required');
+    public function index() {
+        $this->load->view('_partials/head');
+        $this->load->view('register/register');
+        $this->load->view('_partials/script');
+    }
 
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('register/register');
-            $this->load->view('_partials/script');
+    public function register() {
+        $id = $this->input->post('id_akun');
+        $username = $this->input->post('username');
+        $idValidation = $this->model_akun->get_db('akun', 'id_akun', $id);
+        $usernameValidation = $this->model_akun->get_db('akun', 'username', $username);
+
+        if (!$idValidation->num_rows() > 0) {
+            if (!$usernameValidation->num_rows() > 0) {
+                $this->model_akun->set_akun();
+                $this->message('success');
+            } else {
+                $this->message('usernameError');
+            }
         } else {
-            $this->model_akun->set_akun();
-            redirect('login');
+            $this->message('idError');
         }
+    }
+
+    public function message($msg) {
+        $data[$msg] = true;
+
+        $this->load->view('_partials/head');
+        $this->load->view('register/register', $data);
+        $this->load->view('_partials/script');
     }
 
     public function logout() {

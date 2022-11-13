@@ -1,5 +1,5 @@
 <?= validation_errors() ?>
-<?= form_open('dosen/update/' . $dosen['nik']) ?>
+<?= form_open('dosen/update') ?>
     <p>NIK</p>
     <input type="text" name="nik" value="<?= $dosen['nik'] ?>"><br>
 

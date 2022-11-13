@@ -15,8 +15,8 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,6 @@
                         <p class="mx-2">Mahasiswa Wali</p>
                         <p class="mx-2">Data Mengajar</p>
                         <p class="mx-2">SKS Mengajar</p>
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>

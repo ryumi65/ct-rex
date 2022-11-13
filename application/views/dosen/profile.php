@@ -15,8 +15,8 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,6 @@
                         <p class="mx-2">Mahasiswa Wali</p>
                         <p class="mx-2">Data Mengajar</p>
                         <p class="mx-2">SKS Mengajar</p>
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -38,20 +37,20 @@
                                 <h6 class="mb-0">Profil Anda</h6>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('dosen/profile/edit/' . $_SESSION['nik']) ?>">
+                                <a href="<?= site_url('dosen/profile/edit') ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>
                             <div class="card-body p-3">
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nama Lengkap:</strong>
-                                        &nbsp; <?= $_SESSION['nama'] ?></li>
+                                        &nbsp; <?= $dosen['nama'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nomor Telepon:</strong> &nbsp;
-                                        <?= $_SESSION['no_hp'] ?></li>
+                                        <?= $dosen['no_hp'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp;
-                                        <?= $_SESSION['email'] ?></li>
+                                        <?= $dosen['email'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Alamat:</strong>
-                                        &nbsp; <?= $_SESSION['alamat'] ?></li>
+                                        &nbsp; <?= $dosen['alamat'] ?></li>
                                     <li class="list-group-item border-0 ps-0 pb-0">
                                         <strong class="text-dark text-sm">Social:</strong> &nbsp;
                                         <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">

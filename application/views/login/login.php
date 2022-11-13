@@ -20,6 +20,14 @@
                                     <p class="mb-0">di Portal Akademik Universitas Muhammadiyah Bandung.</p>
                                 </div>
                                 <div class="card-body">
+                                    <?php if (isset($error)) : ?>
+                                        <div class="alert alert-danger alert-dismissible text-white text-sm fade show" role="alert">
+                                            Username/Password Salah.
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    <?php endif ?>
                                     <?= form_open('login/auth') ?>
 
                                     <!-- Username -->

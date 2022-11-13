@@ -15,13 +15,10 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="ms-auto">
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -35,18 +32,18 @@
                                 <h6 class="mb-0">Profil Prodi</h6>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('prodi/profile/edit/' . $_SESSION['id_prodi']) ?>">
+                                <a href="<?= site_url('prodi/profile/edit') ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>
                             <div class="card-body p-3">
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Id Program Studi:</strong>
-                                        &nbsp; <?= $_SESSION['id_prodi'] ?></li>
+                                        &nbsp; <?= $prodi['id_prodi'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nama Program Studi:</strong> &nbsp;
-                                        <?= $_SESSION['nama'] ?></li>
+                                        <?= $prodi['nama'] ?></li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fakultas:</strong> &nbsp;
-                                        <?= $_SESSION['id_fakultas'] ?></li>
+                                        <?= $prodi['id_fakultas'] ?></li>
                                     <li class="list-group-item border-0 ps-0 pb-0">
                                         <strong class="text-dark text-sm">Social:</strong> &nbsp;
                                         <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">

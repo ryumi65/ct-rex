@@ -15,13 +15,10 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['nim'] ?></p>
+                                <h5 class="mb-1"><?= $mahasiswa['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $mahasiswa['nim'] ?></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="ms-auto">
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -35,47 +32,47 @@
                                 <h5 class="mb-0">Profil Anda</h5>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('mahasiswa/profile/edit/' . $_SESSION['nim']) ?>">
+                                <a href="<?= site_url('mahasiswa/profile/edit/' . $mahasiswa['nim']) ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>
                             <div class="card-body p-3">
                                 <div class="row pt-0">
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Nama Lengkap:</strong> &nbsp; <?= $_SESSION['nama'] ?>
+                                        <strong class="text-dark text-sm">Nama Lengkap:</strong> &nbsp; <?= $mahasiswa['nama'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Nomor Induk Mahasiswa:</strong> &nbsp; <?= $_SESSION['nim'] ?>
+                                        <strong class="text-dark text-sm">Nomor Induk Mahasiswa:</strong> &nbsp; <?= $mahasiswa['nim'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Tempat Tanggal Lahir:</strong> &nbsp; <?= $_SESSION['tempat_lahir'] . ', ' . $_SESSION['tanggal_lahir'] ?>
+                                        <strong class="text-dark text-sm">Tempat Tanggal Lahir:</strong> &nbsp; <?= $mahasiswa['tempat_lahir'] . ', ' . $mahasiswa['tanggal_lahir'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Jenis Kelamin:</strong> &nbsp; <?= ucfirst($_SESSION['jenis_kelamin']) ?>
+                                        <strong class="text-dark text-sm">Jenis Kelamin:</strong> &nbsp; <?= ucfirst($mahasiswa['jenis_kelamin']) ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Agama:</strong> &nbsp; <?= $_SESSION['agama'] ?>
+                                        <strong class="text-dark text-sm">Agama:</strong> &nbsp; <?= $mahasiswa['agama'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Nomor Handphone:</strong> &nbsp; <?= $_SESSION['no_hp'] ?>
+                                        <strong class="text-dark text-sm">Nomor Handphone:</strong> &nbsp; <?= $mahasiswa['no_hp'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Email:</strong> &nbsp; <?= $_SESSION['email'] ?>
+                                        <strong class="text-dark text-sm">Email:</strong> &nbsp; <?= $mahasiswa['email'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Program Studi:</strong> &nbsp; <?= $_SESSION['id_prodi'] ?>
+                                        <strong class="text-dark text-sm">Program Studi:</strong> &nbsp; <?= $mahasiswa['id_prodi'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Tahun Angkatan:</strong> &nbsp; <?= $_SESSION['tahun_angkatan'] ?>
+                                        <strong class="text-dark text-sm">Tahun Angkatan:</strong> &nbsp; <?= $mahasiswa['tahun_angkatan'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Kewarganegaraan:</strong> &nbsp; <?= $_SESSION['kewarganegaraan'] ?>
+                                        <strong class="text-dark text-sm">Kewarganegaraan:</strong> &nbsp; <?= strtoupper($mahasiswa['kewarganegaraan']) ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Nomor Induk Kependudukan:</strong> &nbsp; <?= $_SESSION['nik'] ?>
+                                        <strong class="text-dark text-sm">Nomor Induk Kependudukan:</strong> &nbsp; <?= $mahasiswa['nik'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
-                                        <strong class="text-dark text-sm">Alamat:</strong> &nbsp; <?= $_SESSION['alamat'] . ', ' . $_SESSION['kelurahan'] . ', ' . $_SESSION['kecamatan'] . ', ' . $_SESSION['kabupaten'] . ', ' . $_SESSION['provinsi'] . ', ' . $_SESSION['kode_pos'] ?>
+                                        <strong class="text-dark text-sm">Alamat:</strong> &nbsp; <?= $mahasiswa['alamat'] . ', ' . $mahasiswa['kelurahan'] . ', ' . $mahasiswa['kecamatan'] . ', ' . $mahasiswa['kabupaten'] . ', ' . $mahasiswa['provinsi'] . ', ' . $mahasiswa['kode_pos'] ?>
                                     </div>
                                     <div class="col-md-6 ps-2 my-1">
                                         <strong class="text-dark text-sm">Social:</strong> &nbsp;

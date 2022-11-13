@@ -11,21 +11,24 @@ class Mahasiswa extends CI_Controller {
     public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
+        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/dashboard');
+        $this->load->view('mahasiswa/dashboard', $data);
         $this->load->view('_partials/script');
     }
 
     public function profile() {
+        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/profile');
+        $this->load->view('mahasiswa/profile', $data);
         $this->load->view('_partials/script');
     }
-
 
     public function create() {
         $data['listp'] = $this->model_prodi->get_prodi();
@@ -57,8 +60,8 @@ class Mahasiswa extends CI_Controller {
         }
     }
 
-    public function update($nim) {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($nim);
+    public function update() {
+        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
         $data['listp'] = $this->model_prodi->get_prodi();
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -85,13 +88,8 @@ class Mahasiswa extends CI_Controller {
             $this->load->view('mahasiswa/update', $data);
             $this->load->view('_partials/script');
         } else {
-            $this->model_mahasiswa->update_mahasiswa($nim);
+            $this->model_mahasiswa->update_mahasiswa($this->session->id);
             redirect('mahasiswa/profile');
         }
-    }
-
-    public function delete($nim) {
-        $this->db->delete('mahasiswa', ['nim' => $nim]);
-        redirect('mahasiswa');
     }
 }

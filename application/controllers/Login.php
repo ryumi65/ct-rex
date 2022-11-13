@@ -20,75 +20,56 @@ class Login extends CI_Controller {
     public function auth() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $validasi_username = $this->model_login->query_validasi_username($username);
-        $validasi_password = $this->model_login->query_validasi_password($username, $password);
+        $validation = $this->model_login->validation($username, $password);
 
-        if ($validasi_username->num_rows() > 0 && $validasi_password->num_rows() > 0) {
-            $pw = $validasi_password->row_array();
+        if ($validation->num_rows() > 0) {
+            $akun = $validation->row_array();
 
-            if ($pw['status'] === 'y') {
-                $this->session->set_userdata(['logged' => true, 'user' => $username]);
+            if ($akun['status'] === 'y') {
+                $this->session->set_userdata(['logged' => true, 'id' => $akun['id_akun']]);
 
-                switch ($pw['level']) {
+                switch ($akun['level']) {
                     case 0:
-                        $this->session->set_userdata('access', 'Administrator');
-                        $this->session->set_userdata('level', $pw['level']);
-                        $this->session->set_userdata($this->model_login->get_db());
+                        $this->session->set_userdata(['access' => 'Admin', 'level' => $akun['level']]);
 
                         return redirect('admin');
 
                     case 1:
-                        $this->session->set_userdata('access', 'Fakultas');
-                        $this->session->set_userdata('level', $pw['level']);
-                        $this->session->set_userdata($this->model_login->get_db(
-                            'fakultas',
-                            'id_fakultas',
-                            $pw['id_akun']
-                        ));
+                        $this->session->set_userdata(['access' => 'Fakultas', 'level' => $akun['level']]);
 
                         return redirect('fakultas');
 
                     case 2:
-                        $this->session->set_userdata('access', 'Prodi');
-                        $this->session->set_userdata('level', $pw['level']);
-                        $this->session->set_userdata($this->model_login->get_db(
-                            'prodi',
-                            'id_prodi',
-                            $pw['id_akun']
-                        ));
+                        $this->session->set_userdata(['access' => 'Prodi', 'level' => $akun['level']]);
 
                         return redirect('prodi');
 
                     case 3:
-                        $this->session->set_userdata('access', 'Dosen');
-                        $this->session->set_userdata('level', $pw['level']);
-                        $this->session->set_userdata($this->model_login->get_db(
-                            'dosen',
-                            'nik',
-                            $pw['id_akun']
-                        ));
+                        $this->session->set_userdata(['access' => 'Dosen', 'level' => $akun['level']]);
 
                         return redirect('dosen');
 
                     case 4:
-                        $this->session->set_userdata('access', 'Mahasiswa');
-                        $this->session->set_userdata('level', $pw['level']);
-                        $this->session->set_userdata($this->model_login->get_db(
-                            'mahasiswa',
-                            'nim',
-                            $pw['id_akun']
-                        ));
+                        $this->session->set_userdata(['access' => 'Mahasiswa', 'level' => $akun['level']]);
 
                         return redirect('mahasiswa');
 
                     default:
-                        return false;
+                        return redirect('login');
                 }
             } else {
-                redirect('login');
+                $data['error'] = true;
+
+                $this->load->view('_partials/head');
+                $this->load->view('login/login', $data);
+                $this->load->view('_partials/script');
             }
         } else {
-            redirect('login');
+            $data['error'] = true;
+
+            $this->load->view('_partials/head');
+            $this->load->view('login/login', $data);
+            $this->load->view('_partials/script');
         }
     }
 }

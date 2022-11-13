@@ -4,15 +4,8 @@ class Model_akun extends CI_Model {
         $this->load->database();
     }
 
-    public function get_akun($id_akun = null) {
-        if ($id_akun === null) {
-            $query = $this->db->get('akun');
-            return $query->result_array();
-        } else {
-            $query = $this->db->get_where('akun',
-                ['id_akun' => $id_akun]);
-            return $query->row_array();
-        }
+    public function get_db($database, $data, $data2) {
+        return $this->db->get_where($database, [$data => $data2]);
     }
 
     public function set_akun() {

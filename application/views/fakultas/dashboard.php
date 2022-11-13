@@ -15,15 +15,14 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $fakultas['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $fakultas['id_fakultas'] ?></p>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex d-inline ms-auto">
                         <p class="mx-2">Mahasiswa Aktif</p>
                         <p class="mx-2">Dosen Prodi</p>
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>

@@ -11,18 +11,22 @@ class Dosen extends CI_Controller {
     public function index() {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
+        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/dashboard');
+        $this->load->view('dosen/dashboard', $data);
         $this->load->view('_partials/script');
     }
 
     public function profile() {
+        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/profile');
+        $this->load->view('dosen/profile', $data);
         $this->load->view('_partials/script');
     }
 
@@ -52,8 +56,8 @@ class Dosen extends CI_Controller {
         }
     }
 
-    public function update($nik) {
-        $data['dosen'] = $this->model_dosen->get_dosen($nik);
+    public function update() {
+        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
         $data['listp'] = $this->model_prodi->get_prodi();
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -74,13 +78,8 @@ class Dosen extends CI_Controller {
         if (!$this->form_validation->run()) {
             $this->load->view('dosen/update', $data);
         } else {
-            $this->model_dosen->update_dosen($nik);
+            $this->model_dosen->update_dosen($this->session->id);
             redirect('dosen/profile');
         }
-    }
-
-    public function delete($nik) {
-        $this->db->delete('dosen', ['nik' => $nik]);
-        redirect('dosen');
     }
 }

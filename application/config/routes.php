@@ -53,10 +53,9 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['signup'] = 'akun/register';
 $route['logout'] = 'akun/logout';
 
-$route['fakultas/profile/edit/(:any)'] = 'fakultas/update/$1';
-$route['dosen/profile/edit/(:any)'] = 'dosen/update/$1';
-$route['mahasiswa/profile/edit/(:any)'] = 'mahasiswa/update/$1';
-$route['prodi/profile/edit/(:any)'] = 'prodi/update/$1';
+$route['fakultas/profile/edit'] = 'fakultas/update';
+$route['dosen/profile/edit'] = 'dosen/update';
+$route['mahasiswa/profile/edit'] = 'mahasiswa/update';
+$route['prodi/profile/edit'] = 'prodi/update';

@@ -15,13 +15,10 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['nim'] ?></p>
+                                <h5 class="mb-1"><?= $mahasiswa['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $mahasiswa['nim'] ?></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="ms-auto">
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +33,7 @@
                             </div>
                             <div class="card-body p-3">
                                 <?= validation_errors() ?>
-                                <?= form_open('mahasiswa/update/' . $_SESSION['nim']) ?>
+                                <?= form_open('mahasiswa/update') ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Nomor Induk Mahasiswa</label>
@@ -98,16 +95,16 @@
                                     <div class="col-md-6">
                                         <label>Program Studi</label>
                                         <div class="mb-3">
-                                            <select class="form-select" name="id_prodi" required>
+                                            <select class="form-select" name="id_prodi" disabled>
                                                 <option selected disabled>Pilih Program Studi</option>
                                                 <?php foreach ($listp as $prodi) : ?>
                                                     <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
                                                         <option selected value="<?= $prodi['id_prodi'] ?>">
-                                                            <?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+                                                            <?= $prodi['nama'] ?>
                                                         </option>
                                                     <?php else : ?>
                                                         <option value="<?= $prodi['id_prodi'] ?>">
-                                                            <?= $prodi['id_prodi'] . ' - ' . $prodi['nama'] ?>
+                                                            <?= $prodi['nama'] ?>
                                                         </option>
                                                     <?php endif ?>
                                                 <?php endforeach ?>

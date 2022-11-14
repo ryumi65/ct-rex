@@ -71,7 +71,6 @@ class Mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('agama', 'Agama', 'required');
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
         $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');

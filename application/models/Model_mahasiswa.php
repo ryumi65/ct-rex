@@ -48,7 +48,6 @@ class Model_mahasiswa extends CI_Model {
             'agama' => $this->input->post('agama'),
             'no_hp' => $this->input->post('no_hp'),
             'email' => $this->input->post('email'),
-			'id_prodi' => $this->input->post('id_prodi'),
             'kewarganegaraan' => $this->input->post('kewarganegaraan'),
             'nik' => $this->input->post('nik'),
             'alamat' => $this->input->post('alamat'),

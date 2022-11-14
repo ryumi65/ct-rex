@@ -1,14 +1,17 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dosen extends CI_Controller {
-    public function __construct() {
+class Dosen extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_dosen');
         $this->load->model('model_prodi');
     }
 
-    public function index() {
+    public function index()
+    {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
         $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
@@ -20,9 +23,11 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profile() {
+    public function profile()
+    {
         $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
 
+        $data['listp'] = $this->model_prodi->get_prodi();
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
@@ -30,7 +35,8 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function create() {
+    public function create()
+    {
         $data['listp'] = $this->model_prodi->get_prodi();
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -56,7 +62,8 @@ class Dosen extends CI_Controller {
         }
     }
 
-    public function update() {
+    public function update()
+    {
         $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
         $data['listp'] = $this->model_prodi->get_prodi();
 

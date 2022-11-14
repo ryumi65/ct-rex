@@ -1,10 +1,13 @@
 <?php
-class Model_dosen extends CI_Model {
-	public function __construct() {
+class Model_dosen extends CI_Model
+{
+	public function __construct()
+	{
 		$this->load->database();
 	}
 
-	public function get_dosen($nik = null) {
+	public function get_dosen($nik = null)
+	{
 		if ($nik === null) {
 			$query = $this->db->get('dosen');
 			return $query->result_array();
@@ -14,7 +17,13 @@ class Model_dosen extends CI_Model {
 		}
 	}
 
-	public function set_dosen() {
+	public function get_dosen_prodi($id_prodi)
+	{
+		return $this->db->get_where('dosen', ['id_prodi' => $id_prodi])->result_array();
+	}
+
+	public function set_dosen()
+	{
 		$data = [
 			'nik' => $this->input->post('nik'),
 			'nama' => $this->input->post('nama'),
@@ -38,7 +47,8 @@ class Model_dosen extends CI_Model {
 		return $this->db->insert('dosen', $data);
 	}
 
-	public function update_dosen($nik) {
+	public function update_dosen($nik)
+	{
 		$data = [
 			'nik' => $this->input->post('nik'),
 			'nama' => $this->input->post('nama'),

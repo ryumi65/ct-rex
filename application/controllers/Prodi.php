@@ -1,14 +1,18 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Prodi extends CI_Controller {
-    public function __construct() {
+class Prodi extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_prodi');
         $this->load->model('model_fakultas');
+        $this->load->model('model_dosen');
     }
 
-    public function index() {
+    public function index()
+    {
         if (uri_string() === 'prodi/index') return redirect('prodi');
 
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
@@ -20,7 +24,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profile() {
+    public function profile()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
 
         $this->load->view('_partials/head');
@@ -30,8 +35,10 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datadsn() {
+    public function datadsn()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
+        $data['listd'] = $this->model_dosen->get_dosen_prodi($this->session->id);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -40,7 +47,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs() {
+    public function datamhs()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
 
         $this->load->view('_partials/head');
@@ -50,8 +58,10 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profilmhs() {
+    public function profilmhs()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
+
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -60,8 +70,12 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profildsn() {
+    public function profildsn($nik)
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
+        $data['listp'] = $this->model_prodi->get_prodi();
+        $data['dosen'] = $this->model_dosen->get_dosen($nik);
+
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -70,7 +84,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profildsnwl() {
+    public function profildsnwl()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
 
         $this->load->view('_partials/head');
@@ -80,7 +95,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function create() {
+    public function create()
+    {
         $data['listf'] = $this->model_fakultas->get_fakultas();
 
         $this->form_validation->set_rules('id_prodi', 'id_prodi harus diisi', 'required');
@@ -95,7 +111,8 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function update() {
+    public function update()
+    {
         $data['prodi'] = $this->model_prodi->get_prodi($this->session->id);
         $data['listf'] = $this->model_fakultas->get_fakultas();
 

@@ -15,8 +15,8 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kode Dosen</th>
+                                            NIK Dosen</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama Dosen</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -54,82 +54,53 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status Dosen</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Beban SKS</th>
+                                            Status Kerja</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">IF0201</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <a href="<?= site_url('prodi/profildsn') ?>">
-                                                    <h6 class="mb-0 text-sm">Rektivianto</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <a href="<?= site_url('prodi/profildsn') ?>">
-                                                    <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">000000</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Aktif</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">9 SKS</h6>
-                                            </div>
-                                        </td>
+                                    <?php foreach ($listd as $dosen) : ?>
+                                        <tr>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $dosen['nik'] ?></h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <a href="<?= site_url('prodi/profildsn/' . $dosen['nik']) ?>">
+                                                        <h6 class="mb-0 text-sm"><?= $dosen['nama'] ?></h6>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+
+                                                    <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
+                                                        <h6 class="mb-0 text-sm">Laki-Laki</h6>
+                                                    <?php elseif ($dosen['jenis_kelamin'] === 'p') : ?>
+                                                        <h6 class="mb-0 text-sm">Perempuan</h6>
+                                                    <?php endif ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $dosen['nidn_dosen'] ?></h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_dosen'] ?></h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_kerja'] ?></h6>
+                                                </div>
+                                            </td>
 
 
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">IF0201</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Rektivianto</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">0000000</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Aktif</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">9 SKS</h6>
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>

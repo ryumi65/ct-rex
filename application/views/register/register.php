@@ -7,7 +7,7 @@
         <div class="page-header align-items-start bg-gradient-primary py-5 m-3 border-radius-lg">
 
             <!-- Card -->
-            <div class="card col-lg-3 mx-auto">
+            <div class="card col-12 col-sm-10 col-md-8 col-lg-5 col-xl-3 mx-auto">
                 <div class="card-header pb-0">
                     <h5 class="text-center">Registrasi</h5>
                 </div>

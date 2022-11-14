@@ -1,11 +1,12 @@
 <?php
-class Model_akun extends CI_Model {
-    public function __construct() {
-        $this->load->database();
-    }
+defined('BASEPATH') or exit('No direct script access allowed');
 
-    public function get_db($database, $data, $data2) {
-        return $this->db->get_where($database, [$data => $data2]);
+class Model_akun extends CI_Model {
+
+    public function get_akun($database, $data = null, $data2 = null) {
+        if ($data === null || $data2 === null) {
+            return $this->db->get($database);
+        } else return $this->db->get_where($database, [$data => $data2]);
     }
 
     public function set_akun() {

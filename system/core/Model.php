@@ -74,4 +74,11 @@ class CI_Model {
 		return get_instance()->$key;
 	}
 
+    public function get_db($database, $data = null, $data2 = null, $type = 'row') {
+        if ($data === null || $data2 === null) {
+            return $this->db->get($database)->result_array();
+        } elseif ($type === 'row') return $this->db->get_where($database, [$data => $data2])->row_array();
+        elseif ($type === 'result') return $this->db->get_where($database, [$data => $data2])->result_array();
+    }
+
 }

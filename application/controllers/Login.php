@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
         $this->load->model('model_login');
@@ -12,9 +13,7 @@ class Login extends CI_Controller {
             $this->load->view('_partials/head');
             $this->load->view('login/login');
             $this->load->view('_partials/script');
-        } else {
-            redirect(strtolower($this->session->userdata('access')));
-        }
+        } else redirect(strtolower($this->session->access));
     }
 
     public function auth() {
@@ -57,19 +56,15 @@ class Login extends CI_Controller {
                     default:
                         return redirect('login');
                 }
-            } else {
-                $data['error'] = true;
+            } else $this->message('error');
+        } else $this->message('error');
+    }
 
-                $this->load->view('_partials/head');
-                $this->load->view('login/login', $data);
-                $this->load->view('_partials/script');
-            }
-        } else {
-            $data['error'] = true;
+    public function message($msg) {
+        $data[$msg] = true;
 
-            $this->load->view('_partials/head');
-            $this->load->view('login/login', $data);
-            $this->load->view('_partials/script');
-        }
+        $this->load->view('_partials/head');
+        $this->load->view('login/login', $data);
+        $this->load->view('_partials/script');
     }
 }

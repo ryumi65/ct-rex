@@ -2,16 +2,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Mahasiswa extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
-        $this->load->model('model_prodi');
+
+        if (!$this->session->logged) redirect('login');
+        if ($this->session->level != 4) redirect(strtolower($this->session->access));
     }
 
     public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
-        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -21,8 +24,8 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function profile() {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
-        $data['listp'] = $this->model_prodi->get_prodi();
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
+        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -32,7 +35,7 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function create() {
-        $data['listp'] = $this->model_prodi->get_prodi();
+        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -62,8 +65,8 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function update() {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
-        $data['listp'] = $this->model_prodi->get_prodi();
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
+        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');

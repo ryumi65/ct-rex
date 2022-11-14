@@ -1,18 +1,7 @@
 <?php
-class model_matkul extends CI_Model {
-	public function __construct() {
-		$this->load->database();
-	}
+defined('BASEPATH') or exit('No direct script access allowed');
 
-	public function get_matkul($id_matkul = null) {
-		if ($id_matkul === null) {
-			$query = $this->db->get('matkul');
-			return $query->result_array();
-		} else {
-			$query = $this->db->get_where('matkul', ['id_matkul' => $id_matkul]);
-			return $query->row_array();
-		}
-	}
+class model_matkul extends CI_Model {
 
 	public function set_matkul() {
 		$data = [

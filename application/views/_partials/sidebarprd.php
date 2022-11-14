@@ -79,10 +79,17 @@
                 </li>
 
                 <!-- Data Civitas -->
+                <?php if (fnmatch('prodi/data*', uri_string())) {
+                    $navlinkData = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkData = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#datacivitas" class="nav-link" aria-controls="datacivitas" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkData ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-book" style="color: #000"></i>
+                            <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Data Civitas</span>
                     </a>
@@ -106,6 +113,7 @@
                         </ul>
                     </div>
                 </li>
+
                 <!-- Pembayaran Mahasiswa -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">

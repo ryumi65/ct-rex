@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Akun extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
         $this->load->model('model_akun');
@@ -16,19 +17,15 @@ class Akun extends CI_Controller {
     public function register() {
         $id = $this->input->post('id_akun');
         $username = $this->input->post('username');
-        $idValidation = $this->model_akun->get_db('akun', 'id_akun', $id);
-        $usernameValidation = $this->model_akun->get_db('akun', 'username', $username);
+        $idValidation = $this->model_akun->get_akun('akun', 'id_akun', $id);
+        $usernameValidation = $this->model_akun->get_akun('akun', 'username', $username);
 
         if (!$idValidation->num_rows() > 0) {
             if (!$usernameValidation->num_rows() > 0) {
                 $this->model_akun->set_akun();
                 $this->message('success');
-            } else {
-                $this->message('usernameError');
-            }
-        } else {
-            $this->message('idError');
-        }
+            } else $this->message('usernameError');
+        } else $this->message('idError');
     }
 
     public function message($msg) {

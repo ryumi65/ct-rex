@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dosen extends CI_Controller
-{
-    public function __construct()
-    {
+class Dosen extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_dosen');
-        $this->load->model('model_prodi');
+
+        if (!$this->session->logged) redirect('login');
+        if ($this->session->level != 3) redirect(strtolower($this->session->access));
     }
 
-    public function index()
-    {
+    public function index() {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
-        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
+        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
@@ -23,11 +23,10 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profile()
-    {
-        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
+    public function profile() {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
+        $data['listp'] = $this->model_dosen->get_db('prodi');
 
-        $data['listp'] = $this->model_prodi->get_prodi();
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
@@ -35,9 +34,8 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function create()
-    {
-        $data['listp'] = $this->model_prodi->get_prodi();
+    public function create() {
+        $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -62,10 +60,9 @@ class Dosen extends CI_Controller
         }
     }
 
-    public function update()
-    {
-        $data['dosen'] = $this->model_dosen->get_dosen($this->session->id);
-        $data['listp'] = $this->model_prodi->get_prodi();
+    public function update() {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
+        $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -83,7 +80,11 @@ class Dosen extends CI_Controller
         $this->form_validation->set_rules('status_kerja', 'Status Kerja', 'required');
 
         if (!$this->form_validation->run()) {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
             $this->load->view('dosen/update', $data);
+            $this->load->view('_partials/script');
         } else {
             $this->model_dosen->update_dosen($this->session->id);
             redirect('dosen/profile');

@@ -2,9 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_login extends CI_Model {
-    public function __construct() {
-        $this->load->database();
-    }
 
     public function validation($username, $password) {
         $pw = password_verify($password, PASSWORD_BCRYPT);

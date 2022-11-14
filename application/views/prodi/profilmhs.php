@@ -20,8 +20,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ms-auto">
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                    <div class="d-flex d-inline ms-auto">
+                        <p class="mx-2">Mahasiswa Aktif</p>
+                        <p class="mx-2">Dosen Prodi</p>
                     </div>
                 </div>
             </div>

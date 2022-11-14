@@ -59,3 +59,7 @@ $route['fakultas/profile/edit'] = 'fakultas/update';
 $route['dosen/profile/edit'] = 'dosen/update';
 $route['mahasiswa/profile/edit'] = 'mahasiswa/update';
 $route['prodi/profile/edit'] = 'prodi/update';
+
+$route['prodi/datadsn/profile/(:any)'] = 'prodi/profildsn/$1';
+$route['prodi/datadsnwl/profile/(:any)'] = 'prodi/profildsnwl/$1';
+$route['prodi/datamhs/profile/(:any)'] = 'prodi/profilmhs/$1';

@@ -47,7 +47,7 @@
                                     <div class="col-md-6">
                                         <label>Nama Lengkap</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nama" class="form-control-plaintext ms-1-plaintext ms-1" placeholder="-" value="<?= $mahasiswa['nama'] ?>" disabled readonly>
+                                            <input type="text" name="nama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $mahasiswa['nama'] ?>" disabled readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

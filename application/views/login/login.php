@@ -39,13 +39,19 @@
                                     <!-- Password -->
                                     <label>Password</label>
                                     <div class="mb-3">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                                    </div>
+
+                                    <!-- Show Password -->
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" onclick="showPassword()">
+                                        <label class="form-check-label">Show Password</label>
                                     </div>
 
                                     <!-- Remember Me -->
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="remember-me" checked="">
-                                        <label class="form-check-label" for="remember-me">Remember me</label>
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <label class="form-check-label">Remember me</label>
                                     </div>
 
                                     <!-- Sign In -->

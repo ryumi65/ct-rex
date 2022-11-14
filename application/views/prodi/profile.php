@@ -20,6 +20,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex d-inline ms-auto">
+                        <p class="mx-2">Mahasiswa Aktif</p>
+                        <p class="mx-2">Dosen Prodi</p>
+                    </div>
                 </div>
             </div>
 

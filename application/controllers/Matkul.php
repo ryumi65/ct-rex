@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Matkul extends CI_Controller {
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('model_matkul');
@@ -9,13 +10,13 @@ class Matkul extends CI_Controller {
 	}
 
 	public function index() {
-		$data['list'] = $this->model_matkul->get_matkul();
+		$data['list'] = $this->model_matkul->get_db('matkul');
 
 		$this->load->view('matkul/matkul', $data);
 	}
 
 	public function create() {
-		$data['listp'] = $this->model_prodi->get_prodi();
+		$data['listp'] = $this->model_prodi->get_db('prodi');
 
 		$this->form_validation->set_rules('id_matkul', 'IDMATKUL', 'required');
 		$this->form_validation->set_rules('nama', 'NAMA', 'required');
@@ -35,8 +36,8 @@ class Matkul extends CI_Controller {
 	}
 
 	public function update($id_matkul) {
-		$data['matkul'] = $this->model_matkul->get_matkul($id_matkul);
-		$data['listp'] = $this->model_prodi->get_prodi();
+		$data['matkul'] = $this->model_matkul->get_db('matkul', 'id_matkul', $id_matkul);
+		$data['listp'] = $this->model_prodi->get_db('prodi');
 
 		$this->form_validation->set_rules('id_matkul', 'IDMATKUL', 'required');
 		$this->form_validation->set_rules('nama', 'NAMA', 'required');

@@ -39,7 +39,7 @@
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Nomor Induk dosen</label>
+                                    <label>Nomor Induk Kependudukan</label>
                                     <div class="mb-3">
                                         <input type="text" name="nik" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nik'] ?>" disabled readonly>
                                     </div>
@@ -113,19 +113,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Nomor Induk Kependudukan</label>
-                                    <div class="mb-3">
-                                        <input type="text" name="nik" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nik'] ?>" disabled readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                     <label>Alamat Tempat Tinggal</label>
                                     <div class="mb-3">
                                         <input type="text" name="alamat" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['alamat'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>NIDN</label>
+                                    <label>Nomor Induk Dosen</label>
                                     <div class="mb-3">
                                         <input type="text" name="nidn_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nidn_dosen'] ?>" disabled readonly>
                                     </div>

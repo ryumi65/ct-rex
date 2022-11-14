@@ -1,18 +1,7 @@
 <?php
-class Model_mahasiswa extends CI_Model {
-	public function __construct() {
-		$this->load->database();
-	}
+defined('BASEPATH') or exit('No direct script access allowed');
 
-	public function get_mahasiswa($nim = null) {
-		if ($nim === null) {
-			$query = $this->db->get('mahasiswa');
-			return $query->result_array();
-		} else {
-			$query = $this->db->get_where('mahasiswa', ['nim' => $nim]);
-			return $query->row_array();
-		}
-	}
+class Model_mahasiswa extends CI_Model {
 
 	public function set_mahasiswa() {
 		$data = [

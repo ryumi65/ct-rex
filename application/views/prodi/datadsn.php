@@ -23,7 +23,6 @@
                     <div class="d-flex d-inline ms-auto">
                         <p class="mx-2">Mahasiswa Aktif</p>
                         <p class="mx-2">Dosen Prodi</p>
-                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +66,7 @@
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/profildsn/' . $dosen['nik']) ?>">
+                                                    <a href="<?= site_url('prodi/datadsn/profile/' . $dosen['nik']) ?>">
                                                         <h6 class="mb-0 text-sm"><?= $dosen['nama'] ?></h6>
                                                     </a>
                                                 </div>

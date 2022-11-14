@@ -1,18 +1,7 @@
 <?php
-class Model_prodi extends CI_Model {
-    public function __construct() {
-        $this->load->database();
-    }
+defined('BASEPATH') or exit('No direct script access allowed');
 
-    public function get_prodi($id_prodi = null) {
-        if ($id_prodi === null) {
-            $query = $this->db->get('prodi');
-            return $query->result_array();
-        } else {
-            $query = $this->db->get_where('prodi', ['id_prodi' => $id_prodi]);
-            return $query->row_array();
-        }
-    }
+class Model_prodi extends CI_Model {
 
     public function set_prodi() {
         $data = [

@@ -22,6 +22,7 @@ class Mahasiswa extends CI_Controller {
 
     public function profile() {
         $data['mahasiswa'] = $this->model_mahasiswa->get_mahasiswa($this->session->id);
+        $data['listp'] = $this->model_prodi->get_prodi();
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');

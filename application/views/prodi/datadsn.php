@@ -10,7 +10,7 @@
                     <div class="row gx-4">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radiu  s-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
@@ -23,6 +23,7 @@
                     <div class="d-flex d-inline ms-auto">
                         <p class="mx-2">Mahasiswa Aktif</p>
                         <p class="mx-2">Dosen Prodi</p>
+                        <a href="<?= site_url('logout'); ?>" class="ms-5 me-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +67,7 @@
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/datadsn/profile/' . $dosen['nik']) ?>">
+                                                    <a href="<?= site_url('prodi/profildsn/' . $dosen['nik']) ?>">
                                                         <h6 class="mb-0 text-sm"><?= $dosen['nama'] ?></h6>
                                                     </a>
                                                 </div>

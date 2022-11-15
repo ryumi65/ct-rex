@@ -15,8 +15,8 @@
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1"><?= $_SESSION['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $_SESSION['access'] ?></p>
+                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -50,112 +50,40 @@
                                             Jenis Kelamin</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tempat, Tanggal Lahir</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Dosen Wali</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Beban SKS</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            IPK</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">200102011</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <a href="<?= site_url('prodi/profilmhs') ?>">
-                                                    <h6 class="mb-0 text-sm">Rektivianto</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Bandung, 25 Januari 2001</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Renal Sukma Widiarsa</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">20 SKS</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">4.00</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Aktif</h6>
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
+                                    <?php foreach ($listm as $mahasiswa) : ?>
+                                        <tr>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nim'] ?></h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <a href="<?= site_url('prodi/datamhs/profile/' . $mahasiswa['nim']) ?>">
+                                                        <h6 class="mb-0 text-sm"><?= $mahasiswa['nama'] ?></h6>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
+                                                        <h6 class="mb-0 text-sm">Laki-Laki</h6>
+                                                    <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
+                                                        <h6 class="mb-0 text-sm">Perempuan</h6>
+                                                    <?php endif ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['tempat_lahir'] . ', ' . $mahasiswa['tanggal_lahir']  ?></h6>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">200102011</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <a href="<?= site_url('prodi/profilmhs') ?>">
-                                                    <h6 class="mb-0 text-sm">Rektivianto</h6>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Bandung, 25 Januari 2001</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Renal Sukma Widiarsa</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">20 SKS</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">4.00</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Aktif</h6>
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
-                                </tbody>
-
                             </table>
                         </div>
                     </div>

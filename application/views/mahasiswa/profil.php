@@ -32,7 +32,7 @@
                                 <h5 class="mb-0">Profil Anda</h5>
                             </div>
                             <div class="col-md-4 text-end">
-                                <a href="<?= site_url('mahasiswa/profile/edit') ?>">
+                                <a href="<?= site_url('mahasiswa/profil/edit') ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>

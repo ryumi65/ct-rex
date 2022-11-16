@@ -33,34 +33,53 @@
                     <div class="card-header pb-0 p-3">
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-0">Profil Prodi</h6>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="<?= site_url('prodi/profile/edit') ?>">
-                                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                                </a>
+                                <h6>Detail Mata Kuliah</h6>
                             </div>
                             <div class="card-body p-3">
-                                <ul class="list-group">
-                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Id Program Studi:</strong>
-                                        &nbsp; <?= $prodi['id_prodi'] ?></li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nama Program Studi:</strong> &nbsp;
-                                        <?= $prodi['nama'] ?></li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fakultas:</strong> &nbsp;
-                                        <?= $prodi['id_fakultas'] ?></li>
-                                    <li class="list-group-item border-0 ps-0 pb-0">
-                                        <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                                        <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-facebook fa-lg"></i>
-                                        </a>
-                                        <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-twitter fa-lg"></i>
-                                        </a>
-                                        <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                                            <i class="fab fa-instagram fa-lg"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>ID Mata Kuliah</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="id_matkul" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['id_matkul'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Program Studi</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="id_prodi" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['id_prodi'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Mata Kuliah (Indonesia)</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['nama'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Mata Kuliah (Inggris)</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama_inggris" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['nama_inggris'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>SKS Teori</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="sks" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['sks'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>SKS Praktikum</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="sks_praktikum" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['sks_praktikum'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Jenis Mata Kuliah</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="jenis" class="form-control-plaintext ms-1" placeholder="-" value="<?= $matkul['jenis'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

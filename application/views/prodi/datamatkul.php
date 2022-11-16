@@ -10,7 +10,7 @@
                     <div class="row gx-4">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radiu  s-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
@@ -31,13 +31,8 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6> Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h6>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
-                            </div>
+                        <div class="col-lg-6 col-7">
+                            <h6> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -46,61 +41,60 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            NIK Dosen</th>
+                                            ID Mata Kuliah</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama Dosen</th>
+                                            Nama Mata Kuliah</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jenis Kelamin</th>
+                                            Jenis </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            NIDN Dosen</th>
+                                            SKS Teori</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status Dosen</th>
+                                            SKS Praktikum</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status Kerja</th>
+                                            Dosen Pengampu</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Semester </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($listd as $dosen) : ?>
+                                    <?php foreach ($listmk as $matkul) : ?>
                                         <tr>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['nik'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['id_matkul'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>">
-                                                        <h6 class="mb-0 text-sm"><?= $dosen['nama'] ?></h6>
-                                                    </a>
+                                                    <a href="<?= site_url('prodi/akademik/detail-matkul/' . $matkul['id_matkul']) ?>">
+                                                        <h6 class="mb-0 text-sm"><?= $matkul['nama'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-
-                                                    <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
-                                                        <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                                    <?php elseif ($dosen['jenis_kelamin'] === 'p') : ?>
-                                                        <h6 class="mb-0 text-sm">Perempuan</h6>
-                                                    <?php endif ?>
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['jenis'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['nidn_dosen'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['sks'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_dosen'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['sks_praktikum'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_kerja'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['nik_dosen'] ?></h6>
                                                 </div>
                                             </td>
-
-
+                                            <td>
+                                                <div class="px-2 py-1">
+                                                    <h6 class="mb-0 text-sm"><?= $matkul['id_semester'] ?></h6>
+                                                </div>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

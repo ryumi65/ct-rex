@@ -36,7 +36,7 @@ class Matkul extends CI_Controller {
 	}
 
 	public function update($id_matkul) {
-		$data['matkul'] = $this->model_matkul->get_db('matkul', 'id_matkul', $id_matkul);
+		$data['matkul'] = $this->model_matkul->get_db('matkul', ['id_matkul' => $id_matkul]);
 		$data['listp'] = $this->model_prodi->get_db('prodi');
 
 		$this->form_validation->set_rules('id_matkul', 'IDMATKUL', 'required');

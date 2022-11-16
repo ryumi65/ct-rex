@@ -14,7 +14,7 @@ class Mahasiswa extends CI_Controller {
     public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
-        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -23,14 +23,14 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profile() {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
+    public function profil() {
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/profile', $data);
+        $this->load->view('mahasiswa/profil', $data);
         $this->load->view('_partials/script');
     }
 
@@ -65,7 +65,7 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function update() {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', 'nim', $this->session->id);
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');

@@ -22,4 +22,11 @@ class Model_prodi extends CI_Model {
 
         return $this->db->update('prodi', $data, ['id_prodi' => $id_prodi]);
     }
+
+    public function set_mhs_wali($input) {
+        for ($i = 0; $i < count($input); $i++) {
+            $nik['dosen_wali'] = $this->input->post('nik');
+            $this->db->update('mahasiswa', $nik, ['nim' => $input[$i]]);
+        }
+    }
 }

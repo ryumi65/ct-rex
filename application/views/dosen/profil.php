@@ -32,7 +32,7 @@
                             <h5 class="mb-0">Profil Anda</h5>
                         </div>
                         <div class="col-md-4 text-end">
-                            <a href="<?= site_url('dosen/profile/edit') ?>">
+                            <a href="<?= site_url('dosen/profil/edit') ?>">
                                 <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                             </a>
                         </div>
@@ -52,7 +52,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tempat Lahir</label>
-
+                                    <div class="mb-3">
+                                        <input type="text" name="tempat_lahir" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['tempat_lahir'] ?>" disabled readonly>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Tanggal Lahir</label>

@@ -14,7 +14,7 @@ class Dosen extends CI_Controller {
     public function index() {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
-        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
@@ -23,14 +23,14 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profile() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
+    public function profil() {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/profile', $data);
+        $this->load->view('dosen/profil', $data);
         $this->load->view('_partials/script');
     }
 
@@ -61,7 +61,7 @@ class Dosen extends CI_Controller {
     }
 
     public function update() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', 'nik', $this->session->id);
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');

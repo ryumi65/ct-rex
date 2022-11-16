@@ -31,12 +31,9 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h6> Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h6>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
+                        <div class="row">
+                            <div class="col-lg-6 col-7">
+                                <h6> Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -46,61 +43,42 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            NIK Dosen</th>
+                                            NIM</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama Dosen</th>
+                                            Nama Mahasiswa</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Jenis Kelamin</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            NIDN Dosen</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status Dosen</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status Kerja</th>
+                                            Tempat, Tanggal Lahir</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($listd as $dosen) : ?>
+                                    <?php foreach ($listm as $mahasiswa) : ?>
                                         <tr>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['nik'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nim'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>">
-                                                        <h6 class="mb-0 text-sm"><?= $dosen['nama'] ?></h6>
-                                                    </a>
+                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nama'] ?></h6>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-
-                                                    <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
+                                                    <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
                                                         <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                                    <?php elseif ($dosen['jenis_kelamin'] === 'p') : ?>
+                                                    <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
                                                         <h6 class="mb-0 text-sm">Perempuan</h6>
                                                     <?php endif ?>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['nidn_dosen'] ?></h6>
+                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['tempat_lahir'] . ', ' . $mahasiswa['tanggal_lahir']  ?></h6>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_dosen'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $dosen['status_kerja'] ?></h6>
-                                                </div>
-                                            </td>
-
-
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

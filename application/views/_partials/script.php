@@ -18,3 +18,5 @@
     <script defer src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
     <script defer src="<?= base_url(); ?>assets/js/custom.js"></script>
 </body>
+
+</html>

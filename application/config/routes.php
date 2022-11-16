@@ -53,13 +53,27 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Akun
+$route['signup'] = 'akun';
 $route['logout'] = 'akun/logout';
 
-$route['fakultas/profile/edit'] = 'fakultas/update';
-$route['dosen/profile/edit'] = 'dosen/update';
-$route['mahasiswa/profile/edit'] = 'mahasiswa/update';
-$route['prodi/profile/edit'] = 'prodi/update';
+// Fakultas
+$route['fakultas/profil/edit'] = 'fakultas/update';
 
-$route['prodi/datadsn/profile/(:any)'] = 'prodi/profildsn/$1';
-$route['prodi/datadsnwl/profile/(:any)'] = 'prodi/profildsnwl/$1';
-$route['prodi/datamhs/profile/(:any)'] = 'prodi/profilmhs/$1';
+// Prodi
+$route['prodi/akademik/daftar-matkul'] = 'prodi/daftarmatkul';
+$route['prodi/akademik/detail-matkul/(:any)'] = 'prodi/detailmatkul/$1';
+$route['prodi/civitas/data-dosen'] = 'prodi/datadsn';
+$route['prodi/civitas/data-dosen/(:num)'] = 'prodi/profildsn/$1';
+$route['prodi/civitas/data-mahasiswa'] = 'prodi/datamhs';
+$route['prodi/civitas/data-mahasiswa/(:num)'] = 'prodi/profilmhs/$1';
+$route['prodi/civitas/data-dosen-wali'] = 'prodi/datadsnwl';
+$route['prodi/civitas/data-dosen-wali/(:num)'] = 'prodi/datamhswl/$1';
+$route['prodi/civitas/data-dosen-wali/tambah-wali'] = 'prodi/createwali';
+$route['prodi/profil/edit'] = 'prodi/update';
+
+// Dosen
+$route['dosen/profil/edit'] = 'dosen/update';
+
+// Mahasiswa
+$route['mahasiswa/profil/edit'] = 'mahasiswa/update';

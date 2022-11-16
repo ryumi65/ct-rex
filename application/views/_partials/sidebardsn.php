@@ -108,15 +108,15 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (fnmatch('dosen/profile*', uri_string())) {
-                    $navlinkProfile = 'nav-link active';
+                <?php if (fnmatch('dosen/profil*', uri_string())) {
+                    $navlinkProfil = 'nav-link active';
                     $color = '#fff';
                 } else {
-                    $navlinkProfile = 'nav-link';
+                    $navlinkProfil = 'nav-link';
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfile ?>" aria-controls="profil" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfil ?>" aria-controls="profil" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
                             <i class="fa-solid fa-user" style="color: <?= $color ?>"></i>
                         </div>
@@ -125,12 +125,12 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('dosen/profile') ?>">
+                                <a class="nav-link" href="<?= site_url('dosen/profil') ?>">
                                     Lihat Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('dosen/profile/edit') ?>">
+                                <a class="nav-link" href="<?= site_url('dosen/profil/edit') ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

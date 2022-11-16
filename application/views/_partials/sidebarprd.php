@@ -35,17 +35,24 @@
                 </li>
 
                 <!-- Akademik -->
+                <?php if (fnmatch('prodi/akademik*', uri_string())) {
+                    $navlinkAkd = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkAkd = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#akademik" class="nav-link" aria-controls="akademik" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#akademik" class="<?= $navlinkAkd ?>" aria-controls="akademik" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-chalkboard-user" style="color: #000"></i>
+                            <i class="fa-solid fa-chalkboard-user" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Akademik</span>
                     </a>
                     <div class="collapse" id="akademik">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('prodi/akademik/daftar-matkul') ?>">
                                     Data Mata Kuliah
                                 </a>
                             </li>
@@ -79,7 +86,7 @@
                 </li>
 
                 <!-- Data Civitas -->
-                <?php if (fnmatch('prodi/data*', uri_string())) {
+                <?php if (fnmatch('prodi/civitas*', uri_string())) {
                     $navlinkData = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -96,17 +103,17 @@
                     <div class="collapse" id="datacivitas">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/datadsn') ?>">
+                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-dosen') ?>">
                                     Data Dosen
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/datamhs') ?>">
+                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-mahasiswa') ?>">
                                     Data Mahasiswa
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/datadsnwl') ?>">
+                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
                                     Data Dosen Wali
                                 </a>
                             </li>
@@ -131,15 +138,15 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (fnmatch('prodi/profile*', uri_string())) {
-                    $navlinkProfile = 'nav-link active';
+                <?php if (fnmatch('prodi/profil*', uri_string())) {
+                    $navlinkProfil = 'nav-link active';
                     $color = '#fff';
                 } else {
-                    $navlinkProfile = 'nav-link';
+                    $navlinkProfil = 'nav-link';
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfile ?>" aria-controls="profil" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#profil" class="<?= $navlinkProfil ?>" aria-controls="profil" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
                             <i class="fa-solid fa-user" style="color: <?= $color ?>"></i>
                         </div>
@@ -148,12 +155,12 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link  " href="<?= site_url('prodi/profile') ?>">
+                                <a class="nav-link" href="<?= site_url('prodi/profil') ?>">
                                     Lihat Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/profile/edit') ?>">
+                                <a class="nav-link" href="<?= site_url('prodi/profil/edit') ?>">
                                     Edit Data Prodi
                                 </a>
                             </li>

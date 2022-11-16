@@ -33,7 +33,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-lg-6 col-7">
-                                <h6> Daftar Mahasiswa Prodi Teknik Informatika </h6>
+                                <h6> Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                             </td>
                                             <td>
                                                 <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/datamhs/profile/' . $mahasiswa['nim']) ?>">
+                                                    <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>">
                                                         <h6 class="mb-0 text-sm"><?= $mahasiswa['nama'] ?></h6>
                                                     </a>
                                                 </div>
@@ -90,38 +90,37 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="footer py-3">
+        <!-- Footer -->
+        <footer class="footer py-3">
 
-        <!-- Logo Medsos -->
-        <div class="col-lg-8 mx-auto text-center my-2">
-            <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
-                <i class="text-lg fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                <i class="text-lg fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                <i class="text-lg fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                <i class="text-lg fa-brands fa-twitter"></i>
-            </a>
-            <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                <i class="text-lg fa-brands fa-tiktok"></i>
-            </a>
-        </div>
+            <!-- Logo Medsos -->
+            <div class="col-lg-8 mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                    <i class="text-lg fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                    <i class="text-lg fa-brands fa-tiktok"></i>
+                </a>
+            </div>
 
-        <!-- Copyright -->
-        <div class="col-lg-8 mx-auto text-center">
-            <p class="mb-0 text-secondary">
-                Copyright ©
-                <script>
-                    document.write(new Date().getFullYear())
-                </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
+            <!-- Copyright -->
+            <div class="col-lg-8 mx-auto text-center">
+                <p class="mb-0 text-secondary">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
     </div>

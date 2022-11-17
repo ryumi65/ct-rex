@@ -57,7 +57,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('prodi/jadwalkuliah') ?>">
                                     Jadwal Kuliah
                                 </a>
                             </li>

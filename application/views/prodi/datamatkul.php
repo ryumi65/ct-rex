@@ -27,10 +27,82 @@
                 </div>
             </div>
 
+            <!-- form mata kuliah -->
+            <div class="col-12 mb-md-0 my-4">
+                <div class="card">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="mb-0">Form Pengisian Mata Kuliah</h4>
+                                </div>
+                                <div>
+                                    <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>ID Mata Kuliah</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Mata Kuliah</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Mata Kuliah (Inggris)</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Jenis</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>SKS Teori</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>SKS Praktikum</label>
+                                        <div class="mb-3">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Dosen Pengampu</label>
+                                        <div class="mb-3">
+                                            <input type="email">
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Semester</label>
+                                        <div class="mb-3">
+                                            <input type="email">
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Beban Mengajar -->
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-header pb-0 p-3">
                         <div class="col-lg-6 col-7">
                             <h6> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h6>
                         </div>

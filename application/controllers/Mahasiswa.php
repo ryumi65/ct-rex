@@ -25,6 +25,7 @@ class Mahasiswa extends CI_Controller {
 
     public function profil() {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+        $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $this->session->id]);
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->load->view('_partials/head');
@@ -66,6 +67,7 @@ class Mahasiswa extends CI_Controller {
 
     public function update() {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+        $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $this->session->id]);
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -92,7 +94,12 @@ class Mahasiswa extends CI_Controller {
             $this->load->view('_partials/script');
         } else {
             $this->model_mahasiswa->update_mahasiswa($this->session->id);
-            redirect('mahasiswa/profile');
+            redirect('mahasiswa/profil');
         }
+    }
+
+    public function update_ortu() {
+        $this->model_mahasiswa->update_ortu($this->session->id);
+        redirect('mahasiswa/profil');
     }
 }

@@ -55,7 +55,7 @@ class Fakultas extends CI_Controller {
             $this->load->view('fakultas/update', $data);
         } else {
             $this->model_fakultas->update_fakultas($this->session->id);
-            redirect('fakultas/profile');
+            redirect('fakultas/profil');
         }
     }
 }

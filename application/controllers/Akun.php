@@ -10,7 +10,7 @@ class Akun extends CI_Controller {
 
     public function index() {
         $this->load->view('_partials/head');
-        $this->load->view('register/register');
+        $this->load->view('akun/register');
         $this->load->view('_partials/script');
     }
 
@@ -32,12 +32,14 @@ class Akun extends CI_Controller {
         $data[$msg] = true;
 
         $this->load->view('_partials/head');
-        $this->load->view('register/register', $data);
+        $this->load->view('akun/register', $data);
         $this->load->view('_partials/script');
     }
 
     public function logout() {
         $this->session->sess_destroy();
+        delete_cookie('id_akun');
+        delete_cookie('token');
 
         redirect('login');
     }

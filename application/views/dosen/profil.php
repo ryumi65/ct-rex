@@ -1,40 +1,41 @@
-<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-    <div class="container-fluid py-3">
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+        <div class="container-fluid py-3">
 
-        <!-- Header -->
-        <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-            <span class="mask bg-gradient-info opacity-5"></span>
-        </div>
-        <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-            <div class="d-flex justify-content-between">
-                <div class="row gx-4">
-                    <div class="col-auto">
-                        <div class="avatar avatar-xl position-relative">
-                            <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            <!-- Header -->
+            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
+                <span class="mask bg-gradient-info opacity-5"></span>
+            </div>
+            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+                <div class="d-flex justify-content-between">
+                    <div class="row gx-4">
+                        <div class="col-auto">
+                            <div class="avatar avatar-xl position-relative">
+                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-auto my-auto">
-                        <div class="h-100">
-                            <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
-                            <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
+                        <div class="col-auto my-auto">
+                            <div class="h-100">
+                                <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
+                                <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Profil -->
-        <div class="col-12 mb-md-0 my-4">
-            <div class="card">
-                <div class="card-header pb-0 p-3">
-                    <div class="row">
-                        <div class="col-md-8 d-flex align-items-center">
-                            <h5 class="mb-0">Profil Anda</h5>
-                        </div>
-                        <div class="col-md-4 text-end">
-                            <a href="<?= site_url('dosen/profil/edit') ?>">
-                                <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                            </a>
+            <!-- Profil -->
+            <div class="col-12 mb-md-0 my-4">
+                <div class="card">
+                    <div class="card-header pb-0 p-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5>Profil Anda</h5>
+                            </div>
+                            <div class="text-end">
+                                <a href="<?= site_url('dosen/profil/edit') ?>">
+                                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                </a>
+                            </div>
                         </div>
                         <div class="card-body p-3">
                             <div class="row">
@@ -144,39 +145,37 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Footer -->
-<footer class="footer py-3">
+        <!-- Footer -->
+        <footer class="footer py-3">
 
-    <!-- Logo Medsos -->
-    <div class="col-lg-8 mx-auto text-center my-2">
-        <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
-            <i class="text-lg fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-            <i class="text-lg fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-            <i class="text-lg fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-            <i class="text-lg fa-brands fa-twitter"></i>
-        </a>
-        <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-            <i class="text-lg fa-brands fa-tiktok"></i>
-        </a>
-    </div>
+            <!-- Logo Medsos -->
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-tiktok"></i>
+                </a>
+            </div>
 
-    <!-- Copyright -->
-    <div class="col-lg-8 mx-auto text-center">
-        <p class="mb-0 text-secondary">
-            Copyright ©
-            <script>
-                document.write(new Date().getFullYear())
-            </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-        </p>
+            <!-- Copyright -->
+            <div class="container mx-auto text-center">
+                <p class="mb-0 text-secondary">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
     </div>
-</footer>
-</div>

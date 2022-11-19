@@ -87,7 +87,7 @@ class Dosen extends CI_Controller {
             $this->load->view('_partials/script');
         } else {
             $this->model_dosen->update_dosen($this->session->id);
-            redirect('dosen/profile');
+            redirect('dosen/profil');
         }
     }
 }

@@ -80,7 +80,7 @@ class Prodi extends CI_Controller {
 
     public function daftarmatkul() {
         $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listmk'] = $this->model_prodi->get_db('matkul');
+        $data['listmk'] = $this->model_prodi->get_db('matkul', ['id_prodi' => $this->session->id], 'result');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -181,8 +181,7 @@ class Prodi extends CI_Controller {
             $this->load->view('prodi/update', $data);
         } else {
             $this->model_prodi->update_prodi($this->session->id);
-            redirect('prodi/profile');
+            redirect('prodi/profil');
         }
     }
-
 }

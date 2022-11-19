@@ -27,71 +27,67 @@
                 </div>
             </div>
 
-            <!-- form mata kuliah -->
+            <!-- Form Mata Kuliah -->
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="mb-0">Form Pengisian Mata Kuliah</h5>
+                            </div>
+                            <div>
+                                <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
                         <div class="row">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h4 class="mb-0">Form Pengisian Mata Kuliah</h4>
-                                </div>
-                                <div>
-                                    <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
+                            <div class="col-md-6">
+                                <label>ID Mata Kuliah</label>
+                                <div class="mb-3">
+                                    <input type="text" name="id_matkul" class="form-control" placeholder="ID Matkul" required>
                                 </div>
                             </div>
-                            <div class="card-body p-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>ID Mata Kuliah</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Nama Mata Kuliah</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Nama Mata Kuliah (Inggris)</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Jenis</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>SKS Teori</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>SKS Praktikum</label>
-                                        <div class="mb-3">
-                                            <input type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Dosen Pengampu</label>
-                                        <div class="mb-3">
-                                            <input type="email">
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Semester</label>
-                                        <div class="mb-3">
-                                            <input type="email">
-                                        </div>
-                                        </form>
-                                    </div>
+                            <div class="col-md-6">
+                                <label>Nama Mata Kuliah</label>
+                                <div class="mb-3">
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama Matkul" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Nama Mata Kuliah (Inggris)</label>
+                                <div class="mb-3">
+                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Jenis Mata Kuliah</label>
+                                <div class="mb-3">
+                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Matkul" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>SKS Teori</label>
+                                <div class="mb-3">
+                                    <input type="text" name="sks" class="form-control" placeholder="SKS Teori" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>SKS Praktikum</label>
+                                <div class="mb-3">
+                                    <input type="text" name="sks_praktikum" class="form-control" placeholder="SKS Praktikum" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Dosen Pengampu</label>
+                                <div class="mb-3">
+                                    <input type="text" name="nik_dosen" class="form-control" placeholder="Dosen Pengampu" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Semester</label>
+                                <div class="mb-3">
+                                    <input type="text" name="id_semester" class="form-control" placeholder="Semester" required>
                                 </div>
                             </div>
                         </div>
@@ -103,9 +99,7 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
-                        <div class="col-lg-6 col-7">
-                            <h6> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h6>
-                        </div>
+                        <h5 class="mb-0"> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive">
@@ -181,26 +175,26 @@
         <footer class="footer py-3">
 
             <!-- Logo Medsos -->
-            <div class="col-lg-8 mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-facebook"></i>
                 </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-twitter"></i>
                 </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-tiktok"></i>
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="col-lg-8 mx-auto text-center">
+            <div class="container mx-auto text-center">
                 <p class="mb-0 text-secondary">
                     Copyright ©
                     <script>

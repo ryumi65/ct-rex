@@ -24,19 +24,45 @@
             </div>
 
             <!-- Profil -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-4">
                 <div class="card">
+
+                    <!-- Button -->
                     <div class="card-header pb-0 p-3">
-                        <div class="row">
-                            <div class="col-md-8 d-flex align-items-center">
-                                <h5 class="mb-0">Profil Anda</h5>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="<?= site_url('mahasiswa/profil/edit') ?>">
-                                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                                </a>
-                            </div>
-                            <div class="card-body p-3">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                            <!-- Button Mahasiswa -->
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="mahasiswa-tab" data-bs-toggle="tab" data-bs-target="#mahasiswa-tab-pane" type="button" role="tab" aria-controls="mahasiswa-tab-pane" aria-selected="true">Mahasiswa</button>
+                            </li>
+
+                            <!-- Button Orang Tua -->
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="orangtua-tab" data-bs-toggle="tab" data-bs-target="#orangtua-tab-pane" type="button" role="tab" aria-controls="orangtua-tab-pane" aria-selected="false">Orang Tua</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Isi -->
+                    <div class="card-body p-3">
+                        <div class="tab-content" id="myTabContent">
+
+                            <!-- Mahasiswa -->
+                            <div class="tab-pane fade show active" id="mahasiswa-tab-pane" role="tabpanel" aria-labelledby="mahasiswa-tab" tabindex="0">
+
+                                <!-- Judul -->
+                                <div class="row mb-3">
+                                    <div class="col-md-8">
+                                        <h5 class="mb-0">Profil Mahasiswa</h5>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <a href="<?= site_url('mahasiswa/profil/edit') ?>">
+                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Form -->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Nomor Induk Mahasiswa</label>
@@ -164,42 +190,193 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Orang Tua -->
+                            <div class="tab-pane fade" id="orangtua-tab-pane" role="tabpanel" aria-labelledby="orangtua-tab" tabindex="0">
+
+                                <!-- Judul -->
+                                <div class="row mb-3">
+                                    <div class="col-md-8">
+                                        <h5 class="mb-0">Profil Orang Tua/Wali</h5>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <a href="<?= site_url('mahasiswa/profil/edit') ?>">
+                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Form -->
+                                <div class="row">
+
+                                    <!-- Ayah -->
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <h6>Data Ayah</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nomor Induk Kependudukan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nik_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nik_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Lengkap</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nama_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tanggal Lahir</label>
+                                        <div class="mb-3">
+                                            <input type="date" name="tanggal_lahir_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['tanggal_lahir_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pendidikan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pendidikan_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pendidikan_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pekerjaan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pekerjaan_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pekerjaan_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Penghasilan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="penghasilan_ayah" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['penghasilan_ayah'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ibu -->
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <hr class="horizontal dark">
+                                            <h6>Data Ibu</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nomor Induk Kependudukan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nik_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nik_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Lengkap</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nama_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tanggal Lahir</label>
+                                        <div class="mb-3">
+                                            <input type="date" name="tanggal_lahir_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['tanggal_lahir_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pendidikan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pendidikan_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pendidikan_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pekerjaan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pekerjaan_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pekerjaan_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Penghasilan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="penghasilan_ibu" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['penghasilan_ibu'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Wali -->
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <hr class="horizontal dark">
+                                            <h6>Data Wali</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nomor Induk Kependudukan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nik_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nik_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nama Lengkap</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="nama_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['nama_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tanggal Lahir</label>
+                                        <div class="mb-3">
+                                            <input type="date" name="tanggal_lahir_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['tanggal_lahir_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pendidikan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pendidikan_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pendidikan_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Pekerjaan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="pekerjaan_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['pekerjaan_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Penghasilan</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="penghasilan_wali" class="form-control-plaintext ms-1" placeholder="-" value="<?= $ortu['penghasilan_wali'] ?>" disabled readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <!-- Footer -->
-            <footer class="footer py-3">
-
-                <!-- Logo Medsos -->
-                <div class="col-lg-8 mx-auto text-center my-2">
-                    <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
-                        <i class="text-lg fa-brands fa-youtube"></i>
-                    </a>
-                    <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                        <i class="text-lg fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                        <i class="text-lg fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                        <i class="text-lg fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
-                        <i class="text-lg fa-brands fa-tiktok"></i>
-                    </a>
-                </div>
-
-                <!-- Copyright -->
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="mb-0 text-secondary">
-                        Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                    </p>
-                </div>
-            </footer>
         </div>
+
+        <!-- Footer -->
+        <footer class="footer py-3">
+
+            <!-- Logo Medsos -->
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="container mx-auto text-center">
+                <p class="mb-0 text-secondary">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+    </div>

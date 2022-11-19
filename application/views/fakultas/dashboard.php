@@ -31,11 +31,7 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="row">
-                            <div class="col-lg-6 col-7">
-                                <h6> Beban Dosen Mengajar Tahun Akademik 2022 - 2023 Ganjil</h6>
-                            </div>
-                        </div>
+                        <h5>Beban Dosen Mengajar Tahun Akademik 2022 - 2023 Ganjil</h5>
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive">
@@ -96,17 +92,11 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <div class="row">
-                            <div class="col-lg-6 col-7">
-                                <h6>Jadwal Perkuliahan Dosen Prodi Hari ini</h6>
-                                <p class="text-sm mb-0">
-                                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                    <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
-                                </p>
-                            </div>
-                            <div class="col-lg-6 col-5 my-auto text-end">
-                            </div>
-                        </div>
+                        <h5>Jadwal Perkuliahan Dosen Prodi Hari ini</h5>
+                        <p class="text-sm mb-0">
+                            <i class="fa fa-check text-info" aria-hidden="true"></i>
+                            <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
+                        </p>
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive">
@@ -231,26 +221,26 @@
         <footer class="footer py-3">
 
             <!-- Logo Medsos -->
-            <div class="col-lg-8 mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary me-xl-4 me-4">
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-facebook"></i>
                 </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-twitter"></i>
                 </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary me-xl-4 me-4">
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
                     <i class="text-lg fa-brands fa-tiktok"></i>
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="col-lg-8 mx-auto text-center">
+            <div class="container mx-auto text-center">
                 <p class="mb-0 text-secondary">
                     Copyright ©
                     <script>

@@ -10,7 +10,7 @@ class Login extends CI_Controller {
 
     public function index() {
         if (!$this->session->userdata('logged')) {
-            $this->cookieValidation();
+            $this->cookieCheck();
 
             $this->load->view('_partials/head');
             $this->load->view('akun/login');
@@ -22,7 +22,7 @@ class Login extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        if ($this->model_login->validation($username, $password)) {
+        if ($this->model_login->passwordValidation($username, $password)) {
             $akun = $this->model_login->get_db('akun', ['username' => $username]);
 
             if ($akun['status'] === 'y') {
@@ -92,15 +92,15 @@ class Login extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function cookieValidation() {
+    public function cookieCheck() {
         if (get_cookie('id_akun') != null) {
             $idCookie = convert_uudecode(get_cookie('id_akun'));
             $explodedTokenCookie = explode(':', get_cookie('token'));
-            $validation = $this->model_login->get_db('remember_me', ['id_akun' => $idCookie, 'selector' => $explodedTokenCookie[0]]);
 
-            if ($validation) {
+            if ($this->model_login->cookieValidation($idCookie, $explodedTokenCookie[0])) {
+                $cookie = $this->model_login->get_db('remember_me', ['id_akun' => $idCookie]);
 
-                if (hash_equals(hash('sha256', $explodedTokenCookie[1]), $validation['hashedValidator'])) {
+                if (hash_equals(hash('sha256', $explodedTokenCookie[1]), $cookie['hashedValidator'])) {
                     $akun = $this->model_login->get_db('akun', ['id_akun' => $idCookie]);
 
                     if ($akun['status'] === 'y') {

@@ -23,14 +23,14 @@
                                     <?php if (isset($error)) : ?>
                                         <div class="alert alert-danger alert-dismissible text-white text-sm fade show" role="alert">
                                             Username/Password Salah.
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
                                         </div>
                                     <?php elseif (isset($blokir)) : ?>
                                         <div class="alert alert-danger alert-dismissible text-white text-sm fade show" role="alert">
                                             Akun anda diblokir. Silahkan menghubungi admin.
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </button>
                                         </div>

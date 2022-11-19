@@ -6,12 +6,12 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_login');
-
-        $this->cookieValidation();
     }
 
     public function index() {
         if (!$this->session->userdata('logged')) {
+            $this->cookieValidation();
+
             $this->load->view('_partials/head');
             $this->load->view('akun/login');
             $this->load->view('_partials/script');
@@ -21,10 +21,9 @@ class Login extends CI_Controller {
     public function auth() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $validation = $this->model_login->validation($username, $password);
 
-        if ($validation->num_rows() > 0) {
-            $akun = $validation->row_array();
+        if ($this->model_login->validation($username, $password)) {
+            $akun = $this->model_login->get_db('akun', ['username' => $username]);
 
             if ($akun['status'] === 'y') {
 

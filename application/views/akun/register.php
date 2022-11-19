@@ -17,21 +17,21 @@
                     <?php if (isset($success)) : ?>
                         <div class="alert alert-success alert-dismissible text-white text-sm fade show" role="alert">
                             Registrasi akun berhasil!
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </div>
                     <?php elseif (isset($idError)) : ?>
                         <div class="alert alert-danger alert-dismissible text-white text-sm fade show" role="alert">
                             ID Akun yang dimasukkan sudah terdaftar. Silahkan mendaftar dengan ID lain.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </div>
                     <?php elseif (isset($usernameError)) : ?>
                         <div class="alert alert-danger alert-dismissible text-white text-sm fade show" role="alert">
                             Username yang dimasukkan sudah terdaftar. Silahkan mendaftar dengan Username lain.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close">
                                 <i class="fa-solid fa-xmark"></i>
                             </button>
                         </div>

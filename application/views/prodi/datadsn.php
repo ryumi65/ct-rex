@@ -92,8 +92,6 @@
                                                     <h6 class="mb-0 text-sm"><?= $dosen['status_kerja'] ?></h6>
                                                 </div>
                                             </td>
-
-
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

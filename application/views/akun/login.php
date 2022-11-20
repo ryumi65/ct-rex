@@ -47,7 +47,7 @@
                                     <label>Password</label>
                                     <div class="input-group justify-content-between mb-3">
                                         <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                                        <span class="input-group-text" style="margin-left: 100%; right: 0%;">
+                                        <span class="input-group-text" style="right: 0%">
                                             <div class="text-end">
                                                 <i class="fa-regular fa-eye-slash" id="togglePassword" style="cursor: pointer"></i>
                                             </div>

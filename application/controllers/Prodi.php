@@ -184,4 +184,53 @@ class Prodi extends CI_Controller {
             redirect('prodi/profil');
         }
     }
+
+    public function ajax_list($table) {
+        $list = $this->model_prodi->get_datatables($table);
+        $data = [];
+        $no = $_POST['start'];
+        if ($table === 'dosen') {
+            foreach ($list as $dosen) {
+                $no++;
+                $row = [];
+                $row[] = $no;
+                $row[] = $dosen->nik;
+                $row[] = $dosen->nama;
+                $row[] = $dosen->status_dosen;
+
+                $data[] = $row;
+            }
+        } elseif ($table === 'mahasiswa') {
+            foreach ($list as $mahasiswa) {
+                $no++;
+                $row = [];
+                $row[] = $no;
+                $row[] = $mahasiswa->nim;
+                $row[] = $mahasiswa->nama;
+                $row[] = ucfirst($mahasiswa->status);
+
+                $data[] = $row;
+            }
+        } elseif ($table === 'matkul') {
+            foreach ($list as $matkul) {
+                $no++;
+                $row = [];
+                $row[] = $no;
+                $row[] = $matkul->id_matkul;
+                $row[] = $matkul->nama;
+                $row[] = $matkul->sks;
+
+                $data[] = $row;
+            }
+        } else return false;
+
+        $output = [
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->model_prodi->count_all($table),
+            "recordsFiltered" => $this->model_prodi->count_filtered($table),
+            "data" => $data,
+        ];
+
+        echo json_encode($output);
+    }
 }

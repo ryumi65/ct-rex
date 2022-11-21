@@ -21,11 +21,7 @@
 
     <!-- Soft Dashboard UI -->
     <script defer src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
-    <script defer src="<?= base_url(); ?>assets/js/custom.js"></script>
 
-    <!-- JQuery -->
-    <script defer src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script defer type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     </body>
 
     </html>

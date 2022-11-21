@@ -115,3 +115,4 @@
             </p>
         </div>
     </footer>
+    <script defer src="<?= base_url(); ?>assets/js/show-pass.js"></script>

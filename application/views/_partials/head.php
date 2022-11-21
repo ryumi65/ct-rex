@@ -9,12 +9,12 @@
     <title>Sikadu Universitas Muhammadiyah Bandung</title>
 
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="<?= base_url(); ?>assets/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="<?= base_url(); ?>assets/css/fontawesome-all.min.css" rel="stylesheet" />
 
     <!-- CSS Files -->
-    <link id="pagestyle" href="<?= base_url(); ?>assets/css/custom.css" rel="stylesheet">
+    <link id="pagestyle" href="<?= base_url(); ?>assets/css/custom.css" rel="stylesheet" />
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css" />
 </head>

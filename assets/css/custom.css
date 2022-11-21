@@ -2535,7 +2535,7 @@ textarea.form-control-lg {
 .form-select {
   display: block;
   width: 100%;
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
   -moz-padding-start: calc(0.75rem - 3px);
   font-size: 0.875rem;
   font-weight: 400;
@@ -2960,7 +2960,7 @@ textarea.form-control-lg {
 
 .input-group-lg > .form-select,
 .input-group-sm > .form-select {
-  padding-right: 1.75rem;
+  padding-right: 2.75rem;
 }
 
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
@@ -3030,9 +3030,9 @@ textarea.form-control-lg {
   border-color: #66d432;
 }
 .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"], .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid:not([multiple])[size="1"] {
-  padding-right: 2.875rem;
+  padding-right: 3.875rem;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3e%3cpath fill='%2366d432' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-  background-position: right 0.75rem center, center right 1.75rem;
+  background-position: right 0.75rem center, center right 2.75rem;
   background-size: 16px 12px, 1rem 1rem;
 }
 .was-validated .form-select:valid:focus, .form-select.is-valid:focus {
@@ -3123,9 +3123,9 @@ textarea.form-control-lg {
   border-color: #fd5c70;
 }
 .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"] {
-  padding-right: 2.875rem;
+  padding-right: 3.875rem;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23fd5c70' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23fd5c70' stroke='none'/%3e%3c/svg%3e");
-  background-position: right 0.75rem center, center right 1.75rem;
+  background-position: right 0.75rem center, center right 2.75rem;
   background-size: 16px 12px, 1rem 1rem;
 }
 .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
@@ -20269,70 +20269,6 @@ hr.horizontal.gray-light {
 }
 .moving-tab .nav-link:hover:not(.active) {
   color: #344767;
-}
-
-.page-item.active .page-link {
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.09), 0 2px 3px -1px rgba(0, 0, 0, 0.07);
-}
-.page-item .page-link,
-.page-item span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #8392AB;
-  padding: 0;
-  margin: 0 3px;
-  border-radius: 50% !important;
-  width: 36px;
-  height: 36px;
-  font-size: 0.875rem;
-}
-
-.pagination-lg .page-item .page-link,
-.pagination-lg .page-item span {
-  width: 46px;
-  height: 46px;
-  line-height: 46px;
-}
-
-.pagination-sm .page-item .page-link,
-.pagination-sm .page-item span {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-}
-
-.pagination.pagination-primary .page-item.active > .page-link, .pagination.pagination-primary .page-item.active > .page-link:focus, .pagination.pagination-primary .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #0c87f2 0%, #2cb72c 100%);
-  border: none;
-}
-.pagination.pagination-secondary .page-item.active > .page-link, .pagination.pagination-secondary .page-item.active > .page-link:focus, .pagination.pagination-secondary .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #627594 0%, #A8B8D8 100%);
-  border: none;
-}
-.pagination.pagination-success .page-item.active > .page-link, .pagination.pagination-success .page-item.active > .page-link:focus, .pagination.pagination-success .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #17ad37 0%, #98ec2d 100%);
-  border: none;
-}
-.pagination.pagination-info .page-item.active > .page-link, .pagination.pagination-info .page-item.active > .page-link:focus, .pagination.pagination-info .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #2152ff 0%, #21d4fd 100%);
-  border: none;
-}
-.pagination.pagination-warning .page-item.active > .page-link, .pagination.pagination-warning .page-item.active > .page-link:focus, .pagination.pagination-warning .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #f53939 0%, #fbcf33 100%);
-  border: none;
-}
-.pagination.pagination-danger .page-item.active > .page-link, .pagination.pagination-danger .page-item.active > .page-link:focus, .pagination.pagination-danger .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #ea0606 0%, #ff667c 100%);
-  border: none;
-}
-.pagination.pagination-light .page-item.active > .page-link, .pagination.pagination-light .page-item.active > .page-link:focus, .pagination.pagination-light .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #CED4DA 0%, #EBEFF4 100%);
-  border: none;
-}
-.pagination.pagination-dark .page-item.active > .page-link, .pagination.pagination-dark .page-item.active > .page-link:focus, .pagination.pagination-dark .page-item.active > .page-link:hover {
-  background-image: linear-gradient(310deg, #141727 0%, #3A416F 100%);
-  border: none;
 }
 
 .popover {

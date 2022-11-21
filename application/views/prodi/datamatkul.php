@@ -10,7 +10,7 @@
                     <div class="row gx-4">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radiu  s-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
@@ -96,73 +96,27 @@
             </div>
 
             <!-- Beban Mengajar -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header pb-0">
                         <h5 class="mb-0"> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 5%">
+                                            No.</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             ID Mata Kuliah</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama Mata Kuliah</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jenis </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            SKS Teori</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            SKS Praktikum</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Dosen Pengampu</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Semester </th>
+                                            SKS</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($listmk as $matkul) : ?>
-                                        <tr>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['id_matkul'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/akademik/detail-matkul/' . $matkul['id_matkul']) ?>">
-                                                        <h6 class="mb-0 text-sm"><?= $matkul['nama'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['jenis'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['sks'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['sks_praktikum'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['nik_dosen'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $matkul['id_semester'] ?></h6>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
+                                <tbody class="font-weight-bold text-sm">
                                 </tbody>
                             </table>
                         </div>
@@ -204,3 +158,39 @@
             </div>
         </footer>
     </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script>
+        var table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                "deferRender": true,
+                "responsive": true,
+                "serverSide": true,
+                "order": [],
+
+                "ajax": {
+                    "url": "<?= site_url('prodi/ajax_list/matkul') ?>",
+                    "type": "POST"
+                },
+
+                "columnDefs": [{
+                    "targets": [0],
+                    "orderable": false,
+                }, {
+                    "targets": [2],
+                    "data": null,
+                    "render": (data, type, row, meta) => {
+                        return '<a href="detail-matkul/' + row['1'] + '">' + row['2'] + '</a>';
+                    }
+                }],
+
+            });
+
+        });
+    </script>

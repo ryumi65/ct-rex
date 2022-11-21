@@ -28,57 +28,27 @@
             </div>
 
             <!-- Beban Mengajar -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 5%">
+                                            No.</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             NIM</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama Mahasiswa</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jenis Kelamin</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tempat, Tanggal Lahir</th>
+                                            Status Mahasiswa</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($listm as $mahasiswa) : ?>
-                                        <tr>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nim'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>">
-                                                        <h6 class="mb-0 text-sm"><?= $mahasiswa['nama'] ?></h6>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
-                                                        <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                                    <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
-                                                        <h6 class="mb-0 text-sm">Perempuan</h6>
-                                                    <?php endif ?>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['tempat_lahir'] . ', ' . $mahasiswa['tanggal_lahir']  ?></h6>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
+                                <tbody class="font-weight-bold text-sm">
                                 </tbody>
                             </table>
                         </div>
@@ -120,3 +90,39 @@
             </div>
         </footer>
     </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script>
+        var table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                "deferRender": true,
+                "responsive": true,
+                "serverSide": true,
+                "order": [],
+
+                "ajax": {
+                    "url": "<?= site_url('prodi/ajax_list/mahasiswa') ?>",
+                    "type": "POST"
+                },
+
+                "columnDefs": [{
+                    "targets": [0],
+                    "orderable": false,
+                }, {
+                    "targets": [2],
+                    "data": null,
+                    "render": (data, type, row, meta) => {
+                        return '<a href="data-mahasiswa/' + row['1'] + '">' + row['2'] + '</a>';
+                    }
+                }],
+
+            });
+
+        });
+    </script>

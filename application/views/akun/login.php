@@ -9,7 +9,7 @@
                     <div class="row">
 
                         <!-- Form -->
-                        <div class="col-xl-4 col-lg-5 col-md-6 mt-3 d-flex flex-column mx-auto">
+                        <div class="col-xl-4 col-lg-5 col-md-6 mt-3 mb-5 d-flex flex-column mx-auto">
                             <div class="card card-plain">
 
                                 <!-- Judul -->
@@ -107,7 +107,7 @@
 
         <!-- Copyright -->
         <div class="container mx-auto text-center">
-            <p class="mb-0 text-secondary">
+            <p class="mb-0 text-secondary text-xs">
                 Copyright ©
                 <script>
                     document.write(new Date().getFullYear())

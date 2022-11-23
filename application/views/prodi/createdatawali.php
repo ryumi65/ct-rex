@@ -51,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" name="dosen_wali[]" value="<?= $mahasiswa['nim'] ?>">
-                                        <label class="form-check-label"><?= $mahasiswa['nama'] ?></label>
+                                        <label class="form-check-label"><?= $mahasiswa['nim'] . ' - ' . $mahasiswa['nama'] ?></label>
                                     </div>
                                 </div>
                             <?php endforeach ?>
@@ -90,7 +90,7 @@
 
             <!-- Copyright -->
             <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary">
+                <p class="mb-0 text-secondary text-xs">
                     Copyright ©
                     <script>
                         document.write(new Date().getFullYear())

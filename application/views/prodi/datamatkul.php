@@ -106,17 +106,17 @@
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 5%">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             ID Mata Kuliah</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Mata Kuliah</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             SKS</th>
                                     </tr>
                                 </thead>
-                                <tbody class="font-weight-bold text-sm">
+                                <tbody class="text-sm">
                                 </tbody>
                             </table>
                         </div>
@@ -149,7 +149,7 @@
 
             <!-- Copyright -->
             <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary">
+                <p class="mb-0 text-secondary text-xs">
                     Copyright ©
                     <script>
                         document.write(new Date().getFullYear())
@@ -163,7 +163,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
     <script>
-        var table;
+        let table;
 
         $(document).ready(() => {
 

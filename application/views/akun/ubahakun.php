@@ -82,7 +82,7 @@
 
                 <!-- Copyright -->
                 <div class="container mx-auto text-center">
-                    <p class="mb-0 text-secondary">
+                    <p class="mb-0 text-secondary text-xs">
                         Copyright ©
                         <script>
                             document.write(new Date().getFullYear())

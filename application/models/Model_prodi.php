@@ -97,6 +97,13 @@ class Model_prodi extends CI_Model {
         return $this->db->update('prodi', $data, ['id_prodi' => $id_prodi]);
     }
 
+    public function get_mhs_wali($nik) {
+        $this->db->from('mahasiswa');
+        $this->db->where('dosen_wali', $nik);
+
+        return $this->db->count_all_results();
+    }
+
     public function set_mhs_wali($input) {
         for ($i = 0; $i < count($input); $i++) {
             $nik['dosen_wali'] = $this->input->post('nik');

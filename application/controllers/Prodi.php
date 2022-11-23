@@ -128,7 +128,7 @@ class Prodi extends CI_Controller {
             $this->load->view('_partials/script');
         } else {
             $this->model_prodi->set_mhs_wali($this->input->post('dosen_wali[]'));
-            redirect('prodi/datadsnwl');
+            redirect('prodi/civitas/data-dosen-wali');
         }
     }
 
@@ -185,20 +185,34 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function ajax_list($table) {
+    public function ajax_list($table, $wali = null) {
         $list = $this->model_prodi->get_datatables($table);
         $data = [];
         $no = $_POST['start'];
         if ($table === 'dosen') {
-            foreach ($list as $dosen) {
-                $no++;
-                $row = [];
-                $row[] = $no;
-                $row[] = $dosen->nik;
-                $row[] = $dosen->nama;
-                $row[] = $dosen->status_dosen;
+            if ($wali) {
+                foreach ($list as $dosen) {
+                    $no++;
+                    $row = [];
+                    $row[] = $no;
+                    $row[] = $dosen->nik;
+                    $row[] = $dosen->nama;
+                    $row[] = $dosen->status_dosen;
+                    $row[] = $this->model_prodi->get_mhs_wali($dosen->nik);
 
-                $data[] = $row;
+                    $data[] = $row;
+                }
+            } else {
+                foreach ($list as $dosen) {
+                    $no++;
+                    $row = [];
+                    $row[] = $no;
+                    $row[] = $dosen->nik;
+                    $row[] = $dosen->nama;
+                    $row[] = $dosen->status_dosen;
+
+                    $data[] = $row;
+                }
             }
         } elseif ($table === 'mahasiswa') {
             foreach ($list as $mahasiswa) {

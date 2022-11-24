@@ -160,7 +160,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/profil/edit/' . $prodi['id_prodi']) ?>">
+                                <a class="nav-link link-secondary" href="#">
                                     Edit Data Prodi
                                 </a>
                             </li>

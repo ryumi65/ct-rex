@@ -102,4 +102,24 @@ class Mahasiswa extends CI_Controller {
         $this->model_mahasiswa->update_ortu($nim);
         redirect('mahasiswa/profil');
     }
+
+    public function do_upload() {
+        $config['upload_path']   = './uploads/profile/';
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['max_size']      = 2048;
+        $config['max_width']     = 1000;
+        $config['max_height']    = 1000;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $error = ['error' => $this->upload->display_errors()];
+
+            $this->load->view('upload_form', $error);
+        } else {
+            $data = ['upload_data' => $this->upload->data()];
+
+            $this->load->view('upload_success', $data);
+        }
+    }
 }

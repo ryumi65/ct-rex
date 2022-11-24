@@ -24,7 +24,7 @@
                                             Tahun Angkatan</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Status Mahasiswa</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Aksi</th>
                                     </tr>
                                 </thead>

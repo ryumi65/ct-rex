@@ -29,7 +29,7 @@
                                             Total SKS</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Kategori</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs text-center ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Aksi</th>
                                     </tr>
                                 </thead>

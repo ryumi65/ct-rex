@@ -1,7 +1,7 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid py-3">
 
-            <!-- Header -->
+            <!-- Header
             <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
                 <span class="mask bg-gradient-info opacity-5"></span>
             </div>
@@ -25,7 +25,7 @@
                         <p class="mx-2">Dosen Prodi</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Form Mata Kuliah -->
             <div class="col-12 mb-md-0 my-4">

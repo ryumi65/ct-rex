@@ -2,7 +2,7 @@
         <div class="container-fluid py-3">
 
             <!-- Header -->
-            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
+            <!-- <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
                 <span class="mask bg-gradient-info opacity-5"></span>
             </div>
             <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
@@ -25,7 +25,7 @@
                         <p class="mx-2">Dosen Prodi</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Beban Mengajar -->
             <div class="col-12 mb-md-0 my-4">

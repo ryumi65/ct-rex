@@ -48,7 +48,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Jenis Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <input type="text" name="jenis" class="form-control" placeholder="-" value="<?= $matkul['jenis'] ?>" disabled readonly>
+                                    <input type="text" name="jenis" class="form-control" placeholder="-" value="<?= ucwords($matkul['jenis']) ?>" disabled readonly>
                                 </div>
                             </div>
                         </div>

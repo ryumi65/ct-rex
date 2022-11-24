@@ -160,7 +160,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/edit/' . $this->session->id) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

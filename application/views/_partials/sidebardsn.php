@@ -130,7 +130,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('dosen/profil/edit/' . $this->session->id) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>

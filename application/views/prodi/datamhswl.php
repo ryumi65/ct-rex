@@ -1,82 +1,34 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Header -->
-            <!-- <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
-            </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
-                            <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                            </div>
-                        </div>
-                        <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <p class="mx-2">Mahasiswa Aktif</p>
-                        <p class="mx-2">Dosen Prodi</p>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Beban Mengajar -->
-            <div class="col-12 mb-md-0 my-4">
+            <!-- Tabel Mhs Wali -->
+            <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             NIM</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Mahasiswa</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Jenis Kelamin</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tempat, Tanggal Lahir</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Tahun Angkatan</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Status Mahasiswa</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($listm as $mahasiswa) : ?>
-                                        <tr>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nim'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['nama'] ?></h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
-                                                        <h6 class="mb-0 text-sm">Laki-Laki</h6>
-                                                    <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
-                                                        <h6 class="mb-0 text-sm">Perempuan</h6>
-                                                    <?php endif ?>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm"><?= $mahasiswa['tempat_lahir'] . ', ' . $mahasiswa['tanggal_lahir']  ?></h6>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
+                                <tbody class="text-sm">
                                 </tbody>
                             </table>
                         </div>
@@ -86,7 +38,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">
@@ -118,3 +70,45 @@
             </div>
         </footer>
     </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script>
+        let table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                "deferRender": true,
+                "responsive": true,
+                "serverSide": true,
+                "order": [],
+
+                "ajax": {
+                    "url": "<?= site_url('prodi/ajax_list/mahasiswa/mhswl/' . $dosen['nik']) ?>",
+                    "type": "POST"
+                },
+
+                "columnDefs": [{
+                    "targets": [0, 6],
+                    "orderable": false,
+                }, {
+                    "targets": [2],
+                    "data": null,
+                    "render": (data, type, row, meta) => {
+                        return '<a href="<?= site_url('prodi/civitas/data-mahasiswa/') ?>' + row['1'] + '">' + row['2'] + '</a>';
+                    }
+                }, {
+                    "targets": [6],
+                    "data": null,
+                    "render": (data, type, row, meta) => {
+                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/') ?>' + row['1'] + '" class="btn btn-danger mb-0"><i class="fa-solid fa-trash-can"></i></a></div>';
+                    }
+                }],
+
+            });
+
+        });
+    </script>

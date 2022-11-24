@@ -1,5 +1,5 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-3">
 
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/es.jpeg'); background-position-y: 80%;">
@@ -22,8 +22,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Grafik -->
             <div class="row mt-4">
@@ -202,7 +200,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

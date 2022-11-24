@@ -60,8 +60,8 @@ class Dosen extends CI_Controller {
         }
     }
 
-    public function update() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
+    public function update($nik) {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $nik]);
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -86,7 +86,7 @@ class Dosen extends CI_Controller {
             $this->load->view('dosen/update', $data);
             $this->load->view('_partials/script');
         } else {
-            $this->model_dosen->update_dosen($this->session->id);
+            $this->model_dosen->update_dosen($nik);
             redirect('dosen/profil');
         }
     }

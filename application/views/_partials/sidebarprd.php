@@ -1,4 +1,4 @@
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
 
         <!-- Sidebar Header -->
@@ -52,32 +52,32 @@
                     <div class="collapse" id="akademik">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/akademik/daftar-matkul') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/akademik/data-matkul') ?>">
                                     Data Mata Kuliah
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/jadwalkuliah') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/jadwalkuliah') ?>">
                                     Jadwal Kuliah
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Aktivitas Kemahasiswaan
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     KRS
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Nilai Perkuliahan
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Kuisioner Dosen
                                 </a>
                             </li>
@@ -103,17 +103,17 @@
                     <div class="collapse" id="datacivitas">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-dosen') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen') ?>">
                                     Data Dosen
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-mahasiswa') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-mahasiswa') ?>">
                                     Data Mahasiswa
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
                                     Data Dosen Wali
                                 </a>
                             </li>
@@ -155,17 +155,17 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/profil') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/profil') ?>">
                                     Lihat Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('prodi/profil/edit') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/profil/edit/' . $prodi['id_prodi']) ?>">
                                     Edit Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Ubah Password
                                 </a>
                             </li>

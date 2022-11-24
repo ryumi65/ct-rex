@@ -49,4 +49,8 @@ class Model_dosen extends CI_Model {
 
         return $this->db->update('dosen', $data, ['nik' => $nik]);
     }
+
+    public function delete_dosen($nik) {
+        return $this->db->delete('dosen', ['nik' => $nik]);
+    }
 }

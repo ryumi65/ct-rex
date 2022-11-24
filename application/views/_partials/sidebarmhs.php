@@ -1,4 +1,4 @@
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
 
         <!-- Sidebar Header -->
@@ -45,22 +45,22 @@
                     <div class="collapse" id="perkuliahan">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Lihat Jadwal
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     KRS
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     KHS
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Cetak Transkrip
                                 </a>
                             </li>
@@ -79,22 +79,22 @@
                     <div class="collapse" id="pendaftaran">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Pengajuan Sidang
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     KKN
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Magang
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     MBKM
                                 </a>
                             </li>
@@ -155,17 +155,17 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link  " href="<?= site_url('mahasiswa/profil') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil') ?>">
                                     Lihat Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('mahasiswa/profil/edit') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
                                     Edit Data Diri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link link-secondary" href="#">
                                     Ubah Password
                                 </a>
                             </li>

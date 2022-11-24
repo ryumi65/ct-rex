@@ -1,33 +1,7 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Header -->
-            <!-- <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
-            </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
-                            <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                            </div>
-                        </div>
-                        <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <p class="mx-2">Mahasiswa Aktif</p>
-                        <p class="mx-2">Dosen Prodi</p>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Beban Mengajar -->
+            <!-- Tabel Dosen Wali -->
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
@@ -47,11 +21,13 @@
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                                 No.</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                NIK Dosen</th>
+                                                NIK</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Nama Dosen</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Status Dosen</th>
+                                                Jenis Kelamin</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                NIDN</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Jumlah Mahasiswa Wali</th>
                                         </tr>
@@ -67,7 +43,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">
@@ -116,7 +92,7 @@
                 "order": [],
 
                 "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/dosen/true') ?>",
+                    "url": "<?= site_url('prodi/ajax_list/dosen/dsnwl') ?>",
                     "type": "POST"
                 },
 
@@ -129,9 +105,6 @@
                     "render": (data, type, row, meta) => {
                         return '<a href="data-dosen-wali/' + row['1'] + '">' + row['2'] + '</a>';
                     }
-                }, {
-                    "targets": [4],
-                    "orderData": 0,
                 }],
 
             });

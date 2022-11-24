@@ -1,105 +1,18 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Header
-            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
-            </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
-                            <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                            </div>
-                        </div>
-                        <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <p class="mx-2">Mahasiswa Aktif</p>
-                        <p class="mx-2">Dosen Prodi</p>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Form Mata Kuliah -->
-            <div class="col-12 mb-md-0 my-4">
-                <div class="card">
-                    <div class="card-header pb-0 p-3">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0">Form Pengisian Mata Kuliah</h5>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>ID Mata Kuliah</label>
-                                <div class="mb-3">
-                                    <input type="text" name="id_matkul" class="form-control" placeholder="ID Matkul" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Nama Mata Kuliah</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama Matkul" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Nama Mata Kuliah (Inggris)</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Jenis Mata Kuliah</label>
-                                <div class="mb-3">
-                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis Matkul" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>SKS Teori</label>
-                                <div class="mb-3">
-                                    <input type="text" name="sks" class="form-control" placeholder="SKS Teori" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>SKS Praktikum</label>
-                                <div class="mb-3">
-                                    <input type="text" name="sks_praktikum" class="form-control" placeholder="SKS Praktikum" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Dosen Pengampu</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nik_dosen" class="form-control" placeholder="Dosen Pengampu" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Semester</label>
-                                <div class="mb-3">
-                                    <input type="text" name="id_semester" class="form-control" placeholder="Semester" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Beban Mengajar -->
+            <!-- Daftar Matkul -->
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5 class="mb-0"> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="mb-0"> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
+                            </div>
+                            <div>
+                                <a href="<?= site_url('prodi/akademik/tambah-matkul') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -109,11 +22,15 @@
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            ID Mata Kuliah</th>
+                                            ID Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mata Kuliah</th>
+                                            Nama Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            SKS</th>
+                                            Total SKS</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kategori</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center ps-2">
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -126,7 +43,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">
@@ -186,7 +103,14 @@
                     "targets": [2],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<a href="detail-matkul/' + row['1'] + '">' + row['2'] + '</a>';
+                        return '<a href="data-matkul/' + row['1'] + '">' + row['2'] + '</a>';
+                    }
+                }, {
+                    "targets": [5],
+                    "data": null,
+                    "render": (data, type, row, meta) => {
+                        return '<div class="text-center"><a href="<?= site_url('prodi/akademik/data-matkul/edit/') ?>' + row['1'] + '" class="btn btn-warning mx-1 mb-0"><i class="fa-solid fa-pen-to-square"></i></a>' +
+                            '<a href="<?= site_url('prodi/akademik/data-matkul/delete/') ?>' + row['1'] + '" class="btn btn-danger mx-1 mb-0"><i class="fa-solid fa-trash-can"></i></a></div>';
                     }
                 }],
 

@@ -1,6 +1,5 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
-
+        <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/header-mhs.png'); background-position-y: 80%;">
@@ -268,366 +267,366 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Logo Medsos -->
-                <div class="container mx-auto text-center my-2">
-                    <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-youtube"></i>
-                    </a>
-                    <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-tiktok"></i>
-                    </a>
-                </div>
+        <!-- Footer -->
+        <footer class="footer py-3">
 
-                <!-- Copyright -->
-                <div class="container mx-auto text-center">
-                    <p class="mb-0 text-secondary">
-                        Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                    </p>
-                    <!-- Footer -->
-                    <footer class="footer py-3">
+            <!-- Logo Medsos -->
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-tiktok"></i>
+                </a>
+            </div>
 
+            <!-- Copyright -->
+            <div class="container mx-auto text-center">
+                <p class="mb-0 text-secondary text-xs">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
 
+    <!--   Core JS Files   -->
+    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+    <script>
+        var ctx2 = document.getElementById("chart1").getContext("2d");
 
-                        <!--   Core JS Files   -->
+        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-                        <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
-                        <script>
-                            var ctx2 = document.getElementById("chart1").getContext("2d");
+        gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
+        gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
 
-                            var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-                            gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
-                            gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
-                            gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
+        gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
+        gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
 
-                            var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                datasets: [{
+                        label: "Perempuan",
+                        tension: 0.3,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#2cb72c",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke1,
+                        fill: true,
+                        data: [10, 40, 300, 220, 500, 250, 400, 230, 500],
+                        maxBarThickness: 6
 
-                            gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
-                            gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
-                            gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+                    },
+                    {
+                        label: "Laki-Laki",
+                        tension: 0.4,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#3a416f",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke2,
+                        fill: true,
+                        data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                        maxBarThickness: 6
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>
 
-                            new Chart(ctx2, {
-                                type: "line",
-                                data: {
-                                    labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
-                                    datasets: [{
-                                            label: "Perempuan",
-                                            tension: 0.3,
-                                            borderWidth: 0,
-                                            pointRadius: 0,
-                                            borderColor: "#2cb72c",
-                                            borderWidth: 3,
-                                            backgroundColor: gradientStroke1,
-                                            fill: true,
-                                            data: [10, 40, 300, 220, 500, 250, 400, 230, 500],
-                                            maxBarThickness: 6
+    <script>
+        var ctx3 = document.getElementById("chart2").getContext("2d");
 
-                                        },
-                                        {
-                                            label: "Laki-Laki",
-                                            tension: 0.4,
-                                            borderWidth: 0,
-                                            pointRadius: 0,
-                                            borderColor: "#3a416f",
-                                            borderWidth: 3,
-                                            backgroundColor: gradientStroke2,
-                                            fill: true,
-                                            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                                            maxBarThickness: 6
-                                        },
-                                    ],
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    plugins: {
-                                        legend: {
-                                            display: false,
-                                        }
-                                    },
-                                    interaction: {
-                                        intersect: false,
-                                        mode: 'index',
-                                    },
-                                    scales: {
-                                        y: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: true,
-                                                drawOnChartArea: true,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                padding: 10,
-                                                color: '#b2b9bf',
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                        x: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: false,
-                                                drawOnChartArea: false,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                color: '#b2b9bf',
-                                                padding: 20,
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                    },
-                                },
-                            });
-                        </script>
+        var gradientStroke1 = ctx3.createLinearGradient(0, 230, 0, 50);
 
-                        <script>
-                            var ctx3 = document.getElementById("chart2").getContext("2d");
+        gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
+        gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
 
-                            var gradientStroke1 = ctx3.createLinearGradient(0, 230, 0, 50);
+        var gradientStroke2 = ctx3.createLinearGradient(0, 230, 0, 50);
 
-                            gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
-                            gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
-                            gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
+        gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
+        gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
 
-                            var gradientStroke2 = ctx3.createLinearGradient(0, 230, 0, 50);
+        new Chart(ctx3, {
+            type: "bar",
+            data: {
+                labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                datasets: [{
+                    label: "Rerata IPK",
+                    tension: 0.3,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#2cb72c",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [3.55, 4.00, 2.35, 3.00, 3.55, 2.50, 4.00, 2.30, 4.00],
+                    maxBarThickness: 6
 
-                            gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
-                            gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
-                            gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+                }, ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>
 
-                            new Chart(ctx3, {
-                                type: "bar",
-                                data: {
-                                    labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
-                                    datasets: [{
-                                        label: "Rerata IPK",
-                                        tension: 0.3,
-                                        borderWidth: 0,
-                                        pointRadius: 0,
-                                        borderColor: "#2cb72c",
-                                        borderWidth: 3,
-                                        backgroundColor: gradientStroke1,
-                                        fill: true,
-                                        data: [3.55, 4.00, 2.35, 3.00, 3.55, 2.50, 4.00, 2.30, 4.00],
-                                        maxBarThickness: 6
+    <script>
+        var ctx4 = document.getElementById("chart3").getContext("2d");
 
-                                    }, ],
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    plugins: {
-                                        legend: {
-                                            display: false,
-                                        }
-                                    },
-                                    interaction: {
-                                        intersect: false,
-                                        mode: 'index',
-                                    },
-                                    scales: {
-                                        y: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: true,
-                                                drawOnChartArea: true,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                padding: 10,
-                                                color: '#b2b9bf',
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                        x: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: false,
-                                                drawOnChartArea: false,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                color: '#b2b9bf',
-                                                padding: 20,
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                    },
-                                },
-                            });
-                        </script>
+        var gradientStroke1 = ctx3.createLinearGradient(0, 230, 0, 50);
 
-                        <script>
-                            var ctx4 = document.getElementById("chart3").getContext("2d");
+        gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
+        gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
 
-                            var gradientStroke1 = ctx3.createLinearGradient(0, 230, 0, 50);
+        var gradientStroke2 = ctx4.createLinearGradient(0, 230, 0, 50);
 
-                            gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
-                            gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
-                            gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
+        gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
+        gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
 
-                            var gradientStroke2 = ctx4.createLinearGradient(0, 230, 0, 50);
+        new Chart(ctx4, {
+            type: "polarArea",
+            data: {
+                labels: ["2016", "May", "Jun", "Jul,"],
+                datasets: [{
+                        label: "Perempuan",
+                        tension: 0.3,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#2cb72c",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke1,
+                        fill: true,
+                        data: [10, ],
+                        maxBarThickness: 6
 
-                            gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
-                            gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
-                            gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+                    },
+                    {
+                        label: "Laki-Laki",
+                        tension: 0.4,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#3a416f",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke2,
+                        fill: true,
+                        data: [30, ],
+                        maxBarThickness: 6
+                    },
+                    {
+                        label: "Laki-Laki",
+                        tension: 0.4,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#9c0606",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke2,
+                        fill: true,
+                        data: [30, ],
+                        maxBarThickness: 6
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>
 
-                            new Chart(ctx4, {
-                                type: "polarArea",
-                                data: {
-                                    labels: ["2016", "May", "Jun", "Jul,"],
-                                    datasets: [{
-                                            label: "Perempuan",
-                                            tension: 0.3,
-                                            borderWidth: 0,
-                                            pointRadius: 0,
-                                            borderColor: "#2cb72c",
-                                            borderWidth: 3,
-                                            backgroundColor: gradientStroke1,
-                                            fill: true,
-                                            data: [10, ],
-                                            maxBarThickness: 6
-
-                                        },
-                                        {
-                                            label: "Laki-Laki",
-                                            tension: 0.4,
-                                            borderWidth: 0,
-                                            pointRadius: 0,
-                                            borderColor: "#3a416f",
-                                            borderWidth: 3,
-                                            backgroundColor: gradientStroke2,
-                                            fill: true,
-                                            data: [30, ],
-                                            maxBarThickness: 6
-                                        },
-                                        {
-                                            label: "Laki-Laki",
-                                            tension: 0.4,
-                                            borderWidth: 0,
-                                            pointRadius: 0,
-                                            borderColor: "#9c0606",
-                                            borderWidth: 3,
-                                            backgroundColor: gradientStroke2,
-                                            fill: true,
-                                            data: [30, ],
-                                            maxBarThickness: 6
-                                        },
-                                    ],
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    plugins: {
-                                        legend: {
-                                            display: false,
-                                        }
-                                    },
-                                    interaction: {
-                                        intersect: false,
-                                        mode: 'index',
-                                    },
-                                    scales: {
-                                        y: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: true,
-                                                drawOnChartArea: true,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                padding: 10,
-                                                color: '#b2b9bf',
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                        x: {
-                                            grid: {
-                                                drawBorder: false,
-                                                display: false,
-                                                drawOnChartArea: false,
-                                                drawTicks: false,
-                                                borderDash: [5, 5]
-                                            },
-                                            ticks: {
-                                                display: true,
-                                                color: '#b2b9bf',
-                                                padding: 20,
-                                                font: {
-                                                    size: 11,
-                                                    family: "Open Sans",
-                                                    style: 'normal',
-                                                    lineHeight: 2
-                                                },
-                                            }
-                                        },
-                                    },
-                                },
-                            });
-                        </script>
-
-
-
-
-                        <script>
-                            var win = navigator.platform.indexOf('Win') > -1;
-                            if (win && document.querySelector('#sidenav-scrollbar')) {
-                                var options = {
-                                    damping: '0.5'
-                                }
-                                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-                            }
-                        </script>
-                        <!-- Github buttons -->
-                        <script async defer src="https://buttons.github.io/buttons.js"></script>
-                        <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-                        <script src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>

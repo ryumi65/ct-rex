@@ -1,5 +1,5 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-3">
 
             <!-- Header -->
             <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
@@ -39,31 +39,31 @@
                         </div>
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Nomor Induk Kependudukan</label>
                                     <div class="mb-3">
                                         <input type="text" name="nik" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nik'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Nama Lengkap</label>
                                     <div class="mb-3">
                                         <input type="text" name="nama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nama'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Tempat Lahir</label>
                                     <div class="mb-3">
                                         <input type="text" name="tempat_lahir" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['tempat_lahir'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Tanggal Lahir</label>
                                     <div class="mb-3">
                                         <input type="date" name="tanggal_lahir" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['tanggal_lahir'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Jenis Kelamin</label>
                                     <div class="mb-3">
                                         <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
@@ -75,25 +75,25 @@
                                         <?php endif ?>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Agama</label>
                                     <div class="mb-3">
                                         <input type="text" name="agama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['agama'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Nomor Handphone</label>
                                     <div class="mb-3">
                                         <input type="text" name="no_hp" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['no_hp'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Email</label>
                                     <div class="mb-3">
                                         <input type="email" name="email" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['email'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Program Studi</label>
                                     <div class="mb-3">
                                         <?php foreach ($listp as $prodi) : ?>
@@ -103,7 +103,7 @@
                                         <?php endforeach ?>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Kewarganegaraan</label>
                                     <div class="mb-3">
                                         <?php if ($dosen['kewarganegaraan'] === 'wni') : ?>
@@ -115,25 +115,25 @@
                                         <?php endif ?>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Alamat Tempat Tinggal</label>
                                     <div class="mb-3">
                                         <input type="text" name="alamat" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['alamat'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Nomor Induk Dosen</label>
                                     <div class="mb-3">
                                         <input type="text" name="nidn_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nidn_dosen'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Status Dosen</label>
                                     <div class="mb-3">
                                         <input type="text" name="status_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['status_dosen'] ?>" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-sm-6">
                                     <label>Status Kerja</label>
                                     <div class="mb-3">
                                         <input type="text" name="status_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['status_kerja'] ?>" disabled readonly>
@@ -147,7 +147,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

@@ -2,148 +2,174 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Profil -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
-                        <h5 class="mb-0">Profil Mahasiswa</h5>
+                        <h5 class="mb-0">Edit Profil</h5>
                     </div>
                     <div class="card-body p-3">
-                        <div class="avatar avatar-xxl position-relative">
-                            <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-300 border-radius-lg shadow-sm">
-                        </div>
+                        <?= validation_errors() ?>
+                        <?= form_open('mahasiswa/update/' . $mahasiswa['nim']) ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Induk Mahasiswa</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nim" class="form-control" placeholder="-" value="<?= $mahasiswa['nim'] ?>" disabled readonly>
+                                    <input type="text" name="nim" class="form-control" placeholder="NIM" value="<?= $mahasiswa['nim'] ?>" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Lengkap</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $mahasiswa['nama'] ?>" disabled readonly>
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= $mahasiswa['nama'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tempat Lahir</label>
                                 <div class="mb-3">
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="-" value="<?= $mahasiswa['tempat_lahir'] ?>" disabled readonly>
+                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tanggal Lahir</label>
                                 <div class="mb-3">
-                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="-" value="<?= $mahasiswa['tanggal_lahir'] ?>" disabled readonly>
+                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jenis Kelamin</label>
                                 <div class="mb-3">
-                                    <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" value="Laki-laki" disabled readonly>
-                                    <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" value="Perempuan" disabled readonly>
-                                    <?php else : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" disabled readonly>
-                                    <?php endif ?>
+                                    <select class="form-select" name="jenis_kelamin" required>
+                                        <option selected disabled>Pilih Jenis Kelamin</option>
+                                        <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
+                                            <option selected value="l">Laki-laki</option>
+                                            <option value="p">Perempuan</option>
+                                        <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
+                                            <option value="l">Laki-laki</option>
+                                            <option selected value="p">Perempuan</option>
+                                        <?php else : ?>
+                                            <option value="l">Laki-laki</option>
+                                            <option value="p">Perempuan</option>
+                                        <?php endif ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Agama</label>
                                 <div class="mb-3">
-                                    <input type="text" name="agama" class="form-control" placeholder="-" value="<?= $mahasiswa['agama'] ?>" disabled readonly>
+                                    <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $mahasiswa['agama'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Handphone</label>
                                 <div class="mb-3">
-                                    <input type="text" name="no_hp" class="form-control" placeholder="-" value="<?= $mahasiswa['no_hp'] ?>" disabled readonly>
+                                    <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $mahasiswa['no_hp'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Email</label>
                                 <div class="mb-3">
-                                    <input type="email" name="email" class="form-control" placeholder="-" value="<?= $mahasiswa['email'] ?>" disabled readonly>
+                                    <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $mahasiswa['email'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Program Studi</label>
                                 <div class="mb-3">
-                                    <?php foreach ($listp as $prodi) : ?>
-                                        <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
-                                            <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" disabled readonly>
-                                        <?php endif ?>
-                                    <?php endforeach ?>
+                                    <select class="form-select" name="id_prodi" disabled>
+                                        <option selected disabled>Pilih Program Studi</option>
+                                        <?php foreach ($listp as $prodi) : ?>
+                                            <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
+                                                <option selected value="<?= $prodi['id_prodi'] ?>">
+                                                    <?= $prodi['nama'] ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $prodi['id_prodi'] ?>">
+                                                    <?= $prodi['nama'] ?>
+                                                </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tahun Angkatan</label>
                                 <div class="mb-3">
-                                    <input type="text" name="tahun_angkatan" class="form-control" placeholder="-" value="<?= $mahasiswa['tahun_angkatan'] ?>" disabled readonly>
+                                    <input type="text" name="tahun_angkatan" class="form-control" placeholder="Tahun Angkatan" value="<?= $mahasiswa['tahun_angkatan'] ?>" disabled>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kewarganegaraan</label>
                                 <div class="mb-3">
-                                    <?php if ($mahasiswa['kewarganegaraan'] === 'wni') : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" disabled readonly>
-                                    <?php elseif ($mahasiswa['kewarganegaraan'] === 'wna') : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Asing" disabled readonly>
-                                    <?php else : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" disabled readonly>
-                                    <?php endif ?>
+                                    <select class="form-select" name="kewarganegaraan" required>
+                                        <option selected disabled>Pilih Kewarganegaraan</option>
+                                        <?php if ($mahasiswa['kewarganegaraan'] === 'wni') : ?>
+                                            <option selected value="wni">Warga Negara Indonesia</option>
+                                            <option value="wna">Warga Negara Asing</option>
+                                        <?php elseif ($mahasiswa['kewarganegaraan'] === 'wna') : ?>
+                                            <option value="wni">Warga Negara Indonesia</option>
+                                            <option selected value="wna">Warga Negara Asing</option>
+                                        <?php else : ?>
+                                            <option value="wni">Warga Negara Indonesia</option>
+                                            <option value="wna">Warga Negara Asing</option>
+                                        <?php endif ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Induk Kependudukan</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nik" class="form-control" placeholder="-" value="<?= $mahasiswa['nik'] ?>" disabled readonly>
+                                    <input type="text" name="nik" class="form-control" placeholder="Nomor Induk Kependudukan" value="<?= $mahasiswa['nik'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Alamat Tempat Tinggal</label>
                                 <div class="mb-3">
-                                    <input type="text" name="alamat" class="form-control" placeholder="-" value="<?= $mahasiswa['alamat'] ?>" disabled readonly>
+                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $mahasiswa['alamat'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Desa/Kelurahan</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kelurahan" class="form-control" placeholder="-" value="<?= $mahasiswa['kelurahan'] ?>" disabled readonly>
+                                    <input type="text" name="kelurahan" class="form-control" placeholder="Desa/Kelurahan" value="<?= $mahasiswa['kelurahan'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kecamatan</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="-" value="<?= $mahasiswa['kecamatan'] ?>" disabled readonly>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan" value="<?= $mahasiswa['kecamatan'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kabupaten/Kota</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kabupaten" class="form-control" placeholder="-" value="<?= $mahasiswa['kabupaten'] ?>" disabled readonly>
+                                    <input type="text" name="kabupaten" class="form-control" placeholder="Kabupaten/Kota" value="<?= $mahasiswa['kabupaten'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Provinsi</label>
                                 <div class="mb-3">
-                                    <input type="text" name="provinsi" class="form-control" placeholder="-" value="<?= $mahasiswa['provinsi'] ?>" disabled readonly>
+                                    <input type="text" name="provinsi" class="form-control" placeholder="Provinsi" value="<?= $mahasiswa['provinsi'] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kode Pos</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kode_pos" class="form-control" placeholder="-" value="<?= $mahasiswa['kode_pos'] ?>" disabled readonly>
+                                    <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" value="<?= $mahasiswa['kode_pos'] ?>" required>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
         <!-- Footer -->
-        <footer class="footer py-3">
+        <footer class="footer pb-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

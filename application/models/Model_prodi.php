@@ -3,18 +3,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_prodi extends CI_Model {
 
-    var $column_order_dosen = [null, 'nik', 'nama', 'status_dosen'];
-    var $column_search_dosen = ['nik', 'nama', 'status_dosen'];
+    var $column_order_dosen = [null, 'nik', 'nama', 'jenis_kelamin', 'nidn_dosen', 'status_dosen'];
+    var $column_search_dosen = ['nik', 'nama', 'jenis_kelamin', 'nidn_dosen', 'status_dosen'];
 
-    var $column_order_mahasiswa = [null, 'nim', 'nama', 'status'];
-    var $column_search_mahasiswa = ['nim', 'nama', 'status'];
+    var $column_order_mahasiswa = [null, 'nim', 'nama', 'jenis_kelamin', 'tahun_angkatan', 'status'];
+    var $column_search_mahasiswa = ['nim', 'nama', 'jenis_kelamin', 'tahun_angkatan', 'status'];
 
-    var $column_order_matkul = [null, 'id_matkul', 'nama', 'sks'];
-    var $column_search_matkul = ['id_matkul', 'nama', 'sks'];
+    var $column_order_matkul = [null, 'id_matkul', 'nama', 'sks', 'jenis'];
+    var $column_search_matkul = ['id_matkul', 'nama', 'sks', 'jenis'];
 
     var $order = ['nama' => 'asc'];
 
-    private function _get_datatables_query($table) {
+    private function _get_datatables_query($table, $wali = null, $nik = null) {
 
         if ($table === 'dosen') {
             $column_order = $this->column_order_dosen;
@@ -28,6 +28,7 @@ class Model_prodi extends CI_Model {
         } else return false;
 
         $this->db->from($table);
+        if ($wali === 'mhswl') $this->db->where('dosen_wali', $nik);
 
         $i = 0;
 
@@ -54,8 +55,8 @@ class Model_prodi extends CI_Model {
         }
     }
 
-    function get_datatables($table) {
-        $this->_get_datatables_query($table);
+    function get_datatables($table, $wali = null, $nik = null) {
+        $this->_get_datatables_query($table, $wali, $nik);
         if ($_POST['length'] != -1) $this->db->limit($_POST['length'], $_POST['start']);
         $this->db->where('id_prodi', $this->session->id);
         $query = $this->db->get();
@@ -63,16 +64,16 @@ class Model_prodi extends CI_Model {
         return $query->result();
     }
 
-    function count_filtered($table) {
-        $this->_get_datatables_query($table);
+    function count_filtered($table, $wali = null, $nik = null) {
+        $this->_get_datatables_query($table, $wali, $nik);
         $this->db->where('id_prodi', $this->session->id);
         $query = $this->db->get();
 
         return $query->num_rows();
     }
 
-    public function count_all($table) {
-        $this->db->from($table);
+    public function count_all($table, $wali = null, $nik = null) {
+        $this->db->from($table, $wali, $nik);
 
         return $this->db->count_all_results();
     }
@@ -109,5 +110,11 @@ class Model_prodi extends CI_Model {
             $nik['dosen_wali'] = $this->input->post('nik');
             $this->db->update('mahasiswa', $nik, ['nim' => $input[$i]]);
         }
+    }
+
+    public function delete_mhs_wali($nim) {
+        $data['dosen_wali'] = null;
+
+        return $this->db->update('mahasiswa', $data, ['nim' => $nim]);
     }
 }

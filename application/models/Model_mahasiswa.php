@@ -74,4 +74,8 @@ class Model_mahasiswa extends CI_Model {
 
 		return $this->db->update('orang_tua', $data, ['nim' => $nim]);
 	}
+
+    public function delete_mahasiswa($nim) {
+        return $this->db->delete('mahasiswa', ['nim' => $nim]);
+    }
 }

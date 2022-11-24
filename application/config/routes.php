@@ -61,19 +61,27 @@ $route['logout'] = 'akun/logout';
 $route['fakultas/profil/edit'] = 'fakultas/update';
 
 // Prodi
-$route['prodi/akademik/daftar-matkul'] = 'prodi/daftarmatkul';
-$route['prodi/akademik/detail-matkul/(:any)'] = 'prodi/detailmatkul/$1';
+$route['prodi/akademik/data-matkul'] = 'prodi/datamatkul';
+$route['prodi/akademik/data-matkul/edit/(:any)'] = 'prodi/updatematkul/$1';
+$route['prodi/akademik/data-matkul/delete/(:any)'] = 'prodi/deletematkul/$1';
+$route['prodi/akademik/data-matkul/(:any)'] = 'prodi/detailmatkul/$1';
+$route['prodi/akademik/tambah-matkul'] = 'prodi/creatematkul';
 $route['prodi/civitas/data-dosen'] = 'prodi/datadsn';
 $route['prodi/civitas/data-dosen/(:num)'] = 'prodi/profildsn/$1';
+$route['prodi/civitas/data-dosen/edit/(:num)'] = 'prodi/updatedsn/$1';
+$route['prodi/civitas/data-dosen/delete/(:num)'] = 'prodi/deletedsn/$1';
 $route['prodi/civitas/data-mahasiswa'] = 'prodi/datamhs';
 $route['prodi/civitas/data-mahasiswa/(:num)'] = 'prodi/profilmhs/$1';
+$route['prodi/civitas/data-mahasiswa/edit/(:num)'] = 'prodi/updatemhs/$1';
+$route['prodi/civitas/data-mahasiswa/delete/(:num)'] = 'prodi/deletemhs/$1';
 $route['prodi/civitas/data-dosen-wali'] = 'prodi/datadsnwl';
 $route['prodi/civitas/data-dosen-wali/(:num)'] = 'prodi/datamhswl/$1';
 $route['prodi/civitas/data-dosen-wali/tambah-wali'] = 'prodi/createwali';
+$route['prodi/civitas/hapus-mahasiswa-wali/(:num)/(:num)'] = 'prodi/deletemhswl/$1/$2';
 $route['prodi/profil/edit'] = 'prodi/update';
 
 // Dosen
-$route['dosen/profil/edit'] = 'dosen/update';
+$route['dosen/profil/edit(:num)'] = 'dosen/update/$1';
 
 // Mahasiswa
-$route['mahasiswa/profil/edit'] = 'mahasiswa/update';
+$route['mahasiswa/profil/edit/(:num)'] = 'mahasiswa/update/$1';

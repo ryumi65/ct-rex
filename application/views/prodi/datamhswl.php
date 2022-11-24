@@ -104,7 +104,7 @@
                     "targets": [6],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/') ?>' + row['1'] + '" class="btn btn-danger mb-0"><i class="fa-solid fa-trash-can"></i></a></div>';
+                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/') ?>' + row['1'] + '" class="btn btn-danger mb-0" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash-can"></i></a></div>';
                     }
                 }],
 

@@ -72,8 +72,8 @@ class Model_prodi extends CI_Model {
         return $query->num_rows();
     }
 
-    public function count_all($table, $wali = null, $nik = null) {
-        $this->db->from($table, $wali, $nik);
+    public function count_all($table) {
+        $this->db->from($table);
 
         return $this->db->count_all_results();
     }
@@ -96,13 +96,6 @@ class Model_prodi extends CI_Model {
         ];
 
         return $this->db->update('prodi', $data, ['id_prodi' => $id_prodi]);
-    }
-
-    public function get_mhs_wali($nik) {
-        $this->db->from('mahasiswa');
-        $this->db->where('dosen_wali', $nik);
-
-        return $this->db->count_all_results();
     }
 
     public function set_mhs_wali($input) {

@@ -2,22 +2,34 @@
         <div class="container-fluid pt-3">
 
             <!-- Header -->
-            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
+            <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')">
+                <!-- <span class="mask bg-gradient-info opacity-5"></span> -->
             </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
+            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
+                <div class="d-flex align-content-center justify-content-between">
+                    <div class="row gx-3">
+                        <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
+                            <div>
+                                <h5 class="mb-2"><?= $dosen['nama'] ?></h5>
                                 <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="d-flex d-inline ms-auto">
+                        <div>
+                            <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
+                            <h3 class="text-center my-0"><?= $mhswali ?></h3>
+                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
+                        </div>
+                        <div>
+                            <h6 class="mx-3 my-0"><u>SKS Mengajar</u></h6>
+                            <h3 class="text-center my-0">1</h3>
+                            <h6 class="font-weight- text-center my-0">SKS</h6>
                         </div>
                     </div>
                 </div>
@@ -32,7 +44,7 @@
                                 <h5>Profil Anda</h5>
                             </div>
                             <div class="text-end">
-                                <a href="<?= site_url('dosen/profil/edit') ?>">
+                                <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                 </a>
                             </div>
@@ -42,55 +54,55 @@
                                 <div class="col-md-4 col-sm-6">
                                     <label>Nomor Induk Kependudukan</label>
                                     <div class="mb-3">
-                                        <input type="text" name="nik" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nik'] ?>" disabled readonly>
+                                        <input type="text" name="nik" class="form-control" placeholder="-" value="<?= $dosen['nik'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Nama Lengkap</label>
                                     <div class="mb-3">
-                                        <input type="text" name="nama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nama'] ?>" disabled readonly>
+                                        <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $dosen['nama'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Tempat Lahir</label>
                                     <div class="mb-3">
-                                        <input type="text" name="tempat_lahir" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['tempat_lahir'] ?>" disabled readonly>
+                                        <input type="text" name="tempat_lahir" class="form-control" placeholder="-" value="<?= $dosen['tempat_lahir'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Tanggal Lahir</label>
                                     <div class="mb-3">
-                                        <input type="date" name="tanggal_lahir" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['tanggal_lahir'] ?>" disabled readonly>
+                                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="-" value="<?= $dosen['tanggal_lahir'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Jenis Kelamin</label>
                                     <div class="mb-3">
                                         <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
-                                            <input type="text" name="jenis_kelamin" class="form-control-plaintext ms-1" value="Laki-laki" disabled readonly>
+                                            <input type="text" name="jenis_kelamin" class="form-control" value="Laki-laki" disabled readonly>
                                         <?php elseif ($dosen['jenis_kelamin'] === 'p') : ?>
-                                            <input type="text" name="jenis_kelamin" class="form-control-plaintext ms-1" value="Perempuan" disabled readonly>
+                                            <input type="text" name="jenis_kelamin" class="form-control" value="Perempuan" disabled readonly>
                                         <?php else : ?>
-                                            <input type="text" name="jenis_kelamin" class="form-control-plaintext ms-1" placeholder="-" disabled readonly>
+                                            <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" disabled readonly>
                                         <?php endif ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Agama</label>
                                     <div class="mb-3">
-                                        <input type="text" name="agama" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['agama'] ?>" disabled readonly>
+                                        <input type="text" name="agama" class="form-control" placeholder="-" value="<?= $dosen['agama'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Nomor Handphone</label>
                                     <div class="mb-3">
-                                        <input type="text" name="no_hp" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['no_hp'] ?>" disabled readonly>
+                                        <input type="text" name="no_hp" class="form-control" placeholder="-" value="<?= $dosen['no_hp'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Email</label>
                                     <div class="mb-3">
-                                        <input type="email" name="email" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['email'] ?>" disabled readonly>
+                                        <input type="email" name="email" class="form-control" placeholder="-" value="<?= $dosen['email'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
@@ -98,7 +110,7 @@
                                     <div class="mb-3">
                                         <?php foreach ($listp as $prodi) : ?>
                                             <?php if ($prodi['id_prodi'] === $dosen['id_prodi']) : ?>
-                                                <input type="text" name="id_prodi" class="form-control-plaintext ms-1" placeholder="-" value="<?= $prodi['nama'] ?>" disabled readonly>
+                                                <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" disabled readonly>
                                             <?php endif ?>
                                         <?php endforeach ?>
                                     </div>
@@ -107,36 +119,36 @@
                                     <label>Kewarganegaraan</label>
                                     <div class="mb-3">
                                         <?php if ($dosen['kewarganegaraan'] === 'wni') : ?>
-                                            <input type="text" name="kewarganegaraan" class="form-control-plaintext ms-1" value="Warga Negara Indonesia" disabled readonly>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" disabled readonly>
                                         <?php elseif ($dosen['kewarganegaraan'] === 'wna') : ?>
-                                            <input type="text" name="kewarganegaraan" class="form-control-plaintext ms-1" value="Warga Negara Asing" disabled readonly>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Asing" disabled readonly>
                                         <?php else : ?>
-                                            <input type="text" name="kewarganegaraan" class="form-control-plaintext ms-1" placeholder="-" disabled readonly>
+                                            <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" disabled readonly>
                                         <?php endif ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Alamat Tempat Tinggal</label>
                                     <div class="mb-3">
-                                        <input type="text" name="alamat" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['alamat'] ?>" disabled readonly>
+                                        <input type="text" name="alamat" class="form-control" placeholder="-" value="<?= $dosen['alamat'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Nomor Induk Dosen</label>
                                     <div class="mb-3">
-                                        <input type="text" name="nidn_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['nidn_dosen'] ?>" disabled readonly>
+                                        <input type="text" name="nidn_dosen" class="form-control" placeholder="-" value="<?= $dosen['nidn_dosen'] ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Status Dosen</label>
                                     <div class="mb-3">
-                                        <input type="text" name="status_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['status_dosen'] ?>" disabled readonly>
+                                        <input type="text" name="status_dosen" class="form-control" placeholder="-" value="<?= ucwords($dosen['status_dosen']) ?>" disabled readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
                                     <label>Status Kerja</label>
                                     <div class="mb-3">
-                                        <input type="text" name="status_dosen" class="form-control-plaintext ms-1" placeholder="-" value="<?= $dosen['status_kerja'] ?>" disabled readonly>
+                                        <input type="text" name="status_dosen" class="form-control" placeholder="-" value="<?= ucwords($dosen['status_kerja']) ?>" disabled readonly>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +159,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer pb-3">
+        <footer class="footer py-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

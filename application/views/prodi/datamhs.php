@@ -104,8 +104,8 @@
                     "targets": [6],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/') ?>' + row['1'] + '" class="btn btn-warning mx-1 mb-0"><i class="fa-solid fa-pen-to-square"></i></a>' +
-                            '<a href="<?= site_url('prodi/civitas/data-mahasiswa/delete/') ?>' + row['1'] + '" class="btn btn-danger mx-1 mb-0"><i class="fa-solid fa-trash-can"></i></a></div>';
+                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/') ?>' + row['1'] + '" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>' +
+                            '<a href="<?= site_url('prodi/civitas/data-mahasiswa/delete/') ?>' + row['1'] + '" class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash-can"></i></a></div>';
                     }
                 }],
 

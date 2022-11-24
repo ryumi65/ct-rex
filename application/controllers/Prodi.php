@@ -17,7 +17,14 @@ class Prodi extends CI_Controller {
     public function index() {
         if (uri_string() === 'prodi/index') return redirect('prodi');
 
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
+        $akun = $this->model_prodi->get_db('akun', ['id_akun' => $this->session->id]);
+        $data = [
+            'profil' => $akun['foto_profil'],
+            'header' => $akun['foto_header'],
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'dsnaktif' => $this->model_prodi->get_db_count('dosen', ['id_prodi' => $this->session->id, 'status_dosen' => 'aktif']),
+            'mhsaktif' => $this->model_prodi->get_db_count('mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'aktif']),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -27,7 +34,14 @@ class Prodi extends CI_Controller {
     }
 
     public function profil() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
+        $akun = $this->model_prodi->get_db('akun', ['id_akun' => $this->session->id]);
+        $data = [
+            'profil' => $akun['foto_profil'],
+            'header' => $akun['foto_header'],
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'dsnaktif' => $this->model_prodi->get_db_count('dosen', ['id_prodi' => $this->session->id, 'status_dosen' => 'aktif']),
+            'mhsaktif' => $this->model_prodi->get_db_count('mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'aktif']),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -336,7 +350,7 @@ class Prodi extends CI_Controller {
                     $row[] = $dosen->nama;
                     $row[] = $jk;
                     $row[] = $dosen->nidn_dosen;
-                    $row[] = $this->model_prodi->get_mhs_wali($dosen->nik);
+                    $row[] = $this->model_prodi->get_db_count('mahasiswa', ['dosen_wali' => $dosen->nik]);
 
                     $data[] = $row;
                 }
@@ -391,7 +405,7 @@ class Prodi extends CI_Controller {
 
         $output = [
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->model_prodi->count_all($table, $wali, $nik),
+            "recordsTotal" => $this->model_prodi->count_all($table),
             "recordsFiltered" => $this->model_prodi->count_filtered($table, $wali, $nik),
             "data" => $data,
         ];

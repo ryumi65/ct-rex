@@ -2,20 +2,20 @@
         <div class="container-fluid pt-3">
 
             <!-- Header -->
-            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
+            <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')">
+                <!-- <span class="mask bg-gradient-info opacity-5"></span> -->
             </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
+            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
+                <div class="d-flex align-content-center justify-content-between">
+                    <div class="row gx-3">
+                        <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $mahasiswa['nama'] ?></h5>
+                            <div>
+                                <h5 class="mb-2"><?= $mahasiswa['nama'] ?></h5>
                                 <p class="mb-0 font-weight-bold text-sm"><?= $mahasiswa['nim'] ?></p>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                         <h5 class="mb-0">Profil Mahasiswa</h5>
                                     </div>
                                     <div class="col-md-4 text-end">
-                                        <a href="<?= site_url('mahasiswa/profil/edit') ?>">
+                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
                                             <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                         </a>
                                     </div>
@@ -348,7 +348,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer pb-3">
+        <footer class="footer py-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

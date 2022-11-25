@@ -45,7 +45,7 @@
                     <div class="collapse" id="dataprodi">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link" href="<?= site_url('fakultas/dataprd') ?>">
                                     Lihat Data Prodi
                                 </a>
                         </ul>
@@ -63,7 +63,7 @@
                     <div class="collapse" id="datadosen">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link" href="<?= site_url('fakultas/datadsn') ?>">
                                     Lihat Data Dosen
                                 </a>
                         </ul>
@@ -81,7 +81,7 @@
                     <div class="collapse" id="datamahasiswa">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link" href="<?= site_url('fakultas/datamhs') ?>">
                                     Lihat Data Mahasiswa
                                 </a>
                             </li>

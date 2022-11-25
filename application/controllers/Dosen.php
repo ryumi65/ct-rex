@@ -14,7 +14,13 @@ class Dosen extends CI_Controller {
     public function index() {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
+        $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
+        $data = [
+            'profil' => $akun['foto_profil'],
+            'header' => $akun['foto_header'],
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'mhswali' => $this->model_dosen->get_db_count('mahasiswa', ['dosen_wali' => $this->session->id]),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
@@ -24,8 +30,14 @@ class Dosen extends CI_Controller {
     }
 
     public function profil() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
-        $data['listp'] = $this->model_dosen->get_db('prodi');
+        $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
+        $data = [
+            'profil' => $akun['foto_profil'],
+            'header' => $akun['foto_header'],
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'mhswali' => $this->model_dosen->get_db_count('mahasiswa', ['dosen_wali' => $this->session->id]),
+            'listp' => $this->model_dosen->get_db('prodi'),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');

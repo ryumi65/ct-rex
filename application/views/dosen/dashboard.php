@@ -2,28 +2,35 @@
         <div class="container-fluid pt-3">
 
             <!-- Header -->
-            <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
+            <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')">
+                <!-- <span class="mask bg-gradient-info opacity-5"></span> -->
             </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
+            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
+                <div class="d-flex align-content-center justify-content-between">
+                    <div class="row gx-3">
+                        <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $dosen['nama'] ?></h5>
+                            <div>
+                                <h5 class="mb-2"><?= $dosen['nama'] ?></h5>
                                 <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex d-inline ms-auto">
-                        <p class="mx-2">Mahasiswa Wali</p>
-                        <p class="mx-2">Data Mengajar</p>
-                        <p class="mx-2">SKS Mengajar</p>
+                        <div>
+                            <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
+                            <h3 class="text-center my-0"><?= $mhswali ?></h3>
+                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
+                        </div>
+                        <div>
+                            <h6 class="mx-3 my-0"><u>SKS Mengajar</u></h6>
+                            <h3 class="text-center my-0">1</h3>
+                            <h6 class="font-weight- text-center my-0">SKS</h6>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,7 +221,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer pb-3">
+        <footer class="footer py-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">

@@ -81,4 +81,11 @@ class CI_Model {
         elseif ($type === 'result') return $this->db->get_where($database, $data)->result_array();
     }
 
+    public function get_db_count($database, $data) {
+        $this->db->from($database);
+        $this->db->where($data);
+
+        return $this->db->count_all_results();
+    }
+
 }

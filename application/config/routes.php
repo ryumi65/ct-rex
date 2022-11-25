@@ -81,7 +81,7 @@ $route['prodi/civitas/hapus-mahasiswa-wali/(:num)/(:num)'] = 'prodi/deletemhswl/
 $route['prodi/profil/edit'] = 'prodi/update';
 
 // Dosen
-$route['dosen/profil/edit(:num)'] = 'dosen/update/$1';
+$route['dosen/profil/edit/(:num)'] = 'dosen/update/$1';
 
 // Mahasiswa
 $route['mahasiswa/profil/edit/(:num)'] = 'mahasiswa/update/$1';

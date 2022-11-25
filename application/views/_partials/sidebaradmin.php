@@ -4,7 +4,7 @@
         <!-- Sidebar Header -->
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="<?= site_url('dosen') ?>">
+            <a class="navbar-brand m-0" href="#" target="_blank">
                 <img src="<?= base_url(); ?>assets/img/umb.png" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">Sikadu UMBandung</span>
             </a>
@@ -18,7 +18,7 @@
             <ul class="navbar-nav">
 
                 <!-- Home -->
-                <?php if (uri_string() === 'dosen') {
+                <?php if (uri_string() === 'admin') {
                     $navlinkHome = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -26,7 +26,7 @@
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a class="<?= $navlinkHome ?>" href="<?= site_url('dosen') ?>">
+                    <a class="<?= $navlinkHome ?>" href="#">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-house-user" style="color: <?= $color ?>"></i>
                         </div>
@@ -34,40 +34,31 @@
                     </a>
                 </li>
 
-
                 <!-- Akademik -->
+                <?php if (fnmatch('prodi/akademik*', uri_string())) {
+                    $navlinkAkd = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkAkd = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#perkuliahan" class="nav-link" aria-controls="perkuliahan" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#akademik" class="nav-link" aria-controls="akademik" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-chalkboard-user" style="color: #000"></i>
+                            <i class="fa-solid fa-chalkboard-user" style="color: <?= $color ?>"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Perkuliahan</span>
+                        <span class="nav-link-text ms-1">Akademik</span>
                     </a>
-                    <div class="collapse" id="perkuliahan">
+                    <div class="collapse" id="akademik">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Lihat Jadwal
+                                    Nilai Seluruh Mahasiswa
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Input Presensi
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Membuat BAP
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Kelola Nilai Akhir
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Cetak Transkrip
+                                    Data Ruangan
                                 </a>
                             </li>
                         </ul>
@@ -75,33 +66,83 @@
                 </li>
 
                 <!-- Data Civitas -->
+                <?php if (fnmatch('prodi/civitas*', uri_string())) {
+                    $navlinkData = 'nav-link active';
+                    $color = '#fff';
+                } else {
+                    $navlinkData = 'nav-link';
+                    $color = '#000';
+                } ?>
+                <!-- <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkData ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Civitas</span>
+                    </a>
+                    <div class="collapse" id="datacivitas">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen') ?>">
+                                    Data Dosen
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-mahasiswa') ?>">
+                                    Data Mahasiswa
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
+                                    Data Dosen Wali
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> -->
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#perwalian" class="nav-link" aria-controls="perwalian" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#datacivitas" class="nav-link" aria-controls="datacivitas" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: #000"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Perwalian</span>
+                        <span class="nav-link-text ms-1">Data CIvitas</span>
                     </a>
-                    <div class="collapse" id="perwalian">
+                    <div class="collapse" id="datacivitas">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Daftar Mahasiswa
+                                <a class="nav-link link-secondary" href="<?= site_url('admin/data-civitas/data-fakultas') ?>">
+                                    Data Fakultas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('admin/data-civitas/data-prodi') ?>">
+                                    Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Persetujuan KRS
+                                    Data Dosen
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Logbook
+                                    Data Mahasiswa
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
+                <!-- Pembayaran Mahasiswa -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-money-bills" style="color:#000"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Keuangan</span>
+                    </a>
+                </li>
+
 
                 <!-- Pembatas Halaman Profil -->
                 <li class="nav-item mt-3">
@@ -109,7 +150,7 @@
                 </li>
 
                 <!-- Profil -->
-                <?php if (fnmatch('dosen/profil*', uri_string())) {
+                <?php if (fnmatch('prodi/profil*', uri_string())) {
                     $navlinkProfil = 'nav-link active';
                     $color = '#fff';
                 } else {
@@ -126,13 +167,13 @@
                     <div class="collapse" id="profil">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/profil') ?>">
-                                    Lihat Data Diri
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/profil') ?>">
+                                    Lihat Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/profil/edit/' . $this->session->id) ?>">
-                                    Edit Data Diri
+                                <a class="nav-link link-secondary" href="#">
+                                    Edit Data Prodi
                                 </a>
                             </li>
                             <li class="nav-item">

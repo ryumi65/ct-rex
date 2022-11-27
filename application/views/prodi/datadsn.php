@@ -71,6 +71,9 @@
         </footer>
     </div>
 
+    <!-- Alert -->
+    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
@@ -98,14 +101,17 @@
                     "targets": [2],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<a href="data-dosen/' + row['1'] + '">' + row['2'] + '</a>';
+                        return `<a href="data-dosen/${row[1]}">${row[2]}</a>`;
                     }
                 }, {
                     "targets": [6],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<div class="text-center"><a href="<?= site_url('prodi/civitas/data-dosen/edit/') ?>' + row['1'] + '" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>' +
-                            '<a href="<?= site_url('prodi/civitas/data-dosen/delete/') ?>' + row['1'] + '" class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus"><i class="fa-solid fa-trash-can"></i></a></div>';
+                        return `<div class="text-center"><a href="<?= site_url('prodi/civitas/data-dosen/edit/') ?>${row[1]}"
+                            class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit"><i class="fa-solid
+                            fa-pen-to-square"></i></a>` + `<a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip"
+                            title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-dosen/delete/') ?>${row[1]}')">
+                            <i class="fa-solid fa-trash-can"></i></a></div>`;
                     }
                 }],
 

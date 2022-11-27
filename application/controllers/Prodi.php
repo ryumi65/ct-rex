@@ -53,17 +53,6 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profil()
-    {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/profil', $data);
-        $this->load->view('_partials/script');
-    }
-
     public function datadsn()
     {
         $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);

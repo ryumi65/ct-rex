@@ -103,7 +103,7 @@
                     "targets": [2],
                     "data": null,
                     "render": (data, type, row, meta) => {
-                        return '<a href="data-dosen-wali/' + row['1'] + '">' + row['2'] + '</a>';
+                        return '<a href="data-dosen-wali/' + row[1] + '">' + row[2] + '</a>';
                     }
                 }],
 

@@ -22,4 +22,30 @@ class Model_akun extends CI_Model {
 
         return $this->db->insert('akun', $data);
     }
+
+    public function update_db_foto($file, $type) {
+        $akun = $this->db->get_where('akun', ['id_akun' => $this->session->id])->row_array();
+
+        if ($type == 'header') {
+            if ($file === $akun['foto_header']) {
+                $file_name = explode('.', $akun['foto_header']);
+
+                $this->db->update('akun', ['foto_header' => null], ['id_akun' => $this->session->id]);
+                array_map('unlink', glob(base_url() . "/assets/img/uploads/header/$file_name[0]*"));
+                $data['foto_header'] = $file;
+
+                return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
+            }
+        } elseif ($type == 'profil') {
+            if ($file === $akun['foto_profil']) {
+                $file_name = explode('.', $akun['foto_profil']);
+
+                $this->db->update('akun', ['foto_profil' => null], ['id_akun' => $this->session->id]);
+                array_map('unlink', glob(base_url() . "/assets/img/uploads/profil/$file_name[0]*"));
+                $data['foto_profil'] = $file;
+
+                return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
+            }
+        }
+    }
 }

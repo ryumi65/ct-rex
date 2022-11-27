@@ -6,6 +6,7 @@ class Mahasiswa extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
+        $this->load->model('model_akun');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
@@ -111,5 +112,45 @@ class Mahasiswa extends CI_Controller {
     public function update_ortu($nim) {
         $this->model_mahasiswa->update_ortu($nim);
         redirect('mahasiswa/profil');
+    }
+
+    public function update_foto() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/akun');
+        $this->load->view('_partials/script');
+    }
+
+    public function upload_header() {
+        $config['upload_path']   = './assets/img/uploads/header/';
+        $config['file_name']     = $this->session->id;
+        $config['allowed_types'] = 'jpeg|jpg|png';
+        $config['max_size']      = 2048;
+        $config['max_width']     = 1000;
+        $config['max_height']    = 300;
+        $config['overwrite']     = true;
+
+        $this->load->library('upload', $config);
+        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'header');
+        $this->upload->do_upload();
+
+        redirect('mahasiswa/profil/foto/edit');
+    }
+
+    public function upload_profil() {
+        $config['upload_path']   = './assets/img/uploads/profile/';
+        $config['file_name']     = $this->session->id;
+        $config['allowed_types'] = 'jpeg|jpg|png';
+        $config['max_size']      = 2048;
+        $config['max_width']     = 1000;
+        $config['max_height']    = 1000;
+        $config['overwrite']     = true;
+
+        $this->load->library('upload', $config);
+        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'profil');
+        $this->upload->do_upload();
+
+        redirect('mahasiswa/profil/foto/edit');
     }
 }

@@ -165,8 +165,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Ubah Password
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/foto/edit') ?>">
+                                    Edit Foto
                                 </a>
                             </li>
                         </ul>

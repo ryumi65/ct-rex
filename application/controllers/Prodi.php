@@ -158,6 +158,17 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
+    public function createjdwl()
+    {
+        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/createjdwl', $data);
+        $this->load->view('_partials/script');
+    }
+
     public function creatematkul()
     {
         $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');

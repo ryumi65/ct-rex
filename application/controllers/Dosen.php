@@ -46,6 +46,25 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function jadwalkuliah() {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/jadwal', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function createjdwl() {
+        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/createjdwl', $data);
+        $this->load->view('_partials/script');
+    }
     public function create() {
         $data['listp'] = $this->model_dosen->get_db('prodi');
 

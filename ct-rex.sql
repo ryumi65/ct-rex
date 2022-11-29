@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2022 at 12:00 PM
+-- Generation Time: Nov 29, 2022 at 04:58 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -81,7 +81,7 @@ CREATE TABLE `dosen` (
   `kewarganegaraan` enum('wni','wna') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `agama` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `id_prodi` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_prodi` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nidn_dosen` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status_dosen` enum('aktif','cuti','keluar','almarhum','pensiun','studi lanjut','tugas di instansi lain') COLLATE utf8mb4_unicode_ci DEFAULT 'aktif',
   `status_kerja` enum('dosen tetap','dosen pns di pekerjaan','dosen honorer ptn','dosen honorer no ptn','dosen kontrak') COLLATE utf8mb4_unicode_ci DEFAULT 'dosen tetap'
@@ -140,7 +140,7 @@ INSERT INTO `dosen` (`nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_la
 ('201805101989210081', 'TITIAN DARU ASMARA TUGON, S.Farm, M.Farm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', '0405108903', 'aktif', 'dosen tetap'),
 ('201807011983210084 ', 'YUTI YUNIARTI, S.Pd, M.Pd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', '0407018302', 'aktif', 'dosen tetap'),
 ('201807101989210062', 'ANGGI ANGGRAENI, S.Psi, M.Psi, Psikolog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', '0407108903', 'aktif', 'dosen tetap'),
-('201809041991210078', 'DIANTI EKA APRILIA, S.Kom, MT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', '0409049101', 'aktif', 'dosen tetap'),
+('201809041991210078', 'DIANTI EKA APRILIA, S.Kom, MT', NULL, '', '0000-00-00', '', '', NULL, '', '', 'IF', '0409049101', 'aktif', 'dosen tetap'),
 ('201816091983210064', 'ENI KUSUMAWATI, S.P, M.Si', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0416098301', 'aktif', 'dosen tetap'),
 ('201817041988210077', 'YAYU ULFAH MARLIANI, S.P, M.Si', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0417048803', 'aktif', 'dosen tetap'),
 ('201817081976110076', 'AGUS SUTANDI, S.TP, M.P', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0417087608', 'aktif', 'dosen tetap'),
@@ -717,7 +717,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200102069', 'Ita Mulyati', '', 'Bandung', '2000-01-30', '2020', 'itamulyati30100@gmail.com', '', 'wni', '', '', 'Griya Jatinangor Jl. Palem Raya Blok B.7 No.9', 'Cinanjung', 'Tanjungsari', 'Sumedang', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102078', 'M. Teguh Gabita ', '', 'PERBAUNGAN', '2002-06-04', '2020', 'teguhgabita00@gmail.com', '', 'wni', '', '', 'SIMPANG BALIK', 'DUSUN III', 'WIH PESAM', 'BENER MERIAH', 'ACEH', '', 'IF', 'aktif', NULL),
 ('200102080', 'Mochammad Raihan Rizkia', '', 'Bandung', '2001-08-10', '2020', 'Raihanrizkia085@gmail.com', '', 'wni', '', '', 'Jalan Setrawangi 1 no. 41 Rt07/Rw15', 'babakan surabaya', 'Kiaracondong', 'Bandung', 'Jawa barat', '', 'IF', 'aktif', NULL),
-('200102083', 'Muhamad Reza Putra Aditya', 'l', 'Bandung', '2002-02-09', '2020', 'mrezaputraa@gmail.com', '', 'wni', '', '', 'Kp. Los Cimaung RT 04/RW 19', 'Margamukti', 'Pangalengan', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
+('200102083', 'Muhamad Reza Putra Aditya', 'l', 'Bandung', '2002-02-09', '2020', 'mrezaputraa@gmail.com', '123123', 'wni', '', '', 'Kp. Los Cimaung RT 04/RW 19', 'Margamukti', 'Pangalengan', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102086', 'Muhammad Faisal Nugroho', '', 'Bekasi', '2001-11-10', '2020', 'm.faisal.n12@gmail.com', '', 'wni', '', '', 'Pajeleran , RT/RW 06/08', 'Sukahati', 'Cibinong', 'Kabupaten Bogor', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102098', 'Mochamad Rifky Malik', '', 'Bandung', '2002-05-01', '2020', 'rifqimalik71@gmail.com ', '', 'wni', '', '', 'Jl babakan Garut RT.3 RW.9 ', 'Cibangkong ', 'Batununggal ', 'Bandung ', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102101', 'Nazhif Azka Fadllilah', '', 'Bandung', '2002-08-24', '2020', 'nazhif245@gmail.com', '', 'wni', '', '', 'Jl.Golf 1 Blok 2 No 35', 'Cisaranten Binaharapan', 'Arcamanik', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
@@ -1189,10 +1189,10 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 
 CREATE TABLE `matkul` (
   `id_matkul` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama_inggris` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jenis` enum('wajib','wajib prodi','pilihan','peminatan','tugas akhir') COLLATE utf8mb4_unicode_ci DEFAULT 'wajib',
-  `sks` int(1) NOT NULL,
+  `sks` int(1) DEFAULT NULL,
   `sks_praktikum` int(1) DEFAULT NULL,
   `nik_dosen` varchar(16) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_prodi` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1414,7 +1414,7 @@ INSERT INTO `matkul` (`id_matkul`, `nama`, `nama_inggris`, `jenis`, `sks`, `sks_
 ('HKI.WP-041', 'Manajemen Kelauarga Sakinah', NULL, 'wajib', 2, 1, NULL, 'HKI', NULL),
 ('HKI.WP-043', 'Kewirausahaan', NULL, 'wajib', 2, 1, NULL, 'HKI', NULL),
 ('HKI.WP-044', 'Metodologi Penelitian Hukum', NULL, 'wajib', 3, 1, NULL, 'HKI', NULL),
-('IF0101', 'Algoritma dan Pemrograman Dasar', NULL, 'wajib', 2, 1, NULL, 'IF', NULL),
+('IF0101', 'Algoritma dan Pemrograman Dasar', '', 'wajib', 2, 1, NULL, 'IF', NULL),
 ('IF0101p', 'Praktikum Algoritma dan Pemrograman Dasar ', NULL, 'wajib', 1, 1, NULL, 'IF', NULL),
 ('IF0103', 'Arsitektur Komputer', NULL, 'wajib', 2, 1, NULL, 'IF', NULL),
 ('IF0104', 'Desain Interaksi', NULL, 'wajib', 2, 1, NULL, 'IF', NULL),
@@ -2055,7 +2055,7 @@ INSERT INTO `orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `
 ('200102069', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200102078', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200102080', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200102083', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('200102083', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', ''),
 ('200102086', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200102098', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200102101', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),

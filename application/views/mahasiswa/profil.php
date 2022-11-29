@@ -1,3 +1,15 @@
+    <?php if (isset($_SESSION['mhssuccess'])) {
+        echo "<script>
+            alert('Edit biodata mahasiswa berhasil!');
+        </script>";
+        unset($_SESSION['mhssuccess']);
+    } elseif (isset($_SESSION['ortusuccess'])) {
+        echo "<script>
+            alert('Edit biodata orang tua/wali berhasil!');
+        </script>";
+        unset($_SESSION['ortusuccess']);
+    } ?>
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-3">
 
@@ -200,7 +212,7 @@
                                         <h5 class="mb-0">Profil Orang Tua/Wali</h5>
                                     </div>
                                     <div class="col-md-4 text-end">
-                                        <a href="<?= site_url('mahasiswa/profil/edit') ?>">
+                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
                                             <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                                         </a>
                                     </div>

@@ -1,3 +1,10 @@
+    <?php if (isset($_SESSION['uploadsuccess'])) {
+        echo "<script>
+            alert('Edit foto berhasil!');
+        </script>";
+        unset($_SESSION['uploadsuccess']);
+    } ?>
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-3">
 

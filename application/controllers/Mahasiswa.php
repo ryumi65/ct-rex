@@ -6,7 +6,6 @@ class Mahasiswa extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
-        $this->load->model('model_akun');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
@@ -82,20 +81,6 @@ class Mahasiswa extends CI_Controller {
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('kelurahan', 'Kelurahan', 'required');
-        $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
-        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
-        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
-        $this->form_validation->set_rules('kode_pos', 'Kode Pos', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -105,12 +90,14 @@ class Mahasiswa extends CI_Controller {
             $this->load->view('_partials/script');
         } else {
             $this->model_mahasiswa->update_mahasiswa($nim);
+            $this->session->set_userdata('mhssuccess', true);
             redirect('mahasiswa/profil');
         }
     }
 
     public function update_ortu($nim) {
         $this->model_mahasiswa->update_ortu($nim);
+        $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
     }
 
@@ -120,37 +107,5 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/akun');
         $this->load->view('_partials/script');
-    }
-
-    public function upload_header() {
-        $config['upload_path']   = './assets/img/uploads/header/';
-        $config['file_name']     = $this->session->id;
-        $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size']      = 2048;
-        $config['max_width']     = 1000;
-        $config['max_height']    = 300;
-        $config['overwrite']     = true;
-
-        $this->load->library('upload', $config);
-        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'header');
-        $this->upload->do_upload();
-
-        redirect('mahasiswa/profil/foto/edit');
-    }
-
-    public function upload_profil() {
-        $config['upload_path']   = './assets/img/uploads/profile/';
-        $config['file_name']     = $this->session->id;
-        $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size']      = 2048;
-        $config['max_width']     = 1000;
-        $config['max_height']    = 1000;
-        $config['overwrite']     = true;
-
-        $this->load->library('upload', $config);
-        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'profil');
-        $this->upload->do_upload();
-
-        redirect('mahasiswa/profil/foto/edit');
     }
 }

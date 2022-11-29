@@ -165,7 +165,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/foto/edit') ?>">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/profil/edit/foto') ?>">
                                     Edit Foto
                                 </a>
                             </li>

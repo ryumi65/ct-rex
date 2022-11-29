@@ -1,3 +1,15 @@
+    <?php if (isset($_SESSION['createmksuccess'])) {
+        echo "<script>
+            alert('Tambah mata kuliah berhasil!');
+        </script>";
+        unset($_SESSION['createmksuccess']);
+    } elseif (isset($_SESSION['updatemksuccess'])) {
+        echo "<script>
+            alert('Edit mata kuliah berhasil!');
+        </script>";
+        unset($_SESSION['updatemksuccess']);
+    } ?>
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 

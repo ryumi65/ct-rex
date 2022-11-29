@@ -136,8 +136,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Ubah Password
+                                <a class="nav-link link-secondary" href="<?= site_url('dosen/profil/edit/foto') ?>">
+                                    Edit Foto
                                 </a>
                             </li>
                         </ul>

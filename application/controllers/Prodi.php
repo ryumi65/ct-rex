@@ -47,9 +47,9 @@ class Prodi extends CI_Controller
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('admin/dashboard', $data);
+        $this->load->view('prodi/profil', $data);
         $this->load->view('_partials/script');
     }
 
@@ -190,6 +190,7 @@ class Prodi extends CI_Controller
             $this->load->view('_partials/script');
         } else {
             $this->model_matkul->set_matkul();
+            $this->session->set_userdata('createmksuccess', true);
             redirect('prodi/akademik/data-matkul');
         }
     }
@@ -251,20 +252,6 @@ class Prodi extends CI_Controller
         $data['listp'] = $this->model_prodi->get_db('prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('kelurahan', 'Kelurahan', 'required');
-        $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
-        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
-        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
-        $this->form_validation->set_rules('kode_pos', 'Kode Pos', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -286,12 +273,6 @@ class Prodi extends CI_Controller
         $data['jenis'] = ['wajib', 'wajib prodi', 'pilihan', 'peminatan', 'tugas akhir'];
 
         $this->form_validation->set_rules('id_matkul', 'ID Matkul', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('nama_inggris', 'Nama Inggris', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        $this->form_validation->set_rules('sks', 'SKS Teori', 'required');
-        $this->form_validation->set_rules('sks_praktikum', 'SKS Praktikum', 'required');
-        $this->form_validation->set_rules('nik_dosen', 'NIK', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -301,6 +282,7 @@ class Prodi extends CI_Controller
             $this->load->view('_partials/script');
         } else {
             $this->model_matkul->update_matkul($id_matkul);
+            $this->session->set_userdata('updatemksuccess', true);
             redirect('prodi/akademik/data-matkul');
         }
     }

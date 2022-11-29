@@ -16,6 +16,7 @@
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>
                             <div class="text-end">
+                                <a href="<?= site_url('upload/delete_profil') ?>" class="btn btn-danger mt-2 mb-0">Hapus</a>
                                 <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>
                             </form>
@@ -36,6 +37,7 @@
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>
                             <div class="text-end">
+                                <a href="<?= site_url('upload/delete_header') ?>" class="btn btn-danger mt-2 mb-0">Hapus</a>
                                 <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>
                             </form>

@@ -45,4 +45,18 @@ class Upload extends CI_Controller {
 
         redirect(strtolower($this->session->access));
     }
+
+    public function delete_header() {
+        $this->model_akun->delete_foto('header');
+        $this->session->set_userdata('deletesuccess', true);
+
+        redirect(strtolower($this->session->access));
+    }
+
+    public function delete_profil() {
+        $this->model_akun->delete_foto('profil');
+        $this->session->set_userdata('deletesuccess', true);
+
+        redirect(strtolower($this->session->access));
+    }
 }

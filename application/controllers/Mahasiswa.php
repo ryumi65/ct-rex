@@ -105,7 +105,7 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/akun');
+        $this->load->view('akun/foto');
         $this->load->view('_partials/script');
     }
 }

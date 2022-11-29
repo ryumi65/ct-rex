@@ -3,6 +3,11 @@
             alert('Edit foto berhasil!');
         </script>";
         unset($_SESSION['uploadsuccess']);
+    } elseif (isset($_SESSION['deletesuccess'])) {
+        echo "<script>
+            alert('Hapus foto berhasil!');
+        </script>";
+        unset($_SESSION['deletesuccess']);
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">

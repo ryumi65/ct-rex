@@ -40,13 +40,13 @@ class Model_akun extends CI_Model {
 
         if ($type == 'header') {
             $file_name = explode('.', $akun['foto_header']);
-            array_map('unlink', glob(base_url() . "/assets/img/uploads/header/" . $file_name[0] . "*"));
+            array_map('unlink', glob("./assets/img/uploads/header/" . $file_name[0] . "*"));
 
             return $this->db->update('akun', ['foto_header' => 'gedungdash.jpg'], ['id_akun' => $this->session->id]);
         } elseif ($type == 'profil') {
             $file_name = explode('.', $akun['foto_profil']);
-            array_map('unlink', glob(base_url() . "/assets/img/uploads/profil/" . $file_name[0] . "*"));
-
+            array_map('unlink', glob("./assets/img/uploads/profile/" . $file_name[0] . "*"));
+            
             return $this->db->update('akun', ['foto_profil' => 'curved.jpg'], ['id_akun' => $this->session->id]);
         }
     }

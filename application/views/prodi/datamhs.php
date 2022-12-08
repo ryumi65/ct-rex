@@ -8,30 +8,48 @@
                         <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
+                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Status</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mahasiswa</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jenis Kelamin</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Angkatan</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Status</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Aksi</th>
+                                        <td></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
+                                        <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td><?= ucwords($mahasiswa['status']) ?></td>
+                                        <td>
+                                            <div class="text-center">
+                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/' . $mahasiswa['nim']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-mahasiswa/delete/' . $mahasiswa['nim']) ?>')">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
+                                            </div>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -75,8 +93,7 @@
     <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
         let table;
 
@@ -84,38 +101,27 @@
 
             table = $('#table').DataTable({
 
-                "deferRender": true,
-                "responsive": true,
-                "serverSide": true,
-                "order": [],
+                responsive: true,
+                order: [2, 'asc'],
 
-                "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/mahasiswa') ?>",
-                    "type": "POST"
-                },
-
-                "columnDefs": [{
-                    "targets": [0, 6],
-                    "orderable": false,
-                }, {
-                    "targets": [2],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<a href="data-mahasiswa/${row[1]}">${row[2]}</a>`;
-                    }
-                }, {
-                    "targets": [6],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<div class="text-center"><a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/') ?>${row[1]}"
-                            class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit"><i class="fa-solid
-                            fa-pen-to-square"></i></a>` + `<a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip"
-                            title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-mahasiswa/delete/') ?>${row[1]}')">
-                            <i class="fa-solid fa-trash-can"></i></a></div>`;
-                    }
+                columnDefs: [{
+                    targets: [0, 6],
+                    orderable: false,
+                    searchable: false,
                 }],
 
             });
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
 
         });
     </script>

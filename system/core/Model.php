@@ -74,16 +74,18 @@ class CI_Model {
 		return get_instance()->$key;
 	}
 
-    public function get_db($database, $data = [null], $type = 'row') {
-        if ($data === [null]) {
-            return $this->db->get($database)->result_array();
-        } elseif ($type === 'row') return $this->db->get_where($database, $data)->row_array();
+    public function get_db($database, $data = null, $type = 'row') {
+        if ($data === null) return $this->db->get($database)->result_array();
+        elseif ($type === 'row') return $this->db->get_where($database, $data)->row_array();
         elseif ($type === 'result') return $this->db->get_where($database, $data)->result_array();
     }
 
     public function get_db_count($database, $data) {
-        $this->db->from($database);
-        $this->db->where($data);
+        if ($data === null) $this->db->from($database);
+        else {
+            $this->db->from($database);
+            $this->db->where($data);
+        }
 
         return $this->db->count_all_results();
     }

@@ -16,5 +16,5 @@
     <link id="pagestyle" href="<?= base_url(); ?>assets/css/custom.css" rel="stylesheet" />
 
     <!-- DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.css" />
 </head>

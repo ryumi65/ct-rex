@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_login extends CI_Model {
 
-    public function passwordValidation($username, $password) {
+    public function password_validation($username, $password) {
         $query = $this->db->get_where('akun', ['username' => $username]);
         if ($query->num_rows() > 0) {
             $result = $query->row_array();
@@ -13,7 +13,7 @@ class Model_login extends CI_Model {
         } else return false;
     }
 
-    public function cookieValidation($id_akun, $selector) {
+    public function cookie_validation($id_akun, $selector) {
         $query = $this->db->get_where('remember_me', ['id_akun' => $id_akun]);
         if ($query->num_rows() > 0) {
             $result = $query->row_array();

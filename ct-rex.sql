@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2022 at 04:58 AM
+-- Generation Time: Dec 08, 2022 at 06:08 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -34,7 +34,7 @@ CREATE TABLE `akun` (
   `status` enum('y','n') COLLATE utf8mb4_unicode_ci DEFAULT 'y',
   `level` int(1) NOT NULL,
   `foto_profil` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'curved.jpg',
-  `foto_header` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'gedungdash.jpg'
+  `foto_header` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -42,15 +42,15 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_akun`, `username`, `password`, `status`, `level`, `foto_profil`, `foto_header`) VALUES
-('200102083', 'reza', '$2y$10$2s5DfuGMqWukAvVgJgP19uAnOY2r77I.gySyI6fFvX.kgFL90qnFu', 'y', 4, 'curved.jpg', 'gedungdash.jpg'),
-('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'y', 3, 'curved.jpg', 'gedungdash.jpg'),
+('200102083', 'reza', '$2y$10$2s5DfuGMqWukAvVgJgP19uAnOY2r77I.gySyI6fFvX.kgFL90qnFu', 'y', 4, 'curved.jpg', 'default.png'),
+('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'y', 3, 'curved.jpg', 'default.png'),
 ('AG', 'ag', '$2y$10$JocxXq0FYPqkaiuDN/N9U.6Y0ORQr5fHy.XY4yKU0oPp5MR/GpXs6', 'y', 2, 'curved.jpg', 'ag.png'),
 ('AK', 'ak', '$2y$10$HEgRBXOXqz/gzVFRlAhcVe7Y0PhN8NqibJT3ZbFtpipcGkmBd8/Bq', 'y', 2, 'curved.jpg', 'ak.png'),
 ('AP', 'ap', '$2y$10$Pa9YuUTIo9deD2qCTLEdqOGjxzOatk2dUezE0j6roknh2hAQrkqVu', 'y', 2, 'curved.jpg', 'ap.png'),
 ('BE', 'be', '$2y$10$mL3htuGlQiPpgYAWv5dMveOTJsTcib0ULO0LsCBh0NQt1xbTBe4rK', 'y', 2, 'curved.jpg', 'be.png'),
 ('ESY', 'esy', '$2y$10$WltyVIBE.2VPW84.932OBOKFECrKdVGuoYZWYqWBKb9jHN.Eh0bR.', 'y', 2, 'curved.jpg', 'esy.png'),
 ('FA', 'fa', '$2y$10$t8RsSrNyq0akJ70PXJlZVOK6GRVw2N3NxawSMhnAr.GW2aGvLOteS', 'y', 2, 'curved.jpg', 'fa.png'),
-('FST', 'saintek', '$2y$10$R9WysGTpFGZ/NRUseszW6ei0YNB9/MsAY.44DzuTj.mzuxmojBt0C', 'y', 1, 'curved.jpg', 'gedungdash.jpg'),
+('FST', 'saintek', '$2y$10$R9WysGTpFGZ/NRUseszW6ei0YNB9/MsAY.44DzuTj.mzuxmojBt0C', 'y', 1, 'curved.jpg', 'default.png'),
 ('HKI', 'hki', '$2y$10$LdcPg771qjYa7V737tdOLuYgi.TMXOoan7UkYJzx3WxDAA6JodzMu', 'y', 2, 'curved.jpg', 'hki.png'),
 ('IF', 'if', '$2y$10$21hhvDgw56v.OAYyeoLhR.yDpZq8aUtdYnmHJwnEJZ1OAts8BdWn.', 'y', 2, 'curved.jpg', 'if.png'),
 ('IK', 'ik', '$2y$10$xpsgNaOdxKNDr.27hKJFAOoD8ZeknOtbhnhaXMWhMgtyU6bqtsJli', 'y', 2, 'curved.jpg', 'ik.png'),
@@ -708,16 +708,16 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200101031', 'Ilham Hermansyah', '', 'Cilacap', '2002-04-27', '2020', 'ilhamhermansyah518@gmail.com', '', 'wni', '', '', 'Jalan Murhadi - Sukajadi No.15', 'Lembang', 'Lembang', 'Bandung', 'Bandung Barat', '', 'TE', 'aktif', NULL),
 ('200101042', 'Raihan Akbar', '', 'Cilegon', '2002-08-15', '2020', 'raihan.akbar150802@gmail.com', '', 'wni', '', '', 'KP.Saluyu Selatan rt01/rw06', 'Sayati', 'Margahayu', 'Bandung', 'Jawa Barat', '', 'TE', 'aktif', NULL),
 ('200102001', 'Alifa Faturrahman', '', 'Bandung', '2002-04-12', '2020', 'Alifaf324@gmail.com', '', 'wni', '', '', 'Jalan Cijawura Hilir no.137B', 'Cijawura', 'Buah Batu', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
-('200102009', 'Raessandra Putri Mayendra', '', 'Jakarta', '2002-06-12', '2020', 'raessandra1206@gmail.com', '', 'wni', '', '', 'Jl. Kinantan Ampu no.108 Lubuk Basung,Kab. Agam,Sumatera Barat', 'Balai Ahad', 'Lubuk Basung', 'Agam', 'Sumatera Barat', '', 'IF', 'aktif', NULL),
-('200102018', 'Abiyya Lalang Christarion Ramadhan', '', 'Kediri', '2001-11-19', '2020', 'abylalang27@gmail.com', '', 'wni', '', '', 'Jl.Babakan Garut no.296/120', 'Cibangkong', 'Batununggal', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
+('200102009', 'Raessandra Putri Mayendra', '', 'Jakarta', '2002-06-12', '2020', 'raessandra1206@gmail.com', '', 'wni', '', '', 'Jl. Kinantan Ampu no.108 Lubuk Basung,Kab. Agam,Sumatera Barat', 'Balai Ahad', 'Lubuk Basung', 'Agam', 'Sumatera Barat', '', 'IF', 'aktif', '2016160685210005'),
+('200102018', 'Abiyya Lalang Christarion Ramadhan', '', 'Kediri', '2001-11-19', '2020', 'abylalang27@gmail.com', '', 'wni', '', '', 'Jl.Babakan Garut no.296/120', 'Cibangkong', 'Batununggal', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', '2016160685210005'),
 ('200102035', 'Azmi Fauzia', '', 'Bandung', '2002-08-17', '2020', 'azmifauziaaa@gmail.com', '', 'wni', '', '', 'Kp. Sinargalih RT 002/ RW 001 No. 10', 'Margaasih', 'Cicalengka', 'Kabupaten Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102043', 'Dimas Apriansyah', '', 'Cilacap', '2002-04-11', '2020', 'dapriansyah000@gmail.com', '', 'wni', '', '', 'Jalan Cijambe no.40', 'Cinunuk', 'Cileunyi', 'Bandung', 'Jawa barat', '', 'MJ', 'aktif', NULL),
 ('200102047', 'Erfan Dwi Prasetyo', '', 'Bandung', '2001-11-04', '2020', 'erfandpras04@gmail.com', '', 'wni', '', '', 'Jl.Ligar Mekar RT.05/RW.26', 'Cibeunying Kaler', 'Cimenyan', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102062', 'Hasya Afifah Ananda', '', 'Bandung', '2000-08-17', '2020', 'hasyaafifah.23@gmail.com', '', 'wni', '', '', 'Sekebentang RT 4 RW 7 kelurahan Sindang jaya kecamatan Mandalajati', 'Sindang jaya', 'Mandalajati', 'Bandung', 'Jawa barat', '', 'IF', 'aktif', NULL),
 ('200102069', 'Ita Mulyati', '', 'Bandung', '2000-01-30', '2020', 'itamulyati30100@gmail.com', '', 'wni', '', '', 'Griya Jatinangor Jl. Palem Raya Blok B.7 No.9', 'Cinanjung', 'Tanjungsari', 'Sumedang', 'Jawa Barat', '', 'IF', 'aktif', NULL),
-('200102078', 'M. Teguh Gabita ', '', 'PERBAUNGAN', '2002-06-04', '2020', 'teguhgabita00@gmail.com', '', 'wni', '', '', 'SIMPANG BALIK', 'DUSUN III', 'WIH PESAM', 'BENER MERIAH', 'ACEH', '', 'IF', 'aktif', NULL),
-('200102080', 'Mochammad Raihan Rizkia', '', 'Bandung', '2001-08-10', '2020', 'Raihanrizkia085@gmail.com', '', 'wni', '', '', 'Jalan Setrawangi 1 no. 41 Rt07/Rw15', 'babakan surabaya', 'Kiaracondong', 'Bandung', 'Jawa barat', '', 'IF', 'aktif', NULL),
-('200102083', 'Muhamad Reza Putra Aditya', 'l', 'Bandung', '2002-02-09', '2020', 'mrezaputraa@gmail.com', '123123', 'wni', '', '', 'Kp. Los Cimaung RT 04/RW 19', 'Margamukti', 'Pangalengan', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
+('200102078', 'M. Teguh Gabita ', '', 'PERBAUNGAN', '2002-06-04', '2020', 'teguhgabita00@gmail.com', '', 'wni', '', '', 'SIMPANG BALIK', 'DUSUN III', 'WIH PESAM', 'BENER MERIAH', 'ACEH', '', 'IF', 'aktif', '2016160685210005'),
+('200102080', 'Mochammad Raihan Rizkia', '', 'Bandung', '2001-08-10', '2020', 'Raihanrizkia085@gmail.com', '', 'wni', '', '', 'Jalan Setrawangi 1 no. 41 Rt07/Rw15', 'babakan surabaya', 'Kiaracondong', 'Bandung', 'Jawa barat', '', 'IF', 'aktif', '2016160685210005'),
+('200102083', 'Muhamad Reza Putra Aditya', 'l', 'Bandung', '2002-02-09', '2020', 'mrezaputraa@gmail.com', '', 'wni', '', '', 'Kp. Los Cimaung RT 04/RW 19', 'Margamukti', 'Pangalengan', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', '2016160685210005'),
 ('200102086', 'Muhammad Faisal Nugroho', '', 'Bekasi', '2001-11-10', '2020', 'm.faisal.n12@gmail.com', '', 'wni', '', '', 'Pajeleran , RT/RW 06/08', 'Sukahati', 'Cibinong', 'Kabupaten Bogor', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102098', 'Mochamad Rifky Malik', '', 'Bandung', '2002-05-01', '2020', 'rifqimalik71@gmail.com ', '', 'wni', '', '', 'Jl babakan Garut RT.3 RW.9 ', 'Cibangkong ', 'Batununggal ', 'Bandung ', 'Jawa Barat', '', 'IF', 'aktif', NULL),
 ('200102101', 'Nazhif Azka Fadllilah', '', 'Bandung', '2002-08-24', '2020', 'nazhif245@gmail.com', '', 'wni', '', '', 'Jl.Golf 1 Blok 2 No 35', 'Cisaranten Binaharapan', 'Arcamanik', 'Bandung', 'Jawa Barat', '', 'IF', 'aktif', NULL),
@@ -1379,7 +1379,7 @@ INSERT INTO `matkul` (`id_matkul`, `nama`, `nama_inggris`, `jenis`, `sks`, `sks_
 ('FAI01404 ', 'Sejarah Peradaban Islam', NULL, 'wajib', 2, 1, NULL, 'PIAUD', NULL),
 ('FAI01407 ', 'Ushul Fiqih', NULL, 'wajib', 2, 1, NULL, 'PIAUD', NULL),
 ('FAI020409 ', 'Ulumul Hadist', NULL, 'wajib', 2, 1, NULL, 'PIAUD', NULL),
-('FAI02406 ', 'Akhlak Tasawuf', NULL, 'wajib', 2, 1, NULL, 'HKI', NULL),
+('FAI02406 ', 'Akhlak Tasawuf', '', 'wajib', 2, 1, NULL, 'HKI', NULL),
 ('FEB01301', 'INGGRIS DASAR', NULL, 'wajib', 2, 1, NULL, 'MJ', NULL),
 ('FEB01302', 'PENGANTAR AKUNTANSI', NULL, 'wajib', 2, 1, NULL, 'MJ', NULL),
 ('FEB01303', 'PENGANTAR MANAJEMEN', NULL, 'wajib', 3, 1, NULL, 'MJ', NULL),
@@ -1679,6 +1679,7 @@ INSERT INTO `matkul` (`id_matkul`, `nama`, `nama_inggris`, `jenis`, `sks`, `sks_
 ('TP3107', 'Pembinaan UMKM', NULL, 'wajib', 3, 1, NULL, 'TPH', NULL),
 ('TP4103', 'Teknologi Fermentasi', NULL, 'wajib', 2, 1, NULL, 'TPH', NULL),
 ('TP4107', 'Teknologi Penyimpanan Dan Pengemasan', NULL, 'wajib', 2, 1, NULL, 'TPH', NULL),
+('WD2021', 'Web Dasar', '-', 'wajib', 2, 1, '2016160685210005', 'IF', '20212'),
 ('WPHKI0043 ', 'Studi Teks Kitab Fiqh', NULL, 'wajib', 3, 1, NULL, 'HKI', NULL),
 ('WU-04.1 ', 'B. Indonesia', NULL, 'wajib', 2, 1, NULL, 'PIAUD', NULL);
 
@@ -2756,7 +2757,7 @@ ALTER TABLE `waktu`
 -- AUTO_INCREMENT for table `remember_me`
 --
 ALTER TABLE `remember_me`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

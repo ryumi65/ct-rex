@@ -51,7 +51,7 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Jadwal Perkuliahan Yang Di Ampu Sebagai Dosen Pertama</h5>
+                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen Pertama</h5>
                         <p class="text-sm mb-0">
                             <i class="fa fa-check text-info" aria-hidden="true"></i>
                             <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
@@ -114,7 +114,7 @@
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Jadwal Perkuliahan Yang Di Ampu Sebagai Dosen Kedua</h5>
+                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen Kedua</h5>
                         <p class="text-sm mb-0">
                             <i class="fa fa-check text-info" aria-hidden="true"></i>
                             <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini

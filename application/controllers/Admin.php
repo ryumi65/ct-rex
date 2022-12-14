@@ -1,19 +1,16 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller
-{
+class Admin extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
     }
 
-    public function index()
-    {
+    public function index() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -21,8 +18,7 @@ class Admin extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function nilaimhs()
-    {
+    public function nilaimhs() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -30,8 +26,7 @@ class Admin extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan()
-    {
+    public function dataruangan() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');

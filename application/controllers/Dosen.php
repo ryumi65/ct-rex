@@ -65,6 +65,15 @@ class Dosen extends CI_Controller {
         $this->load->view('dosen/createjdwl', $data);
         $this->load->view('_partials/script');
     }
+
+    public function update_foto() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('akun/foto');
+        $this->load->view('_partials/script');
+    }
+
     public function create() {
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
@@ -108,13 +117,5 @@ class Dosen extends CI_Controller {
             $this->session->set_userdata('updatesuccess', true);
             redirect('dosen/profil');
         }
-    }
-
-    public function update_foto() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
-        $this->load->view('_partials/header');
-        $this->load->view('akun/foto');
-        $this->load->view('_partials/script');
     }
 }

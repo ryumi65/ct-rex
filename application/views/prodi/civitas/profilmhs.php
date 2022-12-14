@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body p-3">
                         <div class="avatar avatar-xxl position-relative">
-                            <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-300 border-radius-lg shadow-sm">
+                            <img src="<?= base_url(); ?>assets/img/uploads/profile/curved.jpg" alt="profile_image" class="w-300 border-radius-lg shadow-sm">
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">

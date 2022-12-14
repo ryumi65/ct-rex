@@ -15,25 +15,15 @@ class Akun extends CI_Controller {
     }
 
     public function register() {
-        $id = $this->input->post('id_akun');
-        $username = $this->input->post('username');
-        $idValidation = $this->model_akun->get_akun('akun', 'id_akun', $id);
-        $usernameValidation = $this->model_akun->get_akun('akun', 'username', $username);
+        $idValidation = $this->model_akun->get_akun('akun', 'id_akun', $this->input->post('id_akun'));
+        $usernameValidation = $this->model_akun->get_akun('akun', 'username', $this->input->post('username'));
 
-        if (!$idValidation->num_rows() > 0) {
-            if (!$usernameValidation->num_rows() > 0) {
-                $this->model_akun->set_akun();
-                $this->message('success');
-            } else $this->message('usernameError');
-        } else $this->message('idError');
-    }
+        if ($idValidation->num_rows() > 0) return $this->message('idError');
 
-    public function message($msg) {
-        $data[$msg] = true;
+        if ($usernameValidation->num_rows() > 0) return $this->message('usernameError');
 
-        $this->load->view('_partials/head');
-        $this->load->view('akun/register', $data);
-        $this->load->view('_partials/script');
+        $this->model_akun->set_akun();
+        return $this->message('success');
     }
 
     public function logout() {
@@ -42,5 +32,13 @@ class Akun extends CI_Controller {
         delete_cookie('token');
 
         redirect('login');
+    }
+
+    private function message($msg) {
+        $data[$msg] = true;
+
+        $this->load->view('_partials/head');
+        $this->load->view('akun/register', $data);
+        $this->load->view('_partials/script');
     }
 }

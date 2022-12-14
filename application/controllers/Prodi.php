@@ -33,8 +33,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profil()
-    {
+    public function profil() {
         $akun = $this->model_prodi->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -47,7 +46,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/profil', $data);
+        $this->load->view('prodi/profil/profil', $data);
         $this->load->view('_partials/script');
     }
 
@@ -58,7 +57,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/datadsn', $data);
+        $this->load->view('prodi/civitas/datadsn', $data);
         $this->load->view('_partials/script');
     }
 
@@ -69,30 +68,31 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/datamhs', $data);
+        $this->load->view('prodi/civitas/datamhs', $data);
         $this->load->view('_partials/script');
     }
 
     public function datadsnwl() {
         $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
         $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
-        // $data['mhswl'] = $this->model_prodi->get_db_count('mahasiswa', ['dosen_wali' => ]);
+        $data['mhswl'] = $this->jumlah_mhs_wali();
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/datadsnwl', $data);
+        $this->load->view('prodi/civitas/datadsnwl', $data);
         $this->load->view('_partials/script');
     }
 
     public function datamhswl($nik) {
         $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
         $data['dosen'] = $this->model_prodi->get_db('dosen', ['nik' => $nik]);
+        $data['listm'] = $this->model_prodi->get_db('mahasiswa', ['dosen_wali' => $nik], 'result');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/datamhswl', $data);
+        $this->load->view('prodi/civitas/datamhswl', $data);
         $this->load->view('_partials/script');
     }
 
@@ -103,7 +103,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/datamatkul', $data);
+        $this->load->view('prodi/akademik/datamatkul', $data);
         $this->load->view('_partials/script');
     }
 
@@ -115,7 +115,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/profilmhs', $data);
+        $this->load->view('prodi/civitas/profilmhs', $data);
         $this->load->view('_partials/script');
     }
 
@@ -127,7 +127,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/profildsn', $data);
+        $this->load->view('prodi/civitas/profildsn', $data);
         $this->load->view('_partials/script');
     }
 
@@ -138,7 +138,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/detailmatkul', $data);
+        $this->load->view('prodi/akademik/detailmatkul', $data);
         $this->load->view('_partials/script');
     }
 
@@ -148,7 +148,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/jadwalkuliah', $data);
+        $this->load->view('prodi/akademik/jadwalkuliah', $data);
         $this->load->view('_partials/script');
     }
 
@@ -158,7 +158,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
-        $this->load->view('prodi/createjdwl', $data);
+        $this->load->view('prodi/akademik/createjdwl', $data);
         $this->load->view('_partials/script');
     }
 
@@ -192,7 +192,7 @@ class Prodi extends CI_Controller {
             $this->load->view('_partials/head');
             $this->load->view('_partials/sidebarprd');
             $this->load->view('_partials/header');
-            $this->load->view('prodi/createdatawali', $data);
+            $this->load->view('prodi/civitas/createdatawali', $data);
             $this->load->view('_partials/script');
         } else {
             $this->model_prodi->set_mhs_wali($this->input->post('dosen_wali[]'));
@@ -206,18 +206,6 @@ class Prodi extends CI_Controller {
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('no_hp', 'No Hp', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'kewarganegaraan', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('nidn_dosen', 'NIDN Dosen', 'required');
-        $this->form_validation->set_rules('status_dosen', 'Status Dosen', 'required');
-        $this->form_validation->set_rules('status_kerja', 'Status Kerja', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -241,7 +229,7 @@ class Prodi extends CI_Controller {
             $this->load->view('_partials/head');
             $this->load->view('_partials/sidebarprd');
             $this->load->view('_partials/header');
-            $this->load->view('prodi/updatemhs', $data);
+            $this->load->view('prodi/civitas/updatemhs', $data);
             $this->load->view('_partials/script');
         } else {
             $this->model_mahasiswa->update_mahasiswa($nim);
@@ -326,85 +314,15 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function ajax_list($table, $wali = null, $nik = null) {
-        $list = $this->model_prodi->get_datatables($table, $wali, $nik);
-        $data = [];
-        $no = $_POST['start'];
+    private function jumlah_mhs_wali() {
+        $listd = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
 
-        if ($table === 'dosen') {
-            if ($wali === 'dsnwl') {
-                foreach ($list as $dosen) {
-                    if ($dosen->jenis_kelamin === 'l') $jk = 'Laki-laki';
-                    elseif ($dosen->jenis_kelamin === 'p') $jk = 'Perempuan';
-                    else $jk = '-';
+        foreach ($listd as $dosen) {
+            $jumlah = $this->model_prodi->get_count_mhs_wali($dosen['nik']);
 
-                    $no++;
-                    $row = [];
-                    $row[] = $no;
-                    $row[] = $dosen->nik;
-                    $row[] = $dosen->nama;
-                    $row[] = $jk;
-                    $row[] = $dosen->nidn_dosen;
-                    $row[] = $this->model_prodi->get_db_count('mahasiswa', ['dosen_wali' => $dosen->nik]);
+            $data[$dosen['nik']] = $jumlah;
+        }
 
-                    $data[] = $row;
-                }
-            } else {
-                foreach ($list as $dosen) {
-                    if ($dosen->jenis_kelamin === 'l') $jk = 'Laki-laki';
-                    elseif ($dosen->jenis_kelamin === 'p') $jk = 'Perempuan';
-                    else $jk = '-';
-
-                    $no++;
-                    $row = [];
-                    $row[] = $no;
-                    $row[] = $dosen->nik;
-                    $row[] = $dosen->nama;
-                    $row[] = $jk;
-                    $row[] = $dosen->nidn_dosen;
-                    $row[] = ucfirst($dosen->status_dosen);
-
-                    $data[] = $row;
-                }
-            }
-        } elseif ($table === 'mahasiswa') {
-            foreach ($list as $mahasiswa) {
-                if ($mahasiswa->jenis_kelamin === 'l') $jk = 'Laki-laki';
-                elseif ($mahasiswa->jenis_kelamin === 'p') $jk = 'Perempuan';
-                else $jk = '-';
-
-                $no++;
-                $row = [];
-                $row[] = $no;
-                $row[] = $mahasiswa->nim;
-                $row[] = $mahasiswa->nama;
-                $row[] = $jk;
-                $row[] = $mahasiswa->tahun_angkatan;
-                $row[] = ucfirst($mahasiswa->status);
-
-                $data[] = $row;
-            }
-        } elseif ($table === 'matkul') {
-            foreach ($list as $matkul) {
-                $no++;
-                $row = [];
-                $row[] = $no;
-                $row[] = $matkul->id_matkul;
-                $row[] = $matkul->nama;
-                $row[] = $matkul->sks + $matkul->sks_praktikum;
-                $row[] = ucwords($matkul->jenis);
-
-                $data[] = $row;
-            }
-        } else return false;
-
-        $output = [
-            "draw" => $_POST['draw'],
-            "recordsTotal" => $this->model_prodi->count_all($table),
-            "recordsFiltered" => $this->model_prodi->count_filtered($table, $wali, $nik),
-            "data" => $data,
-        ];
-
-        echo json_encode($output);
+        return $data;
     }
 }

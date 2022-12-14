@@ -19,7 +19,7 @@
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Mahasiswa</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jenis Kelamin</th>
+                                            JK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Tahun Angkatan</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -29,6 +29,23 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
+                                    <?php foreach ($listm as $mahasiswa) : ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><?= $mahasiswa['nim'] ?></td>
+                                            <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                            <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
+                                            <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                            <td><?= ucwords($mahasiswa['status']) ?></td>
+                                            <td>
+                                                <div class="text-center">
+                                                    <a class="btn btn-danger mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
@@ -84,36 +101,27 @@
 
             table = $('#table').DataTable({
 
-                "deferRender": true,
-                "responsive": true,
-                "serverSide": true,
-                "order": [],
+                responsive: true,
+                order: [2, 'asc'],
 
-                "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/mahasiswa/mhswl/' . $dosen['nik']) ?>",
-                    "type": "POST"
-                },
-
-                "columnDefs": [{
-                    "targets": [0, 6],
-                    "orderable": false,
-                }, {
-                    "targets": [2],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<a href="<?= site_url('prodi/civitas/data-mahasiswa/') ?>${row[1]}">${row[2]}</a>`;
-                    }
-                }, {
-                    "targets": [6],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<div class="text-center"><a class="btn btn-danger mb-0" data-bs-toggle="tooltip" title="Hapus"
-                            onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/') ?>${row[1]}')">
-                            <i class="fa-solid fa-trash-can"></i></a></div>`;
-                    }
+                columnDefs: [{
+                    targets: [0, 6],
+                    orderable: false,
+                    searchable: false,
                 }],
 
             });
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
 
         });
     </script>

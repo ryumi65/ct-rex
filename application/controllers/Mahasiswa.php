@@ -1,11 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Mahasiswa extends CI_Controller
-{
+class Mahasiswa extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
 
@@ -13,8 +11,7 @@ class Mahasiswa extends CI_Controller
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
     }
 
-    public function index()
-    {
+    public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
         $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
@@ -31,8 +28,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profil()
-    {
+    public function profil() {
         $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -50,8 +46,7 @@ class Mahasiswa extends CI_Controller
     }
 
 
-    public function jadwalkuliah()
-    {
+    public function jadwalkuliah() {
         $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
@@ -62,8 +57,7 @@ class Mahasiswa extends CI_Controller
     }
 
 
-    public function datakrs()
-    {
+    public function datakrs() {
         $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
@@ -73,8 +67,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function formkrs()
-    {
+    public function formkrs() {
         $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
@@ -84,28 +77,19 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function create()
-    {
+    public function update_foto() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('akun/foto');
+        $this->load->view('_partials/script');
+    }
+
+    public function create() {
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('tahun_angkatan', 'Tahun Angkatan', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'Kewarganegaraan', 'required');
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('kelurahan', 'Kelurahan', 'required');
-        $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required');
-        $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required');
-        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
-        $this->form_validation->set_rules('kode_pos', 'Kode Pos', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('mahasiswa/create', $data);
@@ -115,8 +99,7 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    public function update($nim)
-    {
+    public function update($nim) {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $nim]);
         $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $nim]);
         $data['listp'] = $this->model_mahasiswa->get_db('prodi');
@@ -136,24 +119,13 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    public function update_ortu($nim)
-    {
+    public function update_ortu($nim) {
         $this->model_mahasiswa->update_ortu($nim);
         $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
     }
 
-    public function update_foto()
-    {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarmhs');
-        $this->load->view('_partials/header');
-        $this->load->view('akun/foto');
-        $this->load->view('_partials/script');
-    }
-
-    public function upload_header()
-    {
+    public function upload_header() {
         $config['upload_path']   = './assets/img/uploads/header/';
         $config['file_name']     = $this->session->id;
         $config['allowed_types'] = 'jpeg|jpg|png';
@@ -169,8 +141,7 @@ class Mahasiswa extends CI_Controller
         redirect('mahasiswa/profil/foto/edit');
     }
 
-    public function upload_profil()
-    {
+    public function upload_profil() {
         $config['upload_path']   = './assets/img/uploads/profile/';
         $config['file_name']     = $this->session->id;
         $config['allowed_types'] = 'jpeg|jpg|png';

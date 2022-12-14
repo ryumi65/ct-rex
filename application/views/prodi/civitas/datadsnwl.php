@@ -27,8 +27,8 @@
                                             JK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             NIDN</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jumlah Mahasiswa Wali</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            Mahasiswa Wali</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -39,7 +39,7 @@
                                             <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
                                             <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
                                             <td><?= $dosen['nidn_dosen'] ?></td>
-                                            <td><?= ucwords($dosen['status_dosen']) ?></td>
+                                            <td><?= $mhswl[$dosen['nik']] ?></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -94,28 +94,27 @@
 
             table = $('#table').DataTable({
 
-                "deferRender": true,
-                "responsive": true,
-                "serverSide": true,
-                "order": [],
+                responsive: true,
+                order: [2, 'asc'],
 
-                "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/dosen/dsnwl') ?>",
-                    "type": "POST"
-                },
-
-                "columnDefs": [{
-                    "targets": [0],
-                    "orderable": false,
-                }, {
-                    "targets": [2],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return '<a href="data-dosen-wali/' + row[1] + '">' + row[2] + '</a>';
-                    }
+                columnDefs: [{
+                    targets: [0],
+                    orderable: false,
+                    searchable: false,
                 }],
 
             });
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
 
         });
     </script>

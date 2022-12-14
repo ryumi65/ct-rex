@@ -9,13 +9,13 @@ class Login extends CI_Controller {
     }
 
     public function index() {
-        if (!$this->session->userdata('logged')) {
-            $this->cookie_check();
+        if ($this->session->userdata('logged')) redirect(strtolower($this->session->access));
 
-            $this->load->view('_partials/head');
-            $this->load->view('akun/login');
-            $this->load->view('_partials/script');
-        } else redirect(strtolower($this->session->access));
+        $this->cookie_check();
+
+        $this->load->view('_partials/head');
+        $this->load->view('akun/login');
+        $this->load->view('_partials/script');
     }
 
     function auth() {

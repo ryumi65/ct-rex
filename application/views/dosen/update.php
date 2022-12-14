@@ -20,25 +20,25 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Lengkap</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= $dosen['nama'] ?>" required>
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= $dosen['nama'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tempat Lahir</label>
                                 <div class="mb-3">
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $dosen['tempat_lahir'] ?>" required>
+                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $dosen['tempat_lahir'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tanggal Lahir</label>
                                 <div class="mb-3">
-                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $dosen['tanggal_lahir'] ?>" required>
+                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $dosen['tanggal_lahir'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jenis Kelamin</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="jenis_kelamin" required>
+                                    <select class="form-select" name="jenis_kelamin">
                                         <option selected disabled>Pilih Jenis Kelamin</option>
                                         <?php if ($dosen['jenis_kelamin'] === 'l') : ?>
                                             <option selected value="l">Laki-laki</option>
@@ -56,19 +56,19 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Agama</label>
                                 <div class="mb-3">
-                                    <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $dosen['agama'] ?>" required>
+                                    <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $dosen['agama'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Handphone</label>
                                 <div class="mb-3">
-                                    <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $dosen['no_hp'] ?>" required>
+                                    <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $dosen['no_hp'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Email</label>
                                 <div class="mb-3">
-                                    <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $dosen['email'] ?>" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $dosen['email'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -93,7 +93,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Kewarganegaraan</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="kewarganegaraan" required>
+                                    <select class="form-select" name="kewarganegaraan">
                                         <option selected disabled>Pilih Kewarganegaraan</option>
                                         <?php if ($dosen['kewarganegaraan'] === 'wni') : ?>
                                             <option selected value="wni">Warga Negara Indonesia</option>
@@ -111,25 +111,131 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Alamat Tempat Tinggal</label>
                                 <div class="mb-3">
-                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $dosen['alamat'] ?>" required>
+                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $dosen['alamat'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Induk Dosen</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nidn_dosen" class="form-control" placeholder="Nomor Induk Dosen" value="<?= $dosen['nidn_dosen'] ?>" required>
+                                    <input type="text" name="nidn_dosen" class="form-control" placeholder="Nomor Induk Dosen" value="<?= $dosen['nidn_dosen'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Status Dosen</label>
                                 <div class="mb-3">
-                                    <input type="text" name="status_dosen" class="form-control" placeholder="Status Dosen" value="<?= $dosen['status_dosen'] ?>" required>
+                                    <select class="form-select" name="status_dosen">
+                                        <option selected disabled>Pilih Status Dosen</option>
+                                        <?php if ($dosen['status_dosen'] === 'aktif') : ?>
+                                            <option selected value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'cuti') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option selected value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'keluar') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option selected value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'almarhum') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option selected value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'pensiun') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option selected value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'studi lanjut') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option selected value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php elseif ($dosen['status_dosen'] === 'tugas di instansi lain') : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option selected value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php else : ?>
+                                            <option value="aktif">Aktif</option>
+                                            <option value="cuti">Cuti</option>
+                                            <option value="keluar">Keluar</option>
+                                            <option value="almarhum">Almarhum</option>
+                                            <option value="pensiun">Pensiun</option>
+                                            <option value="studi lanjut">Studi Lanjut</option>
+                                            <option value="tugas di instansi lain">Tugas di Instansi Lain</option>
+                                        <?php endif ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Status Kerja</label>
                                 <div class="mb-3">
-                                    <input type="text" name="status_kerja" class="form-control" placeholder="Status Kerja" value="<?= $dosen['status_kerja'] ?>" required>
+                                    <select class="form-select" name="status_kerja">
+                                        <option selected disabled>Pilih Status Dosen</option>
+                                        <?php if ($dosen['status_kerja'] === 'dosen tetap') : ?>
+                                            <option selected value="dosen tetap">Dosen Tetap</option>
+                                            <option value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php elseif ($dosen['status_kerja'] === 'dosen pns di pekerjaan') : ?>
+                                            <option value="dosen tetap">Dosen Tetap</option>
+                                            <option selected value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php elseif ($dosen['status_kerja'] === 'dosen honorer ptn') : ?>
+                                            <option value="dosen tetap">Dosen Tetap</option>
+                                            <option value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option selected value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php elseif ($dosen['status_kerja'] === 'dosen honorer no ptn') : ?>
+                                            <option value="dosen tetap">Dosen Tetap</option>
+                                            <option value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option selected value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php elseif ($dosen['status_kerja'] === 'dosen kontrak') : ?>
+                                            <option value="dosen tetap">Dosen Tetap</option>
+                                            <option value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option selected value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php else : ?>
+                                            <option value="dosen tetap">Dosen Tetap</option>
+                                            <option value="dosen pns di pekerjaan">Dosen PNS di Pekerjaan</option>
+                                            <option value="dosen honorer ptn">Dosen Honorer PTN</option>
+                                            <option value="dosen honorer no ptn">Dosen Honorer No PTN</option>
+                                            <option value="dosen kontrak">Dosen Kontrak</option>
+                                        <?php endif ?>
+                                    </select>
                                 </div>
                             </div>
                         </div>

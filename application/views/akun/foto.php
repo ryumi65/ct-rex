@@ -10,12 +10,13 @@
                             <h5 class="mb-0">Edit Foto Profil</h5>
                         </div>
                         <div class="card-body p-3">
-                            <?= form_open_multipart('mahasiswa/upload_profil') ?>
+                            <?= form_open_multipart('upload/upload_profil') ?>
                             <label>Foto Profil</label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>
                             <div class="text-end">
+                                <a href="<?= site_url('upload/delete_profil') ?>" class="btn btn-danger mt-2 mb-0">Hapus</a>
                                 <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>
                             </form>
@@ -30,12 +31,13 @@
                             <h5 class="mb-0">Edit Foto Header</h5>
                         </div>
                         <div class="card-body p-3">
-                            <?= form_open_multipart('mahasiswa/upload_header') ?>
+                            <?= form_open_multipart('upload/upload_header') ?>
                             <label>Foto Header</label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>
                             <div class="text-end">
+                                <a href="<?= site_url('upload/delete_header') ?>" class="btn btn-danger mt-2 mb-0">Hapus</a>
                                 <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>
                             </form>

@@ -5,12 +5,12 @@ class model_matkul extends CI_Model {
 
     public function set_matkul() {
         $data = [
-            'id_matkul' => $this->input->post('id_matkul'),
+            'kode_matkul' => $this->input->post('kode_matkul'),
             'nama' => $this->input->post('nama'),
             'nama_inggris' => $this->input->post('nama_inggris'),
             'jenis' => $this->input->post('jenis'),
+            'kategori' => $this->input->post('kategori'),
             'sks' => $this->input->post('sks'),
-            'sks_praktikum' => $this->input->post('sks_praktikum'),
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
             'id_semester' => $this->input->post('id_semester'),
@@ -21,12 +21,12 @@ class model_matkul extends CI_Model {
 
     public function update_matkul($id_matkul) {
         $data = [
-            'id_matkul' => $this->input->post('id_matkul'),
+            'kode_matkul' => $this->input->post('kode_matkul'),
             'nama' => $this->input->post('nama'),
             'nama_inggris' => $this->input->post('nama_inggris'),
             'jenis' => $this->input->post('jenis'),
+            'kategori' => $this->input->post('kategori'),
             'sks' => $this->input->post('sks'),
-            'sks_praktikum' => $this->input->post('sks_praktikum'),
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
             'id_semester' => $this->input->post('id_semester'),

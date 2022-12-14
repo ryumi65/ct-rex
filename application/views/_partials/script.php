@@ -13,9 +13,6 @@
         }
     </script>
 
-    <!-- Chart -->
-    <script defer src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
-
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 

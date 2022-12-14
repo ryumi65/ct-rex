@@ -14,28 +14,36 @@
                             </div>
                         </div>
                         <div class="card-body px-0">
-                            <div class="table-responsive">
-                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                    <thead>
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                                <thead>
+                                    <tr>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Nama Dosen</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            JK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIDN</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Jumlah Mahasiswa Wali</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <?php foreach ($listd as $dosen) : ?>
                                         <tr>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                                No.</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                NIK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Nama Dosen</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Jenis Kelamin</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                NIDN</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Jumlah Mahasiswa Wali</th>
+                                            <td></td>
+                                            <td><?= $dosen['nik'] ?></td>
+                                            <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                            <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
+                                            <td><?= $dosen['nidn_dosen'] ?></td>
+                                            <td><?= ucwords($dosen['status_dosen']) ?></td>
                                         </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                    </tbody>
-                                </table>
-                            </div>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

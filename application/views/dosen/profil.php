@@ -1,3 +1,10 @@
+    <?php if (isset($_SESSION['updatesuccess'])) {
+        echo "<script>
+            alert('Edit biodata berhasil!');
+        </script>";
+        unset($_SESSION['updatesuccess']);
+    } ?>
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-3">
 

@@ -35,7 +35,7 @@
 
                                 <!-- Form -->
                                 <?= validation_errors() ?>
-                                <?= form_open('mahasiswa/update') ?>
+                                <?= form_open('mahasiswa/update/' . $mahasiswa['nim']) ?>
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Mahasiswa</label>
@@ -52,19 +52,19 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tempat Lahir</label>
                                         <div class="mb-3">
-                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>" required>
+                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>" required>
+                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Jenis Kelamin</label>
                                         <div class="mb-3">
-                                            <select class="form-select" name="jenis_kelamin" required>
+                                            <select class="form-select" name="jenis_kelamin">
                                                 <option selected disabled>Pilih Jenis Kelamin</option>
                                                 <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
                                                     <option selected value="l">Laki-laki</option>
@@ -82,19 +82,19 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Agama</label>
                                         <div class="mb-3">
-                                            <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $mahasiswa['agama'] ?>" required>
+                                            <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $mahasiswa['agama'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Handphone</label>
                                         <div class="mb-3">
-                                            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $mahasiswa['no_hp'] ?>" required>
+                                            <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $mahasiswa['no_hp'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Email</label>
                                         <div class="mb-3">
-                                            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $mahasiswa['email'] ?>" required>
+                                            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $mahasiswa['email'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
@@ -125,7 +125,7 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Kewarganegaraan</label>
                                         <div class="mb-3">
-                                            <select class="form-select" name="kewarganegaraan" required>
+                                            <select class="form-select" name="kewarganegaraan">
                                                 <option selected disabled>Pilih Kewarganegaraan</option>
                                                 <?php if ($mahasiswa['kewarganegaraan'] === 'wni') : ?>
                                                     <option selected value="wni">Warga Negara Indonesia</option>
@@ -143,43 +143,43 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nik" class="form-control" placeholder="Nomor Induk Kependudukan" value="<?= $mahasiswa['nik'] ?>" required>
+                                            <input type="text" name="nik" class="form-control" placeholder="Nomor Induk Kependudukan" value="<?= $mahasiswa['nik'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Alamat Tempat Tinggal</label>
                                         <div class="mb-3">
-                                            <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $mahasiswa['alamat'] ?>" required>
+                                            <input type="text" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= $mahasiswa['alamat'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Desa/Kelurahan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="kelurahan" class="form-control" placeholder="Desa/Kelurahan" value="<?= $mahasiswa['kelurahan'] ?>" required>
+                                            <input type="text" name="kelurahan" class="form-control" placeholder="Desa/Kelurahan" value="<?= $mahasiswa['kelurahan'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Kecamatan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan" value="<?= $mahasiswa['kecamatan'] ?>" required>
+                                            <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan" value="<?= $mahasiswa['kecamatan'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Kabupaten/Kota</label>
                                         <div class="mb-3">
-                                            <input type="text" name="kabupaten" class="form-control" placeholder="Kabupaten/Kota" value="<?= $mahasiswa['kabupaten'] ?>" required>
+                                            <input type="text" name="kabupaten" class="form-control" placeholder="Kabupaten/Kota" value="<?= $mahasiswa['kabupaten'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Provinsi</label>
                                         <div class="mb-3">
-                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi" value="<?= $mahasiswa['provinsi'] ?>" required>
+                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi" value="<?= $mahasiswa['provinsi'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Kode Pos</label>
                                         <div class="mb-3">
-                                            <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" value="<?= $mahasiswa['kode_pos'] ?>" required>
+                                            <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" value="<?= $mahasiswa['kode_pos'] ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@
                                 </div>
 
                                 <!-- Form -->
-                                <?= form_open('mahasiswa/update_ortu') ?>
+                                <?= form_open('mahasiswa/update_ortu/' . $mahasiswa['nim']) ?>
                                 <div class="row">
 
                                     <!-- Ayah -->
@@ -211,37 +211,37 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nik_ayah" class="form-control" placeholder="-" value="<?= $ortu['nik_ayah'] ?>">
+                                            <input type="text" name="nik_ayah" class="form-control" placeholder="NIK" value="<?= $ortu['nik_ayah'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nama Lengkap</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nama_ayah" class="form-control" placeholder="-" value="<?= $ortu['nama_ayah'] ?>">
+                                            <input type="text" name="nama_ayah" class="form-control" placeholder="Nama" value="<?= $ortu['nama_ayah'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir_ayah" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_ayah'] ?>">
+                                            <input type="date" name="tanggal_lahir_ayah" class="form-control" placeholder="Tanggal Lahir" value="<?= $ortu['tanggal_lahir_ayah'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_ayah" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_ayah'] ?>">
+                                            <input type="text" name="pendidikan_ayah" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_ayah'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pekerjaan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pekerjaan_ayah" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_ayah'] ?>">
+                                            <input type="text" name="pekerjaan_ayah" class="form-control" placeholder="Pekerjaan" value="<?= $ortu['pekerjaan_ayah'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_ayah" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_ayah'] ?>">
+                                            <input type="text" name="penghasilan_ayah" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_ayah'] ?>">
                                         </div>
                                     </div>
 
@@ -255,37 +255,37 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nik_ibu" class="form-control" placeholder="-" value="<?= $ortu['nik_ibu'] ?>">
+                                            <input type="text" name="nik_ibu" class="form-control" placeholder="NIK" value="<?= $ortu['nik_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nama Lengkap</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nama_ibu" class="form-control" placeholder="-" value="<?= $ortu['nama_ibu'] ?>">
+                                            <input type="text" name="nama_ibu" class="form-control" placeholder="Nama" value="<?= $ortu['nama_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir_ibu" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_ibu'] ?>">
+                                            <input type="date" name="tanggal_lahir_ibu" class="form-control" placeholder="Tanggal Lahir" value="<?= $ortu['tanggal_lahir_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_ibu" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_ibu'] ?>">
+                                            <input type="text" name="pendidikan_ibu" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pekerjaan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_ibu'] ?>">
+                                            <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="Pekerjaan" value="<?= $ortu['pekerjaan_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_ibu" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_ibu'] ?>">
+                                            <input type="text" name="penghasilan_ibu" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_ibu'] ?>">
                                         </div>
                                     </div>
 
@@ -299,37 +299,37 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nik_wali" class="form-control" placeholder="-" value="<?= $ortu['nik_wali'] ?>">
+                                            <input type="text" name="nik_wali" class="form-control" placeholder="NIK" value="<?= $ortu['nik_wali'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nama Lengkap</label>
                                         <div class="mb-3">
-                                            <input type="text" name="nama_wali" class="form-control" placeholder="-" value="<?= $ortu['nama_wali'] ?>">
+                                            <input type="text" name="nama_wali" class="form-control" placeholder="Nama" value="<?= $ortu['nama_wali'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir_wali" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_wali'] ?>">
+                                            <input type="date" name="tanggal_lahir_wali" class="form-control" placeholder="Tanggal Lahir" value="<?= $ortu['tanggal_lahir_wali'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_wali" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_wali'] ?>">
+                                            <input type="text" name="pendidikan_wali" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_wali'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pekerjaan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pekerjaan_wali" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_wali'] ?>">
+                                            <input type="text" name="pekerjaan_wali" class="form-control" placeholder="Pekerjaan" value="<?= $ortu['pekerjaan_wali'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_wali" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_wali'] ?>">
+                                            <input type="text" name="penghasilan_wali" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_wali'] ?>">
                                         </div>
                                     </div>
                                 </div>

@@ -24,28 +24,30 @@ class Model_akun extends CI_Model {
     }
 
     public function update_db_foto($file, $type) {
-        $akun = $this->db->get_where('akun', ['id_akun' => $this->session->id])->row_array();
+        if ($type == 'header') {
+            $data['foto_header'] = $file;
+
+            return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
+        } elseif ($type == 'profil') {
+            $data['foto_profil'] = $file;
+
+            return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
+        }
+    }
+
+    public function delete_foto($type) {
+        $akun = $this->get_db('akun', ['id_akun' => $this->session->id]);
 
         if ($type == 'header') {
-            if ($file === $akun['foto_header']) {
-                $file_name = explode('.', $akun['foto_header']);
+            $file_name = explode('.', $akun['foto_header']);
+            array_map('unlink', glob("./assets/img/uploads/header/" . $file_name[0] . "*"));
 
-                $this->db->update('akun', ['foto_header' => null], ['id_akun' => $this->session->id]);
-                array_map('unlink', glob(base_url() . "/assets/img/uploads/header/$file_name[0]*"));
-                $data['foto_header'] = $file;
-
-                return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
-            }
+            return $this->db->update('akun', ['foto_header' => 'default.png'], ['id_akun' => $this->session->id]);
         } elseif ($type == 'profil') {
-            if ($file === $akun['foto_profil']) {
-                $file_name = explode('.', $akun['foto_profil']);
-
-                $this->db->update('akun', ['foto_profil' => null], ['id_akun' => $this->session->id]);
-                array_map('unlink', glob(base_url() . "/assets/img/uploads/profil/$file_name[0]*"));
-                $data['foto_profil'] = $file;
-
-                return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
-            }
+            $file_name = explode('.', $akun['foto_profil']);
+            array_map('unlink', glob("./assets/img/uploads/profile/" . $file_name[0] . "*"));
+            
+            return $this->db->update('akun', ['foto_profil' => 'curved.jpg'], ['id_akun' => $this->session->id]);
         }
     }
 }

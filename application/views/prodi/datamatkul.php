@@ -33,13 +33,15 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        ID Matkul</th>
+                                        Kode Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Total SKS</th>
+                                        Jenis Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kategori</th>
+                                        Kategori SKS</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        SKS</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
                                 </tr>
@@ -48,10 +50,11 @@
                                 <?php foreach ($listm as $matkul) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $matkul['id_matkul'] ?></td>
+                                        <td><?= $matkul['kode_matkul'] ?></td>
                                         <td><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
-                                        <td><?= $matkul['sks'] + $matkul['sks_praktikum'] ?></td>
                                         <td><?= ucwords($matkul['jenis']) ?></td>
+                                        <td><?= ucwords($matkul['kategori']) ?></td>
+                                        <td><?= $matkul['sks'] ?></td>
                                         <td>
                                             <div class="text-center">
                                                 <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
@@ -121,7 +124,7 @@
                 order: [2, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 5],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],

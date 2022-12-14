@@ -165,13 +165,8 @@ class Prodi extends CI_Controller {
         $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
         $data['lists'] = $this->model_prodi->get_db('semester');
 
-        $this->form_validation->set_rules('id_matkul', 'ID Matkul', 'required');
+        $this->form_validation->set_rules('kode_matkul', 'Kode Matkul', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('nama_inggris', 'Nama Inggris', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        $this->form_validation->set_rules('sks', 'SKS Teori', 'required');
-        $this->form_validation->set_rules('sks_praktikum', 'SKS Praktikum', 'required');
-        $this->form_validation->set_rules('nik_dosen', 'NIK', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');
@@ -258,8 +253,10 @@ class Prodi extends CI_Controller {
         $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
         $data['lists'] = $this->model_prodi->get_db('semester');
         $data['jenis'] = ['wajib', 'wajib prodi', 'pilihan', 'peminatan', 'tugas akhir'];
+        $data['kategori'] = ['teori', 'praktikum'];
 
-        $this->form_validation->set_rules('id_matkul', 'ID Matkul', 'required');
+        $this->form_validation->set_rules('kode_matkul', 'Kode Matkul', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
 
         if (!$this->form_validation->run()) {
             $this->load->view('_partials/head');

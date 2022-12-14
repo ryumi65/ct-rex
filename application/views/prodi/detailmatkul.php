@@ -10,9 +10,9 @@
                     <div class="card-body p-3">
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
-                                <label>ID Mata Kuliah</label>
+                                <label>Kode Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <input type="text" name="id_matkul" class="form-control" placeholder="-" value="<?= $matkul['id_matkul'] ?>" disabled readonly>
+                                    <input type="text" name="kode_matkul" class="form-control" placeholder="-" value="<?= $matkul['kode_matkul'] ?>" disabled readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -34,21 +34,21 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>SKS Teori</label>
-                                <div class="mb-3">
-                                    <input type="text" name="sks" class="form-control" placeholder="-" value="<?= $matkul['sks'] ?>" disabled readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>SKS Praktikum</label>
-                                <div class="mb-3">
-                                    <input type="text" name="sks_praktikum" class="form-control" placeholder="-" value="<?= $matkul['sks_praktikum'] ?>" disabled readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
                                 <label>Jenis Mata Kuliah</label>
                                 <div class="mb-3">
                                     <input type="text" name="jenis" class="form-control" placeholder="-" value="<?= ucwords($matkul['jenis']) ?>" disabled readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Kategori SKS</label>
+                                <div class="mb-3">
+                                    <input type="text" name="kategori" class="form-control" placeholder="-" value="<?= ucwords($matkul['kategori']) ?>" disabled readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Jumlah SKS</label>
+                                <div class="mb-3">
+                                    <input type="text" name="sks" class="form-control" placeholder="-" value="<?= $matkul['sks'] ?>" disabled readonly>
                                 </div>
                             </div>
                         </div>

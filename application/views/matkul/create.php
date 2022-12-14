@@ -12,9 +12,9 @@
                         <?= form_open('prodi/creatematkul') ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
-                                <label>ID Mata Kuliah</label>
+                                <label>Kode Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <input type="text" name="id_matkul" class="form-control" placeholder="ID Matkul" required>
+                                    <input type="text" name="kode_matkul" class="form-control" placeholder="Kode Matkul" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -26,13 +26,13 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Mata Kuliah (Inggris)</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris" required>
+                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jenis Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="jenis" required>
+                                    <select class="form-select" name="jenis">
                                         <option selected disabled>Pilih Jenis Mata Kuliah</option>
                                         <option value="wajib">Wajib</option>
                                         <option value="wajib prodi">Wajib Prodi</option>
@@ -43,21 +43,25 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>SKS Teori</label>
+                                <label>Kategori SKS</label>
                                 <div class="mb-3">
-                                    <input type="text" name="sks" class="form-control" placeholder="SKS Teori" required>
+                                    <select class="form-select" name="kategori">
+                                        <option selected disabled>Pilih Kategori SKS</option>
+                                        <option value="teori">Teori</option>
+                                        <option value="praktikum">Praktikum</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>SKS Praktikum</label>
+                                <label>Jumlah SKS</label>
                                 <div class="mb-3">
-                                    <input type="text" name="sks_praktikum" class="form-control" placeholder="SKS Praktikum" required>
+                                    <input type="text" name="sks" class="form-control" placeholder="Jumlah SKS">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Dosen Pengampu</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="nik_dosen" required>
+                                    <select class="form-select" name="nik_dosen">
                                         <option selected disabled>Pilih Dosen Pengampu</option>
                                         <?php foreach ($listd as $dosen) : ?>
                                             <option value="<?= $dosen['nik'] ?>"><?= $dosen['nik'] . ' - ' . $dosen['nama'] ?></option>
@@ -68,7 +72,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Semester</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="id_semester" required>
+                                    <select class="form-select" name="id_semester">
                                         <option selected disabled>Pilih Semester</option>
                                         <?php foreach ($lists as $semester) : ?>
                                             <option value="<?= $semester['id_semester'] ?>"><?= $semester['tahun_ajaran'] . ' - ' . ucfirst($semester['nama']) ?></option>

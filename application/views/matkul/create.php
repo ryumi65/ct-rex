@@ -43,22 +43,27 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>SKS Teori</label>
+                                <label>Jumlah SKS</label>
                                 <div class="mb-3">
-                                    <input type="text" name="sks" class="form-control" placeholder="SKS Teori" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>SKS Praktikum</label>
-                                <div class="mb-3">
-                                    <input type="text" name="sks_praktikum" class="form-control" placeholder="SKS Praktikum" required>
+                                    <input type="text" name="sks" class="form-control" placeholder="Jumlah SKS" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Dosen Pengampu</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="nik_dosen" required>
-                                        <option selected disabled>Pilih Dosen Pengampu</option>
+                                        <option selected disabled>Pilih Dosen Pengampu 1</option>
+                                        <?php foreach ($listd as $dosen) : ?>
+                                            <option value="<?= $dosen['nik'] ?>"><?= $dosen['nik'] . ' - ' . $dosen['nama'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Dosen Pengampu 1</label>
+                                <div class="mb-3">
+                                    <select class="form-select" name="nik_dosen" required>
+                                        <option selected disabled>Pilih Dosen Pengampu 1</option>
                                         <?php foreach ($listd as $dosen) : ?>
                                             <option value="<?= $dosen['nik'] ?>"><?= $dosen['nik'] . ' - ' . $dosen['nama'] ?></option>
                                         <?php endforeach ?>

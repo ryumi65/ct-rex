@@ -114,7 +114,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
-                                    Data Dosen Wali
+                                    Data Bimbingan Akademik
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
+                                    Data Bimbingan Skripsi
                                 </a>
                             </li>
                         </ul>

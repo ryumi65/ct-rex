@@ -1,20 +1,47 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Beban Mengajar -->
+            <!-- Form KRS -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-body pb-0">
                         <div class="d-flex justify-content-between">
-                            <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
-                            <div class="mx-0 col-4 my-1">
-                                <select class="form-select" name="nik_dosen" required>
-                                    <option selected disabled>Pilih Tahun Ajaran</option>
-                                </select>
+                            <h6> Data Ruangan UMBandung</h6>
+                            <div>
+                                <a href="<?= site_url('mahasiswa/formkrs') ?>" class="btn btn-primary btn-sm ">CARI</a>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" name="nik" required>
+                                <option selected disabled>Pilih Lantai</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="card">
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                </div>
+            </div>
+
+
+            <!-- Daftar Matkul dari KRS -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <div class="d-flex justify-content-between">
+                            <h6> Nilai Seluruh Mahasiswa</h6>
+                            <div class="dropdown">
+                                <button class="btn btn-success btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cetak
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="javascript:;">Makan</a></li>
+                                    <li><a class="dropdown-item" href="javascript:;">Minum</a></li>
+                                    <li><a class="dropdown-item" href="javascript:;">Tidur </a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -22,15 +49,13 @@
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
+                                            ID Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mahasiswa</th>
+                                            Nama Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jenis Kelamin</th>
+                                            Total SKS</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Angkatan</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Status</th>
+                                            Kategori</th>
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Aksi</th>
                                     </tr>
@@ -39,13 +64,13 @@
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Footer -->
-        <footer class="footer pb-3">
+        <footer class="footer py-3">
 
             <!-- Logo Medsos -->
             <div class="container mx-auto text-center my-2">
@@ -76,53 +101,3 @@
                 </p>
             </div>
         </footer>
-    </div>
-
-    <!-- Alert -->
-    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
-
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
-    <script>
-        let table;
-
-        $(document).ready(() => {
-
-            table = $('#table').DataTable({
-
-                "deferRender": true,
-                "responsive": true,
-                "serverSide": true,
-                "order": [],
-
-                "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/mahasiswa') ?>",
-                    "type": "POST"
-                },
-
-                "columnDefs": [{
-                    "targets": [0, 6],
-                    "orderable": false,
-                }, {
-                    "targets": [2],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<a href="data-mahasiswa/${row[1]}">${row[2]}</a>`;
-                    }
-                }, {
-                    "targets": [6],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return `<div class="text-center"><a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/') ?>${row[1]}"
-                            class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit"><i class="fa-solid
-                            fa-pen-to-square"></i></a>` + `<a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip"
-                            title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-mahasiswa/delete/') ?>${row[1]}')">
-                            <i class="fa-solid fa-trash-can"></i></a></div>`;
-                    }
-                }],
-
-            });
-
-        });
-    </script>

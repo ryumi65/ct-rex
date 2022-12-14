@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <div class="mb-3">
-                                <h6> Daftar Mahasiswa tanpa Dosen Wali</h6>
+                                <h6> Daftar Mahasiswa Tanpa Dosen Wali</h6>
                             </div>
                             <?php foreach ($listm as $mahasiswa) : ?>
                                 <div class="col-md-4 col-sm-6">

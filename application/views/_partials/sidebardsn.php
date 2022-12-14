@@ -80,7 +80,7 @@
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: #000"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Perwalian</span>
+                        <span class="nav-link-text ms-1">Bimbingan</span>
                     </a>
                     <div class="collapse" id="perwalian">
                         <ul class="nav ms-4 ps-3">
@@ -91,7 +91,12 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Persetujuan KRS
+                                    Bimbingan Akademik
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="#">
+                                    Bimbingan Skripsi
                                 </a>
                             </li>
                             <li class="nav-item">

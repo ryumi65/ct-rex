@@ -2,8 +2,8 @@
         <div class="container-fluid pt-3">
 
             <!-- Header -->
+            <h5 class="d-flex justify-content-start">Prodi Teknik Informatika</h5>
             <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')">
-                <!-- <span class="mask bg-gradient-info opacity-5"></span> -->
             </div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex align-content-center justify-content-between">

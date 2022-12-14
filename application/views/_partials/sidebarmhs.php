@@ -45,12 +45,12 @@
                     <div class="collapse" id="perkuliahan">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/jadwalkuliah') ?>">
                                     Lihat Jadwal
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/datakrs') ?>">
                                     KRS
                                 </a>
                             </li>
@@ -121,6 +121,15 @@
                     </div>
                 </li>
 
+                <!-- Jadwal -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-regular fa-calendar-days" style="color:#000"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Kalender Akademik</span>
+                    </a>
+                </li>
 
                 <!-- Pembayaran -->
                 <li class="nav-item">

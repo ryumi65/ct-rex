@@ -36,7 +36,8 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profil() {
+    public function profil()
+    {
         $akun = $this->model_prodi->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],

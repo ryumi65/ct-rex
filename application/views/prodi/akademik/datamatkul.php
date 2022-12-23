@@ -39,9 +39,9 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Jenis Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kategori SKS</th>
+                                        Kategori</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        SKS</th>
+                                        Semester</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
                                 </tr>
@@ -55,6 +55,7 @@
                                         <td><?= ucwords($matkul['jenis']) ?></td>
                                         <td><?= ucwords($matkul['kategori']) ?></td>
                                         <td><?= $matkul['sks'] ?></td>
+                                        <td><?= $matkul['semester'] ?></td>
                                         <td>
                                             <div class="text-center">
                                                 <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
@@ -124,7 +125,7 @@
                 order: [2, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 6],
+                    targets: [0, 7],
                     orderable: false,
                     searchable: false,
                 }],

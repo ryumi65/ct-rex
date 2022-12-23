@@ -101,8 +101,10 @@ class Dosen extends CI_Controller {
     }
 
     public function update($nik) {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $nik]);
-        $data['listp'] = $this->model_dosen->get_db('prodi');
+        $data = [
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $nik]),
+            'listp' => $this->model_dosen->get_db('prodi'),
+        ];
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 

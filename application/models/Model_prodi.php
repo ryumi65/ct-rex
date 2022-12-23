@@ -24,8 +24,8 @@ class Model_prodi extends CI_Model {
     }
 
     public function get_count_mhs_wali($nik) {
-        $this->db->from('mahasiswa');
-        $this->db->where('dosen_wali', $nik);
+        $this->db->from('mahasiswa')
+            ->where('dosen_wali', $nik);
 
         return $this->db->count_all_results();
     }

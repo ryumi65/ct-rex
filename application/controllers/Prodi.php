@@ -7,6 +7,7 @@ class Prodi extends CI_Controller {
         parent::__construct();
         $this->load->model('model_prodi');
         $this->load->model('model_dosen');
+        $this->load->model('model_jadwal');
         $this->load->model('model_mahasiswa');
         $this->load->model('model_matkul');
 
@@ -143,7 +144,10 @@ class Prodi extends CI_Controller {
     }
 
     public function jadwalkuliah() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal(),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -241,8 +245,9 @@ class Prodi extends CI_Controller {
         $data['matkul'] = $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]);
         $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
         $data['lists'] = $this->model_prodi->get_db('semester');
-        $data['jenis'] = ['wajib', 'wajib prodi', 'pilihan', 'peminatan', 'tugas akhir'];
+        $data['jenis'] = ['wajib umum', 'wajib nasional', 'wajib fakultas', 'wajib prodi', 'pilihan', 'peminatan', 'tugas akhir', 'mbkm'];
         $data['kategori'] = ['teori', 'praktikum'];
+        $data['semester'] = [1, 2, 3, 4, 5, 6, 7, 8];
 
         $this->form_validation->set_rules('kode_matkul', 'Kode Matkul', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');

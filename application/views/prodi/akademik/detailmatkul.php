@@ -51,6 +51,12 @@
                                     <input type="text" name="sks" class="form-control" placeholder="-" value="<?= $matkul['sks'] ?>" disabled readonly>
                                 </div>
                             </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Semester</label>
+                                <div class="mb-3">
+                                    <input type="text" name="semester" class="form-control" placeholder="-" value="<?= $matkul['semester'] ?>" disabled readonly>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

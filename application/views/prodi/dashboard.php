@@ -80,7 +80,7 @@
             </div>
 
 
-            <!-- Beban Mengajar -->
+            <!-- Beban Mengajar
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
@@ -142,7 +142,7 @@
             </div>
 
             <!-- Jadwal Kuliah -->
-            <div class="col-12 mb-md-0 my-4">
+            <!-- <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <h5>Jadwal Perkuliahan Dosen Prodi Hari ini</h5>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <!-- Pengumuman 1 -->

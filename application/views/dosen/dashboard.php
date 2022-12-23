@@ -48,7 +48,7 @@
             </div>
 
             <!-- Jadwal Mengajar 1 -->
-            <div class="col-12 mb-md-0 my-4">
+            <!-- <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen Pertama</h5>
@@ -108,13 +108,28 @@
 
                     </div>
                 </div>
+            </div> -->
+
+            <div class="row mt-4">
+                <div class="col-lg-12 col-7">
+                    <div class="card z-index-2">
+                        <div class="card-header pb-0">
+                            <h5>Riwayat sks yang diampu</h5>
+                        </div>
+                        <div class="card-body p-2">
+                            <div class="chart">
+                                <canvas id="chart1" class="chart-canvas" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Jadwal Mengajar 2 -->
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen Kedua</h5>
+                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen</h5>
                         <p class="text-sm mb-0">
                             <i class="fa fa-check text-info" aria-hidden="true"></i>
                             <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
@@ -265,3 +280,96 @@
             </div>
         </footer>
     </div>
+
+
+    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+    <script>
+        var ctx2 = document.getElementById("chart1").getContext("2d");
+
+        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
+        gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
+
+        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
+        gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                datasets: [{
+                    label: "Perempuan",
+                    tension: 0.3,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#2cb72c",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [10, 40, 300, 220, 500, 250, 400, 230, 500],
+                    maxBarThickness: 6
+
+                }, ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>

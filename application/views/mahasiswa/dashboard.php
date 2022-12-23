@@ -41,7 +41,7 @@
                 <div class="col-lg-4 col-12">
                     <div class="card z-index-2">
                         <div class="card-header pb-0">
-                            <h5>Hi, Reza!</h5>
+                            <h5>Assalamu'alaikum, King Reza!</h5>
                         </div>
                         <div class="card-body py-0">
                             <div class="progress-wrapper mx-auto">
@@ -264,10 +264,10 @@
             </footer>
         </div>
 
-    <!-- Chart -->
-    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
-    <script>
-        var ctx2 = document.getElementById("chart1").getContext("2d");
+        <!-- Chart -->
+        <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+        <script>
+            var ctx2 = document.getElementById("chart1").getContext("2d");
 
             var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
@@ -287,14 +287,14 @@
                     labels: ["1", "2", "3", "4", "5", "6", "7", "8", ],
                     datasets: [{
                         label: "Indeks Prestasi Kumulatif",
-                        tension: 0.5,
+                        tension: 0.1,
                         borderWidth: 0,
                         pointRadius: 0,
                         borderColor: "#2cb72c",
                         borderWidth: 3,
                         backgroundColor: gradientStroke1,
                         fill: true,
-                        data: [3.55, 4.00, 2.35, 3.00, 3.55, 2.50, 4.00, 2.30, 4.00],
+                        data: [3.55, 4.00, 3.45, 3.30, 3.55, 3.50, 4.00, 3.30, 4.00],
                         maxBarThickness: 3
 
                     }, ],

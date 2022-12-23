@@ -47,27 +47,27 @@
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= site_url('dosen/jadwalkuliah') ?>">
-                                    Lihat Jadwal
+                                    Jadwal
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Input Presensi
+                                    Presensi
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Membuat BAP
+                                    BAP
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Kelola Nilai Akhir
+                                    Nilai Akhir
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Cetak Transkrip
+                                    Transkrip
                                 </a>
                             </li>
                         </ul>
@@ -101,7 +101,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Logbook
+                                    Catatan Studi
                                 </a>
                             </li>
                         </ul>

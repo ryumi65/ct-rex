@@ -127,15 +127,17 @@
             <!-- js -->
             <script>
                 const products = [{
+                        id: '001',
                         no: 1,
-                        id: 'IF2020',
+                        idm: 'IF2020',
                         name: 'Integelensia Buatan',
                         weight: 3,
                         category: 'Wajib'
                     },
                     {
+                        id: '002',
                         no: 2,
-                        id: 'IF2021',
+                        idm: 'IF2021',
                         name: 'Integelensia Alami',
                         weight: 3,
                         category: 'Wajib'
@@ -152,9 +154,9 @@
                     productTable.innerHTML = '';
                     products.forEach((product, index) => {
                         productTable.innerHTML += `
-          <tr>
+          <tr id="${product.id}">
             <td>${product.no}</td>  
-            <td>${product.id}</td>
+            <td>${product.idm}</td>
             <td>${product.name}</td>
             <td>${product.weight}</td>
             <td>${product.category}</td>
@@ -241,6 +243,9 @@
                         ...cart,
                         items: newCartItems
                     }
+
+                    let removeItem = document.getElementById(product.id)
+                    removeItem.remove()
 
                     renderAllCartItems()
                 }

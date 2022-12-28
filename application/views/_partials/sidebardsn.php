@@ -90,7 +90,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('dosen/bimbinganakademik') ?>">
                                     Bimbingan Akademik
                                 </a>
                             </li>

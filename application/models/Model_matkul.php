@@ -13,7 +13,7 @@ class model_matkul extends CI_Model {
             'sks' => $this->input->post('sks'),
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
-            'id_semester' => $this->input->post('id_semester'),
+            'semester' => $this->input->post('semester'),
         ];
 
         return $this->db->insert('matkul', $data);
@@ -29,7 +29,7 @@ class model_matkul extends CI_Model {
             'sks' => $this->input->post('sks'),
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
-            'id_semester' => $this->input->post('id_semester'),
+            'semester' => $this->input->post('semester'),
         ];
 
         return $this->db->update('matkul', $data, ['id_matkul' => $id_matkul]);

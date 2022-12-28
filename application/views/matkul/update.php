@@ -83,15 +83,15 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Semester</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="id_semester">
+                                    <select class="form-select" name="semester">
                                         <option selected disabled>Pilih Semester</option>
-                                        <?php foreach ($lists as $semester) : ?>
-                                            <?php if ($matkul['id_semester'] === $semester['id_semester']) : ?>
-                                                <option selected value="<?= $semester['id_semester'] ?>"><?= $semester['tahun_ajaran'] . ' - ' . ucfirst($semester['nama']) ?></option>
+                                        <?php for ($i = 0; $i < count($semester); $i++) : ?>
+                                            <?php if ($matkul['semester'] == $semester[$i]) : ?>
+                                                <option selected value="<?= $semester[$i] ?>"><?= $semester[$i] ?></option>
                                             <?php else : ?>
-                                                <option value="<?= $semester['id_semester'] ?>"><?= $semester['tahun_ajaran'] . ' - ' . ucfirst($semester['nama']) ?></option>
+                                                <option value="<?= $semester[$i] ?>"><?= $semester[$i] ?></option>
                                             <?php endif ?>
-                                        <?php endforeach ?>
+                                        <?php endfor ?>
                                     </select>
                                 </div>
                             </div>

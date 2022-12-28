@@ -34,11 +34,14 @@
                                 <div class="mb-3">
                                     <select class="form-select" name="jenis">
                                         <option selected disabled>Pilih Jenis Mata Kuliah</option>
-                                        <option value="wajib">Wajib</option>
+                                        <option value="wajib umum">Wajib Umum</option>
+                                        <option value="wajib nasional">Wajib Nasional</option>
+                                        <option value="wajib fakultas">Wajib Fakultas</option>
                                         <option value="wajib prodi">Wajib Prodi</option>
                                         <option value="pilihan">Pilihan</option>
                                         <option value="peminatan">Peminatan</option>
                                         <option value="tugas akhir">Tugas Akhir</option>
+                                        <option value="mbkm">MBKM</option>
                                     </select>
                                 </div>
                             </div>
@@ -59,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Dosen Pengampu 1</label>
+                                <label>Dosen Pengampu</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="nik_dosen">
                                         <option selected disabled>Pilih Dosen Pengampu</option>
@@ -72,11 +75,16 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Semester</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="id_semester">
+                                    <select class="form-select" name="semester">
                                         <option selected disabled>Pilih Semester</option>
-                                        <?php foreach ($lists as $semester) : ?>
-                                            <option value="<?= $semester['id_semester'] ?>"><?= $semester['tahun_ajaran'] . ' - ' . ucfirst($semester['nama']) ?></option>
-                                        <?php endforeach ?>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
                                     </select>
                                 </div>
                             </div>

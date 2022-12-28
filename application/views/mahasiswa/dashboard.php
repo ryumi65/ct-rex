@@ -30,9 +30,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <h5 class="mx-4 my-2 mb-2">Prodi Teknik Informatika</h5>
-                    </div>
                 </div>
             </div>
 

@@ -15,6 +15,8 @@ class Prodi extends CI_Controller {
         if ($this->session->level != 2) redirect(strtolower($this->session->access));
     }
 
+    //==================== PRODI ====================//
+
     public function index() {
         if (uri_string() === 'prodi/index') return redirect('prodi');
 
@@ -51,9 +53,31 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function update() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listf' => $this->model_prodi->get_db('fakultas'),
+        ];
+
+        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('id_fakultas', 'ID Fakultas', 'required');
+
+        if (!$this->form_validation->run()) {
+            $this->load->view('prodi/update', $data);
+        } else {
+            $this->model_prodi->update_prodi($this->session->id);
+            redirect('prodi/profil');
+        }
+    }
+
+    //==================== DOSEN ====================//
+
     public function datadsn() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -62,68 +86,12 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listm'] = $this->model_prodi->get_db('mahasiswa', ['id_prodi' => $this->session->id], 'result');
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/civitas/datamhs', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function datadsnwl() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
-        $data['mhswl'] = $this->jumlah_mhs_wali();
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/civitas/datadsnwl', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function datamhswl($nik) {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['dosen'] = $this->model_prodi->get_db('dosen', ['nik' => $nik]);
-        $data['listm'] = $this->model_prodi->get_db('mahasiswa', ['dosen_wali' => $nik], 'result');
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/civitas/datamhswl', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function datamatkul() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listm'] = $this->model_prodi->get_db('matkul', ['id_prodi' => $this->session->id], 'result');
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/datamatkul', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function profilmhs($nim) {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listp'] = $this->model_prodi->get_db('prodi');
-        $data['mahasiswa'] = $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/civitas/profilmhs', $data);
-        $this->load->view('_partials/script');
-    }
-
     public function profildsn($nik) {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listp'] = $this->model_prodi->get_db('prodi');
-        $data['dosen'] = $this->model_prodi->get_db('dosen', ['nik' => $nik]);
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listp' => $this->model_prodi->get_db('prodi'),
+            'dosen' => $this->model_prodi->get_db('dosen', ['nik' => $nik]),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -132,81 +100,11 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function detailmatkul($id_matkul) {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['matkul'] = $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/detailmatkul', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function jadwalkuliah() {
-        $data = [
-            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
-            'listj' => $this->model_jadwal->get_jadwal(),
-        ];
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/jadwalkuliah', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function createjdwl() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/createjdwl', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function creatematkul() {
-        $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
-        $data['lists'] = $this->model_prodi->get_db('semester');
-
-        $this->form_validation->set_rules('kode_matkul', 'Kode Matkul', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarprd');
-            $this->load->view('_partials/header');
-            $this->load->view('matkul/create', $data);
-            $this->load->view('_partials/script');
-        } else {
-            $this->model_matkul->set_matkul();
-            $this->session->set_userdata('createmksuccess', true);
-            redirect('prodi/akademik/data-matkul');
-        }
-    }
-
-    public function createwali() {
-        $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
-        $data['listm'] = $this->model_prodi->get_db('mahasiswa', ['id_prodi' => $this->session->id, 'dosen_wali' => null], 'result');
-
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarprd');
-            $this->load->view('_partials/header');
-            $this->load->view('prodi/civitas/createdatawali', $data);
-            $this->load->view('_partials/script');
-        } else {
-            $this->model_prodi->set_mhs_wali($this->input->post('dosen_wali[]'));
-            redirect('prodi/civitas/data-dosen-wali');
-        }
-    }
-
     public function updatedsn($nik) {
-        $data['dosen'] = $this->model_prodi->get_db('dosen', ['nik' => $nik]);
-        $data['listp'] = $this->model_prodi->get_db('prodi');
+        $data = [
+            'dosen' => $this->model_prodi->get_db('dosen', ['nik' => $nik]),
+            'listp' => $this->model_prodi->get_db('prodi'),
+        ];
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -223,9 +121,45 @@ class Prodi extends CI_Controller {
         }
     }
 
+    public function deletedsn($nik) {
+        $this->model_dosen->delete_dosen($nik);
+        redirect('prodi/civitas/data-dosen');
+    }
+
+    //==================== MAHASISWA ====================//
+
+    public function datamhs() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listm' => $this->model_prodi->get_db('mahasiswa', ['id_prodi' => $this->session->id], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/datamhs', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function profilmhs($nim) {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listp' => $this->model_prodi->get_db('prodi'),
+            'mahasiswa' => $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/profilmhs', $data);
+        $this->load->view('_partials/script');
+    }
+
     public function updatemhs($nim) {
-        $data['mahasiswa'] = $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]);
-        $data['listp'] = $this->model_prodi->get_db('prodi');
+        $data = [
+            'mahasiswa' => $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]),
+            'listp' => $this->model_prodi->get_db('prodi'),
+        ];
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
@@ -241,81 +175,65 @@ class Prodi extends CI_Controller {
         }
     }
 
-    public function updatematkul($id_matkul) {
-        $data['matkul'] = $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]);
-        $data['listd'] = $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result');
-        $data['lists'] = $this->model_prodi->get_db('semester');
-        $data['jenis'] = ['wajib umum', 'wajib nasional', 'wajib fakultas', 'wajib prodi', 'pilihan', 'peminatan', 'tugas akhir', 'mbkm'];
-        $data['kategori'] = ['teori', 'praktikum'];
-        $data['semester'] = [1, 2, 3, 4, 5, 6, 7, 8];
-
-        $this->form_validation->set_rules('kode_matkul', 'Kode Matkul', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarprd');
-            $this->load->view('_partials/header');
-            $this->load->view('matkul/update', $data);
-            $this->load->view('_partials/script');
-        } else {
-            $this->model_matkul->update_matkul($id_matkul);
-            $this->session->set_userdata('updatemksuccess', true);
-            redirect('prodi/akademik/data-matkul');
-        }
-    }
-
-    public function deletedsn($nik) {
-        $this->model_dosen->delete_dosen($nik);
-        redirect('prodi/civitas/data-dosen');
-    }
-
     public function deletemhs($nim) {
         $this->model_mahasiswa->delete_mahasiswa($nim);
         redirect('prodi/civitas/data-mahasiswa');
     }
 
-    public function deletematkul($id_matkul) {
-        $this->model_matkul->delete_matkul($id_matkul);
-        redirect('prodi/akademik/data-matkul');
+    //==================== WALI ====================//
+
+    public function datadsnwl() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'mhswl' => $this->jumlah_mhs_wali(),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/datadsnwl', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function datamhswl($nik) {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'dosen' => $this->model_prodi->get_db('dosen', ['nik' => $nik]),
+            'listm' => $this->model_prodi->get_db('mahasiswa', ['dosen_wali' => $nik], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/datamhswl', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function createwali() {
+        $data = [
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'listm' => $this->model_prodi->get_db('mahasiswa', ['id_prodi' => $this->session->id, 'dosen_wali' => null], 'result'),
+        ];
+
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+
+        if (!$this->form_validation->run()) {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('prodi/civitas/createdatawali', $data);
+            $this->load->view('_partials/script');
+        } else {
+            $this->model_prodi->set_mhs_wali($this->input->post('dosen_wali[]'));
+            redirect('prodi/civitas/data-dosen-wali');
+        }
     }
 
     public function deletemhswl($nik, $nim) {
         if ($this->model_prodi->get_db('mahasiswa', ['nim' => $nim, 'dosen_wali' => $nik])) {
             $this->model_prodi->delete_mhs_wali($nim);
             redirect('prodi/civitas/data-dosen-wali/' . $nik);
-        }
-    }
-
-    public function create() {
-        $data['listf'] = $this->model_prodi->get_db('fakultas');
-
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('id_fakultas', 'ID Fakultas', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('prodi/create', $data);
-        } else {
-            $this->model_prodi->set_prodi();
-            redirect('prodi');
-        }
-    }
-
-    public function update() {
-        $data['prodi'] = $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]);
-        $data['listf'] = $this->model_prodi->get_db('fakultas');
-
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('id_fakultas', 'ID Fakultas', 'required');
-
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('prodi/update', $data);
-        } else {
-            $this->model_prodi->update_prodi($this->session->id);
-            redirect('prodi/profil');
         }
     }
 
@@ -329,5 +247,112 @@ class Prodi extends CI_Controller {
         }
 
         return $data;
+    }
+
+    //==================== JADWAL ====================//
+
+    public function jadwalkuliah() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal($this->session->id),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/jadwalkuliah', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function createjadwal() {
+        $data = [
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'listm' => $this->model_prodi->get_db('matkul', ['id_prodi' => $this->session->id], 'result'),
+            'listr' => $this->model_prodi->get_db('ruangan'),
+            'hari' => ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/createjadwal', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function updatejadwal($id_jadwal) {
+        $data = [
+            'jadwal' => $this->model_prodi->get_db('jadwal', ['id_jadwal' => $id_jadwal]),
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'listm' => $this->model_prodi->get_db('matkul', ['id_prodi' => $this->session->id], 'result'),
+            'listr' => $this->model_prodi->get_db('ruangan'),
+            'hari' => ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/updatejadwal', $data);
+        $this->load->view('_partials/script');
+    }
+
+    //==================== MATKUL ====================//
+
+    public function datamatkul() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'listm' => $this->model_prodi->get_db('matkul', ['id_prodi' => $this->session->id], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/datamatkul', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function detailmatkul($id_matkul) {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
+            'matkul' => $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/detailmatkul', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function creatematkul() {
+        $data = [
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'lists' => $this->model_prodi->get_db('semester'),
+            'jenis' => ['Wajib Umum', 'Wajib Nasional', 'Wajib Fakultas', 'Wajib Prodi', 'Pilihan', 'Peminatan', 'Tugas Akhir', 'MBKM'],
+            'kategori' => ['Teori', 'Praktikum'],
+            'semester' => [1, 2, 3, 4, 5, 6, 7, 8],
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('matkul/create', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function updatematkul($id_matkul) {
+        $data = [
+            'matkul' => $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]),
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
+            'lists' => $this->model_prodi->get_db('semester'),
+            'jenis' => ['Wajib Umum', 'Wajib Nasional', 'Wajib Fakultas', 'Wajib Prodi', 'Pilihan', 'Peminatan', 'Tugas Akhir', 'MBKM'],
+            'kategori' => ['Teori', 'Praktikum'],
+            'semester' => [1, 2, 3, 4, 5, 6, 7, 8],
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('matkul/update', $data);
+        $this->load->view('_partials/script');
     }
 }

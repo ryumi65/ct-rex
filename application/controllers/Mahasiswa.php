@@ -6,6 +6,8 @@ class Mahasiswa extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
+        $this->load->model('model_jadwal');
+        $this->load->model('model_krs');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
@@ -45,20 +47,27 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-
     public function jadwalkuliah() {
-        $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
-
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/jadwalkuliah', $data);
+        $this->load->view('mahasiswa/jadwalkuliah');
         $this->load->view('_partials/script');
     }
 
-
     public function datakrs() {
-        $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+        $data = [
+            'lists' => [
+                $this->model_krs->get_krs($this->session->id, 1),
+                $this->model_krs->get_krs($this->session->id, 2),
+                $this->model_krs->get_krs($this->session->id, 3),
+                $this->model_krs->get_krs($this->session->id, 4),
+                $this->model_krs->get_krs($this->session->id, 5),
+                $this->model_krs->get_krs($this->session->id, 6),
+                $this->model_krs->get_krs($this->session->id, 7),
+                $this->model_krs->get_krs($this->session->id, 8),
+            ]
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -68,7 +77,13 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function formkrs() {
-        $data['prodi'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+        $mahasiswa = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+
+        $data = [
+            'mahasiswa' => $mahasiswa,
+            'semester' => [1, 2, 3, 4, 5, 6, 7, 8],
+            'listj' => $this->model_krs->get_list_krs($this->session->id, $mahasiswa['id_prodi']),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -123,37 +138,5 @@ class Mahasiswa extends CI_Controller {
         $this->model_mahasiswa->update_ortu($nim);
         $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
-    }
-
-    public function upload_header() {
-        $config['upload_path']   = './assets/img/uploads/header/';
-        $config['file_name']     = $this->session->id;
-        $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size']      = 2048;
-        $config['max_width']     = 1000;
-        $config['max_height']    = 300;
-        $config['overwrite']     = true;
-
-        $this->load->library('upload', $config);
-        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'header');
-        $this->upload->do_upload();
-
-        redirect('mahasiswa/profil/foto/edit');
-    }
-
-    public function upload_profil() {
-        $config['upload_path']   = './assets/img/uploads/profile/';
-        $config['file_name']     = $this->session->id;
-        $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size']      = 2048;
-        $config['max_width']     = 1000;
-        $config['max_height']    = 1000;
-        $config['overwrite']     = true;
-
-        $this->load->library('upload', $config);
-        $this->model_akun->update_db_foto($this->upload->data('orig_name'), 'profil');
-        $this->upload->do_upload();
-
-        redirect('mahasiswa/profil/foto/edit');
     }
 }

@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body p-3">
                         <?= validation_errors() ?>
-                        <?= form_open('prodi/creatematkul') ?>
+                        <?= form_open('matkul/create') ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <label>Kode Mata Kuliah</label>
@@ -34,14 +34,9 @@
                                 <div class="mb-3">
                                     <select class="form-select" name="jenis">
                                         <option selected disabled>Pilih Jenis Mata Kuliah</option>
-                                        <option value="wajib umum">Wajib Umum</option>
-                                        <option value="wajib nasional">Wajib Nasional</option>
-                                        <option value="wajib fakultas">Wajib Fakultas</option>
-                                        <option value="wajib prodi">Wajib Prodi</option>
-                                        <option value="pilihan">Pilihan</option>
-                                        <option value="peminatan">Peminatan</option>
-                                        <option value="tugas akhir">Tugas Akhir</option>
-                                        <option value="mbkm">MBKM</option>
+                                        <?php for ($i = 0; $i < count($jenis); $i++) : ?>
+                                            <option value="<?= $jenis[$i] ?>"><?= $jenis[$i] ?></option>
+                                        <?php endfor ?>
                                     </select>
                                 </div>
                             </div>
@@ -50,8 +45,9 @@
                                 <div class="mb-3">
                                     <select class="form-select" name="kategori">
                                         <option selected disabled>Pilih Kategori sks</option>
-                                        <option value="teori">Teori</option>
-                                        <option value="praktikum">Praktikum</option>
+                                        <?php for ($i = 0; $i < count($kategori); $i++) : ?>
+                                            <option value="<?= $kategori[$i] ?>"><?= $kategori[$i] ?></option>
+                                        <?php endfor ?>
                                     </select>
                                 </div>
                             </div>
@@ -77,14 +73,9 @@
                                 <div class="mb-3">
                                     <select class="form-select" name="semester">
                                         <option selected disabled>Pilih Semester</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
+                                        <?php for ($i = 0; $i < count($semester); $i++) : ?>
+                                            <option value="<?= $semester[$i] ?>"><?= $semester[$i] ?></option>
+                                        <?php endfor ?>
                                     </select>
                                 </div>
                             </div>

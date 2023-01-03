@@ -1,21 +1,21 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dosen extends CI_Controller
-{
+class Dosen extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_dosen');
 
-        if (!$this->session->logged) redirect('login');
-        if ($this->session->level != 3) redirect(strtolower($this->session->access));
+        if (!$this->session->logged)
+            redirect('login');
+        if ($this->session->level != 3)
+            redirect(strtolower($this->session->access));
     }
 
-    public function index()
-    {
-        if (uri_string() === 'dosen/index') return redirect('dosen');
+    public function index() {
+        if (uri_string() === 'dosen/index')
+            return redirect('dosen');
 
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
@@ -32,8 +32,7 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profil()
-    {
+    public function profil() {
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -50,8 +49,7 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function jadwalkuliah()
-    {
+    public function jadwalkuliah() {
         $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
@@ -61,8 +59,7 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function createjdwl()
-    {
+    public function createjdwl() {
         $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
@@ -72,8 +69,7 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function update_foto()
-    {
+    public function update_foto() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
@@ -81,8 +77,7 @@ class Dosen extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function create()
-    {
+    public function create() {
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -108,18 +103,13 @@ class Dosen extends CI_Controller
         }
     }
 
-<<<<<<< HEAD
-    public function update($nik)
-    {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $nik]);
-        $data['listp'] = $this->model_dosen->get_db('prodi');
-=======
     public function update($nik) {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $nik]),
             'listp' => $this->model_dosen->get_db('prodi'),
+            'status_dosen' => ['Aktif', 'Cuti', 'Keluar', 'Almarhum', 'Pensiun', 'Studi Lanjut', 'Tugas di Instansi Lain'],
+            'status_kerja' => ['Dosen Tetap', 'Dosen PNS di Pekerjaan', 'Dosen Honorer PTN', 'Dosen Honorer no PTN', 'Dosen Kontrak']
         ];
->>>>>>> main
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
@@ -136,10 +126,12 @@ class Dosen extends CI_Controller
         }
     }
 
-    public function bimbinganakademik()
-    {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
-        $data['listm'] = $this->model_dosen->get_db('mahasiswa', ['id_prodi' => $this->session->id], 'result');
+    public function bimbinganakademik() {
+        $data = [
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('mahasiswa', ['id_prodi' => $this->session->id], 'result'),
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');

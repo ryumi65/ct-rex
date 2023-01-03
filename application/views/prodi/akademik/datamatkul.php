@@ -27,49 +27,53 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                            <thead>
-                                <tr>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kode Matkul</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama Matkul</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Jenis Matkul</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kategori</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Semester</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                        Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <?php foreach ($listm as $matkul) : ?>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                                <thead>
                                     <tr>
-                                        <td></td>
-                                        <td><?= $matkul['kode_matkul'] ?></td>
-                                        <td><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
-                                        <td><?= ucwords($matkul['jenis']) ?></td>
-                                        <td><?= ucwords($matkul['kategori']) ?></td>
-                                        <td><?= $matkul['sks'] ?></td>
-                                        <td><?= $matkul['semester'] ?></td>
-                                        <td>
-                                            <div class="text-center">
-                                                <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kode Matkul</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Nama Matkul</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Jenis Matkul</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kategori</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            sks</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Semester</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Aksi</th>
                                     </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <?php foreach ($listm as $matkul) : ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><?= $matkul['kode_matkul'] ?></td>
+                                            <td><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
+                                            <td><?= $matkul['jenis'] ?></td>
+                                            <td><?= $matkul['kategori'] ?></td>
+                                            <td><?= $matkul['sks'] ?></td>
+                                            <td><?= $matkul['semester'] ?></td>
+                                            <td>
+                                                <div class="text-center">
+                                                    <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,6 +146,5 @@
                     this.data(i++);
                 });
             }).draw();
-
         });
     </script>

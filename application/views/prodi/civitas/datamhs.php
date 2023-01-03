@@ -40,9 +40,9 @@
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
-                                        <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
+                                        <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
-                                        <td><?= ucwords($mahasiswa['status']) ?></td>
+                                        <td><?= $mahasiswa['status'] ?></td>
                                         <td>
                                             <div class="text-center">
                                                 <a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/' . $mahasiswa['nim']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">

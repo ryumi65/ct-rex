@@ -63,9 +63,13 @@ $route['fakultas/profil/edit'] = 'fakultas/update';
 // Prodi
 $route['prodi/akademik/data-matkul'] = 'prodi/datamatkul';
 $route['prodi/akademik/data-matkul/edit/(:any)'] = 'prodi/updatematkul/$1';
-$route['prodi/akademik/data-matkul/delete/(:any)'] = 'prodi/deletematkul/$1';
+$route['prodi/akademik/data-matkul/delete/(:any)'] = 'matkul/delete/$1';
 $route['prodi/akademik/data-matkul/(:any)'] = 'prodi/detailmatkul/$1';
 $route['prodi/akademik/tambah-matkul'] = 'prodi/creatematkul';
+$route['prodi/akademik/jadwal-kuliah'] = 'prodi/jadwalkuliah';
+$route['prodi/akademik/jadwal-kuliah/edit/(:any)'] = 'prodi/updatejadwal/$1';
+$route['prodi/akademik/jadwal-kuliah/delete/(:any)'] = 'jadwal/delete/$1';
+$route['prodi/akademik/tambah-jadwal'] = 'prodi/createjadwal';
 $route['prodi/civitas/data-dosen'] = 'prodi/datadsn';
 $route['prodi/civitas/data-dosen/(:num)'] = 'prodi/profildsn/$1';
 $route['prodi/civitas/data-dosen/edit/(:num)'] = 'prodi/updatedsn/$1';
@@ -86,4 +90,7 @@ $route['dosen/profil/edit/(:num)'] = 'dosen/update/$1';
 
 // Mahasiswa
 $route['mahasiswa/profil/edit/foto'] = 'mahasiswa/update_foto';
+$route['mahasiswa/perkuliahan/data-krs'] = 'mahasiswa/datakrs';
+$route['mahasiswa/perkuliahan/tambah-krs'] = 'mahasiswa/formkrs';
+$route['mahasiswa/perkuliahan/jadwal-kuliah'] = 'mahasiswa/jadwalkuliah';
 $route['mahasiswa/profil/edit/(:num)'] = 'mahasiswa/update/$1';

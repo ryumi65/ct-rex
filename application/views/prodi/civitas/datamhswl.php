@@ -34,9 +34,9 @@
                                             <td></td>
                                             <td><?= $mahasiswa['nim'] ?></td>
                                             <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
-                                            <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
+                                            <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                             <td><?= $mahasiswa['tahun_angkatan'] ?></td>
-                                            <td><?= ucwords($mahasiswa['status']) ?></td>
+                                            <td><?= $mahasiswa['status'] ?></td>
                                             <td>
                                                 <div class="text-center">
                                                     <a class="btn btn-danger mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">

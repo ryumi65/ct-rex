@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body p-3">
                         <?= validation_errors() ?>
-                        <?= form_open('prodi/updatematkul/' . $matkul['id_matkul']) ?>
+                        <?= form_open('matkul/update/' . $matkul['id_matkul']) ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <label>Kode Mata Kuliah</label>
@@ -36,9 +36,9 @@
                                         <option selected disabled>Pilih Jenis Mata Kuliah</option>
                                         <?php for ($i = 0; $i < count($jenis); $i++) : ?>
                                             <?php if ($matkul['jenis'] === $jenis[$i]) : ?>
-                                                <option selected value="<?= $jenis[$i] ?>"><?= ucwords($jenis[$i]) ?></option>
+                                                <option selected value="<?= $jenis[$i] ?>"><?= $jenis[$i] ?></option>
                                             <?php else : ?>
-                                                <option value="<?= $jenis[$i] ?>"><?= ucwords($jenis[$i]) ?></option>
+                                                <option value="<?= $jenis[$i] ?>"><?= $jenis[$i] ?></option>
                                             <?php endif ?>
                                         <?php endfor ?>
                                     </select>
@@ -51,16 +51,16 @@
                                         <option selected disabled>Pilih Kategori SKS</option>
                                         <?php for ($i = 0; $i < count($kategori); $i++) : ?>
                                             <?php if ($matkul['kategori'] === $kategori[$i]) : ?>
-                                                <option selected value="<?= $kategori[$i] ?>"><?= ucwords($kategori[$i]) ?></option>
+                                                <option selected value="<?= $kategori[$i] ?>"><?= $kategori[$i] ?></option>
                                             <?php else : ?>
-                                                <option value="<?= $kategori[$i] ?>"><?= ucwords($kategori[$i]) ?></option>
+                                                <option value="<?= $kategori[$i] ?>"><?= $kategori[$i] ?></option>
                                             <?php endif ?>
                                         <?php endfor ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Jumlah SKS</label>
+                                <label>Jumlah sks</label>
                                 <div class="mb-3">
                                     <input type="text" name="sks" class="form-control" placeholder="Jumlah SKS" value="<?= $matkul['sks'] ?>">
                                 </div>

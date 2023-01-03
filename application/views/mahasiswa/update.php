@@ -66,15 +66,15 @@
                                         <div class="mb-3">
                                             <select class="form-select" name="jenis_kelamin">
                                                 <option selected disabled>Pilih Jenis Kelamin</option>
-                                                <?php if ($mahasiswa['jenis_kelamin'] === 'l') : ?>
-                                                    <option selected value="l">Laki-laki</option>
-                                                    <option value="p">Perempuan</option>
-                                                <?php elseif ($mahasiswa['jenis_kelamin'] === 'p') : ?>
-                                                    <option value="l">Laki-laki</option>
-                                                    <option selected value="p">Perempuan</option>
+                                                <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
+                                                    <option selected value="L">Laki-laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
+                                                    <option value="L">Laki-laki</option>
+                                                    <option selected value="P">Perempuan</option>
                                                 <?php else : ?>
-                                                    <option value="l">Laki-laki</option>
-                                                    <option value="p">Perempuan</option>
+                                                    <option value="L">Laki-laki</option>
+                                                    <option value="P">Perempuan</option>
                                                 <?php endif ?>
                                             </select>
                                         </div>
@@ -127,10 +127,10 @@
                                         <div class="mb-3">
                                             <select class="form-select" name="kewarganegaraan">
                                                 <option selected disabled>Pilih Kewarganegaraan</option>
-                                                <?php if ($mahasiswa['kewarganegaraan'] === 'wni') : ?>
+                                                <?php if ($mahasiswa['kewarganegaraan'] === 'WNI') : ?>
                                                     <option selected value="wni">Warga Negara Indonesia</option>
                                                     <option value="wna">Warga Negara Asing</option>
-                                                <?php elseif ($mahasiswa['kewarganegaraan'] === 'wna') : ?>
+                                                <?php elseif ($mahasiswa['kewarganegaraan'] === 'WNA') : ?>
                                                     <option value="wni">Warga Negara Indonesia</option>
                                                     <option selected value="wna">Warga Negara Asing</option>
                                                 <?php else : ?>

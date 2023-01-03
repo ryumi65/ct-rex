@@ -79,7 +79,6 @@
                 </div>
             </div>
 
-
             <!-- Beban Mengajar
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
@@ -210,9 +209,10 @@
                 </div>
             </div> -->
 
-
-            <!-- Pengumuman 1 -->
+            <!-- Pengumuman -->
             <div class="row mt-4">
+
+                <!-- Pengumuman 1 -->
                 <div class="col-lg-6 mb-lg-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
@@ -625,14 +625,4 @@
                 },
             },
         });
-    </script>
-
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
     </script>

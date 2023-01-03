@@ -4,7 +4,7 @@
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5 class="mb-0">Daftar Dosen Prodi <?= $prodi['nama'] ?></h5>
+                        <h5 class="mb-0">Daftar Mahasiswa Wali</h5>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
@@ -13,13 +13,13 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIK</th>
+                                        NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama Dosen</th>
+                                        Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIDN</th>
+                                        Angkatan</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">

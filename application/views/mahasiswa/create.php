@@ -7,8 +7,8 @@
 	<input type="text" name="nama"><br>
 
 	<p>Jenis Kelamin</p>
-	<input type="radio" name="jenis_kelamin" value="l">Laki-laki<br>
-	<input type="radio" name="jenis_kelamin" value="p">Perempuan<br>
+	<input type="radio" name="jenis_kelamin" value="L">Laki-laki<br>
+	<input type="radio" name="jenis_kelamin" value="P">Perempuan<br>
 
 	<p>Tempat Lahir</p>
 	<input type="text" name="tempat_lahir"><br>

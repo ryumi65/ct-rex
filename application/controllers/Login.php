@@ -25,7 +25,7 @@ class Login extends CI_Controller {
         if (!$this->model_login->password_validation($username, $password)) return $this->message('error');
         $akun = $this->model_login->get_db('akun', ['username' => $username]);
 
-        if ($akun['status'] !== 'y') return $this->message('blokir');
+        if ($akun['status'] !== 'Y') return $this->message('blokir');
 
         if ($this->input->post('remember_me')) $this->cookie_set($akun['id_akun']);
         $this->sess_user($akun['id_akun'], $akun['level']);
@@ -43,7 +43,7 @@ class Login extends CI_Controller {
         if (!hash_equals(hash('sha256', $explodedTokenCookie[1]), $cookie['hashedValidator'])) return false;
         $akun = $this->model_login->get_db('akun', ['id_akun' => $idCookie]);
 
-        if ($akun['status'] !== 'y') return $this->message('blokir');
+        if ($akun['status'] !== 'Y') return $this->message('blokir');
         $this->sess_user($akun['id_akun'], $akun['level']);
     }
 

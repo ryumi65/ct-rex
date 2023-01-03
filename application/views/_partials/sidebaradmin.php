@@ -120,12 +120,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('admin/datadsn') ?>">
                                     Data Dosen
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('admin/datamhs') ?>">
                                     Data Mahasiswa
                                 </a>
                             </li>

@@ -70,9 +70,22 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datadsn() {
-        $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->get_db('prodi', ['id_fakultas' => $this->session->id], 'result');
+    public function datadsn()
+    {
+        $data['fakultas'] = $this->model_fakultas->join_dosen('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_fakultas->join_dosen('dosen', ['nik' => $this->session->id]);
+        // $data['dosen'] = $this->model_fakultas->join_dosen('dosen',['id_fakultas' => $this->session->id]);
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Name', 'alpha|max_length[100]');
+        if ($this->form_validation->run() == TRUE)
+        {
+   // jalankan kode yang diinginkan jika input sesuai dengan aturan validasi
+        }
+        else
+        {
+   // tampilkan pesan error jika input tidak sesuai dengan aturan validasi
+        }
+
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -81,9 +94,21 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs() {
-        $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->get_db('prodi', ['id_fakultas' => $this->session->id], 'result');
+    public function datamhs()
+    {
+        $data['fakultas'] = $this->model_fakultas->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_fakultas->join_mhs('mahasiswa', ['nim' => $this->session->id]);
+         $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Name', 'alpha|max_length[100]');
+        if ($this->form_validation->run() == TRUE)
+        {
+   // jalankan kode yang diinginkan jika input sesuai dengan aturan validasi
+        }
+        else
+        {
+   // tampilkan pesan error jika input tidak sesuai dengan aturan validasi
+        }
+
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -91,4 +116,29 @@ class Fakultas extends CI_Controller {
         $this->load->view('fakultas/datamhs', $data);
         $this->load->view('_partials/script');
     }
+
+    public function profilmhs($nim) {
+        $data['fakultas'] = $this->model_fakultas->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listm'] = $this->model_fakultas->join_mhs('fakultas');
+        $data['mahasiswa'] = $this->model_fakultas->join_mhs('mahasiswa', ['nim' => $nim]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/profilmhs', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function profildsn($nik) {
+        $data['fakultas'] = $this->model_prodi->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_prodi->join_mhs('fakultas');
+        $data['dosen'] = $this->model_prodi->join_mhs('dosen', ['nik' => $nik]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/profildsn', $data);
+        $this->load->view('_partials/script');
+    }
+    
 }

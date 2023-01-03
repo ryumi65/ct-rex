@@ -111,6 +111,7 @@ class Dosen extends CI_Controller {
             'status_kerja' => ['Dosen Tetap', 'Dosen PNS di Pekerjaan', 'Dosen Honorer PTN', 'Dosen Honorer no PTN', 'Dosen Kontrak']
         ];
 
+
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
         if (!$this->form_validation->run()) {

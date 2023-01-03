@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Dosen Pengampu</label>
+                                <label>Dosen Pengampu 1</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="nik_dosen">
                                         <option selected disabled>Pilih Dosen Pengampu</option>
@@ -71,7 +71,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Semester</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="semester">
+                                    <select class="form-select" name="id_semester">
                                         <option selected disabled>Pilih Semester</option>
                                         <?php for ($i = 0; $i < count($semester); $i++) : ?>
                                             <option value="<?= $semester[$i] ?>"><?= $semester[$i] ?></option>

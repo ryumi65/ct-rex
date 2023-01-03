@@ -1,58 +1,253 @@
 <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <div class="container-fluid py-3">
 
-        <!-- Header -->
-        <!-- <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/gedungdash.jpg'); background-position-y: 100%;">
-                <span class="mask bg-gradient-info opacity-5"></span>
-            </div>
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                    <div class="row gx-4">
-                        <div class="col-auto">
-                            <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/mahalini.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                            </div>
-                        </div>
-                        <div class="col-auto my-auto">
-                            <div class="h-100">
-                                <h5 class="mb-1"><?= $prodi['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $prodi['id_prodi'] ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <p class="mx-2">Mahasiswa Aktif</p>
-                        <p class="mx-2">Dosen Prodi</p>
-                    </div>
-                </div>
-            </div> -->
-
-        <!-- Beban Mengajar -->
+        <!-- daftar prodi -->
         <div class="col-12 my-4">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5 class="mb-0">Daftar Prodi <?= $fakultas['nama'] ?></h5>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                            <thead>
-                                <tr>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        ID Prodi</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama Prodi</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Jumlah Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Jumlah Dosen</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                            </tbody>
-                        </table>
+
+                <!-- card prodi -->
+                <div class="row g-4 mx-1 mt-2 mb-4">
+                    <div class="col-4">
+                        <div class="card h-100 shadow">
+                            <div class="card-body my-2 ">
+                                <h5 class="card-title">Teknik Informatika</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Dosen</p>
+                                    <p>100</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Mahasiswa</p>
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <a class="text-body text-sm font-weight-bold icon-move-right mt-auto mx-4 mb-3 my-2" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Lihat Detail
+                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                            </a>
+                            <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>ID Matkul</td>
+                                                    <td>Nama Matkul</td>
+                                                    <td>Nama Matkul B. Inggris</td>
+                                                    <td>Jenis Matkul</td>
+                                                    <td>SKS</td>
+                                                    <td>SKS Praktikum</td>
+                                                    <td>NIK Dosen</td>
+                                                    <td>ID Prodi</td>
+                                                    <td>Aksi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card h-100 shadow">
+                            <div class="card-body my-2">
+                                <h5 class="card-title">Farmasi</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Dosen</p>
+                                    <p>100</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Mahasiswa</p>
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <a class="text-body text-sm font-weight-bold icon-move-right mt-auto mx-4 mb-3 my-2" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Lihat Detail
+                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                            </a>
+                            <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>ID Matkul</td>
+                                                    <td>Nama Matkul</td>
+                                                    <td>Nama Matkul B. Inggris</td>
+                                                    <td>Jenis Matkul</td>
+                                                    <td>SKS</td>
+                                                    <td>SKS Praktikum</td>
+                                                    <td>NIK Dosen</td>
+                                                    <td>ID Prodi</td>
+                                                    <td>Aksi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card h-100 shadow">
+                            <div class="card-body my-2">
+                                <h5 class="card-title">Manajemen</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Dosen</p>
+                                    <p>100</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Mahasiswa</p>
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <a class="text-body text-sm font-weight-bold icon-move-right mt-auto mx-4 mb-3 my-2" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Lihat Detail
+                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                            </a>
+                            <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>ID Matkul</td>
+                                                    <td>Nama Matkul</td>
+                                                    <td>Nama Matkul B. Inggris</td>
+                                                    <td>Jenis Matkul</td>
+                                                    <td>SKS</td>
+                                                    <td>SKS Praktikum</td>
+                                                    <td>NIK Dosen</td>
+                                                    <td>ID Prodi</td>
+                                                    <td>Aksi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card h-100 shadow">
+                            <div class="card-body my-2">
+                                <h5 class="card-title">Manajemen</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Dosen</p>
+                                    <p>100</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="font-weight-normal mb-0">Jumlah Mahasiswa</p>
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <a class="text-body text-sm font-weight-bold icon-move-right mt-auto mx-4 mb-3 my-2" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Lihat Detail
+                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                            </a>
+                            <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>ID Matkul</td>
+                                                    <td>Nama Matkul</td>
+                                                    <td>Nama Matkul B. Inggris</td>
+                                                    <td>Jenis Matkul</td>
+                                                    <td>SKS</td>
+                                                    <td>SKS Praktikum</td>
+                                                    <td>NIK Dosen</td>
+                                                    <td>ID Prodi</td>
+                                                    <td>Aksi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,12 +7,15 @@ class Fakultas extends CI_Controller {
         parent::__construct();
         $this->load->model('model_fakultas');
 
-        if (!$this->session->logged) redirect('login');
-        if ($this->session->level != 1) redirect(strtolower($this->session->access));
+        if (!$this->session->logged)
+            redirect('login');
+        if ($this->session->level != 1)
+            redirect(strtolower($this->session->access));
     }
 
     public function index() {
-        if (uri_string() === 'fakultas/index') return redirect('fakultas');
+        if (uri_string() === 'fakultas/index')
+            return redirect('fakultas');
 
         $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
 
@@ -60,8 +63,23 @@ class Fakultas extends CI_Controller {
     }
 
     public function dataprd() {
+        $listp = $this->model_fakultas->get_db('prodi', ['id_fakultas' => $this->session->id], 'result');
+
+        foreach ($listp as $prodi) {
+            $jumlah_dosen = $this->model_fakultas->count_dosen($prodi['id_prodi']);
+            $jumlah_mhs = $this->model_fakultas->count_mhs($prodi['id_prodi']);
+
+            $count = [
+                'nama' => $prodi['nama'],
+                'jdosen' => $jumlah_dosen,
+                'jmhs' => $jumlah_mhs
+            ];
+
+            $jumlah[] = $count;
+        }
+
         $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->get_db('prodi', ['id_fakultas' => $this->session->id], 'result');
+        $data['listp'] = $jumlah;
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -70,22 +88,9 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datadsn()
-    {
+    public function datadsn() {
         $data['fakultas'] = $this->model_fakultas->join_dosen('fakultas', ['id_fakultas' => $this->session->id]);
         $data['listd'] = $this->model_fakultas->join_dosen('dosen', ['nik' => $this->session->id]);
-        // $data['dosen'] = $this->model_fakultas->join_dosen('dosen',['id_fakultas' => $this->session->id]);
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('name', 'Name', 'alpha|max_length[100]');
-        if ($this->form_validation->run() == TRUE)
-        {
-   // jalankan kode yang diinginkan jika input sesuai dengan aturan validasi
-        }
-        else
-        {
-   // tampilkan pesan error jika input tidak sesuai dengan aturan validasi
-        }
-
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -94,21 +99,9 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs()
-    {
+    public function datamhs() {
         $data['fakultas'] = $this->model_fakultas->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
         $data['listd'] = $this->model_fakultas->join_mhs('mahasiswa', ['nim' => $this->session->id]);
-         $this->load->library('form_validation');
-        $this->form_validation->set_rules('name', 'Name', 'alpha|max_length[100]');
-        if ($this->form_validation->run() == TRUE)
-        {
-   // jalankan kode yang diinginkan jika input sesuai dengan aturan validasi
-        }
-        else
-        {
-   // tampilkan pesan error jika input tidak sesuai dengan aturan validasi
-        }
-
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -140,5 +133,5 @@ class Fakultas extends CI_Controller {
         $this->load->view('fakultas/profildsn', $data);
         $this->load->view('_partials/script');
     }
-    
+
 }

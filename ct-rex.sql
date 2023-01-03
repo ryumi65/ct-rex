@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 03, 2023 at 03:01 AM
+-- Generation Time: Jan 03, 2023 at 06:10 AM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -52,6 +52,9 @@ INSERT INTO `akun` (`id_akun`, `username`, `password`, `status`, `level`, `foto_
 ('BE', 'be', '$2y$10$mL3htuGlQiPpgYAWv5dMveOTJsTcib0ULO0LsCBh0NQt1xbTBe4rK', 'Y', 2, 'be.png', 'be.png'),
 ('ESY', 'esy', '$2y$10$WltyVIBE.2VPW84.932OBOKFECrKdVGuoYZWYqWBKb9jHN.Eh0bR.', 'Y', 2, 'esy.png', 'esy.png'),
 ('FA', 'fa', '$2y$10$t8RsSrNyq0akJ70PXJlZVOK6GRVw2N3NxawSMhnAr.GW2aGvLOteS', 'Y', 2, 'fa.png', 'fa.png'),
+('FAI', 'ai', '$2y$10$auYvC4oWzlXvrjPUhP2ejeSf3UKofoPHQhDrnIxe8v8ItPlZPbkSa', 'Y', 1, 'curved.jpg', 'gedungdash.jpg'),
+('FEB', 'eb', '$2y$10$fD2vxe4K7Q089O.Az3dq/.ZwBIJqGOIP/5THJ3iBcPZqGBFGWNZ7G', 'Y', 1, 'curved.jpg', 'gedungdash.jpg'),
+('FSH', 'soshum', '$2y$10$p4ixipf7jrJqajqop0erSe8rGbCTC2fXkIaH69/v2DZFoSC86nYC2', 'Y', 1, 'curved.jpg', 'gedungdash.jpg'),
 ('FST', 'saintek', '$2y$10$R9WysGTpFGZ/NRUseszW6ei0YNB9/MsAY.44DzuTj.mzuxmojBt0C', 'Y', 1, 'curved.jpg', 'gedungdash.jpg'),
 ('HKI', 'hki', '$2y$10$LdcPg771qjYa7V737tdOLuYgi.TMXOoan7UkYJzx3WxDAA6JodzMu', 'Y', 2, 'hki.png', 'hki.png'),
 ('IF', 'if', '$2y$10$21hhvDgw56v.OAYyeoLhR.yDpZq8aUtdYnmHJwnEJZ1OAts8BdWn.', 'Y', 2, 'if.png', 'if.png'),

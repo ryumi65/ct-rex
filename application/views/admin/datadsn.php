@@ -44,6 +44,8 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Dosen</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Prodi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         NIDN</th>
@@ -59,6 +61,7 @@
                                         <td></td>
                                         <td><?= $dosen['nik'] ?></td>
                                         <td><a href="<?= site_url('admin/datadsn' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                        <td><?= $dosen['id_prodi'] ?></td>
                                         <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
                                         <td><?= $dosen['nidn_dosen'] ?></td>
                                         <td><?= ucwords($dosen['status_dosen']) ?></td>
@@ -125,6 +128,7 @@
 
             table = $('#table').DataTable({
 
+                deferRender: true,
                 responsive: true,
                 order: [2, 'asc'],
 

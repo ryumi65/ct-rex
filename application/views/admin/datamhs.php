@@ -44,6 +44,8 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Prodi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Angkatan</th>
@@ -59,6 +61,7 @@
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><a href="<?= site_url('admin/datamhs' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= $mahasiswa['id_prodi'] ?></td>
                                         <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= ucwords($mahasiswa['status']) ?></td>
@@ -124,6 +127,7 @@
 
             table = $('#table').DataTable({
 
+                deferRender: true,
                 responsive: true,
                 order: [2, 'asc'],
 

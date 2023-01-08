@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['uploadsuccess'])) {
+    <?php
+    if (isset($_SESSION['uploadsuccess'])) {
         echo "<script>
             alert('Edit foto berhasil!');
         </script>";

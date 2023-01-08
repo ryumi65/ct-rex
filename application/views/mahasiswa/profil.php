@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['mhssuccess'])) {
+    <?php
+    if (isset($_SESSION['mhssuccess'])) {
         echo "<script>
             alert('Edit biodata mahasiswa berhasil!');
         </script>";

@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['createmksuccess'])) {
+    <?php
+    if (isset($_SESSION['createmksuccess'])) {
         echo "<script>
             alert('Tambah mata kuliah berhasil!');
         </script>";

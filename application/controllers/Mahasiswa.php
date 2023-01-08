@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+date_default_timezone_set('Asia/Jakarta');
 
 class Mahasiswa extends CI_Controller {
 
@@ -17,10 +18,14 @@ class Mahasiswa extends CI_Controller {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
         $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
+            'hari' => $list_hari[date('w')],
             'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
 
         $this->load->view('_partials/head');
@@ -48,10 +53,17 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function jadwalkuliah() {
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+        $data = [
+            'hari' => $list_hari[date('w')],
+            'listj' => $this->model_krs->get_krs_mhs($this->session->id),
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/jadwalkuliah');
+        $this->load->view('mahasiswa/jadwalkuliah', $data);
         $this->load->view('_partials/script');
     }
 

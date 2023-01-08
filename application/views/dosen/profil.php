@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['updatesuccess'])) {
+    <?php
+    if (isset($_SESSION['updatesuccess'])) {
         echo "<script>
             alert('Edit biodata berhasil!');
         </script>";

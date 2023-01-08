@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['createjdwlsuccess'])) {
+    <?php
+    if (isset($_SESSION['createjdwlsuccess'])) {
         echo "<script>
             alert('Tambah jadwal kuliah berhasil!');
         </script>";

@@ -1,4 +1,5 @@
-    <?php if (isset($_SESSION['uploadsuccess'])) {
+    <?php
+    if (isset($_SESSION['uploadsuccess'])) {
         echo "<script>
             alert('Edit foto berhasil!');
         </script>";
@@ -8,6 +9,13 @@
             alert('Hapus foto berhasil!');
         </script>";
         unset($_SESSION['deletesuccess']);
+    }
+
+    $nama = explode(' ', $mahasiswa['nama']);
+    $jumlah_mk = 0;
+
+    foreach ($listj as $jadwal) {
+        $jumlah_mk++;
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
@@ -34,12 +42,12 @@
             <div class="row mt-3">
 
                 <!-- Greeting -->
-                <div class="col-lg-4 col-12 my-3">
+                <div class="col-12 col-md-6 col-lg-4 my-3">
                     <div class="card z-index-2">
-                        <div class="card-header pb-0">
-                            <h5>Assalamu'alaikum, King Reza!</h5>
+                        <div class="card-header p-3 pb-0">
+                            <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="card-body p-3 pt-0">
                             <div class="progress-wrapper mx-auto">
                                 <div class="progress-info">
                                     <div class="progress-percentage">
@@ -50,14 +58,14 @@
                                     <div class="mb-2 progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh 66 SKS dari 144 SKS.</p>
+                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh 144 SKS dari 144 SKS.</p>
                             <p class="mb-0">Tetap semangat belajar ya!</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Grafik -->
-                <div class="col-lg-4 col-12 my-3">
+                <div class="col-12 col-md-6 col-lg-4 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -73,12 +81,12 @@
                 </div>
 
                 <!-- Pengumuman -->
-                <div class="col-lg-4 col-12 my-3">
+                <div class="col-12 col-lg-4 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
-                                    <h5 class="font-weight-bolder">Pengumuman</h5>
+                                    <h5>Pengumuman</h5>
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                     <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                         Read More
@@ -93,75 +101,54 @@
                 <!-- Jadwal Kuliah -->
                 <div class="col-12 my-3">
                     <div class="card">
-                        <div class="card-header pb-0">
-                            <h6>Jadwal Perkuliahan Kamu Hari ini</h6>
+                        <div class="card-header p-3">
+                            <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
                             <p class="text-sm mb-0">
-                                <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
+                                <?php if ($jumlah_mk === 0) : ?>
+                                    <i class="fa fa-xmark text-danger" aria-hidden="true"></i>
+                                    <span class="font-weight-bold ms-1">Tidak ada Mata Kuliah</span> hari ini
+                                <?php else : ?>
+                                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                                    <span class="font-weight-bold ms-1"><?= $jumlah_mk ?> Mata Kuliah</span> hari ini
+                                <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body px-0 pb-2">
+                        <div class="card-body p-3 pt-0">
                             <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
+                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Mata Kuliah</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Dosen Pengampu</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Ruangan</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                No.</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Waktu</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Jumlah Pertemuan</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Nama MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Dosen Pengampu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Ruangan</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm">Arsitektur Komputer</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm">Renal Sukma Widiarsa</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm">Lantai 6 Ruangan 7</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-2 py-1">
-                                                    <h6 class="mb-0 text-sm">08:00-10:00</h6>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="progress-wrapper w-90 mx-auto">
-                                                    <div class="progress-info">
-                                                        <div class="progress-percentage">
-                                                            <span class="text-xs font-weight-bold">60%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody class="text-sm">
+                                        <?php foreach ($listj as $jadwal) : ?>
+                                            <tr>
+                                                <td></td>
+                                                <td><?= $jadwal['waktu'] ?></td>
+                                                <td><?= $jadwal['nama'] ?></td>
+                                                <td><?= $jadwal['dosen'] ?></td>
+                                                <td><?= $jadwal['ruangan'] ?></td>
+                                            </tr>
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
                 <!-- Pengumuman 1 -->
-                <div class="col-lg-6 col-12 my-3">
+                <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -172,9 +159,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mt-3 mt-md-0">
+                                <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -188,7 +175,7 @@
                 </div>
 
                 <!-- Pengumuman 2 -->
-                <div class="col-lg-6 col-12 my-3">
+                <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -199,9 +186,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mt-3 mt-md-0">
+                                <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -339,5 +326,38 @@
                         },
                     },
                 },
+            });
+        </script>
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+        <script>
+            let table;
+
+            $(document).ready(() => {
+
+                table = $('#table').DataTable({
+
+                    responsive: true,
+                    order: [1, 'asc'],
+
+                    columnDefs: [{
+                        targets: [0],
+                        orderable: false,
+                        searchable: false,
+                    }],
+
+                });
+
+                table.on('order.dt search.dt', () => {
+                    let i = 1;
+
+                    table.cells(null, 0, {
+                        order: 'applied',
+                        search: 'applied',
+                    }).every(function(cell) {
+                        this.data(i++);
+                    });
+                }).draw();
             });
         </script>

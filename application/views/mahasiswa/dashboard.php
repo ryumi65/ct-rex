@@ -39,13 +39,18 @@
                 </div>
             </div>
 
+            <!-- Content -->
             <div class="row mt-3">
 
                 <!-- Greeting -->
                 <div class="col-12 col-md-6 col-lg-4 my-3">
                     <div class="card z-index-2">
                         <div class="card-header p-3 pb-0">
-                            <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
+                            <?php if (isset($nama[1])) : ?>
+                                <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
+                            <?php else : ?>
+                                <h5>Assalamu'alaikum, <?= $mahasiswa['nama'] ?>!</h5>
+                            <?php endif ?>
                         </div>
                         <div class="card-body p-3 pt-0">
                             <div class="progress-wrapper mx-auto">
@@ -201,163 +206,164 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <footer class="footer py-3">
-
-                <!-- Logo Medsos -->
-                <div class="container mx-auto text-center my-2">
-                    <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-youtube"></i>
-                    </a>
-                    <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                        <i class="text-lg fa-brands fa-tiktok"></i>
-                    </a>
-                </div>
-
-                <!-- Copyright -->
-                <div class="container mx-auto text-center">
-                    <p class="mb-0 text-secondary text-xs">
-                        Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                    </p>
-                </div>
-            </footer>
         </div>
 
-        <!-- Chart -->
-        <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
-        <script>
-            var ctx2 = document.getElementById("chart1").getContext("2d");
+        <!-- Footer -->
+        <footer class="footer py-3">
 
-            var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+            <!-- Logo Medsos -->
+            <div class="container mx-auto text-center my-2">
+                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
+                    <i class="text-lg fa-brands fa-tiktok"></i>
+                </a>
+            </div>
 
-            gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
-            gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
-            gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
+            <!-- Copyright -->
+            <div class="container mx-auto text-center">
+                <p class="mb-0 text-secondary text-xs">
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
 
-            var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+    <!-- Chart -->
+    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+    <script>
+        var ctx2 = document.getElementById("chart1").getContext("2d");
 
-            gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
-            gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
-            gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-            new Chart(ctx2, {
-                type: "line",
-                data: {
-                    labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
-                    datasets: [{
-                        label: "Indeks Prestasi Kumulatif",
-                        tension: 0.1,
-                        borderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: "#2cb72c",
-                        borderWidth: 3,
-                        backgroundColor: gradientStroke1,
-                        fill: true,
-                        data: [3.55, 3.60, 3.45, 3.60, 3.55, 3.50, 3.40, 3.70],
-                        maxBarThickness: 3
+        gradientStroke1.addColorStop(1, 'rgba(88, 219, 88, 0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(119, 230, 119, 0.1)');
+        gradientStroke1.addColorStop(0.1, 'rgba(154, 230, 154, 0 )'); //purple colors
 
-                    }, ],
+        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke2.addColorStop(1, 'rgba(66, 135, 245,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(96, 151, 240,0.1)');
+        gradientStroke2.addColorStop(0, 'rgba(195, 215, 247,0)'); //purple colors
+
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+                datasets: [{
+                    label: "Indeks Prestasi Kumulatif",
+                    tension: 0.1,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#2cb72c",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [3.55, 3.60, 3.45, 3.60, 3.55, 3.50, 3.40, 3.70],
+                    maxBarThickness: 3
+
+                }, ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
                         }
                     },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index',
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false,
-                                display: true,
-                                drawOnChartArea: true,
-                                drawTicks: false,
-                                borderDash: [5, 5]
-                            },
-                            ticks: {
-                                display: true,
-                                padding: 10,
-                                color: '#b2b9bf',
-                                font: {
-                                    size: 11,
-                                    family: "Open Sans",
-                                    style: 'normal',
-                                    lineHeight: 2
-                                },
-                            }
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
                         },
-                        x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                borderDash: [5, 5]
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Open Sans",
+                                style: 'normal',
+                                lineHeight: 2
                             },
-                            ticks: {
-                                display: true,
-                                color: '#b2b9bf',
-                                padding: 20,
-                                font: {
-                                    size: 11,
-                                    family: "Open Sans",
-                                    style: 'normal',
-                                    lineHeight: 2
-                                },
-                            }
-                        },
+                        }
                     },
                 },
+            },
+        });
+    </script>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script>
+        let table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                responsive: true,
+                order: [1, 'asc'],
+
+                columnDefs: [{
+                    targets: [0],
+                    orderable: false,
+                    searchable: false,
+                }],
+
             });
-        </script>
 
-        <!-- JQuery -->
-        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
-        <script>
-            let table;
+            table.on('order.dt search.dt', () => {
+                let i = 1;
 
-            $(document).ready(() => {
-
-                table = $('#table').DataTable({
-
-                    responsive: true,
-                    order: [1, 'asc'],
-
-                    columnDefs: [{
-                        targets: [0],
-                        orderable: false,
-                        searchable: false,
-                    }],
-
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
                 });
-
-                table.on('order.dt search.dt', () => {
-                    let i = 1;
-
-                    table.cells(null, 0, {
-                        order: 'applied',
-                        search: 'applied',
-                    }).every(function(cell) {
-                        this.data(i++);
-                    });
-                }).draw();
-            });
-        </script>
+            }).draw();
+        });
+    </script>

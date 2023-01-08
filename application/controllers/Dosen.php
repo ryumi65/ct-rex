@@ -1,11 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+date_default_timezone_set('Asia/Jakarta');
 
 class Dosen extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->model('model_dosen');
+        $this->load->model('model_jadwal');
         $this->load->model('model_krs');
 
         if (!$this->session->logged) redirect('login');
@@ -16,11 +18,15 @@ class Dosen extends CI_Controller {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
+            'hari' => $list_hari[date('w')],
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
             'mhswali' => $this->model_dosen->get_db_count('mahasiswa', ['dosen_wali' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
         ];
 
         $this->load->view('_partials/head');
@@ -48,22 +54,15 @@ class Dosen extends CI_Controller {
     }
 
     public function jadwalkuliah() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
+        $data = [
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/jadwal', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function createjdwl() {
-        $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
-        $this->load->view('_partials/header');
-        $this->load->view('dosen/createjdwl', $data);
         $this->load->view('_partials/script');
     }
 

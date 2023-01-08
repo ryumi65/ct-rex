@@ -4,17 +4,17 @@
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
                             <div>
                                 <h5 class="mb-0">Kartu Rencana Studi</h5>
                             </div>
                             <div>
-                                <a href="<?= site_url('mahasiswa/perkuliahan/tambah-krs') ?>" class="btn btn-primary btn-sm ">Tambah KRS</a>
+                                <a href="<?= site_url('mahasiswa/perkuliahan/tambah-krs') ?>" class="btn btn-primary btn-sm mb-0">Tambah KRS</a>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body pb-0">
+                    <div class="card-body p-3 pt-0">
                         <div>
                             <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
                                 <?php for ($i = 1; $i <= 8; $i++) : ?>
@@ -93,8 +93,8 @@
                                 </div>
                             <?php endfor ?>
                         </div>
-                        <div class="dropdown d-flex justify-content-end my-1">
-                            <button class="btn btn-success btn dropdown-toggl btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
+                        <div class="dropdown d-flex justify-content-end text-center">
+                            <button class="btn btn-success mt-3 mb-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="javascript:;">Makan</a></li>
                                 <li><a class="dropdown-item" href="javascript:;">Minum</a></li>

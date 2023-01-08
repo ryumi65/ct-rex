@@ -9,14 +9,19 @@
             alert('Hapus foto berhasil!');
         </script>";
         unset($_SESSION['deletesuccess']);
+    }
+
+    $jumlah_mk = 0;
+
+    foreach ($listj as $jadwal) {
+        $jumlah_mk++;
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-3 pt-xl-0">
+        <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')">
-            </div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex align-content-center justify-content-between">
                     <div class="row gx-3">
@@ -39,160 +44,82 @@
                             <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
                         </div>
                         <div>
-                            <h6 class="mx-3 my-0"><u>SKS Mengajar</u></h6>
+                            <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
                             <h3 class="text-center my-0">1</h3>
-                            <h6 class="font-weight- text-center my-0">SKS</h6>
+                            <h6 class="font-weight- text-center my-0">sks</h6>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Jadwal Mengajar 1 -->
-            <!-- <div class="col-12 mb-md-0 my-4">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen Pertama</h5>
-                        <p class="text-sm mb-0">
-                            <i class="fa fa-check text-info" aria-hidden="true"></i>
-                            <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
-                        </p>
-                    </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Mata Kuliah</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Ruangan</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Waktu</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jumlah Pertemuan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Arsitektur Komputer</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Lantai 6 Ruangan 7</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">08:00-10:00</h6>
-                                            </div>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-wrapper w-90 mx-auto">
-                                                <div class="progress-info">
-                                                    <div class="progress-percentage">
-                                                        <span class="text-xs font-weight-bold">60%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <!-- Content -->
+            <div class="row mt-3">
 
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card z-index-2">
-                        <div class="card-header pb-0">
-                            <h5>Riwayat sks yang diampu</h5>
+                <!-- Riwayat sks -->
+                <div class="col-12 my-3">
+                    <div class="card">
+                        <div class="card-header p-3 pb-0">
+                            <h5>Riwayat sks yang Diampu</h5>
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-3 pt-0">
                             <div class="chart">
                                 <canvas id="chart1" class="chart-canvas" height="300"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Jadwal Mengajar 2 -->
-            <div class="col-12 mb-md-0 my-4">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h5>Jadwal Perkuliahan Yang Diampu Sebagai Dosen</h5>
-                        <p class="text-sm mb-0">
-                            <i class="fa fa-check text-info" aria-hidden="true"></i>
-                            <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
-                        </p>
-                    </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Mata Kuliah</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Ruangan</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Waktu</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jumlah Pertemuan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Arsitektur Komputer</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">Lantai 6 Ruangan 7</h6>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="px-2 py-1">
-                                                <h6 class="mb-0 text-sm">08:00-10:00</h6>
-                                            </div>
-                                        </td>
-                                        <td class="align-middle">
-                                            <div class="progress-wrapper w-90 mx-auto">
-                                                <div class="progress-info">
-                                                    <div class="progress-percentage">
-                                                        <span class="text-xs font-weight-bold">60%</span>
-                                                    </div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <!-- Jadwal Kuliah -->
+                <div class="col-12 my-3">
+                    <div class="card">
+                        <div class="card-header p-3">
+                            <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
+                            <p class="text-sm mb-0">
+                                <?php if ($jumlah_mk === 0) : ?>
+                                    <i class="fa fa-xmark text-danger" aria-hidden="true"></i>
+                                    <span class="font-weight-bold ms-1">Tidak ada Mata Kuliah</span> hari ini
+                                <?php else : ?>
+                                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                                    <span class="font-weight-bold ms-1"><?= $jumlah_mk ?> Mata Kuliah</span> hari ini
+                                <?php endif ?>
+                            </p>
                         </div>
-
+                        <div class="card-body p-3 pt-0">
+                            <div class="table-responsive">
+                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                No.</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Waktu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Kode MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Nama MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Ruangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <?php foreach ($listj as $jadwal) : ?>
+                                            <tr>
+                                                <td></td>
+                                                <td><?= $jadwal['waktu'] ?></td>
+                                                <td><?= $jadwal['kode'] ?></td>
+                                                <td><?= $jadwal['nama'] ?></td>
+                                                <td><?= $jadwal['ruangan'] ?></td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Dashboard -->
-            <div class="row mt-4">
 
                 <!-- Pengumuman 1 -->
-                <div class="col-lg-6 col-12 my-3">
+                <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -203,9 +130,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mt-3 mt-md-0">
+                                <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -219,7 +146,7 @@
                 </div>
 
                 <!-- Pengumuman 2 -->
-                <div class="col-lg-6 col-12 my-3">
+                <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -230,9 +157,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mt-3 mt-md-0">
+                                <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -281,7 +208,7 @@
         </footer>
     </div>
 
-
+    <!-- Chart -->
     <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
     <script>
         var ctx2 = document.getElementById("chart1").getContext("2d");
@@ -371,5 +298,38 @@
                     },
                 },
             },
+        });
+    </script>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script>
+        let table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                responsive: true,
+                order: [1, 'asc'],
+
+                columnDefs: [{
+                    targets: [0],
+                    orderable: false,
+                    searchable: false,
+                }],
+
+            });
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
         });
     </script>

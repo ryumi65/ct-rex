@@ -3,12 +3,12 @@
 
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-header p-3">
                         <div>
                             <h5 class="mb-0">Tambah Kartu Rencana Studi</h5>
                         </div>
                     </div>
-                    <div class="card-body pb-0">
+                    <div class="card-body p-3 pt-0">
                         <?= form_open('krs/create') ?>
                         <div>
                             <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end text-center">
-                            <button type="submit" class="btn btn-primary my-4">Simpan</button>
+                            <button type="submit" class="btn btn-primary mt-3 mb-0">Simpan</button>
                         </div>
                         </form>
                     </div>

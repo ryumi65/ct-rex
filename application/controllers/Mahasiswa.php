@@ -53,10 +53,8 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function jadwalkuliah() {
-        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-
         $data = [
-            'hari' => $list_hari[date('w')],
+            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
             'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
 

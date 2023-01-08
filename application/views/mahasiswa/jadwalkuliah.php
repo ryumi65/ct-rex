@@ -14,7 +14,7 @@
                     <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
+                                <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
                                 <p class="text-sm mb-0">
                                     <?php if ($jumlah_mk === 0) : ?>
                                         <i class="fa fa-xmark text-danger" aria-hidden="true"></i>

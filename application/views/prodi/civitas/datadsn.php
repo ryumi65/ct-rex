@@ -35,15 +35,13 @@
                                         <td><?= $dosen['jenis_kelamin'] ?></td>
                                         <td><?= $dosen['nidn_dosen'] ?></td>
                                         <td><?= $dosen['status_dosen'] ?></td>
-                                        <td>
-                                            <div class="text-center">
-                                                <a href="<?= site_url('prodi/civitas/data-dosen/edit/' . $dosen['nik']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-dosen/delete/' . $dosen['nik']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
+                                        <td class="text-center">
+                                            <a href="<?= site_url('prodi/civitas/data-dosen/edit/' . $dosen['nik']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-dosen/delete/' . $dosen['nik']) ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

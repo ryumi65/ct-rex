@@ -7,15 +7,12 @@ class Fakultas extends CI_Controller {
         parent::__construct();
         $this->load->model('model_fakultas');
 
-        if (!$this->session->logged)
-            redirect('login');
-        if ($this->session->level != 1)
-            redirect(strtolower($this->session->access));
+        if (!$this->session->logged) redirect('login');
+        if ($this->session->level != 1) redirect(strtolower($this->session->access));
     }
 
     public function index() {
-        if (uri_string() === 'fakultas/index')
-            return redirect('fakultas');
+        if (uri_string() === 'fakultas/index') return redirect('fakultas');
 
         $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
 

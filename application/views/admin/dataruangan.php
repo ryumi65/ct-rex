@@ -24,7 +24,6 @@
                 </div>
             </div>
 
-
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12">
                 <div class="card">

@@ -6,16 +6,14 @@ class Dosen extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_dosen');
+        $this->load->model('model_krs');
 
-        if (!$this->session->logged)
-            redirect('login');
-        if ($this->session->level != 3)
-            redirect(strtolower($this->session->access));
+        if (!$this->session->logged) redirect('login');
+        if ($this->session->level != 3) redirect(strtolower($this->session->access));
     }
 
     public function index() {
-        if (uri_string() === 'dosen/index')
-            return redirect('dosen');
+        if (uri_string() === 'dosen/index') return redirect('dosen');
 
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
@@ -53,7 +51,7 @@ class Dosen extends CI_Controller {
         $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/jadwal', $data);
         $this->load->view('_partials/script');
@@ -63,7 +61,7 @@ class Dosen extends CI_Controller {
         $data['dosen'] = $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/createjdwl', $data);
         $this->load->view('_partials/script');
@@ -111,7 +109,6 @@ class Dosen extends CI_Controller {
             'status_kerja' => ['Dosen Tetap', 'Dosen PNS di Pekerjaan', 'Dosen Honorer PTN', 'Dosen Honorer no PTN', 'Dosen Kontrak']
         ];
 
-
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
         if (!$this->form_validation->run()) {
@@ -128,15 +125,29 @@ class Dosen extends CI_Controller {
     }
 
     public function bimbinganakademik() {
+        $lists = [];
+        $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+
+        foreach ($listm as $mhs) {
+            $lists[] = [
+                'nim' => $mhs['nim'],
+                'nama' => $mhs['nama'],
+                'jenis_kelamin' => $mhs['jenis_kelamin'],
+                'tahun_angkatan' => $mhs['tahun_angkatan'],
+                'status' => $mhs['status'],
+                'listj' => $this->model_krs->get_krs($mhs['nim']),
+            ];
+        }
+
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
-            'listm' => $this->model_dosen->get_db('mahasiswa', ['id_prodi' => $this->session->id], 'result'),
+            'lists' => $lists,
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/bimbingana', $data);
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('dosen/bimbinganakademik', $data);
         $this->load->view('_partials/script');
     }
 }

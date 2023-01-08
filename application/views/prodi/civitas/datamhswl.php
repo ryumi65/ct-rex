@@ -37,12 +37,10 @@
                                             <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                             <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                             <td><?= $mahasiswa['status'] ?></td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <a class="btn btn-danger mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                    </a>
-                                                </div>
+                                            <td class="text-center">
+                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

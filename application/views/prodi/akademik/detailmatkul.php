@@ -12,49 +12,59 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Kode Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kode_matkul" class="form-control" placeholder="-" value="<?= $matkul['kode_matkul'] ?>" disabled readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Program Studi</label>
-                                <div class="mb-3">
-                                    <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $matkul['id_prodi'] ?>" disabled readonly>
+                                    <input type="text" name="kode_matkul" class="form-control" placeholder="-" value="<?= $matkul['kode_matkul'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Mata Kuliah (Indonesia)</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $matkul['nama'] ?>" disabled readonly>
+                                    <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $matkul['nama'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Mata Kuliah (Inggris)</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama_inggris" class="form-control" placeholder="-" value="<?= $matkul['nama_inggris'] ?>" disabled readonly>
+                                    <input type="text" name="nama_inggris" class="form-control" placeholder="-" value="<?= $matkul['nama_inggris'] ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Dosen Pengampu</label>
+                                <div class="mb-3">
+                                    <?php foreach ($listd as $dosen) {
+                                        if ($dosen['nik'] === $matkul['nik_dosen']) $nama = $dosen['nama'];
+                                        else $nama = '-';
+                                    } ?>
+                                    <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $nama ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Program Studi</label>
+                                <div class="mb-3">
+                                    <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $matkul['id_prodi'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jenis Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <input type="text" name="jenis" class="form-control" placeholder="-" value="<?= ucwords($matkul['jenis']) ?>" disabled readonly>
+                                    <input type="text" name="jenis" class="form-control" placeholder="-" value="<?= $matkul['jenis'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kategori SKS</label>
                                 <div class="mb-3">
-                                    <input type="text" name="kategori" class="form-control" placeholder="-" value="<?= ucwords($matkul['kategori']) ?>" disabled readonly>
+                                    <input type="text" name="kategori" class="form-control" placeholder="-" value="<?= $matkul['kategori'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jumlah SKS</label>
                                 <div class="mb-3">
-                                    <input type="text" name="sks" class="form-control" placeholder="-" value="<?= $matkul['sks'] ?>" disabled readonly>
+                                    <input type="text" name="sks" class="form-control" placeholder="-" value="<?= $matkul['sks'] ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Semester</label>
                                 <div class="mb-3">
-                                    <input type="text" name="semester" class="form-control" placeholder="-" value="<?= $matkul['semester'] ?>" disabled readonly>
+                                    <input type="text" name="semester" class="form-control" placeholder="-" value="<?= $matkul['semester'] ?>" readonly>
                                 </div>
                             </div>
                         </div>

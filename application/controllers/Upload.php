@@ -8,10 +8,6 @@ class Upload extends CI_Controller {
         $this->load->model('model_akun');
     }
 
-    public function index() {
-        redirect('login');
-    }
-
     public function upload_header() {
         $config['upload_path']   = './assets/img/uploads/header/';
         $config['file_name']     = $this->session->id;

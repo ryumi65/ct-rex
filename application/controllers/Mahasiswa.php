@@ -56,18 +56,12 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function datakrs() {
-        $data = [
-            'lists' => [
-                $this->model_krs->get_krs($this->session->id, 1),
-                $this->model_krs->get_krs($this->session->id, 2),
-                $this->model_krs->get_krs($this->session->id, 3),
-                $this->model_krs->get_krs($this->session->id, 4),
-                $this->model_krs->get_krs($this->session->id, 5),
-                $this->model_krs->get_krs($this->session->id, 6),
-                $this->model_krs->get_krs($this->session->id, 7),
-                $this->model_krs->get_krs($this->session->id, 8),
-            ]
-        ];
+        $krs = [];
+        for ($i = 1; $i <= 8; $i++) {
+            array_push($krs, $this->model_krs->get_krs_smt($this->session->id, $i));
+        }
+
+        $data['lists'] = $krs;
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -79,10 +73,14 @@ class Mahasiswa extends CI_Controller {
     public function formkrs() {
         $mahasiswa = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
+        $krs = [];
+        for ($i = 1; $i <= 8; $i++) {
+            array_push($krs, $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $i));
+        }
+
         $data = [
             'mahasiswa' => $mahasiswa,
-            'semester' => [1, 2, 3, 4, 5, 6, 7, 8],
-            'listj' => $this->model_krs->get_list_krs($this->session->id, $mahasiswa['id_prodi']),
+            'listj' => $krs,
         ];
 
         $this->load->view('_partials/head');
@@ -90,6 +88,12 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/formkrs', $data);
         $this->load->view('_partials/script');
+    }
+
+    public function deletekrs($nim, $id_jadwal) {
+        $this->model_krs->delete_krs($nim, $id_jadwal);
+
+        redirect('mahasiswa/perkuliahan/data-krs');
     }
 
     public function update_foto() {

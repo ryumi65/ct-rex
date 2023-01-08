@@ -314,6 +314,7 @@ class Prodi extends CI_Controller {
         $data = [
             'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
             'matkul' => $this->model_prodi->get_db('matkul', ['id_matkul' => $id_matkul]),
+            'listd' => $this->model_prodi->get_db('dosen', ['id_prodi' => $this->session->id], 'result'),
         ];
 
         $this->load->view('_partials/head');

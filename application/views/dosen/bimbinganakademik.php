@@ -4,7 +4,14 @@
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5 class="mb-0">Daftar Mahasiswa Wali</h5>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
+                            <div class="mx-0 col-4 my-1">
+                                <select class="form-select" name="nik_dosen" required>
+                                    <option selected disabled>Pilih Tahun Ajaran</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
@@ -27,28 +34,90 @@
                                 </tr>
                             </thead>
                             <tbody class="text-sm">
-                                <?php foreach ($listd as $dosen) : ?>
+                                <?php foreach ($lists as $mhs) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $dosen['nik'] ?></td>
-                                        <td><a href="<?= site_url('prodi/civitas/data-dosen/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
-                                        <td><?= $dosen['jenis_kelamin'] ?></td>
-                                        <td><?= $dosen['nidn_dosen'] ?></td>
-                                        <td><?= $dosen['status_dosen'] ?></td>
-                                        <td>
-                                            <div class="text-center">
-                                                <a href="<?= site_url('prodi/civitas/data-dosen/edit/' . $dosen['nik']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-dosen/delete/' . $dosen['nik']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
+                                        <td><?= $mhs['nim'] ?></td>
+                                        <td><?= $mhs['nama'] ?></td>
+                                        <td><?= $mhs['jenis_kelamin'] ?></td>
+                                        <td><?= $mhs['tahun_angkatan'] ?></td>
+                                        <td><?= $mhs['status'] ?></td>
+                                        <td class="text-center">
+                                            <a class="badge bg-warning px-3 py-2" data-bs-toggle="modal" data-bs-target="#id-<?= $mhs['nim'] ?>">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url() ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        <!-- Modal -->
+                        <?php foreach ($lists as $mhs) : ?>
+                            <div class="modal fade" id="id-<?= $mhs['nim'] ?>" tabindex="-1" aria-labelledby="label-<?= $mhs['nim'] ?>" aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="label-<?= $mhs['nim'] ?>">Kartu Rencana Studi <?= $mhs['nama'] ?></h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <?= form_open('krs/acc') ?>
+                                        <div class="modal-body">
+                                            <table class="table table-striped align-items-center ps-3">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                            No.</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Kode MK</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Nama MK</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Total SKS</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Dosen Pengampu</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Hari</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Waktu</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Ruangan</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-sm">
+                                                    <?php foreach ($mhs['listj'] as $krs) :
+                                                        if ($krs['status'] == 'N') : ?>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><?= $krs['kode'] ?></td>
+                                                                <td><?= $krs['nama'] ?></td>
+                                                                <td><?= $krs['sks'] ?></td>
+                                                                <td><?= $krs['dosen'] ?></td>
+                                                                <td><?= $krs['hari'] ?></td>
+                                                                <td><?= $krs['waktu'] ?></td>
+                                                                <td><?= $krs['ruangan'] ?></td>
+                                                                <td>
+                                                                    <input class="form-check-input" type="checkbox" name="id_krs[]" value="<?= $krs['id_krs'] ?>">
+                                                                </td>
+                                                            </tr>
+                                                    <?php endif;
+                                                    endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary mb-0">Simpan</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>

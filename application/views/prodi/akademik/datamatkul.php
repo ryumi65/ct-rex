@@ -59,15 +59,13 @@
                                             <td><?= $matkul['kategori'] ?></td>
                                             <td><?= $matkul['sks'] ?></td>
                                             <td><?= $matkul['semester'] ?></td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </a>
-                                                    <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                    </a>
-                                                </div>
+                                            <td class="text-center">
+                                                <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>

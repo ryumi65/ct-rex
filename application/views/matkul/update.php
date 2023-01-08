@@ -45,10 +45,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Kategori SKS</label>
+                                <label>Kategori sks</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="kategori">
-                                        <option selected disabled>Pilih Kategori SKS</option>
+                                        <option selected disabled>Pilih Kategori sks</option>
                                         <?php for ($i = 0; $i < count($kategori); $i++) : ?>
                                             <?php if ($matkul['kategori'] === $kategori[$i]) : ?>
                                                 <option selected value="<?= $kategori[$i] ?>"><?= $kategori[$i] ?></option>

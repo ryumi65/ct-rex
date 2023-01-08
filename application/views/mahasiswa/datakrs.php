@@ -4,7 +4,7 @@
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-body pb-0">
+                    <div class="card-header pb-0">
                         <div class="d-flex justify-content-between">
                             <div>
                                 <h5 class="mb-0">Kartu Rencana Studi</h5>
@@ -13,6 +13,8 @@
                                 <a href="<?= site_url('mahasiswa/perkuliahan/tambah-krs') ?>" class="btn btn-primary btn-sm ">Tambah KRS</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-body pb-0">
                         <div>
                             <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
                                 <?php for ($i = 1; $i <= 8; $i++) : ?>
@@ -45,8 +47,10 @@
                                                         Waktu</th>
                                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                         Ruangan</th>
-                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
                                                         Status</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                        Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-sm">
@@ -60,7 +64,27 @@
                                                         <td><?= $semester['hari'] ?></td>
                                                         <td><?= $semester['waktu'] ?></td>
                                                         <td><?= $semester['ruangan'] ?></td>
-                                                        <td><?= $semester['status'] ?></td>
+                                                        <td class="text-center">
+                                                            <?php if ($semester['status'] === 'Y') : ?>
+                                                                <span class="badge bg-gradient-success">Aktif</span>
+                                                            <?php elseif ($semester['status'] === 'N') : ?>
+                                                                <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
+                                                            <?php else : ?>
+                                                                <span class="badge bg-gradient-danger">Tidak Aktif</span>
+                                                            <?php endif ?>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <?php if ($semester['status'] === 'Y') : ?>
+                                                                <span class="badge bg-secondary px-3 py-2">
+                                                                    <i class="fa-solid fa-trash-can"></i>
+                                                                </span>
+                                                            <?php else : ?>
+                                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $semester['id']) ?>')">
+                                                                    <i class="fa-solid fa-trash-can"></i>
+                                                                </a>
+                                                            <?php endif ?>
+
+                                                        </td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
@@ -116,6 +140,9 @@
         </footer>
     </div>
 
+    <!-- Alert -->
+    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
+
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
@@ -126,10 +153,11 @@
 
                 table = $(`#table${i}`).DataTable({
 
+                    dom: "<'mb-3'rt>",
                     order: [1, 'asc'],
 
                     columnDefs: [{
-                        targets: [0],
+                        targets: [0, 9],
                         orderable: false,
                         searchable: false,
                     }],

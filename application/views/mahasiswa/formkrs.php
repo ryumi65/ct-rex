@@ -3,25 +3,69 @@
 
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
+                    <div class="card-header pb-0">
+                        <div>
+                            <h5 class="mb-0">Tambah Kartu Rencana Studi</h5>
+                        </div>
+                    </div>
                     <div class="card-body pb-0">
                         <?= form_open('krs/create') ?>
-                        <div class="mb-3">
-                            <select class="form-select">
-                                <option selected disabled>Pilih Semester</option>
-                            </select>
+                        <div>
+                            <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
+                                <?php for ($i = 1; $i <= 8; $i++) : ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="semester<?= $i ?>" data-bs-toggle="tab" data-bs-target="#semester<?= $i ?>-pane" type="button" role="tab" aria-controls="semester<?= $i ?>-pane" aria-selected="true">Semester <?= $i ?></button>
+                                    </li>
+                                <?php endfor ?>
+                            </ul>
                         </div>
-                        <div class="row">
-                            <div class="mb-3">
-                                <h6>Daftar Mata Kuliah</h6>
-                            </div>
-                            <?php foreach ($listj as $jadwal) : ?>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $jadwal['id'] ?>">
-                                        <label class="form-check-label"><?= $jadwal['nama'] . ' - ' . $jadwal['dosen'] . ' - ' . $jadwal['waktu'] ?></label>
+                        <div class="tab-content" id="myTabContent">
+                            <?php for ($i = 1; $i <= 8; $i++) : ?>
+                                <div class="tab-pane fade show" id="semester<?= $i ?>-pane" role="tabpanel" aria-labelledby="semester<?= $i ?>" tabindex="0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped align-items-center ps-3" id="table<?= $i ?>">
+                                            <thead>
+                                                <tr>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                        No.</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Kode MK</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Nama MK</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Total SKS</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Dosen Pengampu</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Hari</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Waktu</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        Ruangan</th>
+                                                    <th class="font-weight-bolder text-uppercase text-xs ps-2"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-sm">
+                                                <?php foreach ($listj[$i - 1] as $jadwal) : ?>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><?= $jadwal['kode'] ?></td>
+                                                        <td><?= $jadwal['nama'] ?></td>
+                                                        <td><?= $jadwal['sks'] ?></td>
+                                                        <td><?= $jadwal['dosen'] ?></td>
+                                                        <td><?= $jadwal['hari'] ?></td>
+                                                        <td><?= $jadwal['waktu'] ?></td>
+                                                        <td><?= $jadwal['ruangan'] ?></td>
+                                                        <td>
+                                                            <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $jadwal['id'] ?>">
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                            <?php endforeach ?>
+                            <?php endfor ?>
                         </div>
 
                         <div class="d-flex justify-content-end text-center">
@@ -32,7 +76,7 @@
                 </div>
             </div>
 
-            <!-- Form KRS -->
+            <!-- Form KRS
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-body pb-0">
@@ -72,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- Tabel Hasil Pilihan -->
+            Tabel Hasil Pilihan
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card">
                     <div class="card-body p-3">
@@ -107,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Footer -->
@@ -150,53 +194,34 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
-        let table, table2;
+        for (let i = 1; i <= 8; i++) {
+            let table;
 
-        $(document).ready(() => {
-            table = $('#table').DataTable({
-                responsive: true,
-                order: [2, 'asc'],
+            $(document).ready(() => {
 
-                columnDefs: [{
-                    targets: [0, 5],
-                    orderable: false,
-                    searchable: false,
-                }],
+                table = $(`#table${i}`).DataTable({
 
-            });
+                    dom: "<'mb-3'rt>",
+                    order: [1, 'asc'],
 
-            table.on('order.dt search.dt', () => {
-                let i = 1;
+                    columnDefs: [{
+                        targets: [0, 8],
+                        orderable: false,
+                        searchable: false,
+                    }],
 
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
                 });
-            }).draw();
 
-            table2 = $('#table2').DataTable({
-                responsive: true,
-                order: [2, 'asc'],
+                table.on('order.dt search.dt', () => {
+                    let j = 1;
 
-                columnDefs: [{
-                    targets: [0, 5],
-                    orderable: false,
-                    searchable: false,
-                }],
-
+                    table.cells(null, 0, {
+                        order: 'applied',
+                        search: 'applied',
+                    }).every(function(cell) {
+                        this.data(j++);
+                    });
+                }).draw();
             });
-
-            table2.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table2.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
-                });
-            }).draw();
-        });
+        }
     </script>

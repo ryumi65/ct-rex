@@ -7,7 +7,6 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('model_admin');
 
-
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
     }
@@ -36,11 +35,10 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datadsn()
-    {
+    public function datadsn() {
         $data['admin'] = $this->model_admin->join_dosen('admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_dosen('dosen', ['nik' => $this->session->id]);
-        // $data['dosen'] = $this->model_fakultas->join_dosen('dosen',['id_fakultas' => $this->session->id]);
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -48,8 +46,7 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs()
-    {
+    public function datamhs() {
         $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
         $data['listm'] = $this->model_admin->join_mhs('mahasiswa', ['nim' => $this->session->id]);
 

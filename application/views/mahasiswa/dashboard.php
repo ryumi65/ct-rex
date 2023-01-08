@@ -11,10 +11,10 @@
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-3">
+        <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-4" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex align-content-center justify-content-between">
                     <div class="row gx-3">
@@ -23,24 +23,23 @@
                                 <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
-                        <div class="col-auto my-auto">
-                            <div>
-                                <h5 class="mb-2"><?= $mahasiswa['nama'] ?></h5>
-                                <p class="mb-0 font-weight-bold text-sm"><?= $mahasiswa['nim'] ?></p>
-                            </div>
+                        <div class="col-auto m-2 m-md-auto">
+                            <h5 class="mb-2"><?= $mahasiswa['nama'] ?></h5>
+                            <p class="mb-0 font-weight-bold text-sm"><?= $mahasiswa['nim'] ?></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- greeting -->
             <div class="row mt-3">
-                <div class="col-lg-4 col-12">
+
+                <!-- Greeting -->
+                <div class="col-lg-4 col-12 my-3">
                     <div class="card z-index-2">
                         <div class="card-header pb-0">
                             <h5>Assalamu'alaikum, King Reza!</h5>
                         </div>
-                        <div class="card-body py-0">
+                        <div class="card-body pt-0">
                             <div class="progress-wrapper mx-auto">
                                 <div class="progress-info">
                                     <div class="progress-percentage">
@@ -51,16 +50,14 @@
                                     <div class="mb-2 progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-                            <p class="mb-2">Saat ini kamu berada di Semester 8 dan telah berhasil menempuh 166 SKS dari 144 SKS</p>
-                            <div>
-                                <p class="mb-2">Tetap semangat belajar ya!</p>
-                            </div>
+                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh 66 SKS dari 144 SKS.</p>
+                            <p class="mb-0">Tetap semangat belajar ya!</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- grafik -->
-                <div class="col-lg-4">
+                <!-- Grafik -->
+                <div class="col-lg-4 col-12 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -75,7 +72,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 mb-lg-0 mb-4">
+                <!-- Pengumuman -->
+                <div class="col-lg-4 col-12 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -93,20 +91,14 @@
                 </div>
 
                 <!-- Jadwal Kuliah -->
-                <div class="col-12 mb-md-0 my-4">
+                <div class="col-12 my-3">
                     <div class="card">
                         <div class="card-header pb-0">
-                            <div class="row">
-                                <div class="col-lg-6 col-7">
-                                    <h6>Jadwal Perkuliahan Kamu Hari ini</h6>
-                                    <p class="text-sm mb-0">
-                                        <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                        <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
-                                    </p>
-                                </div>
-                                <div class="col-lg-6 col-5 my-auto text-end">
-                                </div>
-                            </div>
+                            <h6>Jadwal Perkuliahan Kamu Hari ini</h6>
+                            <p class="text-sm mb-0">
+                                <i class="fa fa-check text-info" aria-hidden="true"></i>
+                                <span class="font-weight-bold ms-1">2 Mata Kuliah</span> hari ini
+                            </p>
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive">
@@ -168,57 +160,53 @@
                     </div>
                 </div>
 
-                <!-- Dashboard -->
-                <div class="row mt-4">
-
-                    <!-- Pengumuman 1 -->
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="card">
-                            <div class="card-body p-3">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="d-flex flex-column h-100">
-                                            <h5 class="font-weight-bolder">Pengumuman</h5>
-                                            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                            <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                                Read More
-                                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                            </a>
+                <!-- Pengumuman 1 -->
+                <div class="col-lg-6 col-12 my-3">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-lg-5 text-center">
+                                    <div class="bg-gradient-primary border-radius-lg h-100">
+                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                                            <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                                        <div class="bg-gradient-primary border-radius-lg h-100">
-                                            <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                                <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="col-lg-6 mt-3 mt-md-0">
+                                    <div class="d-flex flex-column h-100">
+                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                        <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                            Read More
+                                            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Pengumuman 2 -->
-                    <div class="col-lg-6 mb-lg-0 mb-7">
-                        <div class="card">
-                            <div class="card-body p-3">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="d-flex flex-column h-100">
-                                            <h5 class="font-weight-bolder">Pengumuman</h5>
-                                            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                            <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                                Read More
-                                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                            </a>
+                <!-- Pengumuman 2 -->
+                <div class="col-lg-6 col-12 my-3">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-lg-5 text-center">
+                                    <div class="bg-gradient-primary border-radius-lg h-100">
+                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                                            <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                                        <div class="bg-gradient-primary border-radius-lg h-100">
-                                            <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                                <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="col-lg-6 mt-3 mt-md-0">
+                                    <div class="d-flex flex-column h-100">
+                                        <h5 class="font-weight-bolder">Pengumuman</h5>
+                                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                        <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                            Read More
+                                            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +269,7 @@
             new Chart(ctx2, {
                 type: "line",
                 data: {
-                    labels: ["1", "2", "3", "4", "5", "6", "7", "8", ],
+                    labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
                     datasets: [{
                         label: "Indeks Prestasi Kumulatif",
                         tension: 0.1,
@@ -291,7 +279,7 @@
                         borderWidth: 3,
                         backgroundColor: gradientStroke1,
                         fill: true,
-                        data: [3.55, 4.00, 3.45, 3.30, 3.55, 3.50, 4.00, 3.30, 4.00],
+                        data: [3.55, 3.60, 3.45, 3.60, 3.55, 3.50, 3.40, 3.70],
                         maxBarThickness: 3
 
                     }, ],

@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Dosen Pengampu 1</label>
+                                <label>Dosen Pengampu</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="nik_dosen">
                                         <option selected disabled>Pilih Dosen Pengampu</option>

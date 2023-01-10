@@ -23,7 +23,7 @@
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
-                <div class="d-flex align-content-center justify-content-between">
+                <div class="d-flex align-content-center justify-content-between flex-wrap">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
@@ -37,16 +37,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <div>
+                    <div class="d-flex d-inline ms-auto my-3 my-md-0 ">
+                        <div class="fs-6 fs-md-5">
                             <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
                             <h3 class="text-center my-0"><?= $mhswali ?></h3>
-                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
+                            <h6 class="text-center my-0">Mahasiswa</h6>
                         </div>
                         <div>
                             <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
                             <h3 class="text-center my-0">1</h3>
-                            <h6 class="font-weight- text-center my-0">sks</h6>
+                            <h6 class="text-center my-0">sks</h6>
                         </div>
                     </div>
                 </div>

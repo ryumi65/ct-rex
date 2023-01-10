@@ -43,8 +43,8 @@
             <div class="row mt-3">
 
                 <!-- Greeting -->
-                <div class="col-12 col-md-6 col-lg-4 my-3">
-                    <div class="card">
+                <div class="col-12 col-lg-4 my-3">
+                    <div class="card z-index-2">
                         <div class="card-header p-3 pb-0">
                             <?php if (isset($nama[1])) : ?>
                                 <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
@@ -67,11 +67,9 @@
                             <p class="mb-0">Tetap semangat belajar ya!</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Grafik -->
-                <div class="col-12 col-md-6 col-lg-4 my-3">
-                    <div class="card">
+                    <!-- Grafik -->
+                    <div class="card my-3">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
@@ -85,8 +83,9 @@
                     </div>
                 </div>
 
+
                 <!-- Pengumuman -->
-                <div class="col-12 col-lg-4 my-3">
+                <div class="col-12 col-lg-8 my-3">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
@@ -101,11 +100,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Jadwal Kuliah -->
-                <div class="col-12 my-3">
-                    <div class="card">
+                    <div class="card my-3">
                         <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
                             <p class="text-sm mb-0">
@@ -152,7 +147,12 @@
                     </div>
                 </div>
 
-                <!-- Pengumuman Akademik -->
+                <!-- Jadwal Kuliah -->
+                <div class="col-12 my-3">
+
+                </div>
+
+                <!-- Pengumuman 1 -->
                 <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">

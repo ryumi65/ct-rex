@@ -11,7 +11,9 @@
                         </div>
                         <div class="card-body p-3">
                             <?= form_open_multipart('upload/upload_profil') ?>
-                            <label>Foto Profil</label>
+                            <label class="d-flex d-inline justify-content-between">Foto Profil
+                                <p class="text-sm"> Ukuran Disarankan 1080 x1080</p>
+                            </label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>
@@ -32,7 +34,9 @@
                         </div>
                         <div class="card-body p-3">
                             <?= form_open_multipart('upload/upload_header') ?>
-                            <label>Foto Header</label>
+                            <label class="d-flex d-inline justify-content-between">Foto Header
+                                <p class="text-sm"> Ukuran Disarankan 1080 x1080</p>
+                            </label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>
                             </div>

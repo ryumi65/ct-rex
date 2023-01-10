@@ -72,19 +72,15 @@
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                                             No.</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                            Kode MK</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Nama MK</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                            Total SKS</th>
+                                                            sks</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Dosen Pengampu</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Hari</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                            Ruangan</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2"></th>
                                                     </tr>
                                                 </thead>
@@ -93,13 +89,11 @@
                                                         if ($krs['status'] == 'N') : ?>
                                                             <tr>
                                                                 <td></td>
-                                                                <td><?= $krs['kode'] ?></td>
                                                                 <td><?= $krs['nama'] ?></td>
                                                                 <td><?= $krs['sks'] ?></td>
                                                                 <td><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
-                                                                <td><?= $krs['ruangan'] ?></td>
                                                                 <td>
                                                                     <input class="form-check-input" type="checkbox" name="id_krs[]" value="<?= $krs['id_krs'] ?>">
                                                                 </td>

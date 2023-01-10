@@ -44,7 +44,7 @@
 
                 <!-- Greeting -->
                 <div class="col-12 col-md-6 col-lg-4 my-3">
-                    <div class="card z-index-2">
+                    <div class="card">
                         <div class="card-header p-3 pb-0">
                             <?php if (isset($nama[1])) : ?>
                                 <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
@@ -128,11 +128,11 @@
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Waktu</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Ruangan</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Nama MK</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Dosen Pengampu</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Ruangan</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm">
@@ -140,9 +140,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $jadwal['waktu'] ?></td>
+                                                <td><?= $jadwal['ruangan'] ?></td>
                                                 <td><?= $jadwal['nama'] ?></td>
                                                 <td><?= $jadwal['dosen'] ?></td>
-                                                <td><?= $jadwal['ruangan'] ?></td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
 
-                <!-- Pengumuman 1 -->
+                <!-- Pengumuman Akademik -->
                 <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman</h5>
+                                        <h5>Pengumuman Akademik</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -179,7 +179,7 @@
                     </div>
                 </div>
 
-                <!-- Pengumuman 2 -->
+                <!-- Pengumuman Fakultas -->
                 <div class="col-12 col-lg-6 my-3">
                     <div class="card">
                         <div class="card-body p-3">
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman</h5>
+                                        <h5>Pengumuman Fakultas</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -344,6 +344,7 @@
 
             table = $('#table').DataTable({
 
+                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 

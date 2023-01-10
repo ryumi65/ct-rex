@@ -1,32 +1,16 @@
-    <?php
-    $jumlah_mk = 0;
-
-    foreach ($listj as $jadwal) {
-        $jumlah_mk++;
-    } ?>
-
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Jadwal Kuliah -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3">
+                    <div class="card-header p-3 pb-0">
                         <div class="d-flex justify-content-between">
                             <div>
                                 <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
-                                <p class="text-sm mb-0">
-                                    <?php if ($jumlah_mk === 0) : ?>
-                                        <i class="fa fa-xmark text-danger" aria-hidden="true"></i>
-                                        <span class="font-weight-bold ms-1">Tidak ada Mata Kuliah</span> hari ini
-                                    <?php else : ?>
-                                        <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                        <span class="font-weight-bold ms-1"><?= $jumlah_mk ?> Mata Kuliah</span> hari ini
-                                    <?php endif ?>
-                                </p>
                             </div>
                             <div>
-                                <a href="#" class="btn btn-primary btn-sm ">Cetak</a>
+                                <a href="#" class="btn btn-primary btn-sm">Cetak</a>
                             </div>
                         </div>
                     </div>
@@ -38,11 +22,13 @@
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama MK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Dosen Pengampu</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Hari</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Waktu</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Ruangan</th>
                                     </tr>
@@ -51,9 +37,10 @@
                                     <?php foreach ($listj as $jadwal) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['nama'] ?></td>
                                             <td><?= $jadwal['dosen'] ?></td>
+                                            <td><?= $jadwal['hari'] ?></td>
+                                            <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['ruangan'] ?></td>
                                         </tr>
                                     <?php endforeach ?>
@@ -108,8 +95,9 @@
 
             table = $('#table').DataTable({
 
+                dom: "",
                 responsive: true,
-                order: [1, 'asc'],
+                order: [4, 'asc'],
 
                 columnDefs: [{
                     targets: [0],

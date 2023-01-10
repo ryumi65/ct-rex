@@ -24,15 +24,10 @@ class Model_akun extends CI_Model {
     }
 
     public function update_db_foto($file, $type) {
-        if ($type == 'header') {
-            $data['foto_header'] = $file;
+        if ($type == 'header') $data['foto_header'] = $file;
+        elseif ($type == 'profil') $data['foto_profil'] = $file;
 
-            return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
-        } elseif ($type == 'profil') {
-            $data['foto_profil'] = $file;
-
-            return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
-        }
+        return $this->db->update('akun', $data, ['id_akun' => $this->session->id]);
     }
 
     public function delete_foto($type) {

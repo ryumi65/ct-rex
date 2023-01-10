@@ -7,7 +7,7 @@ class Model_login extends CI_Model {
         $query = $this->db->get_where('akun', ['username' => $username]);
         if ($query->num_rows() > 0) {
             $result = $query->row_array();
-            password_verify($password, $result['password']) ? $valid = true : $valid = false;
+            $valid = password_verify($password, $result['password']);
 
             return $valid;
         } else return false;

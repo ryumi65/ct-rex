@@ -56,7 +56,7 @@ class Dosen extends CI_Controller {
     public function jadwalkuliah() {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
-            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id, 'all'),
         ];
 
         $this->load->view('_partials/head');

@@ -1,5 +1,5 @@
 <body class="g-sidenav-show bg-gray-100">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl fixed-start ms-3 my-3" id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl fixed-start ms-3 my-3 bg-white" id="sidenav-main">
 
         <!-- Sidebar Header -->
         <div class="sidenav-header">
@@ -14,7 +14,7 @@
         <hr class="horizontal dark mt-0">
 
         <!-- Sidebar Body -->
-        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
             <ul class="navbar-nav align-content-center flex-column">
 
                 <!-- Home -->

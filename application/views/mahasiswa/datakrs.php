@@ -19,14 +19,14 @@
                             <ul class="nav nav-tabs mx-3" id="myTab" role="tablist">
                                 <?php for ($i = 1; $i <= 8; $i++) : ?>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="semester<?= $i ?>" data-bs-toggle="tab" data-bs-target="#semester<?= $i ?>-pane" type="button" role="tab" aria-controls="semester<?= $i ?>-pane" aria-selected="true">Semester <?= $i ?></button>
+                                        <button class="nav-link" id="krs<?= $i ?>" data-bs-toggle="tab" data-bs-target="#krs<?= $i ?>-pane" type="button" role="tab" aria-controls="krs<?= $i ?>-pane" aria-selected="true">krs <?= $i ?></button>
                                     </li>
                                 <?php endfor ?>
                             </ul>
                         </div>
                         <div class="tab-content" id="myTabContent">
                             <?php for ($i = 1; $i <= 8; $i++) : ?>
-                                <div class="tab-pane fade show" id="semester<?= $i ?>-pane" role="tabpanel" aria-labelledby="semester<?= $i ?>" tabindex="0">
+                                <div class="tab-pane fade show" id="krs<?= $i ?>-pane" role="tabpanel" tabindex="0">
                                     <div class="table-responsive">
                                         <table class="table table-striped align-items-center ps-3" id="table<?= $i ?>">
                                             <thead>
@@ -54,32 +54,32 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="text-sm">
-                                                <?php foreach ($lists[$i - 1] as $semester) : ?>
+                                                <?php foreach ($listk[$i - 1] as $krs) : ?>
                                                     <tr>
                                                         <td></td>
-                                                        <td><?= $semester['kode'] ?></td>
-                                                        <td><?= $semester['nama'] ?></td>
-                                                        <td><?= $semester['sks'] ?></td>
-                                                        <td><?= $semester['dosen'] ?></td>
-                                                        <td><?= $semester['hari'] ?></td>
-                                                        <td><?= $semester['waktu'] ?></td>
-                                                        <td><?= $semester['ruangan'] ?></td>
+                                                        <td><?= $krs['kode'] ?></td>
+                                                        <td><?= $krs['nama'] ?></td>
+                                                        <td><?= $krs['sks'] ?></td>
+                                                        <td><?= $krs['dosen'] ?></td>
+                                                        <td><?= $krs['hari'] ?></td>
+                                                        <td><?= $krs['waktu'] ?></td>
+                                                        <td><?= $krs['ruangan'] ?></td>
                                                         <td class="text-center">
-                                                            <?php if ($semester['status'] === 'Y') : ?>
+                                                            <?php if ($krs['status'] === 'Y') : ?>
                                                                 <span class="badge bg-gradient-success">Aktif</span>
-                                                            <?php elseif ($semester['status'] === 'N') : ?>
+                                                            <?php elseif ($krs['status'] === 'N') : ?>
                                                                 <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
                                                             <?php else : ?>
                                                                 <span class="badge bg-gradient-danger">Tidak Aktif</span>
                                                             <?php endif ?>
                                                         </td>
                                                         <td class="text-center">
-                                                            <?php if ($semester['status'] === 'Y') : ?>
+                                                            <?php if ($krs['status'] === 'Y') : ?>
                                                                 <span class="badge bg-secondary px-3 py-2">
                                                                     <i class="fa-solid fa-trash-can"></i>
                                                                 </span>
                                                             <?php else : ?>
-                                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $semester['id']) ?>')">
+                                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
                                                                     <i class="fa-solid fa-trash-can"></i>
                                                                 </a>
                                                             <?php endif ?>

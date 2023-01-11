@@ -57,7 +57,7 @@
 
                         <!-- Modal -->
                         <?php foreach ($lists as $mhs) : ?>
-                            <div class="modal fade" id="id-<?= $mhs['nim'] ?>" tabindex="-1" aria-labelledby="label-<?= $mhs['nim'] ?>" aria-hidden="true">
+                            <div class="modal fade" id="id-<?= $mhs['nim'] ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">

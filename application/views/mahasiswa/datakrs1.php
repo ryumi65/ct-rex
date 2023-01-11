@@ -1,104 +1,126 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid py-3">
+        <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Daftar Matkul dari KRS -->
-            <div class="col-12">
-                <div class="card mt-2">
-                    <div class="card-header pb-0">
-                        <h4 class="mb-0">Daftar Prodi</h4>
+            <div class="col-12 my-3">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Kartu Rencana Studi</h5>
                     </div>
 
-                    <!-- card semester -->
-                    <div class="row g-4 mx-1 mt-2 mb-4">
-                        <div class="col-12 col-md-4">
-                            <div class="card h-100 shadow">
-                                <div class="card-body my-2">
-                                    <h5 class="card-title">Semester 1 </h5>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
-                                        <p class="mb-0"></p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="font-weight-normal mb-0">Jumlah SKS </p>
-                                        <p class="mb-0"></p>
+                    <div class="card-body p-3 pt-0">
+
+                        <!-- Card Semester -->
+                        <div class="row g-3">
+                            <?php for ($i = 1; $i <= 8; $i++) : ?>
+                                <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+                                    <div class="card h-100 shadow" id="card-pop">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Semester <?= $i ?></h5>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                                <p class="mb-0"><?= $listm[$i - 1] ?></p>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                                <p class="mb-0"><?= $lists[$i - 1] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer pt-0">
+                                            <a class="stretched-link text-body text-sm font-weight-bold icon-move-right mb-0" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">
+                                                Lihat Detail
+                                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-3 mx-4">
-                                    <a class=" text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Lihat Detail
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            <?php endfor ?>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Kartu Rencana Studi Semester 1</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped align-items-center ps-3" id="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                                No.</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Kode MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Nama MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Total SKS</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Dosen Pengampu</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Hari</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Waktu</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Ruangan</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+            <?php for ($i = 1; $i <= 8; $i++) : ?>
+                <div class="modal fade" id="semester-<?= $i ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">Kartu Rencana Studi Semester <?= $i ?></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
-                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Cetak</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                            <div class="modal-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped align-items-center ps-3" id="table<?= $i ?>">
+                                        <thead>
+                                            <tr>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                    No.</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Kode MK</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Nama MK</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Total SKS</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Dosen Pengampu</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Hari</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Waktu</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                    Ruangan</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                    Status</th>
+                                                <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                    Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-sm">
+                                            <?php foreach ($listk[$i - 1] as $krs) : ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td><?= $krs['kode'] ?></td>
+                                                    <td><?= $krs['nama'] ?></td>
+                                                    <td><?= $krs['sks'] ?></td>
+                                                    <td><?= $krs['dosen'] ?></td>
+                                                    <td><?= $krs['hari'] ?></td>
+                                                    <td><?= $krs['waktu'] ?></td>
+                                                    <td><?= $krs['ruangan'] ?></td>
+                                                    <td class="text-center">
+                                                        <?php if ($krs['status'] === 'Y') : ?>
+                                                            <span class="badge bg-gradient-success">Aktif</span>
+                                                        <?php elseif ($krs['status'] === 'N') : ?>
+                                                            <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
+                                                        <?php else : ?>
+                                                            <span class="badge bg-gradient-danger">Tidak Aktif</span>
+                                                        <?php endif ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php if ($krs['status'] === 'Y') : ?>
+                                                            <span class="badge bg-secondary px-3 py-2">
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                            </span>
+                                                        <?php else : ?>
+                                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                            </a>
+                                                        <?php endif ?>
+
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endfor ?>
         </div>
 
 
@@ -136,7 +158,6 @@
         </footer>
     </div>
 
-
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
@@ -147,6 +168,7 @@
 
                 table = $(`#table${i}`).DataTable({
 
+                    dom: "",
                     order: [1, 'asc'],
 
                     columnDefs: [{

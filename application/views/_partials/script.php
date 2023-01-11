@@ -19,6 +19,6 @@
     <!-- Soft Dashboard UI -->
     <script defer src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
 
-    </body>
+</body>
 
-    </html>
+</html>

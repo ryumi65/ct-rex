@@ -13,7 +13,8 @@
     <link href="<?= base_url(); ?>assets/css/fontawesome-all.min.css" rel="stylesheet" />
 
     <!-- CSS Files -->
-    <link id="pagestyle" href="<?= base_url(); ?>assets/css/custom.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>assets/css/custom.css" rel="stylesheet" />
+    <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" />
 
     <!-- DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.css" />

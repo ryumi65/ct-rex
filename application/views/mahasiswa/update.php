@@ -82,7 +82,20 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Agama</label>
                                         <div class="mb-3">
-                                            <input type="text" name="agama" class="form-control" placeholder="Agama" value="<?= $mahasiswa['agama'] ?>">
+                                            <select class="form-select" name="jenis_kelamin">
+                                                <option selected disabled>Pilih Agama</option>
+                                                <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
+                                                    <option selected value="L">Laki-laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
+                                                    <option value="L">Laki-laki</option>
+                                                    <option selected value="P">Perempuan</option>
+                                                <?php else : ?>
+                                                    <option value="L">Laki-laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                <?php endif ?>
+
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">

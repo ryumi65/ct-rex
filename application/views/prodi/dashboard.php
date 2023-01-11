@@ -18,8 +18,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <div>
+                    <div class="d-flex d-inline ms-auto my-3 my-md-0">
+                        <div class="fs-6 fs-md-5">
                             <h6 class="mx-3 my-0"><u>Mahasiswa Aktif</u></h6>
                             <h3 class="text-center my-0"><?= $mhsaktif ?></h3>
                             <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
@@ -51,7 +51,7 @@
 
             <!-- Grafik 2 -->
             <div class="row mt-4">
-                <div class=" col">
+                <div class=" mb-4">
                     <div class="card z-index-2">
                         <div class="card-header pb-0">
                             <h5>Rerata Indeks Perkuliahan Kumulatif</h5>

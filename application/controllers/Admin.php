@@ -27,15 +27,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebaradmin');
-        $this->load->view('_partials/header');
-        $this->load->view('admin/dataruangan');
-        $this->load->view('_partials/script');
-    }
-
-    public function datadsn() {
+    public function datadsn()
+    {
         $data['admin'] = $this->model_admin->join_dosen('admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_dosen('dosen', ['nik' => $this->session->id]);
 
@@ -80,4 +73,17 @@ class Admin extends CI_Controller {
         $this->load->view('admin/profildsn', $data);
         $this->load->view('_partials/script');
     }
-}
+
+    public function dataruangan(){
+            $data = [
+                'listr' => $this->model_admin->get_db('ruangan'),
+            ];
+    
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('admin/dataruangan', $data);
+            $this->load->view('_partials/script');
+        }
+    }
+

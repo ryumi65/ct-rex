@@ -6,6 +6,9 @@
                     <div class="card-header pb-0">
                         <h5 class="mb-0">Daftar Dosen Prodi <?= $prodi['nama'] ?></h5>
                     </div>
+                <div><a href="<?php echo site_url('prodi/inputdsn');?>"<button type="button">Tambah Data Dosen</button>
+
+                </div>
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                             <thead>

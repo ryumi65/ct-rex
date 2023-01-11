@@ -43,4 +43,5 @@ class Model_prodi extends CI_Model {
 
         return $this->db->update('mahasiswa', $data, ['nim' => $nim]);
     }
+
 }

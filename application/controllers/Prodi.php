@@ -126,6 +126,20 @@ class Prodi extends CI_Controller {
         redirect('prodi/civitas/data-dosen');
     }
 
+    public function inputdsn() {
+        $this->form_validation->set_rules('nama','nama tidak boleh kosong','required');
+        if($this->form_validation->run()==false){
+           $this->load->view('_partials/head');
+           $this->load->view('_partials/sidebarprd');
+           $this->load->view('_partials/header');
+           $this->load->view('prodi/civitas/createdsn');
+           $this->load->view('_partials/script');
+        }else{
+         $this->model_dosen->set_dosen();
+         redirect('prodi/civitas/data-dosen');
+        }
+     }
+
     //==================== MAHASISWA ====================//
 
     public function datamhs() {
@@ -356,4 +370,9 @@ class Prodi extends CI_Controller {
         $this->load->view('matkul/update', $data);
         $this->load->view('_partials/script');
     }
+
+   
+    
+
+
 }

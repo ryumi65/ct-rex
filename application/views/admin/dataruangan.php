@@ -1,45 +1,14 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Form KRS -->
-            <div class="col-12 my-4">
-                <div class="card">
-                    <div class="card-body pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h6> Data Ruangan UMBandung</h6>
-                            <div>
-                                <a href="<?= site_url('mahasiswa/formkrs') ?>" class="btn btn-primary btn-sm ">CARI</a>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-select" name="nik" required>
-                                <option selected disabled>Pilih Lantai</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <div class="card">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12">
                 <div class="card">
                     <div class="card-body pb-0">
                         <div class="d-flex justify-content-between">
-                            <h6> Nilai Seluruh Mahasiswa</h6>
-                            <div class="dropdown">
-                                <button class="btn btn-success btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Cetak
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="javascript:;">Makan</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Minum</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Tidur </a></li>
-                                </ul>
-                            </div>
+                            <h6>Data Ruangan</h6>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
@@ -48,18 +17,43 @@
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            ID Matkul</th>
+                                            ID Ruangan</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Matkul</th>
+                                            Nama</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Total SKS</th>
+                                            Nomor</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kategori</th>
+                                            Jenis</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kapasitas</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Lantai</th>
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
+                                <?php foreach ($listr as $ruangan) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $ruangan['id_ruangan'] ?></td>
+                                        <td><a href="<?= site_url('admin/dataruangan' . $ruangan['id_ruangan']) ?>"><?= $ruangan['nama'] ?></a></td>
+                                        <td><?= $ruangan['nomor'] ?></td>
+                                        <td><?=$ruangan['jenis'] ?></td>
+                                        <td><?= $ruangan['kapasitas'] ?></td>
+                                        <td><?= $ruangan['lantai'] ?></td>
+                                        <td>
+                                            <div class="text-center">
+                                                <a href="<?= site_url('admin/dataruangan/edit/' . $ruangan['id_ruangan']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('admin/dataruangan/delete/' . $ruangan['id_ruangan']) ?>')">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>

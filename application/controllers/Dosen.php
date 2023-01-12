@@ -243,4 +243,35 @@ class Dosen extends CI_Controller
             $this->load->view('_partials/script');
         }
     }
+
+    //     BAP
+    public function listmatkulbap()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/listmatkulbap');
+            $this->load->view('_partials/script');
+        }
+    }
+
+    public function listbap()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/listbap');
+            $this->load->view('_partials/script');
+        }
+    }
+
+    public function formbap()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/formbap');
+            $this->load->view('_partials/script');
+        }
+    }
 }

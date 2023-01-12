@@ -89,13 +89,13 @@
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#bimbingan" class="<?= $navlinkBimbingan ?>" aria-controls="bimbingan" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#perwalian" class="<?= $navlinkBimbingan ?>" aria-controls="perwalian" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
                             <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Bimbingan</span>
                     </a>
-                    <div class="collapse" id="bimbingan">
+                    <div class="collapse" id="perwalian">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="<?= site_url('dosen/daftarmhswali') ?>">

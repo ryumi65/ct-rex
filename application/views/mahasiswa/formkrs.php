@@ -209,6 +209,7 @@
                         orderable: false,
                         searchable: false,
                     }],
+
                 });
 
                 table.on('order.dt search.dt', () => {

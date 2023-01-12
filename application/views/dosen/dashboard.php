@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto my-3 my-md-0">
+                    <div class="d-flex d-inline ms-auto my-3 my-md-0 ">
                         <div class="fs-6 fs-md-5">
                             <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
                             <h3 class="text-center my-0"><?= $mhswali ?></h3>
@@ -72,7 +72,7 @@
                 <!-- Jadwal Kuliah -->
                 <div class="col-12 my-3">
                     <div class="card">
-                        <div class="card-header p-3 pb-0">
+                        <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
                             <p class="text-sm mb-0">
                                 <?php if ($jumlah_mk === 0) : ?>
@@ -84,7 +84,7 @@
                                 <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body pt-0 px-0 pb-3">
+                        <div class="card-body p-3 pt-0">
                             <div class="table-responsive">
                                 <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                     <thead>
@@ -310,7 +310,6 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 

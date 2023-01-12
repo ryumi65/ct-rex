@@ -62,7 +62,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/listmatkulbap') ?>">
+                                <a class="nav-link link-secondary" href="#">
                                     BAP
                                 </a>
                             </li>

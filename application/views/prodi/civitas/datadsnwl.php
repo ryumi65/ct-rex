@@ -6,12 +6,8 @@
                 <div class="card">
                     <div class="card-header pb-0">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0">Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h5>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
-                            </div>
+                            <h5 class="mb-0">Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h5>
+                            <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
                         </div>
                         <div class="card-body px-0">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">

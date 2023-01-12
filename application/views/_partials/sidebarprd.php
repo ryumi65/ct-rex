@@ -1,5 +1,5 @@
 <body class="g-sidenav-show bg-gray-100">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl fixed-start ms-3 my-3" id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl fixed-start ms-3 my-3 bg-white" id="sidenav-main">
 
         <!-- Sidebar Header -->
         <div class="sidenav-header">
@@ -62,13 +62,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/krsmhs') ?>">
                                     KRS
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="#">
-                                    Nilai Perkuliahan
+                                <a class="nav-link link-secondary" href="<?= site_url('prodi/khsmhs') ?>">
+                                    KHS
                                 </a>
                             </li>
                             <li class="nav-item">

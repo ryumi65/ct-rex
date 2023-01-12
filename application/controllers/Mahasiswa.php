@@ -183,4 +183,40 @@ class Mahasiswa extends CI_Controller
         $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
     }
+
+    public function datakhs()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/datakhs');
+        $this->load->view('_partials/script');
+    }
+
+    public function transkrip()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/transkrip');
+        $this->load->view('_partials/script');
+    }
+
+    public function presensi()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/presensi');
+        $this->load->view('_partials/script');
+    }
+
+    public function rekappresensi()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/rekapabsen');
+        $this->load->view('_partials/script');
+    }
 }

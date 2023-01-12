@@ -11,94 +11,109 @@
                     </div>
                 </div>
                 <div class="card-body p-2">
-                    <table class="table table-striped align-items-center mb-0" id="table">
-                        <thead>
-                            <tr>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                    No.</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    NIM</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Nama Mahasiswa</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    1</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    2</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    3</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    4</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    5</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    6</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    7</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    8</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    9</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    10</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    11</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    12</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    13</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    14</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    15</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    16</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm">
-                            <tr>
-                                <td>1</td>
-                                <td>200102011</td>
-                                <td><a href="inputabsen">Renal Sukma Widiarsa</a></td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>200102011</td>
-                                <td>Renal Sukma Widiarsa</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                                <td>H</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped align-items-center mb-0" id="table">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th class="text-middle font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                    <th class="text-middle" rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        1<p><span class="text-sm">12/12/20</span></p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr>
+                                    <td>1</td>
+                                    <td>200102011</td>
+                                    <td><a href="inputabsen">Renal Sukma Widiarsa</a></td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>200102011</td>
+                                    <td>Renal Sukma Widiarsa</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                    <td>H</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

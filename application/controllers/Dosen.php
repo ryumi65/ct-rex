@@ -190,4 +190,57 @@ class Dosen extends CI_Controller
             $this->load->view('_partials/script');
         }
     }
+
+    public function nilaiakhir()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/nilaiakhir');
+            $this->load->view('_partials/script');
+        }
+    }
+
+    public function formnilai()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/formnilai');
+            $this->load->view('_partials/script');
+        }
+    }
+
+    public function transkripmatkul()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/listmatkuldiampu');
+            $this->load->view('_partials/script');
+        }
+    }
+
+
+    // BIMBINGAN
+    public function daftarmhswali()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/daftarmhswali');
+            $this->load->view('_partials/script');
+        }
+    }
+
+    // BERKAS MAHASISWA BIMBINGAN
+    public function berkasmhs()
+    { {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebardsn');
+            $this->load->view('_partials/header');
+            $this->load->view('dosen/berkasmhs');
+            $this->load->view('_partials/script');
+        }
+    }
 }

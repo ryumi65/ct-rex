@@ -85,21 +85,7 @@
 
 
                 <!-- Pengumuman -->
-                <div class="col-12 col-lg-8 my-3">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="d-flex flex-column h-100">
-                                    <h5>Pengumuman</h5>
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                        Read More
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-12 col-lg-8 my-0">
                     <div class="card my-3">
                         <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
@@ -113,9 +99,9 @@
                                 <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body p-3 pt-0">
-                            <div class="table-responsive">
-                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                        <div class="card-body pt-0">
+                            <div class="table-responsive mx-0">
+                                <table class="table table-striped align-items-center mb-0 ps-2" id="table">
                                     <thead>
                                         <tr>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -145,61 +131,30 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Jadwal Kuliah -->
-                <div class="col-12 my-3">
-
-                </div>
-
-                <!-- Pengumuman 1 -->
-                <div class="col-12 col-lg-6 my-3">
-                    <div class="card" id="card-pop">
+                    <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="col-lg-5 text-center">
-                                    <div class="bg-gradient-primary border-radius-lg h-100">
-                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mt-3 mt-lg-0">
-                                    <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman Akademik</h5>
-                                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                        <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                            Read More
-                                            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                <div class="d-flex flex-column h-100">
+                                    <h5>Pengumuman</h5>
+                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                        Read More
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Pengumuman Fakultas -->
-                <div class="col-12 col-lg-6 my-3">
-                    <div class="card" id="card-pop">
+                    <div class="card mt-3">
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="col-lg-5 text-center">
-                                    <div class="bg-gradient-primary border-radius-lg h-100">
-                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mt-3 mt-lg-0">
-                                    <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman Fakultas</h5>
-                                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                        <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                            Read More
-                                            <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                <div class="d-flex flex-column h-100">
+                                    <h5>Pengumuman</h5>
+                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                        Read More
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

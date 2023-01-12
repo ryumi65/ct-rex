@@ -38,7 +38,7 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $mhs['nim'] ?></td>
-                                        <td><?= $mhs['nama'] ?></td>
+                                        <td><a href="berkasmhs"><?= $mhs['nama'] ?></a></td>
                                         <td><?= $mhs['jenis_kelamin'] ?></td>
                                         <td><?= $mhs['tahun_angkatan'] ?></td>
                                         <td><?= $mhs['status'] ?></td>

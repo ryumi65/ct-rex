@@ -1,4 +1,4 @@
-<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Profil -->
@@ -41,67 +41,67 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Tempat Lahir</label>
+                            <div class="mb-3">
+                                <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Tempat Lahir</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Tanggal Lahir</label>
+                            <div class="mb-3">
+                                <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tangga Lahir" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Tanggal Lahir</label>
-                                <div class="mb-3">
-                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tangga Lahir" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Email</label>
+                            <div class="mb-3">
+                                <input type="text" name="email" class="form-control" placeholder="Email" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Email</label>
-                                <div class="mb-3">
-                                    <input type="text" name="email" class="form-control" placeholder="Email" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>No Handphone</label>
+                            <div class="mb-3">
+                                <input type="text" name="no_handphone" class="form-control" placeholder="No Handphone" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>No Handphone</label>
-                                <div class="mb-3">
-                                    <input type="text" name="no_handphone" class="form-control" placeholder="No Handphone" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Kewarganegaraan</label>
+                            <div class="mb-3">
+                                <select class="form-select" name="kewarganegaraan" required>
+                                    <option selected disabled>Pilih Kewarganegaraan</option>
+                                    <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
+                                        <option selected value="WNI">Warga Negara Indonesia</option>
+                                        <option value="WNA">Warga Negara Asing</option>
+                                    <?php elseif ($dosen['kewarganegaraan'] === 'WNA') : ?>
+                                        <option value="WNI">Warga Negara Indonesia</option>
+                                        <option selected value="WNA">Warga Negara Asing</option>
+                                    <?php else : ?>
+                                        <option value="WNI">Warga Negara Indonesia</option>
+                                        <option value="WNA">Warga Negara Asing</option>
+                                    <?php endif ?>
+                                </select>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Kewarganegaraan</label>
-                                <div class="mb-3">
-                                    <select class="form-select" name="kewarganegaraan" required>
-                                        <option selected disabled>Pilih Kewarganegaraan</option>
-                                        <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
-                                            <option selected value="WNI">Warga Negara Indonesia</option>
-                                            <option value="WNA">Warga Negara Asing</option>
-                                        <?php elseif ($dosen['kewarganegaraan'] === 'WNA') : ?>
-                                            <option value="WNI">Warga Negara Indonesia</option>
-                                            <option selected value="WNA">Warga Negara Asing</option>
-                                        <?php else : ?>
-                                            <option value="WNI">Warga Negara Indonesia</option>
-                                            <option value="WNA">Warga Negara Asing</option>
-                                        <?php endif ?>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Agama</label>
+                            <div class="mb-3">
+                                <input type="text" name="agama" class="form-control" placeholder="Agama" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Agama</label>
-                                <div class="mb-3">
-                                    <input type="text" name="agama" class="form-control" placeholder="Agama" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>Alamat</label>
+                            <div class="mb-3">
+                                <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Alamat</label>
-                                <div class="mb-3">
-                                    <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
-                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label>NIDN</label>
+                            <div class="mb-3">
+                                <input type="text" name="nidn" class="form-control" placeholder="NIDN" required>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>NIDN</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nidn" class="form-control" placeholder="NIDN" required>
-                                </div>
-                            </div>
+                        </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                         </div>

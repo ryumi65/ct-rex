@@ -72,7 +72,7 @@
                         <!-- Gambar -->
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('<?= base_url() ?>/assets/img/gedunglogin.jpg'); background-position-y: 30%;">
+                                <div class="oblique-image bg-cover position-absolute fixed-top h-100 ms-n6" style="background-image:url('<?= base_url() ?>/assets/img/gedunglogin.jpg'); background-position-y: 30%;">
                                     <span class="mask bg-gradient-primary opacity-3"></span>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer py-3">
+    <footer class="footer pt-0 pt-md-3 pb-3">
 
         <!-- Logo Medsos -->
         <div class="container mx-auto text-center my-2">

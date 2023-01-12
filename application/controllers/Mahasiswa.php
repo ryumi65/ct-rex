@@ -66,7 +66,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/jadwalkuliah', $data);
+        $this->load->view('mahasiswa/jadwal', $data);
         $this->load->view('_partials/script');
     }
 
@@ -99,7 +99,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/datakrs1', $data);
+        $this->load->view('mahasiswa/datakrs', $data);
         $this->load->view('_partials/script');
     }
 

@@ -7,7 +7,7 @@
                     <div class="card-header pb-0">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
-                            <div class="mx-0 col-4 my-1">
+                            <div class="col-4">
                                 <select class="form-select" name="nik_dosen" required>
                                     <option selected disabled>Pilih Tahun Ajaran</option>
                                 </select>

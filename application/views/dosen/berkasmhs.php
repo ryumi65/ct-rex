@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <p class="font-weight-normal mb-0">Jumlah sks</p>
-                                            <p class="mb-0" </p>
+                                            <p class="mb-0"></p>
                                         </div>
                                     </div>
                                     <div class="card-footer pt-0">

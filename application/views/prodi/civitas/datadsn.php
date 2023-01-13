@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header pb-0 d-inline d-flex justify-content-between">
                         <h5 class="mb-0">Daftar Dosen Prodi <?= $prodi['nama'] ?></h5>
-                        <a href="<?php echo site_url('prodi/inputdsn'); ?>" <button type="button">Tambah Data Dosen</button>
+                        <a href="<?= site_url('prodi/inputdsn') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Dosen</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">

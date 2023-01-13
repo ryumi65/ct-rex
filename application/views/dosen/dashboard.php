@@ -84,7 +84,7 @@
                                 <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body p-3 pt-0">
+                        <div class="card-body p-0 pb-3">
                             <div class="table-responsive">
                                 <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                     <thead>
@@ -310,6 +310,7 @@
 
             table = $('#table').DataTable({
 
+                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 
@@ -318,7 +319,6 @@
                     orderable: false,
                     searchable: false,
                 }],
-
             });
 
             table.on('order.dt search.dt', () => {

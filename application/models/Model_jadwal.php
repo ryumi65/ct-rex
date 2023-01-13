@@ -20,7 +20,7 @@ class Model_jadwal extends CI_Model {
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')
                 ->where(['m.nik_dosen' => $nik, 'j.hari' => $hari])->get();
         } else {
-            $query = $this->db->select('m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+            $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari, m.semester')
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')
                 ->where('m.nik_dosen', $nik)->get();
         }

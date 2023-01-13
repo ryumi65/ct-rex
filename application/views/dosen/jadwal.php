@@ -5,16 +5,9 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary btn-sm">Cetak</a>
-                            </div>
-                        </div>
+                        <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -31,6 +24,8 @@
                                             Waktu</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Ruangan</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -42,6 +37,14 @@
                                             <td><?= $jadwal['hari'] ?></td>
                                             <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['ruangan'] ?></td>
+                                            <td class="text-center">
+                                                <a href="<?= site_url('dosen/rekapabsen/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                                    <i class="fa-solid fa-book-bookmark"></i>
+                                                </a>
+                                                <a href="<?= site_url('dosen/nilai/' . $jadwal['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
+                                                    <i class="fa-solid fa-clipboard-user"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -100,11 +103,10 @@
                 order: [4, 'asc'],
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],
-
             });
 
             table.on('order.dt search.dt', () => {

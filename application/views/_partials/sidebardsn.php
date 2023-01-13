@@ -52,28 +52,13 @@
                     <div class="collapse" id="perkuliahan">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/perkuliahan/jadwal-kuliah') ?>">
-                                    Jadwal
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/absen') ?>">
-                                    Presensi
+                                <a class="nav-link link-secondary" href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
+                                    Mata Kuliah
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
                                     BAP
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/nilaiakhir') ?>">
-                                    Nilai Akhir
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/transkripmatkul') ?>">
-                                    Transkrip
                                 </a>
                             </li>
                         </ul>

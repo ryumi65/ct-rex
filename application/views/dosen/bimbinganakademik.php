@@ -8,7 +8,7 @@
                             <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
                             <div class="mx-0 col-4 my-1">
                                 <select class="form-select" name="nik_dosen" required>
-                                    <option selected disabled>Pilih Tahun Ajaran</option>
+                                    <option selected disabled>Pilih Tahun Angkatan</option>
                                 </select>
                             </div>
                         </div>
@@ -27,8 +27,6 @@
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Angkatan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Status</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
                                 </tr>
@@ -41,14 +39,12 @@
                                         <td><a href="berkasmhs"><?= $mhs['nama'] ?></a></td>
                                         <td><?= $mhs['jenis_kelamin'] ?></td>
                                         <td><?= $mhs['tahun_angkatan'] ?></td>
-                                        <td><?= $mhs['status'] ?></td>
-                                        <td class="text-center">
-                                            <a class="badge bg-warning px-3 py-2" data-bs-toggle="modal" data-bs-target="#id-<?= $mhs['nim'] ?>">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url() ?>')">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </a>
+                                        <td class="d-flex justify-content-center">
+                                            <div class="mx-1" data-bs-toggle="modal" data-bs-target="#id-<?= $mhs['nim'] ?>" style="cursor: pointer; max-width: fit-content;">
+                                                <a class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="KRS">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -81,7 +77,8 @@
                                                             Hari</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2"></th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-sm">
@@ -164,10 +161,10 @@
             table = $('#table').DataTable({
 
                 responsive: true,
-                order: [2, 'asc'],
+                order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 6],
+                    targets: [0, 5],
                     orderable: false,
                     searchable: false,
                 }],

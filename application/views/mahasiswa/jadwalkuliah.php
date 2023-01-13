@@ -14,11 +14,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gradient-primary text-white">
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">

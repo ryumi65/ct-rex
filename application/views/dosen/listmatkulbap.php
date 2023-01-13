@@ -7,7 +7,7 @@
                 <div class="card-header p-3">
                     <div>
                         <div>
-                            <h5>Input Nilai Mata Kuliah</h5>
+                            <h5>Berita Acara Perkuliahan</h5>
                         </div>
                     </div>
                     <div class="card-body p-2">
@@ -16,8 +16,6 @@
                                 <thead>
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Waktu</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama MK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -31,16 +29,15 @@
                                 <tbody class="text-sm">
                                     <tr>
                                         <td>1</td>
-                                        <td>08:00-09:00</td>
-                                        <td><a href="formnilai">Integelensi Buatan<a></td>
+
+                                        <td><a href="listbap">Integelensi Buatan<a></td>
                                         <td>IF21</td>
                                         <td>L4:R20</td>
                                         <td>Farmasi 21</td>
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>08:00-09:00</td>
-                                        <td><a href="formnilai">Integelensi Buatan<a></td>
+                                        <td><a href="listbap">Integelensi Buatan<a></td>
                                         <td>IF19</td>
                                         <td>L4:R20</td>
                                         <td>Farmasi 21</td>

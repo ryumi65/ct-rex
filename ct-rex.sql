@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 08, 2023 at 03:05 PM
+-- Generation Time: Jan 13, 2023 at 03:19 PM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -43,6 +43,9 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`id_akun`, `username`, `password`, `status`, `level`, `foto_profil`, `foto_header`) VALUES
 ('200102009', 'sandra', '$2y$10$uFKZVIefRnm1Kv4jCgsF4Ozj2xsmDRIft1A76RkXPmvnuSFRsGJAG', 'Y', 4, 'curved.jpg', 'default.png'),
+('200102011', 'renal', '$2y$10$1eJ9mIuecovZGSK6voQNCuZqQgkidkNnpyHvx..MKk.0uJnpeNSCK', 'Y', 4, 'curved.jpg', 'default.png'),
+('200102045', 'ema', '$2y$10$rkkFNRdLsM5nus4UuoP.guPkv8qceSkIrr6SgQQ/wxFFqe8vdCfO2', 'Y', 4, 'curved.jpg', 'default.png'),
+('200102075', 'lutfi', '$2y$10$PdfnKJ4ot8Mx6jYy3dhIxeiEwfPhFjBAdc2ktPYAjfvphTWPTiY02', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102083', 'reza', '$2y$10$2s5DfuGMqWukAvVgJgP19uAnOY2r77I.gySyI6fFvX.kgFL90qnFu', 'Y', 4, 'curved.jpg', 'default.png'),
 ('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'Y', 3, 'curved.jpg', 'default.png'),
 ('admin', 'admin', '$2y$10$iluwQnIQFSN3fMeFKJSesekNHlBJn7jfDsQZd8BZ/Rigvg4Rd2B1W', 'Y', 0, 'curved.jpg', 'default.png'),
@@ -333,7 +336,8 @@ INSERT INTO `jadwal` (`id_jadwal`, `hari`, `pukul`, `id_matkul`, `id_ruangan`) V
 ('SEL.07:00-08:30.L2L1', 'Selasa', '07:00 - 08:30', 46, 'L2L1'),
 ('SEL.09:00-10:30.K6L4', 'Selasa', '09:00 - 10:30', 26, 'K6L4'),
 ('SEL.10:00-11:30.K6L4', 'Selasa', '10:00 - 11:30', 45, 'K6L4'),
-('SEN.08:00-09:30.K6L4', 'Senin', '08:00 - 09:30', 25, 'K6L4');
+('SEN.08:00-09:30.K6L4', 'Senin', '08:00 - 09:30', 25, 'K6L4'),
+('SEN.08:00-10:30.K6L4', 'Senin', '08:00 - 10:30', 1, 'K6L4');
 
 -- --------------------------------------------------------
 
@@ -346,21 +350,35 @@ CREATE TABLE `krs` (
   `nim` varchar(20) NOT NULL,
   `id_jadwal` varchar(30) NOT NULL,
   `status` enum('Y','N') NOT NULL DEFAULT 'N',
-  `nilai` int(11) DEFAULT NULL
+  `nilai_presensi` int(3) DEFAULT NULL,
+  `nilai_tugas` int(3) DEFAULT NULL,
+  `nilai_uts` int(3) DEFAULT NULL,
+  `nilai_uas` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `krs`
 --
 
-INSERT INTO `krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai`) VALUES
-(1, '200102083', 'SEN.08:00-09:30.K6L4', 'Y', NULL),
-(2, '200102083', 'SEL.10:00-11:30.K6L4', 'Y', NULL),
-(4, '200102083', 'SEL.09:00-10:30.K6L4', 'Y', NULL),
-(5, '200102009', 'SEN.08:00-09:30.K6L4', 'Y', NULL),
-(6, '200102009', 'SEL.09:00-10:30.K6L4', 'Y', NULL),
-(7, '200102009', 'SEL.10:00-11:30.K6L4', 'Y', NULL),
-(8, '200102009', 'SEL.07:00-08:30.L2L1', 'Y', NULL);
+INSERT INTO `krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai_presensi`, `nilai_tugas`, `nilai_uts`, `nilai_uas`) VALUES
+(1, '200102083', 'SEN.08:00-09:30.K6L4', 'Y', 100, 100, 100, 100),
+(2, '200102083', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(4, '200102083', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(5, '200102009', 'SEN.08:00-09:30.K6L4', 'Y', 80, 85, 90, 80),
+(6, '200102009', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(7, '200102009', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(8, '200102009', 'SEL.07:00-08:30.L2L1', 'Y', NULL, NULL, NULL, NULL),
+(14, '200102011', 'SEN.08:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(15, '200102011', 'SEN.08:00-09:30.K6L4', 'Y', 50, 50, 50, 50),
+(16, '200102011', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(17, '200102011', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(18, '200102011', 'SEL.07:00-08:30.L2L1', 'Y', NULL, NULL, NULL, NULL),
+(19, '200102075', 'SEN.08:00-09:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(20, '200102075', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
+(21, '200102045', 'SEL.10:00-11:30.K6L4', 'N', NULL, NULL, NULL, NULL),
+(22, '200102045', 'SEL.07:00-08:30.L2L1', 'N', NULL, NULL, NULL, NULL),
+(23, '200102045', 'SEN.08:00-09:30.K6L4', 'Y', 110, 100, 110, 110),
+(24, '200102045', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -446,7 +464,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200102007', 'Mevani Kamilah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102009', 'Raessandra Putri Mayendra', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078'),
 ('200102010', 'Ramdan Gojali', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('200102011', 'Renal Sukma Widiarsa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
+('200102011', 'Renal Sukma Widiarsa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078'),
 ('200102012', 'Restu Wilman Alvareza', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102013', 'Reza Ahmad Zulfikar Mulyadi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102015', 'Sindi Rinaldi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
@@ -471,7 +489,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200102040', 'Delliana Putri Salsabila', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102043', 'Dimas Apriansyah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200102044', 'Elda Oktaviani', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('200102045', 'Ema Ernawati', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
+('200102045', 'Ema Ernawati', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078'),
 ('200102047', 'Erfan Dwi Prasetyo', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102048', 'Erlin Puspa Ningrum', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102050', 'Fadlan Ramadhan', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
@@ -491,7 +509,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200102069', 'Ita Mulyati', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102071', 'Laziward Ziehan Fairuz', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102073', 'LUQMAN ABDULRAHMAN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('200102075', 'Luthfi Arief Ardiansyah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
+('200102075', 'Luthfi Arief Ardiansyah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078'),
 ('200102078', 'M. Teguh Gabita', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102080', 'MOCH RAIHAN RIZKIA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102081', 'Mohamad Rizqy Alghifari', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
@@ -5463,7 +5481,7 @@ CREATE TABLE `matkul` (
 --
 
 INSERT INTO `matkul` (`id_matkul`, `kode_matkul`, `nama`, `nama_inggris`, `jenis`, `kategori`, `sks`, `nik_dosen`, `id_prodi`, `semester`) VALUES
-(1, 'IF0101', 'Algoritma dan Pemrograman', NULL, 'Wajib Prodi', 'Teori', 2, NULL, 'IF', '1'),
+(1, 'IF0101', 'Algoritma dan Pemrograman', '', 'Wajib Prodi', 'Teori', 2, '2016160685210005', 'IF', '1'),
 (2, 'IF0102', 'Praktikum Algoritma dan Pemrograman', NULL, 'Wajib Prodi', 'Praktikum', 1, NULL, 'IF', '1'),
 (3, 'IF0103', 'Arsitektur Komputer', NULL, 'Wajib Prodi', 'Teori', 2, NULL, 'IF', '1'),
 (4, 'IF0104', 'Desain Interaksi', NULL, 'Wajib Prodi', 'Teori', 2, NULL, 'IF', '1'),
@@ -6602,8 +6620,7 @@ INSERT INTO `matkul` (`id_matkul`, `kode_matkul`, `nama`, `nama_inggris`, `jenis
 (1135, '0', 'Exhibition', NULL, 'Wajib Prodi', 'Praktikum', 3, NULL, 'KTF', '1'),
 (1136, '0', 'Kerja Profesi', NULL, 'Wajib Prodi', 'Praktikum', 3, NULL, 'KTF', '1'),
 (1137, 'KTF 407', 'Kriya Tekstil dan Fashion (7)', NULL, 'Wajib Prodi', 'Praktikum', 5, NULL, 'KTF', '1'),
-(1138, '0', 'Tugas Akhir', NULL, 'Wajib Umum', 'Praktikum', 7, NULL, 'KTF', '1'),
-(1139, 'test', 'Mamang', 'test', 'Wajib Umum', 'Teori', 3, '201809041991210078', 'IF', NULL);
+(1138, '0', 'Tugas Akhir', NULL, 'Wajib Umum', 'Praktikum', 7, NULL, 'KTF', '1');
 
 -- --------------------------------------------------------
 
@@ -11681,6 +11698,38 @@ INSERT INTO `orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `presensi`
+--
+
+CREATE TABLE `presensi` (
+  `id_presensi` int(11) NOT NULL,
+  `kehadiran` enum('Hadir','Izin','Sakit','Alfa') NOT NULL,
+  `tanggal` date NOT NULL,
+  `pertemuan` int(2) NOT NULL,
+  `id_krs` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `presensi`
+--
+
+INSERT INTO `presensi` (`id_presensi`, `kehadiran`, `tanggal`, `pertemuan`, `id_krs`) VALUES
+(1, 'Hadir', '2023-01-13', 1, 5),
+(2, 'Izin', '2023-01-13', 1, 15),
+(3, 'Sakit', '2023-01-13', 1, 1),
+(4, 'Hadir', '2023-01-13', 1, 5),
+(5, 'Hadir', '2023-01-13', 1, 15),
+(6, 'Izin', '2023-01-13', 1, 19),
+(7, 'Sakit', '2023-01-13', 1, 1),
+(13, 'Hadir', '2023-01-13', 2, 5),
+(14, 'Hadir', '2023-01-13', 2, 15),
+(15, 'Izin', '2023-01-13', 2, 23),
+(16, 'Sakit', '2023-01-13', 2, 19),
+(17, 'Alfa', '2023-01-13', 2, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `prodi`
 --
 
@@ -11852,6 +11901,13 @@ ALTER TABLE `orang_tua`
   ADD PRIMARY KEY (`nim`);
 
 --
+-- Indexes for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD PRIMARY KEY (`id_presensi`),
+  ADD KEY `fk_prs_id_krs` (`id_krs`);
+
+--
 -- Indexes for table `prodi`
 --
 ALTER TABLE `prodi`
@@ -11884,13 +11940,19 @@ ALTER TABLE `semester`
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `matkul`
 --
 ALTER TABLE `matkul`
   MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1140;
+
+--
+-- AUTO_INCREMENT for table `presensi`
+--
+ALTER TABLE `presensi`
+  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `remember_me`
@@ -11935,6 +11997,12 @@ ALTER TABLE `mahasiswa`
 ALTER TABLE `matkul`
   ADD CONSTRAINT `fk_mk_id_prodi` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`),
   ADD CONSTRAINT `fk_nik_dosen` FOREIGN KEY (`nik_dosen`) REFERENCES `dosen` (`nik`);
+
+--
+-- Constraints for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD CONSTRAINT `fk_prs_id_krs` FOREIGN KEY (`id_krs`) REFERENCES `krs` (`id_krs`);
 
 --
 -- Constraints for table `prodi`

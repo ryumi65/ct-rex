@@ -13,7 +13,7 @@
                     <div class="card-body p-2">
                         <div class="table-responsive">
                             <table class="table align-items-center" id="table">
-                                <thead>
+                                <thead class="bg-gradient-primary text-white">
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">

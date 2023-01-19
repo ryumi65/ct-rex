@@ -17,13 +17,13 @@
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                             <thead>
-                                <tr>
+                                <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -38,8 +38,8 @@
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= $mahasiswa['status'] ?></td>

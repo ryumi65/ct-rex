@@ -12,13 +12,13 @@
                         <div class="card-body px-0">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gradient-primary text-white">
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Dosen</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             JK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -31,8 +31,8 @@
                                     <?php foreach ($listd as $dosen) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $dosen['nik'] ?></td>
                                             <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                            <td><?= $dosen['nik'] ?></td>
                                             <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
                                             <td><?= $dosen['nidn_dosen'] ?></td>
                                             <td><?= $mhswl[$dosen['nik']] ?></td>

@@ -8,13 +8,15 @@
                     <div>
                         <div class="d-inline d-flex justify-content-between">
                             <h5>Berita Acara Perkuliahan</h5>
-                            <a class="btn btn-primary mx-2" href="formbap"> Buat BAP</a>
+                            <div class="d-inline d-flex justify-content-end">
+                                <a class="btn btn-primary btn-sm mx-2" href="formbap"> Buat BAP</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body p-2">
-                        <div class="table-responsive">
+                        <div>
                             <table class="table align-items-center" id="table">
-                                <thead>
+                                <thead class="bg-gradient-primary text-white">
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         TM ke</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -25,9 +27,6 @@
                                         CP.Mata Kuliah</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Pokok Bahasan</th>
-                                    </th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Metode Pengajaran</th>
                                     </th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Evaluasi</th>
@@ -46,7 +45,6 @@
                                         <td>Ilmu Inti Keprodian</td>
                                         <td class="text-wrap">Memahami ruang lingkup Akuntansi Manajemen, hubungannya dengan Akuntansi Biaya dan Akuntansi Keuangan. Selain itu mahasiswa memahami profesi & kode etik akuntan manajemen</td>
                                         <td>Role of Management Accountants in Organization</td>
-                                        <td>Online Via Zoom Meeting</td>
                                         <td>Sinyal Putus</td>
                                         <td>80</td>
                                         <td class="text-center">
@@ -60,6 +58,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="d-inline d-flex justify-content-end">
+                                <a class="btn btn-primary btn-sm mx-2" href="#">Cetak</a>
+                            </div>
                         </div>
                     </div>
                 </div>

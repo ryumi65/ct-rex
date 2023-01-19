@@ -31,13 +31,13 @@
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gradient-primary text-white">
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kode MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama MK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kode MK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             SKS</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -56,8 +56,8 @@
                                     <?php foreach ($listj as $jadwal) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $jadwal['kode'] ?></td>
                                             <td><?= $jadwal['nama'] ?></td>
+                                            <td><?= $jadwal['kode'] ?></td>
                                             <td><?= $jadwal['sks'] ?></td>
                                             <td>
                                                 <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];

@@ -441,4 +441,29 @@ class Prodi extends CI_Controller
         $this->load->view('prodi/akademik/datakhs');
         $this->load->view('_partials/script');
     }
+
+
+
+    // pengumuman
+
+    public function listpengumuman()
+    {
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/listpengumuman');
+        $this->load->view('_partials/script');
+    }
+
+
+    public function formpengumuman()
+    {
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/formpengumuman');
+        $this->load->view('_partials/script');
+    }
 }

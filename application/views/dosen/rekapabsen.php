@@ -5,9 +5,12 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class="d-flex justify-content-between">
+                        <div class=" d-flex justify-content-between d-inline">
                             <h5>Presensi <?= $matkul['nama'] ?></h5>
-                            <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm">input Absen</a>
+                            <div class="d-flex justify-content-end  ">
+                                <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="mx-2 btn btn-primary btn-sm">edit Absen</a>
+                                <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm">input Absen</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
@@ -18,9 +21,9 @@
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Mahasiswa</th>
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIM</th>
                                         <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
                                             Pertemuan</th>
                                     </tr>
@@ -36,8 +39,8 @@
                                     <?php foreach ($listm as $mahasiswa) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $mahasiswa['nim'] ?></td>
                                             <td><?= $mahasiswa['nama'] ?></td>
+                                            <td><?= $mahasiswa['nim'] ?></td>
                                             <?php for ($i = 0; $i < 16; $i++) : ?>
                                                 <td class="text-center">-</td>
                                             <?php endfor ?>

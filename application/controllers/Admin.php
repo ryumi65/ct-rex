@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_admin');
 
@@ -11,7 +13,8 @@ class Admin extends CI_Controller {
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -19,7 +22,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function nilaimhs() {
+    public function nilaimhs()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -39,7 +43,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs() {
+    public function datamhs()
+    {
         $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
         $data['listm'] = $this->model_admin->join_mhs('mahasiswa', ['nim' => $this->session->id]);
 
@@ -50,7 +55,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profilmhs($nim) {
+    public function profilmhs($nim)
+    {
         $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
         $data['listm'] = $this->model_admin->join_mhs('admin');
         $data['mahasiswa'] = $this->model_admin->join_mhs('mahasiswa', ['nim' => $nim]);
@@ -62,7 +68,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profildsn($nik) {
+    public function profildsn($nik)
+    {
         $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_mhs('admin');
         $data['dosen'] = $this->model_admin->join_mhs('dosen', ['nik' => $nik]);
@@ -74,16 +81,27 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan(){
-            $data = [
-                'listr' => $this->model_admin->get_db('ruangan'),
-            ];
-    
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarprd');
-            $this->load->view('_partials/header');
-            $this->load->view('admin/dataruangan', $data);
-            $this->load->view('_partials/script');
-        }
+    public function dataruangan()
+    {
+        $data = [
+            'listr' => $this->model_admin->get_db('ruangan'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/dataruangan', $data);
+        $this->load->view('_partials/script');
     }
 
+
+    public function listpengumuman()
+    {
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/listpengumuman');
+        $this->load->view('_partials/script');
+    }
+}

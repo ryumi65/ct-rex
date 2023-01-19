@@ -6,44 +6,46 @@
             <div class="card">
                 <div class="card-header p-3">
                     <div>
-                        <div>
-                            <h5>Absensi Mata Kuliah</h5>
+                        <div class="d-inline d-flex justify-content-between">
+                            <h5>Pengumuman Universitas</h5>
+                            <a class="btn btn-primary mx-2" href="formbap"> Buat Pengumuman</a>
                         </div>
                     </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
+                    <div class="card-body p-2">
+                        <div>
                             <table class="table align-items-center" id="table">
-                                <thead class="bg-gradient-primary text-white">
+                                <thead class="bg-gradient-primary text-white text-center">
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
+                                        No</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Waktu</th>
+                                        Hari/Tanggal/Jam</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama MK</th>
+                                        Tema</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Dosen Pengampu</th>
+                                        Evaluasi</th>
+                                    </th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Ruangan</th>
+                                        Tenggang Waktu</th>
+                                    </th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Mengajar DI</th>
-                                    </tr>
+                                        Aksi</th>
+                                    </th>
                                 </thead>
                                 <tbody class="text-sm">
-                                    <tr>
+                                    <tr class="text-center">
                                         <td>1</td>
-                                        <td>08:00-09:00</td>
-                                        <td><a href="rekapabsen">Integelensi Buatan<a></td>
-                                        <td>Rinanda Febriani</td>
-                                        <td>L4:R20</td>
-                                        <td>Farmasi 21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>08:00-09:00</td>
-                                        <td>Integelensi Buatan</td>
-                                        <td>Rinanda Febriani</td>
-                                        <td>L4:R20</td>
-                                        <td>Farmasi 21</td>
+                                        <td>Kamis,25 Januari 2002</td>
+                                        <td>UAS</td>
+                                        <td>Telat</td>
+                                        <td>25-27 Januari 2000</td>
+                                        <td class="text-center">
+                                            <a class="badge bg-warning px-3 py-2" href="editpengumuman">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url() ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

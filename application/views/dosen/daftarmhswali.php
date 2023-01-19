@@ -17,13 +17,13 @@
                 <div class="card-body">
                     <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                         <thead>
-                            <tr>
+                            <tr class="bg-gradient-primary text-white">
                                 <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                     No.</th>
                                 <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    NIM</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                     Nama Mahasiswa</th>
+                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    NIM</th>
                                 <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                     JK</th>
                                 <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -37,8 +37,8 @@
                         <tbody class="text-sm">
                             <tr>
                                 <td></td>
-                                <td>200102011</td>
                                 <td><a href="">Renal</a></td>
+                                <td>200102011</td>
                                 <td>L</td>
                                 <td>2020</td>
                                 <td>Aktif</td>

@@ -31,13 +31,13 @@
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gradient-primary text-white">
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kode Matkul</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Matkul</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kode Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Jenis Matkul</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -54,8 +54,8 @@
                                     <?php foreach ($listm as $matkul) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $matkul['kode_matkul'] ?></td>
                                             <td><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
+                                            <td><?= $matkul['kode_matkul'] ?></td>
                                             <td><?= $matkul['jenis'] ?></td>
                                             <td><?= $matkul['kategori'] ?></td>
                                             <td><?= $matkul['sks'] ?></td>

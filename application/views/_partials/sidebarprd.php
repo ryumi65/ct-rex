@@ -132,9 +132,9 @@
                 </li> -->
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-money-bills" style="color:#000"></i>
+                    <a class="nav-link" href="<?= site_url('prodi/listpengumuman') ?>">
+                        <div class=" icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-bullhorn" style="color:#000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Pengumuman</span>
                     </a>

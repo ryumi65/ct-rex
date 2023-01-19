@@ -24,8 +24,6 @@
                                         NIDN</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                        Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="text-sm">

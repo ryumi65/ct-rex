@@ -131,4 +131,15 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function datamatkul() {
+        $data = [
+            'listm' => $this->model_fakultas->get_db('matkul'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/datamatkul', $data);
+        $this->load->view('_partials/script');
+    }
 }

@@ -8,7 +8,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_admin');
-
+        $this->load->model('model_ruangan');
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
     }
@@ -81,17 +81,39 @@ class Admin extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan()
-    {
+    public function dataruangan(){
+            $data = [
+                'listr' => $this->model_admin->get_db('ruangan'),
+            ];
+    
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('admin/dataruangan', $data);
+            $this->load->view('_partials/script');
+        }
+
+    public function inputruangan() {
         $data = [
             'listr' => $this->model_admin->get_db('ruangan'),
         ];
+            $this->form_validation->set_rules('nama','nama tidak boleh kosong','required');
+            if($this->form_validation->run()==false){
+               $this->load->view('_partials/head');
+               $this->load->view('_partials/sidebarprd');
+               $this->load->view('_partials/header');
+               $this->load->view('admin/createruangan', $data);
+               $this->load->view('_partials/script');
+            }else{
+             $this->model_ruangan->set_ruangan();
+             redirect('admin/akademik/dataruangan');
+            }
+         }
 
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('admin/dataruangan', $data);
-        $this->load->view('_partials/script');
+    public function deleteruangan() {
+        $this->model_dosen->delete_ruangan();
+        redirect('admin/akademik/dataruangan');
+        }
     }
 
 

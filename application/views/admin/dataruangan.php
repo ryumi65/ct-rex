@@ -10,6 +10,9 @@
                         <div class="d-flex justify-content-between">
                             <h6>Data Ruangan</h6>
                         </div>
+                        <div><a href="<?php echo site_url('admin/inputruangan');?>"<button type="button">Tambah Data ruangan</button>
+
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>

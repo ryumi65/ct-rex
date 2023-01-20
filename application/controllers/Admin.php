@@ -31,8 +31,7 @@ class Admin extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function datadsn()
-    {
+    public function datadsn() {
         $data['admin'] = $this->model_admin->join_dosen('admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_dosen('dosen', ['nik' => $this->session->id]);
 
@@ -81,7 +80,7 @@ class Admin extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan(){
+    public function dataruangan() {
             $data = [
                 'listr' => $this->model_admin->get_db('ruangan'),
             ];

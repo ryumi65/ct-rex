@@ -5,11 +5,11 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class=" d-flex justify-content-between d-inline">
+                        <div class=" d-flex justify-content-between flex-wrap">
                             <h5>Presensi <?= $matkul['nama'] ?></h5>
-                            <div class="d-flex justify-content-end  ">
+                            <div class="d-flex justify-content-end">
                                 <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="mx-2 btn btn-primary btn-sm">edit Absen</a>
-                                <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm">input Absen</a>
+                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">input Absen</a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,11 @@
                                             <td><?= $mahasiswa['nama'] ?></td>
                                             <td><?= $mahasiswa['nim'] ?></td>
                                             <?php for ($i = 0; $i < 16; $i++) : ?>
-                                                <td class="text-center">-</td>
+                                                <?php if (isset($presensi[$mahasiswa['id_krs']][$i])) : ?>
+                                                    <td><?= $presensi[$mahasiswa['id_krs']][$i] ?></td>
+                                                <?php else : ?>
+                                                    <td>-</td>
+                                                <?php endif ?>
                                             <?php endfor ?>
                                         </tr>
                                     <?php endforeach ?>
@@ -54,38 +58,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer py-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->
@@ -97,8 +70,8 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
-                order: [1, 'asc'],
+                responsive: true,
+                order: [2, 'asc'],
 
                 columnDefs: [{
                     targets: [0],

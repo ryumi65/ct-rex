@@ -71,7 +71,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-3">
+    <footer class="footer pb-3 py-md-3">
 
         <!-- Logo Medsos -->
         <div class="container mx-auto text-center my-2">
@@ -98,7 +98,8 @@
                 Copyright ©
                 <script>
                     document.write(new Date().getFullYear())
-                </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
+                </script>
+                Universitas Muhammadiyah Bandung. All Rights Reserved.
             </p>
         </div>
     </footer>

@@ -61,14 +61,34 @@ class Model_dosen extends CI_Model {
     }
 
     public function set_nilai($id_krs) {
+        if ($this->input->post('nilai_presensi') > 100) $np = 100;
+        else $np = $this->input->post('nilai_presensi');
+
+        if ($this->input->post('nilai_tugas') > 100) $nt = 100;
+        else $nt = $this->input->post('nilai_tugas');
+
+        if ($this->input->post('nilai_uts') > 100) $nuts = 100;
+        else $nuts = $this->input->post('nilai_uts');
+
+        if ($this->input->post('nilai_uas') > 100) $nuas = 100;
+        else $nuas = $this->input->post('nilai_uas');
+
         $data = [
-            'nilai_presensi' => $this->input->post('nilai_presensi'),
-            'nilai_tugas' => $this->input->post('nilai_tugas'),
-            'nilai_uts' => $this->input->post('nilai_uts'),
-            'nilai_uas' => $this->input->post('nilai_uas'),
+            'nilai_presensi' => $np,
+            'nilai_tugas' => $nt,
+            'nilai_uts' => $nuts,
+            'nilai_uas' => $nuas,
         ];
 
         return $this->db->update('krs', $data, ['id_krs' => $id_krs]);
+    }
+
+    public function get_presensi($id_matkul, $pertemuan) {
+        $query = $this->db->select('p.id_krs, p.kehadiran, p.pertemuan')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
+            ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+
+        return $query->result_array();
     }
 
     public function set_presensi($id_matkul) {

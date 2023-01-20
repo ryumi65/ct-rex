@@ -11,6 +11,9 @@
         unset($_SESSION['deletesuccess']);
     }
 
+    $persen_sks = round(($sks / 144) * 100, 2);
+    if ($persen_sks > 100) $persen_sks = 100;
+
     $nama = explode(' ', $mahasiswa['nama']);
     $jumlah_mk = 0;
 
@@ -42,9 +45,11 @@
             <!-- Content -->
             <div class="row mt-3">
 
-                <!-- Greeting -->
-                <div class="col-12 col-lg-4 my-3">
-                    <div class="card z-index-2">
+                <!-- Left Content -->
+                <div class="col-12 col-lg-4 my-0">
+
+                    <!-- Greeting -->
+                    <div class="card mb-3">
                         <div class="card-header p-3 pb-0">
                             <?php if (isset($nama[1])) : ?>
                                 <h5>Assalamu'alaikum, <?= "$nama[0] $nama[1]!" ?></h5>
@@ -56,20 +61,20 @@
                             <div class="progress-wrapper mx-auto">
                                 <div class="progress-info">
                                     <div class="progress-percentage">
-                                        <span class="text-xs font-weight-bold">60%</span>
+                                        <span class="text-xs font-weight-bold"><?= $persen_sks ?>%</span>
                                     </div>
                                 </div>
                                 <div class="col mb-2">
-                                    <div class="mb-2 progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="mb-2 progress-bar bg-gradient-info" role="progressbar" aria-valuenow="<?= $persen_sks ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $persen_sks ?>%;"></div>
                                 </div>
                             </div>
-                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh 144 SKS dari 144 SKS.</p>
+                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh <?= $sks ?> SKS dari 144 SKS.</p>
                             <p class="mb-0">Tetap semangat belajar ya!</p>
                         </div>
                     </div>
 
                     <!-- Grafik -->
-                    <div class="card my-3">
+                    <div class="card mb-3">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
@@ -83,10 +88,11 @@
                     </div>
                 </div>
 
-
-                <!-- Pengumuman -->
+                <!-- Right Content -->
                 <div class="col-12 col-lg-8 my-0">
-                    <div class="card my-3">
+
+                    <!-- Jadwal -->
+                    <div class="card mb-3">
                         <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
                             <p class="text-sm mb-0">
@@ -99,9 +105,9 @@
                                 <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body pt-0">
-                            <div class="table-responsive mx-0">
-                                <table class="table table-striped align-items-center mb-0 ps-2" id="table">
+                        <div class="card-body p-0 pb-3">
+                            <div class="table-responsive">
+                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                     <thead>
                                         <tr class="bg-gradient-primary text-white">
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -131,11 +137,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+
+                    <!-- Pengumuman Universitas -->
+                    <div class="card mb-3">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
-                                    <h5>Pengumuman</h5>
+                                    <h5>Pengumuman Universitas</h5>
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                     <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                         Read More
@@ -145,11 +153,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mt-3">
+
+                    <!-- Pengumuman Fakultas -->
+                    <div class="card mb-3">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
-                                    <h5>Pengumuman</h5>
+                                    <h5>Pengumuman Fakultas</h5>
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                     <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                         Read More
@@ -163,38 +173,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer py-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- Chart -->

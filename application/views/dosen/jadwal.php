@@ -38,10 +38,10 @@
                                             <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['ruangan'] ?></td>
                                             <td class="text-center">
-                                                <a href="<?= site_url('dosen/rekapabsen/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
                                                     <i class="fa-solid fa-book-bookmark"></i>
                                                 </a>
-                                                <a href="<?= site_url('dosen/nilai/' . $jadwal['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
+                                                <a href="<?= site_url('dosen/perkuliahan/nilai/' . $jadwal['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
                                                     <i class="fa-solid fa-clipboard-user"></i>
                                                 </a>
                                             </td>
@@ -55,38 +55,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer py-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->

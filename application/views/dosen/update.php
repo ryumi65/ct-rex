@@ -4,7 +4,7 @@
             <!-- Profil -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3 pb-0">
                         <h5 class="mb-0">Edit Profil</h5>
                     </div>
                     <div class="card-body p-3">

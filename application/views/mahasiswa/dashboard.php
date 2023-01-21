@@ -46,7 +46,7 @@
             <div class="row mt-3">
 
                 <!-- Left Content -->
-                <div class="col-12 col-lg-4 my-0">
+                <div class="col-12 col-md-4 my-0">
 
                     <!-- Greeting -->
                     <div class="card mb-3">
@@ -89,7 +89,7 @@
                 </div>
 
                 <!-- Right Content -->
-                <div class="col-12 col-lg-8 my-0">
+                <div class="col-12 col-md-8 my-0">
 
                     <!-- Jadwal -->
                     <div class="card mb-3">
@@ -139,13 +139,13 @@
                     </div>
 
                     <!-- Pengumuman Universitas -->
-                    <div class="card mb-3">
+                    <div class="card mb-3" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
                                     <h5>Pengumuman Universitas</h5>
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                         Read More
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                     </a>
@@ -155,13 +155,13 @@
                     </div>
 
                     <!-- Pengumuman Fakultas -->
-                    <div class="card mb-3">
+                    <div class="card mb-3" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
                                     <h5>Pengumuman Fakultas</h5>
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                         Read More
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                     </a>

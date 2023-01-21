@@ -120,13 +120,13 @@
 
                 <!-- Pengumuman 1 -->
                 <div class="col-12 col-lg-6 my-3">
-                    <div class="card">
+                    <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="col-lg-5 text-center">
                                     <div class="bg-gradient-primary border-radius-lg h-100">
                                         <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                     <div class="d-flex flex-column h-100">
                                         <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                        <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                        <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
                                             <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                         </a>
@@ -147,13 +147,13 @@
 
                 <!-- Pengumuman 2 -->
                 <div class="col-12 col-lg-6 my-3">
-                    <div class="card">
+                    <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="col-lg-5 text-center">
                                     <div class="bg-gradient-primary border-radius-lg h-100">
                                         <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                     <div class="d-flex flex-column h-100">
                                         <h5>Pengumuman</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                        <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                        <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
                                             <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                         </a>

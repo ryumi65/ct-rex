@@ -46,9 +46,7 @@
                 <div class="card">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5>Profil Anda</h5>
-                            </div>
+                            <h5>Profil Anda</h5>
                             <div class="text-end">
                                 <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>">
                                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>

@@ -83,8 +83,8 @@
                     <div class="collapse" id="perwalian">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/daftarmhswali') ?>">
-                                    Daftar Mahasiswa
+                                <a class="nav-link link-secondary" href="<?= site_url('dosen/bimbingan/mahasiswa-wali') ?>">
+                                    Mahasiswa Wali
                                 </a>
                             </li>
                             <li class="nav-item">

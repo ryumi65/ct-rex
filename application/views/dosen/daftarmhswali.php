@@ -4,9 +4,9 @@
             <!-- Beban Mengajar -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0">Daftar Mahasiswa Wali</h5>
+                    <div class="card-header p-3 pb-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                             <div class="mx-0 col-4 my-1">
                                 <select class="form-select" name="nik_dosen" required>
                                     <option selected disabled>Pilih Tahun Ajaran</option>
@@ -14,45 +14,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                            <thead>
-                                <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        JK</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Angkatan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Status</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                        Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <tr>
-                                    <td></td>
-                                    <td><a href="">Renal</a></td>
-                                    <td>200102011</td>
-                                    <td>L</td>
-                                    <td>2020</td>
-                                    <td>Aktif</td>
-                                    <td class="text-center">
-                                        <a href="berkasmhs" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('')">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-body p-0 pb-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                                <thead>
+                                    <tr class="bg-gradient-primary text-white">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIM</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Nama Mahasiswa</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            JK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Tahun Angkatan</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Status Mahasiswa</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <?php foreach ($listm as $mahasiswa) : ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><?= $mahasiswa['nim'] ?></td>
+                                            <td><?= $mahasiswa['nama'] ?></td>
+                                            <td><?= $mahasiswa['jenis_kelamin'] ?></td>
+                                            <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                            <td><?= $mahasiswa['status'] ?></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,15 +67,15 @@
 
             table = $('#table').DataTable({
 
+                dom: "",
                 responsive: true,
-                order: [2, 'asc'],
+                order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 6],
+                    targets: [0],
                     orderable: false,
                     searchable: false,
                 }],
-
             });
 
             table.on('order.dt search.dt', () => {
@@ -94,6 +88,5 @@
                     this.data(i++);
                 });
             }).draw();
-
         });
     </script>

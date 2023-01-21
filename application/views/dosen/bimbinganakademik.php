@@ -3,8 +3,8 @@
 
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
+                    <div class="card-header p-3 pb-0">
+                        <div class="d-flex align-items-center justify-content-between">
                             <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
                             <div class="mx-0 col-4 my-1">
                                 <select class="form-select" name="nik_dosen" required>
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-3 pt-0">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">

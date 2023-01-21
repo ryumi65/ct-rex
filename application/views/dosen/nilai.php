@@ -7,7 +7,7 @@
                     <div class="card-header p-3 pb-0">
                         <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body pt-0 px-0 pb-3">
+                    <div class="card-body p-3 pt-0">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -158,7 +158,6 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 

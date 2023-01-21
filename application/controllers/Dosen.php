@@ -243,10 +243,15 @@ class Dosen extends CI_Controller {
     }
 
     public function daftarmhswali() {
+        $data = [
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/daftarmhswali');
+        $this->load->view('dosen/daftarmhswali', $data);
         $this->load->view('_partials/script');
     }
 

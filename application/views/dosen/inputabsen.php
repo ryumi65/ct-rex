@@ -29,7 +29,7 @@
                             </div>
                             <?php foreach ($listm as $mahasiswa) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card card-profile card-plain">
+                                    <div class="card card-profile card-plain" id="card-pop">
                                         <div class="card-body text-center bg-white shadow border-radius-lg p-3">
                                             <div class="avatar avatar-xl position-relative">
                                                 <img src="<?= base_url(); ?>assets/img/uploads/profile/curved.jpg" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">

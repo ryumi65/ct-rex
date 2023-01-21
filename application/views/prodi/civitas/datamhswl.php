@@ -4,10 +4,10 @@
             <!-- Tabel Mhs Wali -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-header p-3 pb-0">
                         <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -69,10 +69,10 @@
             table = $('#table').DataTable({
 
                 responsive: true,
-                order: [2, 'asc'],
+                order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 6],
+                    targets: [0],
                     orderable: false,
                     searchable: false,
                 }],

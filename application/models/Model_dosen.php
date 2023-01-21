@@ -84,7 +84,7 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_presensi($id_matkul, $pertemuan) {
-        $query = $this->db->select('p.id_krs, p.kehadiran, p.pertemuan')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
+        $query = $this->db->select('p.id_krs, p.kehadiran')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
             ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
             ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
 

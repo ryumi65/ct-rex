@@ -10,7 +10,7 @@
                                 <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
                             </div>
                             <div>
-                                <a href="#" class="btn btn-primary btn-sm">Cetak</a>
+                                <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                             </div>
                         </div>
                     </div>
@@ -31,6 +31,8 @@
                                             Waktu</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Ruangan</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -42,6 +44,11 @@
                                             <td><?= $jadwal['hari'] ?></td>
                                             <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['ruangan'] ?></td>
+                                            <td class="text-center">
+                                                <a href="<?= site_url('mahasiswa/perkuliahan/presensi/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                                    <i class="fa-solid fa-book-bookmark"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -69,7 +76,7 @@
                 order: [4, 'asc'],
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],

@@ -94,8 +94,9 @@ $route['dosen/profil/edit/foto'] = 'dosen/update_foto';
 $route['dosen/profil/edit/(:num)'] = 'dosen/update/$1';
 
 // Mahasiswa
-$route['mahasiswa/profil/edit/foto'] = 'mahasiswa/update_foto';
 $route['mahasiswa/perkuliahan/data-krs'] = 'mahasiswa/datakrs';
 $route['mahasiswa/perkuliahan/tambah-krs'] = 'mahasiswa/formkrs';
 $route['mahasiswa/perkuliahan/jadwal-kuliah'] = 'mahasiswa/jadwalkuliah';
+$route['mahasiswa/perkuliahan/presensi/(:num)'] = 'mahasiswa/presensi/$1';
+$route['mahasiswa/profil/edit/foto'] = 'mahasiswa/update_foto';
 $route['mahasiswa/profil/edit/(:num)'] = 'mahasiswa/update/$1';

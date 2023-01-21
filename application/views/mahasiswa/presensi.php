@@ -5,39 +5,33 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class="d-flex justify-content-between mb-4">
-                            <div>
-                                <h5>Presensi Perkuliahan</h5>
-                            </div>
-                        </div>
+                        <h5>Presensi Mata Kuliah <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Dosen Pengampu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Hari</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Ruangan</th>
+                                        <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Pertemuan</th>
+                                    </tr>
+                                    <tr class="bg-gradient-primary text-white">
+                                        <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                <?= $i ?>
+                                            </th>
+                                        <?php endfor ?>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
                                     <tr>
-                                        <td>1</td>
-                                        <td>08:00-09:00</td>
-                                        <td><a href="rekappresensi">Integelensi Buatan<a></td>
-                                        <td>Rinanda Febriani</td>
-                                        <td>L4:R20</td>
-                                        <td>Farmasi 21</td>
+                                        <?php for ($i = 0; $i < 16; $i++) : ?>
+                                            <?php if (isset($presensi[$i])) : ?>
+                                                <td><?= $presensi[$i] ?></td>
+                                            <?php else : ?>
+                                                <td>-</td>
+                                            <?php endif ?>
+                                        <?php endfor ?>
                                     </tr>
                                 </tbody>
                             </table>
@@ -61,25 +55,7 @@
 
                 dom: "",
                 responsive: true,
-                order: [4, 'asc'],
-
-                columnDefs: [{
-                    targets: [0],
-                    orderable: false,
-                    searchable: false,
-                }],
-
+                order: [0, 'asc'],
             });
-
-            table.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
-                });
-            }).draw();
         });
     </script>

@@ -53,10 +53,10 @@
             </div>
 
             <!-- Content -->
-            <div class="row mt-3">
+            <div class="row g-3 mt-1">
 
                 <!-- Riwayat sks -->
-                <div class="col-12 my-3">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Riwayat sks yang Diampu</h5>
@@ -70,7 +70,7 @@
                 </div>
 
                 <!-- Jadwal Kuliah -->
-                <div class="col-12 my-3">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
@@ -118,8 +118,8 @@
                     </div>
                 </div>
 
-                <!-- Pengumuman 1 -->
-                <div class="col-12 col-lg-6 my-3">
+                <!-- Pengumuman Universitas -->
+                <div class="col-12 col-md-6">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman</h5>
+                                        <h5>Pengumuman Universitas</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More
@@ -145,8 +145,8 @@
                     </div>
                 </div>
 
-                <!-- Pengumuman 2 -->
-                <div class="col-12 col-lg-6 my-3">
+                <!-- Pengumuman Fakultas -->
+                <div class="col-12 col-md-6">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <div class="d-flex flex-column h-100">
-                                        <h5>Pengumuman</h5>
+                                        <h5>Pengumuman Fakultas</h5>
                                         <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                         <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
                                             Read More

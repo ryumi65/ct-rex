@@ -19,7 +19,7 @@
 
                 <!-- Home -->
                 <?php if (uri_string() === 'dosen') {
-                    $navlinkHome = 'nav-link active';
+                    $navlinkHome = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkHome = 'nav-link';
@@ -36,7 +36,7 @@
 
                 <!-- Perkuliahan -->
                 <?php if (fnmatch('dosen/perkuliahan*', uri_string())) {
-                    $navlinkPerkuliahan = 'nav-link active';
+                    $navlinkPerkuliahan = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkPerkuliahan = 'nav-link';
@@ -67,7 +67,7 @@
 
                 <!-- Bimbingan -->
                 <?php if (fnmatch('dosen/bimbingan*', uri_string())) {
-                    $navlinkBimbingan = 'nav-link active';
+                    $navlinkBimbingan = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkBimbingan = 'nav-link';
@@ -113,7 +113,7 @@
 
                 <!-- Profil -->
                 <?php if (fnmatch('dosen/profil*', uri_string())) {
-                    $navlinkProfil = 'nav-link active';
+                    $navlinkProfil = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkProfil = 'nav-link';

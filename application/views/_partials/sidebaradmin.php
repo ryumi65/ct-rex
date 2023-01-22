@@ -19,7 +19,7 @@
 
                  <!-- Home -->
                  <?php if (uri_string() === 'admin') {
-                        $navlinkHome = 'nav-link active';
+                        $navlinkHome = 'nav-link active shadow';
                         $color = '#fff';
                     } else {
                         $navlinkHome = 'nav-link';
@@ -36,7 +36,7 @@
 
                  <!-- Akademik -->
                  <?php if (fnmatch('prodi/akademik*', uri_string())) {
-                        $navlinkAkd = 'nav-link active';
+                        $navlinkAkd = 'nav-link active shadow';
                         $color = '#fff';
                     } else {
                         $navlinkAkd = 'nav-link';
@@ -69,39 +69,12 @@
 
                  <!-- Data Civitas -->
                  <?php if (fnmatch('prodi/civitas*', uri_string())) {
-                        $navlinkData = 'nav-link active';
+                        $navlinkData = 'nav-link active shadow';
                         $color = '#fff';
                     } else {
                         $navlinkData = 'nav-link';
                         $color = '#000';
                     } ?>
-                 <!-- <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkData ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Civitas</span>
-                    </a>
-                    <div class="collapse" id="datacivitas">
-                        <ul class="nav ms-4 ps-3">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen') ?>">
-                                    Data Dosen
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-mahasiswa') ?>">
-                                    Data Mahasiswa
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
-                                    Data Dosen Wali
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> -->
                  <li class="nav-item">
                      <a data-bs-toggle="collapse" href="#datacivitas" class="nav-link" aria-controls="datacivitas" role="button" aria-expanded="false">
                          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -163,7 +136,7 @@
 
                  <!-- Profil -->
                  <?php if (fnmatch('prodi/profil*', uri_string())) {
-                        $navlinkProfil = 'nav-link active';
+                        $navlinkProfil = 'nav-link active shadow';
                         $color = '#fff';
                     } else {
                         $navlinkProfil = 'nav-link';

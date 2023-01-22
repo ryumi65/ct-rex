@@ -50,10 +50,10 @@ class Model_dosen extends CI_Model {
 
     public function get_mhs($id_matkul, $nik = '') {
         if ($nik === '') {
-            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('akun a', 'k.nim = a.id_akun')
                 ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get();
         } else {
-            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('akun a', 'k.nim = a.id_akun')
                 ->where(['m.dosen_wali' => $nik, 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get();
         }
 

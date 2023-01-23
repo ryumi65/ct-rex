@@ -138,6 +138,7 @@ class Dosen extends CI_Controller {
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $pertemuan = [];
+        $pertemuan_validation = [];
 
         for ($i = 1; $i <= 16; $i++) {
             $listp = $this->model_dosen->get_presensi($id_matkul, $i);
@@ -145,12 +146,16 @@ class Dosen extends CI_Controller {
             foreach ($listp as $presensi) {
                 $pertemuan[$presensi['id_krs']][] = $presensi['kehadiran'];
             }
+
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
         }
 
         $data = [
             'matkul' => $matkul,
-            'listm' => $this->model_dosen->get_mhs($id_matkul),
+            'pertemuan' => $pertemuan_validation,
             'presensi' => $pertemuan,
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 
         $this->load->view('_partials/head');
@@ -176,9 +181,32 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function updateabsen($id_matkul, $pertemuan) {
+        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan,
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
+            'listp' => $this->model_dosen->get_presensi($id_matkul, $pertemuan),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/updateabsen', $data);
+        $this->load->view('_partials/script');
+    }
+
     public function inputpresensi($id_matkul) {
         $this->model_dosen->set_presensi($id_matkul);
-        redirect('dosen/rekapabsen/' . $id_matkul);
+        redirect('dosen/perkuliahan/presensi/' . $id_matkul);
+    }
+
+    public function updatepresensi($id_matkul, $pertemuan) {
+        $this->model_dosen->update_presensi($id_matkul, $pertemuan);
+        redirect('dosen/perkuliahan/presensi/' . $id_matkul);
     }
 
     //==================== NILAI ====================//

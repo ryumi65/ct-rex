@@ -68,6 +68,12 @@ class Model_krs extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_sks_dosen($nik) {
+        $query = $this->db->select('sks')->from('matkul')->where('nik_dosen', $nik)->get();
+
+        return $query->result_array();
+    }
+
     public function set_krs($input) {
         $data['nim'] = $this->session->id;
 

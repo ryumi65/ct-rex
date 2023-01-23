@@ -43,7 +43,7 @@
             </div>
 
             <!-- Content -->
-            <div class="row mt-3">
+            <div class="row g-3 mt-3">
 
                 <!-- Left Content -->
                 <div class="col-12 col-md-4 my-0">

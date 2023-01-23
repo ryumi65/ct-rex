@@ -4,17 +4,10 @@
             <!-- Beban Mengajar -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
-                            <div class="mx-0 col-4 my-1">
-                                <select class="form-select" name="nik_dosen" required>
-                                    <option selected disabled>Pilih Tahun Ajaran</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-0 pb-3">
+                    <div class="card-body p-3 pt-0">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -67,7 +60,6 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 

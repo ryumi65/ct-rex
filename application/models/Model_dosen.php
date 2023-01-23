@@ -83,10 +83,16 @@ class Model_dosen extends CI_Model {
         return $this->db->update('krs', $data, ['id_krs' => $id_krs]);
     }
 
-    public function get_presensi($id_matkul, $pertemuan) {
+    public function get_presensi($id_matkul, $pertemuan, $type = '') {
         $query = $this->db->select('p.id_krs, p.kehadiran')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
             ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
             ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+
+        if ($type === 'validation') {
+            if ($query->num_rows() > 0) return true;
+
+            return false;
+        }
 
         return $query->result_array();
     }
@@ -100,16 +106,37 @@ class Model_dosen extends CI_Model {
 
             if (isset($presensi)) {
                 $kehadiran = $this->input->post('presensi-' . $mahasiswa['nim'] . '-' . $mahasiswa['id_krs']);
-                $id_krs = $mahasiswa['id_krs'];
 
                 $data = [
+                    'id_krs' => $mahasiswa['id_krs'],
                     'kehadiran' => $kehadiran,
-                    'tanggal' => $this->input->post('tanggal'),
                     'pertemuan' => $this->input->post('pertemuan'),
-                    'id_krs' => $id_krs,
+                    'tanggal' => $this->input->post('tanggal'),
                 ];
 
                 $this->db->insert('presensi', $data);
+            }
+        }
+    }
+
+    public function update_presensi($id_matkul, $pertemuan) {
+        $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+            ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get()->result_array();
+
+        foreach ($query as $mahasiswa) {
+            $presensi = $this->input->post('presensi-' . $mahasiswa['nim'] . '-' . $mahasiswa['id_krs']);
+
+            if (isset($presensi)) {
+                $kehadiran = $this->input->post('presensi-' . $mahasiswa['nim'] . '-' . $mahasiswa['id_krs']);
+                $id_krs = $mahasiswa['id_krs'];
+
+                $data = [
+                    'id_krs' => $id_krs,
+                    'kehadiran' => $kehadiran,
+                    'pertemuan' => $pertemuan,
+                ];
+
+                $this->db->update('presensi', $data, ['id_krs' => $mahasiswa['id_krs'], 'pertemuan' => $pertemuan]);
             }
         }
     }

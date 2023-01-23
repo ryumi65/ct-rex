@@ -19,12 +19,19 @@ class Mahasiswa extends CI_Controller {
 
         $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $list_sks = $this->model_krs->get_sks($this->session->id);
+        $jumlah_sks = 0;
+
+        for ($i = 0; $i < count($list_sks); $i++) {
+            $sks = intval($list_sks[$i]['sks']);
+            $jumlah_sks += $sks;
+        }
 
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
             'hari' => $list_hari[date('w')],
-            'sks' => 155,
+            'sks' => $jumlah_sks,
             'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
             'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];

@@ -69,9 +69,16 @@ class Model_krs extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_sks($nim, $semester) {
-        $query = $this->db->select('m.sks')->from('matkul m')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
-            ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
+    public function get_sks($nim, $semester = '') {
+        $status = ['N', 'T'];
+
+        if ($semester === '') {
+            $query = $this->db->select('m.sks')->from('matkul m')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where('k.nim', $nim)->where_not_in('k.status', $status)->get();
+        } else {
+            $query = $this->db->select('m.sks')->from('matkul m')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
+        }
 
         return $query->result_array();
     }

@@ -92,8 +92,8 @@
                                                             <span class="badge bg-gradient-success">Aktif</span>
                                                         <?php elseif ($krs['status'] === 'N') : ?>
                                                             <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
-                                                        <?php else : ?>
-                                                            <span class="badge bg-gradient-danger">Tidak Aktif</span>
+                                                        <?php elseif ($krs['status'] === 'T') : ?>
+                                                            <span class="badge bg-gradient-danger">Ditolak</span>
                                                         <?php endif ?>
                                                     </td>
                                                     <td class="text-center">
@@ -102,7 +102,7 @@
                                                                 <i class="fa-solid fa-trash-can"></i>
                                                             </span>
                                                         <?php else : ?>
-                                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
+                                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
                                                                 <i class="fa-solid fa-trash-can"></i>
                                                             </a>
                                                         <?php endif ?>
@@ -125,6 +125,9 @@
 
         <?php $this->load->view('_partials/footer') ?>
     </div>
+
+    <!-- Alert -->
+    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>

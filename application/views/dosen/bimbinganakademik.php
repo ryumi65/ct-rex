@@ -55,7 +55,7 @@
                                         </div>
                                         <?= form_open('krs/acc') ?>
                                         <div class="modal-body">
-                                            <table class="table table-striped align-items-center ps-3">
+                                            <table class="table table-striped align-items-center" id="table-<?= $mhs['nim'] ?>">
                                                 <thead>
                                                     <tr class="bg-gradient-primary text-white">
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -70,7 +70,7 @@
                                                             Hari</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -84,8 +84,11 @@
                                                                 <td><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
-                                                                <td>
-                                                                    <input class="form-check-input" type="checkbox" name="id_krs[]" value="<?= $krs['id_krs'] ?>">
+                                                                <td class="text-center">
+                                                                    <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
+                                                                    <label class="btn btn-outline-primary px-3 py-2 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
+                                                                    <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="tolak-<?= $krs['id_krs'] ?>" value="T">
+                                                                    <label class="btn btn-outline-danger px-3 py-2 mb-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
                                                                 </td>
                                                             </tr>
                                                     <?php endif;
@@ -130,7 +133,6 @@
                     orderable: false,
                     searchable: false,
                 }],
-
             });
 
             table.on('order.dt search.dt', () => {
@@ -143,6 +145,35 @@
                     this.data(i++);
                 });
             }).draw();
-
         });
+
+        <?php foreach ($lists as $mahasiswa) : ?>
+            let table<?= $mahasiswa['nim'] ?>;
+
+            $(document).ready(() => {
+
+                table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
+
+                    dom: "",
+                    order: [1, 'asc'],
+
+                    columnDefs: [{
+                        targets: [0, 6],
+                        orderable: false,
+                        searchable: false,
+                    }],
+                });
+
+                table<?= $mahasiswa['nim'] ?>.on('order.dt search.dt', () => {
+                    let i = 1;
+
+                    table<?= $mahasiswa['nim'] ?>.cells(null, 0, {
+                        order: 'applied',
+                        search: 'applied',
+                    }).every(function(cell) {
+                        this.data(i++);
+                    });
+                }).draw();
+            });
+        <?php endforeach ?>
     </script>

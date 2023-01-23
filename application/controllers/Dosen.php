@@ -284,11 +284,38 @@ class Dosen extends CI_Controller {
     }
 
     // BERKAS MAHASISWA BIMBINGAN
-    public function berkasmhs() {
+    public function berkasmhs($nim) {
+        $mahasiswa = $this->model_dosen->get_db('mahasiswa', ['nim' => $nim]);
+        if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $krs = [];
+        $mk = [];
+        $sks_smt = [];
+
+        for ($i = 1; $i <= 8; $i++) {
+            $jumlah_sks = 0;
+            $list_sks = $this->model_krs->get_sks($nim, $i);
+
+            for ($j = 0; $j < count($list_sks); $j++) {
+                $sks = intval($list_sks[$j]['sks']);
+                $jumlah_sks += $sks;
+            }
+
+            array_push($krs, $this->model_krs->get_krs_smt($nim, $i));
+            array_push($mk, $this->model_krs->get_mk($nim, $i));
+            array_push($sks_smt, $jumlah_sks);
+        }
+
+        $data = [
+            'listk' => $krs,
+            'listm' => $mk,
+            'lists' => $sks_smt,
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
-        $this->load->view('dosen/berkasmhs');
+        $this->load->view('dosen/berkasmhs', $data);
         $this->load->view('_partials/script');
     }
 

@@ -139,17 +139,13 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function formkrs() {
+    public function formkrs($semester) {
         $mahasiswa = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
-
-        $krs = [];
-        for ($i = 1; $i <= 8; $i++) {
-            array_push($krs, $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $i));
-        }
 
         $data = [
             'mahasiswa' => $mahasiswa,
-            'listj' => $krs,
+            'semester' => $semester,
+            'listk' => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $semester),
         ];
 
         $this->load->view('_partials/head');

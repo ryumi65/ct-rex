@@ -36,7 +36,7 @@ function renderAllProducts() {
                 <td>
                     <div class="d-flex justify-content-center">
                         <button
-                            class="btn btn-success"
+                            class="btn btn-success btn-sm px-3 py-2 mb-0"
                             onclick="addToCart(${index})"
                         >
                             <i class="fa-solid fa-plus"></i>
@@ -73,7 +73,7 @@ function renderAllCartItems() {
             <td>
                 <div class="d-flex justify-content-center">
                     <button
-                        class="btn btn-danger"
+                        class="btn btn-danger btn-sm px-3 py-2 mb-0"
                         onclick="removeFromCart('${cartItem.name}')"
                     >
                         Hapus

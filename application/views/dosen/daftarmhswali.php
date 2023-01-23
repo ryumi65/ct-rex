@@ -24,6 +24,8 @@
                                             Tahun Angkatan</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Status Mahasiswa</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -35,6 +37,11 @@
                                             <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                             <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                             <td><?= $mahasiswa['status'] ?></td>
+                                            <td class="text-center">
+                                                <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Berkas">
+                                                    <i class="fa-solid fa-book-bookmark"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
@@ -64,7 +71,7 @@
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],

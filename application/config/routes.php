@@ -95,6 +95,7 @@ $route['dosen/perkuliahan/presensi/(:num)/input']          = 'dosen/inputabsen/$
 $route['dosen/perkuliahan/presensi/(:num)/update/(:num)']  = 'dosen/updateabsen/$1/$2';
 $route['dosen/perkuliahan/nilai/(:num)']                   = 'dosen/nilai/$1';
 $route['dosen/bimbingan/mahasiswa-wali']                   = 'dosen/daftarmhswali';
+$route['dosen/bimbingan/mahasiswa-wali/(:num)']            = 'dosen/berkasmhs/$1';
 $route['dosen/bimbingan/akademik']                         = 'dosen/bimbinganakademik';
 $route['dosen/profil/edit/foto']                           = 'dosen/update_foto';
 $route['dosen/profil/edit/(:num)']                         = 'dosen/update/$1';
@@ -102,7 +103,7 @@ $route['dosen/profil/edit/(:num)']                         = 'dosen/update/$1';
 //==================== MAHASISWA ====================//
 
 $route['mahasiswa/perkuliahan/data-krs']                   = 'mahasiswa/datakrs';
-$route['mahasiswa/perkuliahan/tambah-krs']                 = 'mahasiswa/formkrs';
+$route['mahasiswa/perkuliahan/data-krs/(:num)/tambah']     = 'mahasiswa/formkrs/$1';
 $route['mahasiswa/perkuliahan/jadwal-kuliah']              = 'mahasiswa/jadwalkuliah';
 $route['mahasiswa/perkuliahan/presensi/(:num)']            = 'mahasiswa/presensi/$1';
 $route['mahasiswa/profil/edit/foto']                       = 'mahasiswa/update_foto';

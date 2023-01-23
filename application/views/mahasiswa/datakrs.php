@@ -106,7 +106,6 @@
                                                                 <i class="fa-solid fa-trash-can"></i>
                                                             </a>
                                                         <?php endif ?>
-
                                                     </td>
                                                 </tr>
                                             <?php endforeach ?>
@@ -114,8 +113,9 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
+                            <div class="modal-footer d-flex justify-content-end">
+                                <a class="btn btn-primary btn-sm mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/' . $i . '/tambah') ?>">Tambah KRS</a>
+                                <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,6 @@
                         orderable: false,
                         searchable: false,
                     }],
-
                 });
 
                 table.on('order.dt search.dt', () => {

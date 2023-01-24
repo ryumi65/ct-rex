@@ -12,6 +12,7 @@ class Prodi extends CI_Controller
         $this->load->model('model_jadwal');
         $this->load->model('model_mahasiswa');
         $this->load->model('model_matkul');
+        $this->load->model('model_pengumuman');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 2) redirect(strtolower($this->session->access));
@@ -440,5 +441,43 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/datakhs');
         $this->load->view('_partials/script');
+    }
+    // pengumuman
+    public function pengumuman()
+    {
+        $data = [
+            'listp' => $this->model_prodi->get_db('pengumuman'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/pengumuman', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function inputpengumuman()
+    {
+        $data = [
+            'listp' => $this->model_pengumuman->get_db('pengumuman'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/createpengumuman', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function set_pengumuman()
+    {
+        $this->model_pengumuman->set_pengumuman();
+        redirect('prodi/pengumuman');
+    }
+
+    public function deletepengumuman()
+    {
+        $this->model_pengumuman->delete_pengumuman();
+        redirect('prodi/pengumuman');
     }
 }

@@ -8,29 +8,30 @@
                     <h5 class="mb-0">Form Pengisian Pengumuman</h5>
                 </div>
                 <div class="card-body p-3">
+                    <?= form_open('prodi/set_pengumuman') ?>
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <label>Hari/Tanggal/Jam</label>
+                            <label>Tanggal Mulai</label>
                             <div class="mb-3">
-                                <input type="date" name="kode_matkul" class="form-control" placeholder="Capaian Prodi" required>
+                                <input type="date" name="tanggal_mulai" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <label>Tema</label>
                             <div class="mb-3">
-                                <input type="text" name="nama" class="form-control" placeholder="Tema" required>
+                                <input type="text" name="tema" class="form-control" placeholder="Tema" required>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
-                            <label>Evaluasi</label>
+                            <label>Isi Pengumuman</label>
                             <div class="mb-3">
-                                <input type="text" name="nama_inggris" class="form-control" placeholder="Evaluasi">
+                                <input type="text" name="isi_pengumuman" class="form-control" placeholder="isi pengumuman">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <label>Tenggang Waktu</label>
                             <div class="mb-3">
-                                <input type="date" name="nama_inggris" class="form-control" placeholder="Metode Pengajaran">
+                                <input type="date" name="tenggang_waktu" class="form-control">
                             </div>
                         </div>
 
@@ -43,7 +44,6 @@
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer py-3">
 

@@ -8,7 +8,8 @@
                     <div>
                         <div class="d-inline d-flex justify-content-between">
                             <h5>Pengumuman Prodi Informatika</h5>
-                            <a class="btn btn-primary mx-2" href="formpengumuman"> Buat Pengumuman</a>
+                            <a href="<?= site_url('prodi/inputpengumuman') ?>" class="btn btn-primary btn-sm mb-0">Buat Pengumuman</a>
+                            <!-- <a class="btn btn-primary mx-2" href="pengumuman"> Buat Pengumuman</a> -->
                         </div>
                     </div>
                     <div class="card-body p-2">
@@ -18,11 +19,13 @@
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Hari/Tanggal/Jam</th>
+                                        Id Pengumuman</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Tanggal Mulai</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Tema</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Evaluasi</th>
+                                        Isi Pengumuman</th>
                                     </th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Tenggang Waktu</th>
@@ -32,7 +35,25 @@
                                     </th>
                                 </thead>
                                 <tbody class="text-sm">
-                                    <tr class="text-center">
+                                <?php foreach ($listp as $pengumuman) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $pengumuman['id_pengumuman'] ?></td>
+                                        <td><a href="<?= site_url('prodi/pengumuman/' . $pengumuman['id_pengumuman']) ?>"><?= $pengumuman['tanggal_mulai'] ?></a></td>
+                                        <td><?= $pengumuman['tema'] ?></td>
+                                        <td><?= $pengumuman['isi_pengumuman'] ?></td>
+                                        <td><?= $pengumuman['tenggang_waktu'] ?></td>
+                                        <td class="text-center">
+                                            <a href="<?= site_url('prodi/civitas/pengumuman/edit/' . $pengumuman['id_pengumuman']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/pengumuman/delete/' . $pengumuman['id_pengumuman']) ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                                    <!-- <tr class="text-center">
                                         <td>1</td>
                                         <td>Kamis,25 Januari 2002</td>
                                         <td>UAS</td>
@@ -46,7 +67,7 @@
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>

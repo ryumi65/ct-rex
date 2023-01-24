@@ -3,20 +3,13 @@
 
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
-                            <div class="mx-0 col-4 my-1">
-                                <select class="form-select" name="nik_dosen" required>
-                                    <option selected disabled>Pilih Tahun Angkatan</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-3 pt-0">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                             <thead>
-                                <tr>
+                                <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -62,9 +55,9 @@
                                         </div>
                                         <?= form_open('krs/acc') ?>
                                         <div class="modal-body">
-                                            <table class="table table-striped align-items-center ps-3">
+                                            <table class="table table-striped align-items-center" id="table-<?= $mhs['nim'] ?>">
                                                 <thead>
-                                                    <tr>
+                                                    <tr class="bg-gradient-primary text-white">
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                                             No.</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -77,7 +70,7 @@
                                                             Hari</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -91,8 +84,11 @@
                                                                 <td><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
-                                                                <td>
-                                                                    <input class="form-check-input" type="checkbox" name="id_krs[]" value="<?= $krs['id_krs'] ?>">
+                                                                <td class="text-center">
+                                                                    <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
+                                                                    <label class="btn btn-outline-primary px-3 py-2 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
+                                                                    <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="tolak-<?= $krs['id_krs'] ?>" value="T">
+                                                                    <label class="btn btn-outline-danger px-3 py-2 mb-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
                                                                 </td>
                                                             </tr>
                                                     <?php endif;
@@ -114,38 +110,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer pb-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- Alert -->
@@ -168,7 +133,6 @@
                     orderable: false,
                     searchable: false,
                 }],
-
             });
 
             table.on('order.dt search.dt', () => {
@@ -181,6 +145,35 @@
                     this.data(i++);
                 });
             }).draw();
-
         });
+
+        <?php foreach ($lists as $mahasiswa) : ?>
+            let table<?= $mahasiswa['nim'] ?>;
+
+            $(document).ready(() => {
+
+                table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
+
+                    dom: "",
+                    order: [1, 'asc'],
+
+                    columnDefs: [{
+                        targets: [0, 6],
+                        orderable: false,
+                        searchable: false,
+                    }],
+                });
+
+                table<?= $mahasiswa['nim'] ?>.on('order.dt search.dt', () => {
+                    let i = 1;
+
+                    table<?= $mahasiswa['nim'] ?>.cells(null, 0, {
+                        order: 'applied',
+                        search: 'applied',
+                    }).every(function(cell) {
+                        this.data(i++);
+                    });
+                }).draw();
+            });
+        <?php endforeach ?>
     </script>

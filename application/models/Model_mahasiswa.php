@@ -78,4 +78,21 @@ class Model_mahasiswa extends CI_Model {
     public function delete_mahasiswa($nim) {
         return $this->db->delete('mahasiswa', ['nim' => $nim]);
     }
+
+    public function presensi_validation($nim, $id_matkul) {
+        $query = $this->db->from('krs k')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+            ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul])->get();
+
+        if ($query->num_rows() > 0) return true;
+
+        return false;
+    }
+
+    public function get_presensi($nim, $id_matkul, $pertemuan) {
+        $query = $this->db->select('p.kehadiran')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
+            ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+
+        return $query->result_array();
+    }
 }

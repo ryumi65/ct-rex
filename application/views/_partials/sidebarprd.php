@@ -19,7 +19,7 @@
 
                 <!-- Home -->
                 <?php if (uri_string() === 'prodi') {
-                    $navlinkHome = 'nav-link active';
+                    $navlinkHome = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkHome = 'nav-link';
@@ -36,7 +36,7 @@
 
                 <!-- Akademik -->
                 <?php if (fnmatch('prodi/akademik*', uri_string())) {
-                    $navlinkAkd = 'nav-link active';
+                    $navlinkAkd = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkAkd = 'nav-link';
@@ -82,7 +82,7 @@
 
                 <!-- Data Civitas -->
                 <?php if (fnmatch('prodi/civitas*', uri_string())) {
-                    $navlinkData = 'nav-link active';
+                    $navlinkData = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkData = 'nav-link';
@@ -147,7 +147,7 @@
 
                 <!-- Profil -->
                 <?php if (fnmatch('prodi/profil*', uri_string())) {
-                    $navlinkProfil = 'nav-link active';
+                    $navlinkProfil = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkProfil = 'nav-link';

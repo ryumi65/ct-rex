@@ -22,11 +22,19 @@ class Mahasiswa extends CI_Controller
 
         $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $list_sks = $this->model_krs->get_sks($this->session->id);
+        $jumlah_sks = 0;
+
+        for ($i = 0; $i < count($list_sks); $i++) {
+            $sks = intval($list_sks[$i]['sks']);
+            $jumlah_sks += $sks;
+        }
 
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
             'hari' => $list_hari[date('w')],
+            'sks' => $jumlah_sks,
             'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
             'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
@@ -35,8 +43,57 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/dashboard', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
+
+    //==================== CRUD ====================//
+
+    public function create()
+    {
+        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+
+        $this->form_validation->set_rules('nim', 'NIM', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+
+        if (!$this->form_validation->run()) {
+            $this->load->view('mahasiswa/create', $data);
+        } else {
+            $this->model_mahasiswa->set_mahasiswa();
+            redirect('mahasiswa');
+        }
+    }
+
+    public function update($nim)
+    {
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $nim]);
+        $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $nim]);
+        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+
+        if (!$this->form_validation->run()) {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarmhs');
+            $this->load->view('_partials/header');
+            $this->load->view('mahasiswa/update', $data);
+            $this->load->view('_partials/loader');
+            $this->load->view('_partials/script');
+        } else {
+            $this->model_mahasiswa->update_mahasiswa($nim);
+            $this->session->set_userdata('mhssuccess', true);
+            redirect('mahasiswa/profil');
+        }
+    }
+
+    public function update_ortu($nim)
+    {
+        $this->model_mahasiswa->update_ortu($nim);
+        $this->session->set_userdata('ortusuccess', true);
+        redirect('mahasiswa/profil');
+    }
+
+    //==================== PROFIL ====================//
 
     public function profil()
     {
@@ -53,22 +110,21 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/profil', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function jadwalkuliah()
+    public function update_foto()
     {
-        $data = [
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
-            'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'all'),
-        ];
-
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/jadwalkuliah', $data);
+        $this->load->view('akun/foto');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
+
+    //==================== KRS ====================//
 
     public function datakrs()
     {
@@ -99,28 +155,26 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/datakrs1', $data);
+        $this->load->view('mahasiswa/datakrs', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function formkrs()
+    public function formkrs($semester)
     {
         $mahasiswa = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
 
-        $krs = [];
-        for ($i = 1; $i <= 8; $i++) {
-            array_push($krs, $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $i));
-        }
-
         $data = [
             'mahasiswa' => $mahasiswa,
-            'listj' => $krs,
+            'semester' => $semester,
+            'listk' => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $semester),
         ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/formkrs', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -131,83 +185,48 @@ class Mahasiswa extends CI_Controller
         redirect('mahasiswa/perkuliahan/data-krs');
     }
 
-    public function update_foto()
+    //==================== PRESENSI ====================//
+
+    public function jadwalkuliah()
     {
+        $data = [
+            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'all'),
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('akun/foto');
+        $this->load->view('mahasiswa/jadwal', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function create()
+    public function presensi($id_matkul)
     {
-        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+        $matkul = $this->model_mahasiswa->get_db('matkul', ['id_matkul' => $id_matkul]);
+        if (!$this->model_mahasiswa->presensi_validation($this->session->id, $id_matkul)) redirect(strtolower($this->session->access));
 
-        $this->form_validation->set_rules('nim', 'NIM', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $pertemuan = [];
 
-        if (!$this->form_validation->run()) {
-            $this->load->view('mahasiswa/create', $data);
-        } else {
-            $this->model_mahasiswa->set_mahasiswa();
-            redirect('mahasiswa');
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_mahasiswa->get_presensi($this->session->id, $id_matkul, $i);
+
+            foreach ($listp as $presensi) {
+                $pertemuan[] = $presensi['kehadiran'];
+            }
         }
-    }
 
-    public function update($nim)
-    {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $nim]);
-        $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $nim]);
-        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+        $data = [
+            'matkul' => $matkul,
+            'presensi' => $pertemuan,
+        ];
 
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarmhs');
-            $this->load->view('_partials/header');
-            $this->load->view('mahasiswa/update', $data);
-            $this->load->view('_partials/script');
-        } else {
-            $this->model_mahasiswa->update_mahasiswa($nim);
-            $this->session->set_userdata('mhssuccess', true);
-            redirect('mahasiswa/profil');
-        }
-    }
-
-
-    public function update_ortu($nim)
-    {
-        $this->model_mahasiswa->update_ortu($nim);
-        $this->session->set_userdata('ortusuccess', true);
-        redirect('mahasiswa/profil');
-    }
-
-    public function datakhs()
-    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/datakhs');
-        $this->load->view('_partials/script');
-    }
-
-    public function transkrip()
-    {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarmhs');
-        $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/transkrip');
-        $this->load->view('_partials/script');
-    }
-
-    public function presensi()
-    {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarmhs');
-        $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/presensi');
+        $this->load->view('mahasiswa/presensi', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -217,6 +236,29 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/rekapabsen');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    //==================== NILAI ====================//
+
+    public function datakhs()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/datakhs');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function transkrip()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/transkrip');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 }

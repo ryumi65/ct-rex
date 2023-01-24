@@ -19,7 +19,7 @@
 
                 <!-- Home -->
                 <?php if (uri_string() === 'mahasiswa') {
-                    $navlinkHome = 'nav-link active';
+                    $navlinkHome = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkHome = 'nav-link';
@@ -36,7 +36,7 @@
 
                 <!-- Perkuliahan -->
                 <?php if (fnmatch('mahasiswa/perkuliahan*', uri_string())) {
-                    $navlinkPerkuliahan = 'nav-link active';
+                    $navlinkPerkuliahan = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkPerkuliahan = 'nav-link';
@@ -54,11 +54,6 @@
                             <li class="nav-item">
                                 <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/perkuliahan/jadwal-kuliah') ?>">
                                     Jadwal
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('mahasiswa/presensi') ?>">
-                                    Presensi
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -155,7 +150,7 @@
 
                 <!-- Profil -->
                 <?php if (fnmatch('mahasiswa/profil*', uri_string())) {
-                    $navlinkProfil = 'nav-link active';
+                    $navlinkProfil = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkProfil = 'nav-link';

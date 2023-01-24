@@ -7,32 +7,25 @@
                     <div class="card-header p-3">
                         <div>
                             <div class="d-inline d-flex justify-content-between">
-                                <h5>Berita Acara Perkuliahan</h5>
-                                <div class="d-inline d-flex justify-content-end">
-                                    <a class="btn btn-primary btn-sm mx-2" href="formbap"> Buat BAP</a>
-                                </div>
+                                <h5>Pengumuman Universitas</h5>
+                                <a class="btn btn-primary mx-2" href="formbap"> Buat Pengumuman</a>
                             </div>
                         </div>
                         <div class="card-body p-2">
                             <div>
                                 <table class="table align-items-center" id="table">
-                                    <thead class="bg-gradient-primary text-white">
+                                    <thead class="bg-gradient-primary text-white text-center">
                                         <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            TM ke</th>
+                                            No</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Hari/Tanggal/Jam</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            CP.Prodi</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            CP.Mata Kuliah</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Pokok Bahasan</th>
-                                        </th>
+                                            Tema</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Evaluasi</th>
                                         </th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Mhs Hadir</th>
+                                            Tenggang Waktu</th>
                                         </th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Aksi</th>
@@ -41,14 +34,12 @@
                                     <tbody class="text-sm">
                                         <tr class="text-center">
                                             <td>1</td>
-                                            <td>Jumat,25 Januari 2001</td>
-                                            <td>Ilmu Inti Keprodian</td>
-                                            <td class="text-wrap">Memahami ruang lingkup Akuntansi Manajemen, hubungannya dengan Akuntansi Biaya dan Akuntansi Keuangan. Selain itu mahasiswa memahami profesi & kode etik akuntan manajemen</td>
-                                            <td>Role of Management Accountants in Organization</td>
-                                            <td>Sinyal Putus</td>
-                                            <td>80</td>
+                                            <td>Kamis,25 Januari 2002</td>
+                                            <td>UAS</td>
+                                            <td>Telat</td>
+                                            <td>25-27 Januari 2000</td>
                                             <td class="text-center">
-                                                <a class="badge bg-warning px-3 py-2" data-bs-toggle="">
+                                                <a class="badge bg-warning px-3 py-2" href="editpengumuman">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url() ?>')">
@@ -58,9 +49,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="d-inline d-flex justify-content-end">
-                                    <a class="btn btn-primary btn-sm mx-2" href="#">Cetak</a>
-                                </div>
                             </div>
                         </div>
                     </div>

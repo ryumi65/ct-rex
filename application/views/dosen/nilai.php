@@ -7,7 +7,7 @@
                     <div class="card-header p-3 pb-0">
                         <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body pt-0 px-0 pb-3">
+                    <div class="card-body p-3 pt-0">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
@@ -30,7 +30,7 @@
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                             UAS<p class="mb-0"><span class="text-sm">40%</span></p>
                                         </th>
-                                        <th colspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
+                                        <th colspan="3" class="font-weight-bolder text-uppercase text-xs text-center">
                                             Nilai Akhir</th>
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                             Aksi</th>
@@ -40,6 +40,8 @@
                                             Angka</th>
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Huruf</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -54,10 +56,10 @@
                                             <td><?= $mahasiswa['nilai_uas'] ?></td>
                                             <td class="text-center">
                                                 <?php
-                                                $presensi = ($mahasiswa['nilai_presensi'] * 15) / 100;
-                                                $tugas = ($mahasiswa['nilai_tugas'] * 15) / 100;
-                                                $uts = ($mahasiswa['nilai_uts'] * 30) / 100;
-                                                $uas = ($mahasiswa['nilai_uas'] * 40) / 100;
+                                                $presensi = round(($mahasiswa['nilai_presensi'] * 15) / 100, 2);
+                                                $tugas = round(($mahasiswa['nilai_tugas'] * 15) / 100, 2);
+                                                $uts = round(($mahasiswa['nilai_uts'] * 30) / 100, 2);
+                                                $uas = round(($mahasiswa['nilai_uas'] * 40) / 100, 2);
 
                                                 echo $akhir = $presensi + $tugas + $uts + $uas;
                                                 ?>
@@ -75,6 +77,11 @@
                                                 elseif ($akhir < 41) echo 'E';
                                                 ?>
                                             </td>
+                                            <?php
+                                            if ($akhir >= 56 && $akhir <= 100) $button = '<span class="badge bg-gradient-success">Lulus</span>';
+                                            elseif ($akhir >= 0 && $akhir < 56) $button = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                            ?>
+                                            <td class="text-center"><?= $button ?></td>
                                             <td class="d-flex justify-content-center">
                                                 <div class="mx-1" data-bs-toggle="modal" data-bs-target="#id-<?= $mahasiswa['nim'] ?>" style="cursor: pointer; max-width: fit-content;">
                                                     <a class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Input Nilai">
@@ -139,38 +146,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer py-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->
@@ -182,12 +158,11 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
                 responsive: true,
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 9],
+                    targets: [0, 9, 10],
                     orderable: false,
                     searchable: false,
                 }],

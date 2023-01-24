@@ -19,7 +19,7 @@
 
                 <!-- Home -->
                 <?php if (uri_string() === 'fakultas') {
-                    $navlinkHome = 'nav-link active';
+                    $navlinkHome = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkHome = 'nav-link';
@@ -121,7 +121,7 @@
 
                 <!-- Profil -->
                 <?php if (fnmatch('fakultas/profil*', uri_string())) {
-                    $navlinkProfil = 'nav-link active';
+                    $navlinkProfil = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
                     $navlinkProfil = 'nav-link';

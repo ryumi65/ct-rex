@@ -4,7 +4,7 @@
             <!-- Profil -->
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3 pb-0">
                         <h5 class="mb-0">Edit Profil</h5>
                     </div>
                     <div class="card-body p-3">
@@ -160,36 +160,5 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer pb-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>

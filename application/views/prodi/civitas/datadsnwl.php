@@ -12,13 +12,13 @@
                         <div class="card-body px-0">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gradient-primary text-white">
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Dosen</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             JK</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -31,8 +31,8 @@
                                     <?php foreach ($listd as $dosen) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $dosen['nik'] ?></td>
                                             <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                            <td><?= $dosen['nik'] ?></td>
                                             <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
                                             <td><?= $dosen['nidn_dosen'] ?></td>
                                             <td><?= $mhswl[$dosen['nik']] ?></td>
@@ -46,38 +46,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer pb-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->

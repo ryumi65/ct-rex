@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,50 +49,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'login';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['default_controller']                               = 'login';
+$route['404_override']                                     = '';
+$route['translate_uri_dashes']                             = FALSE;
 
-// Akun
-$route['signup'] = 'akun';
-$route['logout'] = 'akun/logout';
+//==================== AKUN ====================//
 
-// Fakultas
-$route['fakultas/profil/edit'] = 'fakultas/update';
+$route['signup']                                           = 'akun';
+$route['logout']                                           = 'akun/logout';
 
-// Prodi
-$route['prodi/akademik/data-matkul'] = 'prodi/datamatkul';
-$route['prodi/akademik/data-matkul/edit/(:any)'] = 'prodi/updatematkul/$1';
-$route['prodi/akademik/data-matkul/delete/(:any)'] = 'matkul/delete/$1';
-$route['prodi/akademik/data-matkul/(:any)'] = 'prodi/detailmatkul/$1';
-$route['prodi/akademik/tambah-matkul'] = 'prodi/creatematkul';
-$route['prodi/akademik/jadwal-kuliah'] = 'prodi/jadwalkuliah';
-$route['prodi/akademik/jadwal-kuliah/edit/(:any)'] = 'prodi/updatejadwal/$1';
-$route['prodi/akademik/jadwal-kuliah/delete/(:any)'] = 'jadwal/delete/$1';
-$route['prodi/akademik/tambah-jadwal'] = 'prodi/createjadwal';
-$route['prodi/civitas/data-dosen'] = 'prodi/datadsn';
-$route['prodi/civitas/data-dosen/(:num)'] = 'prodi/profildsn/$1';
-$route['prodi/civitas/data-dosen/edit/(:num)'] = 'prodi/updatedsn/$1';
-$route['prodi/civitas/data-dosen/delete/(:num)'] = 'prodi/deletedsn/$1';
-$route['prodi/civitas/data-mahasiswa'] = 'prodi/datamhs';
-$route['prodi/civitas/data-mahasiswa/(:num)'] = 'prodi/profilmhs/$1';
-$route['prodi/civitas/data-mahasiswa/edit/(:num)'] = 'prodi/updatemhs/$1';
-$route['prodi/civitas/data-mahasiswa/delete/(:num)'] = 'prodi/deletemhs/$1';
-$route['prodi/civitas/data-dosen-wali'] = 'prodi/datadsnwl';
-$route['prodi/civitas/data-dosen-wali/(:num)'] = 'prodi/datamhswl/$1';
-$route['prodi/civitas/data-dosen-wali/tambah-wali'] = 'prodi/createwali';
+//==================== FAKULTAS ====================//
+
+$route['fakultas/profil/edit']                             = 'fakultas/update';
+
+//==================== PRODI ====================//
+
+$route['prodi/akademik/data-matkul']                       = 'prodi/datamatkul';
+$route['prodi/akademik/data-matkul/edit/(:any)']           = 'prodi/updatematkul/$1';
+$route['prodi/akademik/data-matkul/delete/(:any)']         = 'matkul/delete/$1';
+$route['prodi/akademik/data-matkul/(:any)']                = 'prodi/detailmatkul/$1';
+$route['prodi/akademik/tambah-matkul']                     = 'prodi/creatematkul';
+$route['prodi/akademik/jadwal-kuliah']                     = 'prodi/jadwalkuliah';
+$route['prodi/akademik/jadwal-kuliah/edit/(:any)']         = 'prodi/updatejadwal/$1';
+$route['prodi/akademik/jadwal-kuliah/delete/(:any)']       = 'jadwal/delete/$1';
+$route['prodi/akademik/tambah-jadwal']                     = 'prodi/createjadwal';
+$route['prodi/civitas/data-dosen']                         = 'prodi/datadsn';
+$route['prodi/civitas/data-dosen/(:num)']                  = 'prodi/profildsn/$1';
+$route['prodi/civitas/data-dosen/edit/(:num)']             = 'prodi/updatedsn/$1';
+$route['prodi/civitas/data-dosen/delete/(:num)']           = 'prodi/deletedsn/$1';
+$route['prodi/civitas/data-mahasiswa']                     = 'prodi/datamhs';
+$route['prodi/civitas/data-mahasiswa/(:num)']              = 'prodi/profilmhs/$1';
+$route['prodi/civitas/data-mahasiswa/edit/(:num)']         = 'prodi/updatemhs/$1';
+$route['prodi/civitas/data-mahasiswa/delete/(:num)']       = 'prodi/deletemhs/$1';
+$route['prodi/civitas/data-dosen-wali']                    = 'prodi/datadsnwl';
+$route['prodi/civitas/data-dosen-wali/(:num)']             = 'prodi/datamhswl/$1';
+$route['prodi/civitas/data-dosen-wali/tambah-wali']        = 'prodi/createwali';
 $route['prodi/civitas/hapus-mahasiswa-wali/(:num)/(:num)'] = 'prodi/deletemhswl/$1/$2';
-$route['prodi/profil/edit'] = 'prodi/update';
+$route['prodi/profil/edit']                                = 'prodi/update';
 
-// Dosen
-$route['dosen/perkuliahan/mata-kuliah'] = 'dosen/jadwalkuliah';
-$route['dosen/bimbingan/akademik'] = 'dosen/bimbinganakademik';
-$route['dosen/profil/edit/foto'] = 'dosen/update_foto';
-$route['dosen/profil/edit/(:num)'] = 'dosen/update/$1';
+//==================== DOSEN ====================//
 
-// Mahasiswa
-$route['mahasiswa/profil/edit/foto'] = 'mahasiswa/update_foto';
-$route['mahasiswa/perkuliahan/data-krs'] = 'mahasiswa/datakrs';
-$route['mahasiswa/perkuliahan/tambah-krs'] = 'mahasiswa/formkrs';
-$route['mahasiswa/perkuliahan/jadwal-kuliah'] = 'mahasiswa/jadwalkuliah';
-$route['mahasiswa/profil/edit/(:num)'] = 'mahasiswa/update/$1';
+$route['dosen/perkuliahan/mata-kuliah']                    = 'dosen/jadwalkuliah';
+$route['dosen/perkuliahan/presensi/(:num)']                = 'dosen/rekapabsen/$1';
+$route['dosen/perkuliahan/presensi/(:num)/input']          = 'dosen/inputabsen/$1';
+$route['dosen/perkuliahan/presensi/(:num)/update/(:num)']  = 'dosen/updateabsen/$1/$2';
+$route['dosen/perkuliahan/nilai/(:num)']                   = 'dosen/nilai/$1';
+$route['dosen/bimbingan/mahasiswa-wali']                   = 'dosen/daftarmhswali';
+$route['dosen/bimbingan/mahasiswa-wali/(:num)']            = 'dosen/berkasmhs/$1';
+$route['dosen/bimbingan/akademik']                         = 'dosen/bimbinganakademik';
+$route['dosen/profil/edit/foto']                           = 'dosen/update_foto';
+$route['dosen/profil/edit/(:num)']                         = 'dosen/update/$1';
+
+//==================== MAHASISWA ====================//
+
+$route['mahasiswa/perkuliahan/data-krs']                   = 'mahasiswa/datakrs';
+$route['mahasiswa/perkuliahan/data-krs/(:num)/tambah']     = 'mahasiswa/formkrs/$1';
+$route['mahasiswa/perkuliahan/jadwal-kuliah']              = 'mahasiswa/jadwalkuliah';
+$route['mahasiswa/perkuliahan/presensi/(:num)']            = 'mahasiswa/presensi/$1';
+$route['mahasiswa/profil/edit/foto']                       = 'mahasiswa/update_foto';
+$route['mahasiswa/profil/edit/(:num)']                     = 'mahasiswa/update/$1';

@@ -5,28 +5,42 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class="d-flex justify-content-between">
+                        <div class=" d-flex justify-content-between flex-wrap">
                             <h5>Presensi <?= $matkul['nama'] ?></h5>
-                            <a href="<?= site_url('dosen/inputabsen/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm">input Absen</a>
+                            <div class="d-flex justify-content-end">
+                                <div class="dropdown">
+                                    <a class="btn btn-primary btn-sm dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Edit Absen
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                            <?php if ($pertemuan[$i - 1] === 'true') : ?>
+                                                <li><a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/update/' . $i) ?>">Pertemuan <?= $i ?></a></li>
+                                            <?php endif ?>
+                                        <?php endfor ?>
+                                    </ul>
+                                </div>
+                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">Input Absen</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                            <table class="table table-striped align-items-center mb-0 ps-3 pe-1" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No.</th>
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Nama Mahasiswa</th>
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIM</th>
                                         <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
                                             Pertemuan</th>
                                     </tr>
                                     <tr class="bg-gradient-primary text-white">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            <th class="font-weight-bolder text-uppercase text-xs px-3 text-center">
                                                 <?= $i ?>
                                             </th>
                                         <?php endfor ?>
@@ -36,53 +50,46 @@
                                     <?php foreach ($listm as $mahasiswa) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $mahasiswa['nim'] ?></td>
                                             <td><?= $mahasiswa['nama'] ?></td>
-                                            <?php for ($i = 0; $i < 16; $i++) : ?>
-                                                <td class="text-center">-</td>
-                                            <?php endfor ?>
+                                            <td><?= $mahasiswa['nim'] ?></td>
+                                            <?php for ($i = 0; $i < 16; $i++) {
+                                                if (isset($presensi[$mahasiswa['id_krs']][$i])) {
+                                                    switch ($presensi[$mahasiswa['id_krs']][$i]) {
+                                                        case 'Hadir':
+                                                            echo '<td class="text-center"><span class="badge bg-primary">H</span></td>';
+                                                            break;
+                                                        case 'Izin':
+                                                            echo '<td class="text-center"><span class="badge bg-info">I</span></td>';
+                                                            break;
+                                                        case 'Sakit':
+                                                            echo '<td class="text-center"><span class="badge bg-dark">S</span></td>';
+                                                            break;
+                                                        case 'Alfa':
+                                                            echo '<td class="text-center"><span class="badge bg-danger">A</span></td>';
+                                                            break;
+                                                    }
+                                                } else echo '<td class="text-center">-</td>';
+                                            } ?>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <div class="card-footer p-3">
+                        <h6>Keterangan</h6>
+                        <div class="d-flex gap-3">
+                            <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
+                            <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
+                            <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
+                            <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer py-3">
-
-            <!-- Logo Medsos -->
-            <div class="container mx-auto text-center my-2">
-                <a href="https://www.youtube.com/channel/UCdo5vics8bEFAd9h6aghLYQ" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://id-id.facebook.com/universitasmuhammadiyahbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@umbandung" target="_blank" class="text-secondary mx-3">
-                    <i class="text-lg fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-
-            <!-- Copyright -->
-            <div class="container mx-auto text-center">
-                <p class="mb-0 text-secondary text-xs">
-                    Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Universitas Muhammadiyah Bandung. All Rights Reserved.
-                </p>
-            </div>
-        </footer>
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->
@@ -94,11 +101,11 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
-                order: [1, 'asc'],
+                responsive: true,
+                order: [2, 'asc'],
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
                     orderable: false,
                     searchable: false,
                 }],

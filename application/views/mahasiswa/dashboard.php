@@ -21,6 +21,9 @@
         $jumlah_mk++;
     } ?>
 
+
+
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
@@ -176,6 +179,7 @@
         <?php $this->load->view('_partials/footer') ?>
     </div>
 
+
     <!-- Chart -->
     <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
     <script>
@@ -270,6 +274,7 @@
     </script>
 
     <!-- JQuery -->
+
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
         let table;

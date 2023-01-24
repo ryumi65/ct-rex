@@ -2,9 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 
-class Dosen extends CI_Controller {
+class Dosen extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_dosen');
         $this->load->model('model_jadwal');
@@ -14,7 +16,8 @@ class Dosen extends CI_Controller {
         if ($this->session->level != 3) redirect(strtolower($this->session->access));
     }
 
-    public function index() {
+    public function index()
+    {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
@@ -33,10 +36,12 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/dashboard', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function profil() {
+    public function profil()
+    {
         $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -50,10 +55,12 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/profil', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function jadwalkuliah() {
+    public function jadwalkuliah()
+    {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id, 'all'),
@@ -63,18 +70,22 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/jadwal', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function update_foto() {
+    public function update_foto()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('akun/foto');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function create() {
+    public function create()
+    {
         $data['listp'] = $this->model_dosen->get_db('prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -100,7 +111,8 @@ class Dosen extends CI_Controller {
         }
     }
 
-    public function update($nik) {
+    public function update($nik)
+    {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $nik]),
             'listp' => $this->model_dosen->get_db('prodi'),
@@ -115,6 +127,7 @@ class Dosen extends CI_Controller {
             $this->load->view('_partials/sidebardsn');
             $this->load->view('_partials/header');
             $this->load->view('dosen/update', $data);
+            $this->load->view('_partials/loader');
             $this->load->view('_partials/script');
         } else {
             $this->model_dosen->update_dosen($nik);
@@ -125,15 +138,18 @@ class Dosen extends CI_Controller {
 
     //==================== ABSEN ====================//
 
-    public function absen() {
+    public function absen()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/absen');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function rekapabsen($id_matkul) {
+    public function rekapabsen($id_matkul)
+    {
         $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -162,10 +178,12 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/rekapabsen', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function inputabsen($id_matkul) {
+    public function inputabsen($id_matkul)
+    {
         $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -178,10 +196,12 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/inputabsen', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function updateabsen($id_matkul, $pertemuan) {
+    public function updateabsen($id_matkul, $pertemuan)
+    {
         $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -196,22 +216,26 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/updateabsen', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function inputpresensi($id_matkul) {
+    public function inputpresensi($id_matkul)
+    {
         $this->model_dosen->set_presensi($id_matkul);
         redirect('dosen/perkuliahan/presensi/' . $id_matkul);
     }
 
-    public function updatepresensi($id_matkul, $pertemuan) {
+    public function updatepresensi($id_matkul, $pertemuan)
+    {
         $this->model_dosen->update_presensi($id_matkul, $pertemuan);
         redirect('dosen/perkuliahan/presensi/' . $id_matkul);
     }
 
     //==================== NILAI ====================//
 
-    public function nilai($id_matkul) {
+    public function nilai($id_matkul)
+    {
         $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -224,26 +248,31 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/nilai', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function setnilai($id_matkul, $id_krs) {
+    public function setnilai($id_matkul, $id_krs)
+    {
         $this->model_dosen->set_nilai($id_krs);
 
         redirect('dosen/nilai/' . $id_matkul);
     }
 
-    public function transkripmatkul() {
+    public function transkripmatkul()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/listmatkuldiampu');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
     //==================== BIMBINGAN ====================//
 
-    public function bimbinganakademik() {
+    public function bimbinganakademik()
+    {
         $lists = [];
         $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
 
@@ -267,10 +296,12 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('dosen/bimbinganakademik', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function daftarmhswali() {
+    public function daftarmhswali()
+    {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
@@ -280,11 +311,13 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/daftarmhswali', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
     // BERKAS MAHASISWA BIMBINGAN
-    public function berkasmhs($nim) {
+    public function berkasmhs($nim)
+    {
         $mahasiswa = $this->model_dosen->get_db('mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -316,31 +349,38 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/berkasmhs', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
     // BAP
-    public function listmatkulbap() {
+    public function listmatkulbap()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/listmatkulbap');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function listbap() {
+    public function listbap()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/listbap');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-    public function formbap() {
+    public function formbap()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/formbap');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 }

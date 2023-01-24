@@ -41,7 +41,7 @@
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Huruf</th>
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Warna</th>
+                                            Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-sm">
@@ -78,10 +78,10 @@
                                                 ?>
                                             </td>
                                             <?php
-                                            if ($akhir >= 56 && $akhir <= 100) $color = '#34a853';
-                                            elseif ($akhir >= 0 && $akhir < 56) $color = '#ea4335';
+                                            if ($akhir >= 56 && $akhir <= 100) $button = '<span class="badge bg-gradient-success">Lulus</span>';
+                                            elseif ($akhir >= 0 && $akhir < 56) $button = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
                                             ?>
-                                            <td style="background-color: <?= $color ?>"></td>
+                                            <td class="text-center"><?= $button ?></td>
                                             <td class="d-flex justify-content-center">
                                                 <div class="mx-1" data-bs-toggle="modal" data-bs-target="#id-<?= $mahasiswa['nim'] ?>" style="cursor: pointer; max-width: fit-content;">
                                                     <a class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Input Nilai">

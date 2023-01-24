@@ -80,7 +80,7 @@
                          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                              <i class="fa-solid fa-book" style="color: #000"></i>
                          </div>
-                         <span class="nav-link-text ms-1">Data CIvitas</span>
+                         <span class="nav-link-text ms-1">Data Civitas</span>
                      </a>
                      <div class="collapse" id="datacivitas">
                          <ul class="nav ms-4 ps-3">

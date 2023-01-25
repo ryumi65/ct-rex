@@ -48,8 +48,8 @@
                         <div class="d-flex justify-content-between">
                             <h5>Profil Anda</h5>
                             <div class="text-end">
-                                <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>">
-                                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>" class="btn btn-primary btn-sm">
+                                    Edit Profil
                                 </a>
                             </div>
                         </div>

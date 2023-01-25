@@ -67,8 +67,8 @@
                                         <h5 class="mb-0">Profil Mahasiswa</h5>
                                     </div>
                                     <div class="col-md-4 text-end">
-                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
-                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">
+                                            Edit Profil
                                         </a>
                                     </div>
                                 </div>
@@ -211,8 +211,8 @@
                                         <h5 class="mb-0">Profil Orang Tua/Wali</h5>
                                     </div>
                                     <div class="col-md-4 text-end">
-                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>">
-                                            <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                                        <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">
+                                            Edit Profil
                                         </a>
                                     </div>
                                 </div>

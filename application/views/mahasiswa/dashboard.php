@@ -141,24 +141,6 @@
                         </div>
                     </div>
 
-                    <!-- Pengumuman Universitas -->
-                    <div class="card mb-3" id="card-pop">
-                        <div class="card-header bg-gradient-primary p-3 pb-0">
-                            <h5 class="text-white">Pengumuman Universitas</h5>
-                        </div>
-                        <div class="card-body p-3 pt-0">
-                            <div class="row">
-                                <div class="d-flex flex-column h-100">
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                        Read More
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Pengumuman Fakultas -->
                     <div class="card mb-3" id="card-pop">
                         <div class="card-header bg-gradient-info p-3 pb-0">
@@ -168,10 +150,85 @@
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#fakultasModal">
                                         Read More
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Modal Fakultas -->
+                    <div class="modal fade" id="fakultasModal" tabindex="-1" aria-labelledby="fakultasModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pengumuman Fakultas</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="table-responsive">
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Cetak</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pengumuman Universitas -->
+                    <div class="card mb-3" id="card-pop">
+                        <div class="card-header bg-gradient-primary p-3 pb-0">
+                            <h5 class="text-white">Pengumuman Universitas</h5>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="row">
+                                <div class="d-flex flex-column h-100">
+                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#univModal">
+                                        Read More
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--modal univ -->
+                    <div class="modal fade" id="univModal" tabindex="-1" aria-labelledby="univModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pengumuman Universitas</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
+                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Cetak</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +261,7 @@
         new Chart(ctx2, {
             type: "line",
             data: {
-                labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+                labels: ["1", ],
                 datasets: [{
                     label: "Indeks Prestasi Kumulatif",
                     tension: 0.1,

@@ -282,7 +282,38 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function daftarmhswali() {
+
+    public function acckrs()
+    {
+        $lists = [];
+        $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+
+        foreach ($listm as $mhs) {
+            $lists[] = [
+                'nim' => $mhs['nim'],
+                'nama' => $mhs['nama'],
+                'jenis_kelamin' => $mhs['jenis_kelamin'],
+                'tahun_angkatan' => $mhs['tahun_angkatan'],
+                'status' => $mhs['status'],
+                'listj' => $this->model_krs->get_krs($mhs['nim']),
+            ];
+        }
+
+        $data = [
+            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'lists' => $lists,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/header');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('dosen/acckrs', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function daftarmhswali()
+    {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result'),

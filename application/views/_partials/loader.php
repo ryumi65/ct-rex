@@ -8,7 +8,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: 2s;
+        transition: 1.5s;
     }
 
     .wheel-and-hamster {
@@ -17,6 +17,7 @@
         width: 12em;
         height: 12em;
         font-size: 14px;
+        transition: 2s;
     }
 
     .wheel,
@@ -365,6 +366,10 @@
         opacity: 0;
         pointer-events: none;
     }
+
+    .wheel-and-hamster-finish {
+        opacity: 0;
+    }
 </style>
 
 
@@ -394,6 +399,9 @@
 <script>
     window.addEventListener("load", () => {
         const preload = document.querySelector(".preload");
+        const wheelhamster = document.querySelector(".wheel-and-hamster");
+
         preload.classList.add("preload-finish");
+        wheelhamster.classList.add("wheel-and-hamster-finish");
     });
 </script>

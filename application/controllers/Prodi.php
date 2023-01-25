@@ -387,47 +387,8 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    //==================== PENGUMUMAN ====================//
 
-    // KRS MAHASISWA
-    public function krsmhs() {
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/krsmhs');
-        $this->load->view('_partials/script');
-    }
-
-
-    public function datakrs() {
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/datakrs');
-        $this->load->view('_partials/script');
-    }
-
-    // KHS MAHASISWA
-    public function khsmhs() {
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/khsmhs');
-        $this->load->view('_partials/script');
-    }
-
-
-    public function datakhs() {
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/datakhs');
-        $this->load->view('_partials/script');
-    }
-    // pengumuman
     public function pengumuman() {
         $data = [
             'listp' => $this->model_prodi->get_db('pengumuman'),

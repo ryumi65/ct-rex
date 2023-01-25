@@ -10,7 +10,7 @@
                             <div class="d-flex justify-content-end">
                                 <div class="dropdown">
                                     <a class="btn btn-primary btn-sm dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Edit Presensi
+                                        Ubah Presensi
                                     </a>
                                     <ul class="dropdown-menu">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>

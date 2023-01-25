@@ -2,38 +2,114 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Daftar Matkul dari KRS -->
-            <div class="col-12">
-                <div class="card mt-2">
-                    <div class="card-header pb-0 d-inline d-flex justify-content-between">
-                        <h4 class="mb-0">Daftar Kartu Hasil Studi</h4>
+            <div class="col-12 my-3">
+                <div class="card">
+                    <div class="card-header p-3 pb-0 d-inline d-flex justify-content-between">
+                        <h5>Daftar Kartu Hasil Studi</h5>
                         <p> IPK Saat Ini</p>
                         <p>4.00</p>
                     </div>
 
-                    <!-- card semester -->
-                    <div class="row g-4 mx-1 mt-2 mb-4">
-                        <div class="col-12 col-md-4">
-                            <div class="card h-100 shadow">
-                                <div class="card-body my-2">
-                                    <h5 class="card-title">Semester 1 </h5>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
-                                        <p class="mb-0"></p>
+                    <!-- Card Semester -->
+                    <div class="card-body p-3 pt-0">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+                                <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-27.png'); background-size: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white fw-bolder">Semester 1</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">IP</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="font-weight-normal mb-0">Jumlah SKS </p>
-                                        <p class="mb-0"></p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="font-weight-normal mb-0">IPS</p>
-                                        <p class="mb-0"></p>
+                                    <div class="card-footer pt-0">
+                                        <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester">
+                                            <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="mb-3 mx-4">
-                                    <a class=" text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Lihat Detail
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+                                <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-28.png'); background-size: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white fw-bolder">Semester 2</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">IP</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer pt-0">
+                                        <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester">
+                                            <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+                                <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-29.png'); background-size: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white fw-bolder">Semester 3</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">IP</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer pt-0">
+                                        <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester">
+                                            <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+                                <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-30.png'); background-size: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white fw-bolder">Semester 4</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="font-weight-normal mb-0">IP</p>
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer pt-0">
+                                        <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester">
+                                            <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

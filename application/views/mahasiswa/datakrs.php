@@ -14,9 +14,9 @@
                         <div class="row g-3">
                             <?php for ($i = 1; $i <= 8; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer" id="card-pop">
+                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-30.png'); background-size: cover;">
                                         <div class="card-body">
-                                            <h5 class="card-title">Semester <?= $i ?></h5>
+                                            <h5 class="card-title text-white fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
                                                 <p class="mb-0"><?= $listm[$i - 1] ?></p>
@@ -27,9 +27,8 @@
                                             </div>
                                         </div>
                                         <div class="card-footer pt-0">
-                                            <a class="stretched-link text-body text-sm font-weight-bold icon-move-right mb-0" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">
-                                                Lihat Detail
-                                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                            <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">
+                                                <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
                                             </a>
                                         </div>
                                     </div>

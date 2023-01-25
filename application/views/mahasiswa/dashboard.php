@@ -150,6 +150,24 @@
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
+                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                        Read More
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pengumuman Universitas -->
+                    <div class="card mb-3" id="card-pop">
+                        <div class="card-header bg-gradient-primary p-3 pb-0">
+                            <h5 class="text-white">Pengumuman Universitas</h5>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="row">
+                                <div class="d-flex flex-column h-100">
+                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                     <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#fakultasModal">
                                         Read More
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>

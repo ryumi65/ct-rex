@@ -60,27 +60,32 @@ class Model_dosen extends CI_Model {
         return $query->result_array();
     }
 
-    public function set_nilai($id_krs) {
-        if ($this->input->post('nilai_presensi') > 100) $np = 100;
-        else $np = $this->input->post('nilai_presensi');
+    public function set_nilai($id_matkul) {
+        $query = $this->db->from('matkul m')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
+            ->where('m.id_matkul', $id_matkul)->get()->result_array();
 
-        if ($this->input->post('nilai_tugas') > 100) $nt = 100;
-        else $nt = $this->input->post('nilai_tugas');
+        foreach ($query as $krs) {
+            $presensi = $this->input->post('nilai-presensi-' . $krs['id_krs']);
+            $tugas = $this->input->post('nilai-tugas-' . $krs['id_krs']);
+            $uts = $this->input->post('nilai-uts-' . $krs['id_krs']);
+            $uas = $this->input->post('nilai-uas-' . $krs['id_krs']);
 
-        if ($this->input->post('nilai_uts') > 100) $nuts = 100;
-        else $nuts = $this->input->post('nilai_uts');
+            if (isset($presensi) && isset($tugas) && isset($uts) && isset($uas)) {
+                if ($presensi > 100) $presensi = 100;
+                if ($tugas > 100) $tugas = 100;
+                if ($uts > 100) $uts = 100;
+                if ($uas > 100) $uas = 100;
 
-        if ($this->input->post('nilai_uas') > 100) $nuas = 100;
-        else $nuas = $this->input->post('nilai_uas');
+                $data = [
+                    'nilai_presensi' => $presensi,
+                    'nilai_tugas' => $tugas,
+                    'nilai_uts' => $uts,
+                    'nilai_uas' => $uas,
+                ];
 
-        $data = [
-            'nilai_presensi' => $np,
-            'nilai_tugas' => $nt,
-            'nilai_uts' => $nuts,
-            'nilai_uas' => $nuas,
-        ];
-
-        return $this->db->update('krs', $data, ['id_krs' => $id_krs]);
+                $this->db->update('krs', $data, ['id_krs' => $krs['id_krs']]);
+            }
+        }
     }
 
     public function get_presensi($id_matkul, $pertemuan, $type = '') {

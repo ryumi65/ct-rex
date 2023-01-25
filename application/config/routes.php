@@ -93,6 +93,7 @@ $route['dosen/perkuliahan/presensi/(:num)']                = 'dosen/rekapabsen/$
 $route['dosen/perkuliahan/presensi/(:num)/input']          = 'dosen/inputabsen/$1';
 $route['dosen/perkuliahan/presensi/(:num)/update/(:num)']  = 'dosen/updateabsen/$1/$2';
 $route['dosen/perkuliahan/nilai/(:num)']                   = 'dosen/nilai/$1';
+$route['dosen/perkuliahan/nilai/(:num)/input']             = 'dosen/inputnilai/$1';
 $route['dosen/bimbingan/mahasiswa-wali']                   = 'dosen/daftarmhswali';
 $route['dosen/bimbingan/mahasiswa-wali/(:num)']            = 'dosen/berkasmhs/$1';
 $route['dosen/bimbingan/akademik']                         = 'dosen/bimbinganakademik';

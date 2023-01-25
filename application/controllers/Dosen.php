@@ -237,10 +237,27 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function setnilai($id_matkul, $id_krs) {
-        $this->model_dosen->set_nilai($id_krs);
+    public function inputnilai($id_matkul) {
+        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
-        redirect('dosen/nilai/' . $id_matkul);
+        $data = [
+            'matkul' => $matkul,
+            'listm' => $this->model_dosen->get_mhs($id_matkul, $this->session->id),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/inputnilai', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function setnilai($id_matkul) {
+        $this->model_dosen->set_nilai($id_matkul);
+
+        redirect('dosen/perkuliahan/nilai/' . $id_matkul);
     }
 
     public function transkripmatkul() {
@@ -283,8 +300,7 @@ class Dosen extends CI_Controller {
     }
 
 
-    public function acckrs()
-    {
+    public function acckrs() {
         $lists = [];
         $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
 
@@ -312,8 +328,7 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function daftarmhswali()
-    {
+    public function daftarmhswali() {
         $data = [
             'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result'),

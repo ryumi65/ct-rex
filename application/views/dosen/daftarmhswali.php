@@ -38,7 +38,7 @@
                                             <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                             <td><?= $mahasiswa['status'] ?></td>
                                             <td class="text-center">
-                                                <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Berkas">
+                                                <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
                                                     <i class="fa-solid fa-book-bookmark"></i>
                                                 </a>
                                             </td>

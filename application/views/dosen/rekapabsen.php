@@ -10,7 +10,7 @@
                             <div class="d-flex justify-content-end">
                                 <div class="dropdown">
                                     <a class="btn btn-primary btn-sm dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Edit Absen
+                                        Edit Presensi
                                     </a>
                                     <ul class="dropdown-menu">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
@@ -20,7 +20,7 @@
                                         <?php endfor ?>
                                     </ul>
                                 </div>
-                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">Input Absen</a>
+                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">Input Presensi</a>
                             </div>
                         </div>
                     </div>

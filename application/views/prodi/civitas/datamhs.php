@@ -38,17 +38,17 @@
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= $mahasiswa['nama'] ?></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= $mahasiswa['status'] ?></td>
                                         <td class="text-center">
-                                            <a href="<?= site_url('prodi/civitas/data-mahasiswa/edit/' . $mahasiswa['nim']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                <i class="fa-solid fa-user"></i>
                                             </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-mahasiswa/delete/' . $mahasiswa['nim']) ?>')">
-                                                <i class="fa-solid fa-trash-can"></i>
+                                            <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/akademik') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
+                                                <i class="fa-solid fa-chalkboard-user"></i>
                                             </a>
                                         </td>
                                     </tr>

@@ -8,6 +8,7 @@ class Prodi extends CI_Controller {
         $this->load->model('model_prodi');
         $this->load->model('model_dosen');
         $this->load->model('model_jadwal');
+        $this->load->model('model_krs');
         $this->load->model('model_mahasiswa');
         $this->load->model('model_matkul');
         $this->load->model('model_pengumuman');
@@ -157,6 +158,9 @@ class Prodi extends CI_Controller {
     }
 
     public function profilmhs($nim) {
+        $mahasiswa = $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]);
+        if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
         $data = [
             'prodi' => $this->model_prodi->get_db('prodi', ['id_prodi' => $this->session->id]),
             'listp' => $this->model_prodi->get_db('prodi'),
@@ -170,29 +174,40 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function updatemhs($nim) {
+    public function berkasmhs($nim) {
+        $mahasiswa = $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]);
+        if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $krs = [];
+        $mk = [];
+        $sks_smt = [];
+
+        for ($i = 1; $i <= 8; $i++) {
+            $jumlah_sks = 0;
+            $list_sks = $this->model_krs->get_sks($nim, $i);
+
+            for ($j = 0; $j < count($list_sks); $j++) {
+                $sks = intval($list_sks[$j]['sks']);
+                $jumlah_sks += $sks;
+            }
+
+            array_push($krs, $this->model_krs->get_krs_smt($nim, $i));
+            array_push($mk, $this->model_krs->get_mk($nim, $i));
+            array_push($sks_smt, $jumlah_sks);
+        }
+
         $data = [
-            'mahasiswa' => $this->model_prodi->get_db('mahasiswa', ['nim' => $nim]),
-            'listp' => $this->model_prodi->get_db('prodi'),
+            'mahasiswa' => $mahasiswa,
+            'listk' => $krs,
+            'listm' => $mk,
+            'lists' => $sks_smt,
         ];
 
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('_partials/head');
-            $this->load->view('_partials/sidebarprd');
-            $this->load->view('_partials/header');
-            $this->load->view('prodi/civitas/updatemhs', $data);
-            $this->load->view('_partials/script');
-        } else {
-            $this->model_mahasiswa->update_mahasiswa($nim);
-            redirect('prodi/civitas/data-mahasiswa');
-        }
-    }
-
-    public function deletemhs($nim) {
-        $this->model_mahasiswa->delete_mahasiswa($nim);
-        redirect('prodi/civitas/data-mahasiswa');
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/berkasmhs', $data);
+        $this->load->view('_partials/script');
     }
 
     //==================== WALI ====================//
@@ -413,8 +428,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
     // pengumuman
-    public function pengumuman()
-    {
+    public function pengumuman() {
         $data = [
             'listp' => $this->model_prodi->get_db('pengumuman'),
         ];
@@ -426,8 +440,7 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function inputpengumuman()
-    {
+    public function inputpengumuman() {
         $data = [
             'listp' => $this->model_pengumuman->get_db('pengumuman'),
         ];
@@ -439,14 +452,12 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function set_pengumuman()
-    {
+    public function set_pengumuman() {
         $this->model_pengumuman->set_pengumuman();
         redirect('prodi/pengumuman');
     }
 
-    public function deletepengumuman()
-    {
+    public function deletepengumuman() {
         $this->model_pengumuman->delete_pengumuman();
         redirect('prodi/pengumuman');
     }

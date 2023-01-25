@@ -31,7 +31,7 @@
                                 <?php foreach ($listd as $dosen) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><a href="<?= site_url('prodi/civitas/data-dosen/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                        <td><a href="<?= site_url('prodi/civitas/data-dosen/' . $dosen['nik'] . '/profil') ?>"><?= $dosen['nama'] ?></a></td>
                                         <td><?= $dosen['nik'] ?></td>
                                         <td><?= $dosen['jenis_kelamin'] ?></td>
                                         <td><?= $dosen['nidn_dosen'] ?></td>

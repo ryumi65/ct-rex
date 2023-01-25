@@ -62,16 +62,6 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/krsmhs') ?>">
-                                    KRS
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('prodi/khsmhs') ?>">
-                                    KHS
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
                                     Kuisioner Dosen
                                 </a>

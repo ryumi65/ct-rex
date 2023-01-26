@@ -62,7 +62,7 @@ class Model_krs extends CI_Model {
     }
 
     public function get_krs_smt($nim, $semester) {
-        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status')
+        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai_presensi, k.nilai_tugas, k.nilai_uts, k.nilai_uas')
             ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
             ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
 

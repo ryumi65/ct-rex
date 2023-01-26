@@ -21,9 +21,6 @@
         $jumlah_mk++;
     } ?>
 
-
-
-
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
@@ -150,24 +147,6 @@
                             <div class="row">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
-                                    <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                                        Read More
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pengumuman Universitas -->
-                    <div class="card mb-3" id="card-pop">
-                        <div class="card-header bg-gradient-primary p-3 pb-0">
-                            <h5 class="text-white">Pengumuman Universitas</h5>
-                        </div>
-                        <div class="card-body p-3 pt-0">
-                            <div class="row">
-                                <div class="d-flex flex-column h-100">
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et.</p>
                                     <a class="stretched-link text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" data-bs-toggle="modal" data-bs-target="#fakultasModal">
                                         Read More
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
@@ -176,7 +155,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Modal Fakultas -->
                     <div class="modal fade" id="fakultasModal" tabindex="-1" aria-labelledby="fakultasModalLabel" aria-hidden="true">
@@ -258,7 +236,6 @@
         <?php $this->load->view('_partials/footer') ?>
     </div>
 
-
     <!-- Chart -->
     <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
     <script>
@@ -279,9 +256,9 @@
         new Chart(ctx2, {
             type: "line",
             data: {
-                labels: ["1", ],
+                labels: [1, 2, 3, 4, 5, 6, 7, 8],
                 datasets: [{
-                    label: "Indeks Prestasi Kumulatif",
+                    label: "Indeks Prestasi",
                     tension: 0.1,
                     borderWidth: 0,
                     pointRadius: 0,
@@ -289,7 +266,11 @@
                     borderWidth: 3,
                     backgroundColor: gradientStroke1,
                     fill: true,
-                    data: [3.55, 3.60, 3.45, 3.60, 3.55, 3.50, 3.40, 3.70],
+                    data: [
+                        <?php foreach ($listip as $ip) {
+                            echo $ip . ', ';
+                        } ?>
+                    ],
                     maxBarThickness: 3
 
                 }, ],

@@ -14,15 +14,15 @@
                         <div class="row g-3">
                             <?php for ($i = 1; $i <= 8; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-30.png'); background-size: cover;">
+                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-28.png'); background-size: cover;">
                                         <div class="card-body">
                                             <h5 class="card-title text-white fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
-                                                <p class="font-weight-normal mb-0">Jumlah Mata Kuliah</p>
+                                                <p class="font-weight-normal mb-0">Total Mata Kuliah</p>
                                                 <p class="mb-0"><?= $listm[$i - 1] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
-                                                <p class="font-weight-normal mb-0">Jumlah sks</p>
+                                                <p class="font-weight-normal mb-0">Total sks</p>
                                                 <p class="mb-0"><?= $lists[$i - 1] ?></p>
                                             </div>
                                         </div>
@@ -49,68 +49,66 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped align-items-center" id="table<?= $i ?>">
-                                        <thead>
-                                            <tr class="bg-gradient-primary text-white">
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                                    No.</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Kode MK</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Nama MK</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Total SKS</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Dosen Pengampu</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Hari</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Waktu</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                    Ruangan</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                                    Status</th>
-                                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                                    Aksi</th>
+                                <table class="table table-striped align-items-center" id="table<?= $i ?>">
+                                    <thead>
+                                        <tr class="bg-gradient-primary text-white">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                No.</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Kode MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Nama MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                SKS</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Dosen Pengampu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Hari</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Waktu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Ruangan</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                Status</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <?php foreach ($listk[$i - 1] as $krs) : ?>
+                                            <tr>
+                                                <td></td>
+                                                <td><?= $krs['kode'] ?></td>
+                                                <td><?= $krs['nama'] ?></td>
+                                                <td><?= $krs['sks'] ?></td>
+                                                <td><?= $krs['dosen'] ?></td>
+                                                <td><?= $krs['hari'] ?></td>
+                                                <td><?= $krs['waktu'] ?></td>
+                                                <td><?= $krs['ruangan'] ?></td>
+                                                <td class="text-center">
+                                                    <?php if ($krs['status'] === 'Y') : ?>
+                                                        <span class="badge bg-gradient-success">Aktif</span>
+                                                    <?php elseif ($krs['status'] === 'N') : ?>
+                                                        <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
+                                                    <?php elseif ($krs['status'] === 'T') : ?>
+                                                        <span class="badge bg-gradient-danger">Ditolak</span>
+                                                    <?php endif ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php if ($krs['status'] === 'Y') : ?>
+                                                        <span class="badge bg-secondary px-3 py-2">
+                                                            <i class="fa-solid fa-trash-can"></i>
+                                                        </span>
+                                                    <?php else : ?>
+                                                        <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
+                                                            <i class="fa-solid fa-trash-can"></i>
+                                                        </a>
+                                                    <?php endif ?>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody class="text-sm">
-                                            <?php foreach ($listk[$i - 1] as $krs) : ?>
-                                                <tr>
-                                                    <td></td>
-                                                    <td><?= $krs['kode'] ?></td>
-                                                    <td><?= $krs['nama'] ?></td>
-                                                    <td><?= $krs['sks'] ?></td>
-                                                    <td><?= $krs['dosen'] ?></td>
-                                                    <td><?= $krs['hari'] ?></td>
-                                                    <td><?= $krs['waktu'] ?></td>
-                                                    <td><?= $krs['ruangan'] ?></td>
-                                                    <td class="text-center">
-                                                        <?php if ($krs['status'] === 'Y') : ?>
-                                                            <span class="badge bg-gradient-success">Aktif</span>
-                                                        <?php elseif ($krs['status'] === 'N') : ?>
-                                                            <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
-                                                        <?php elseif ($krs['status'] === 'T') : ?>
-                                                            <span class="badge bg-gradient-danger">Ditolak</span>
-                                                        <?php endif ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <?php if ($krs['status'] === 'Y') : ?>
-                                                            <span class="badge bg-secondary px-3 py-2">
-                                                                <i class="fa-solid fa-trash-can"></i>
-                                                            </span>
-                                                        <?php else : ?>
-                                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('mahasiswa/deletekrs/' . $this->session->id . '/' . $krs['id']) ?>')">
-                                                                <i class="fa-solid fa-trash-can"></i>
-                                                            </a>
-                                                        <?php endif ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
                                 <a class="btn btn-primary btn-sm mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/' . $i . '/tambah') ?>">Tambah KRS</a>

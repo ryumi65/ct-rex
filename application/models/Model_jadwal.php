@@ -29,34 +29,28 @@ class Model_jadwal extends CI_Model {
     }
 
     public function set_jadwal() {
-        $hari = substr(strtoupper($this->input->post('hari')), 0, 3);
         $pukul_awal = $this->input->post('pukul_awal');
         $pukul_akhir = $this->input->post('pukul_akhir');
-        $id_ruangan = $this->input->post('id_ruangan');
 
         $data = [
-            'id_jadwal' => "$hari.$pukul_awal-$pukul_akhir.$id_ruangan",
             'hari' => $this->input->post('hari'),
             'pukul' => "$pukul_awal - $pukul_akhir",
             'id_matkul' => $this->input->post('id_matkul'),
-            'id_ruangan' => $id_ruangan,
+            'id_ruangan' => $this->input->post('id_ruangan'),
         ];
 
         return $this->db->insert('jadwal', $data);
     }
 
     public function update_jadwal($id_jadwal) {
-        $hari = substr(strtoupper($this->input->post('hari')), 0, 3);
         $pukul_awal = $this->input->post('pukul_awal');
         $pukul_akhir = $this->input->post('pukul_akhir');
-        $id_ruangan = $this->input->post('id_ruangan');
 
         $data = [
-            'id_jadwal' => "$hari.$pukul_awal-$pukul_akhir.$id_ruangan",
             'hari' => $this->input->post('hari'),
             'pukul' => "$pukul_awal - $pukul_akhir",
             'id_matkul' => $this->input->post('id_matkul'),
-            'id_ruangan' => $id_ruangan,
+            'id_ruangan' => $this->input->post('id_ruangan'),
         ];
 
         return $this->db->update('jadwal', $data, ['id_jadwal' => $id_jadwal]);

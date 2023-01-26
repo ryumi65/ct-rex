@@ -21,10 +21,43 @@ class Mahasiswa extends CI_Controller {
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
         $list_sks = $this->model_krs->get_sks($this->session->id);
         $jumlah_sks = 0;
+        $ip = [];
 
         for ($i = 0; $i < count($list_sks); $i++) {
             $sks = intval($list_sks[$i]['sks']);
             $jumlah_sks += $sks;
+        }
+
+        for ($i = 1; $i <= 8; $i++) {
+            $jumlah_ip = 0;
+
+            $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
+
+            foreach ($list_krs as $value) {
+                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
+                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
+                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
+                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+
+                $akhir = $presensi + $tugas + $uts + $uas;
+
+                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
+                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
+                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
+                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
+                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
+                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
+                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
+                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
+                elseif ($akhir < 41) $indeks = 0;
+
+                $jumlah_ip += $indeks;
+            }
+
+            if (count($list_krs) > 0) $total_ip = round($jumlah_ip / count($list_krs), 2);
+            else $total_ip = 0;
+
+            array_push($ip, $total_ip);
         }
 
         $data = [
@@ -33,6 +66,7 @@ class Mahasiswa extends CI_Controller {
             'hari' => $list_hari[date('w')],
             'sks' => $jumlah_sks,
             'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'listip' => $ip,
             'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
 
@@ -229,10 +263,62 @@ class Mahasiswa extends CI_Controller {
     //==================== NILAI ====================//
 
     public function datakhs() {
+        $ip = [];
+        $krs = [];
+        $sks_smt = [];
+
+        for ($i = 1; $i <= 8; $i++) {
+            $jumlah_ip = 0;
+            $jumlah_sks = 0;
+
+            $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
+
+            foreach ($list_krs as $value) {
+                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
+                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
+                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
+                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+
+                $akhir = $presensi + $tugas + $uts + $uas;
+
+                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
+                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
+                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
+                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
+                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
+                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
+                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
+                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
+                elseif ($akhir < 41) $indeks = 0;
+
+                $jumlah_ip += $indeks;
+            }
+
+            if (count($list_krs) > 0) $total_ip = round($jumlah_ip / count($list_krs), 2);
+            else $total_ip = 0;
+
+            $list_sks = $this->model_krs->get_sks($this->session->id, $i);
+
+            for ($j = 0; $j < count($list_sks); $j++) {
+                $sks = intval($list_sks[$j]['sks']);
+                $jumlah_sks += $sks;
+            }
+
+            array_push($ip, $total_ip);
+            array_push($krs, $list_krs);
+            array_push($sks_smt, $jumlah_sks);
+        }
+
+        $data = [
+            'listip' => $ip,
+            'listk' => $krs,
+            'lists' => $sks_smt,
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/datakhs');
+        $this->load->view('mahasiswa/datakhs', $data);
         $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }

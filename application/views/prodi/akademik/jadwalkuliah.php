@@ -15,70 +15,64 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Form Jadwal Kuliah -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0">
+                    <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0">Jadwal <?= $prodi['nama'] ?></h5>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/akademik/tambah-jadwal') ?>" class="btn btn-primary btn-sm mb-0">Atur Penjadwalan</a>
-                            </div>
+                            <h5 class="mb-0">Jadwal <?= $prodi['nama'] ?></h5>
+                            <a href="<?= site_url('prodi/akademik/tambah-jadwal') ?>" class="btn btn-primary btn-sm mb-0">Atur Penjadwalan</a>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kode MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            SKS</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Dosen Pengampu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Hari</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Ruangan</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Aksi</th>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center pe-1" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Kode MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        SKS</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Dosen Pengampu</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Hari</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Waktu</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Ruangan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listj as $jadwal) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $jadwal['nama'] ?></td>
+                                        <td><?= $jadwal['kode'] ?></td>
+                                        <td><?= $jadwal['sks'] ?></td>
+                                        <td>
+                                            <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];
+                                            else echo '-'; ?>
+                                        </td>
+                                        <td><?= $jadwal['hari'] ?></td>
+                                        <td><?= $jadwal['waktu'] ?></td>
+                                        <td><?= $jadwal['ruangan'] ?></td>
+                                        <td class="text-center">
+                                            <a href="<?= site_url('prodi/akademik/jadwal-kuliah/edit/' . $jadwal['id']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/jadwal-kuliah/delete/' . $jadwal['id']) ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listj as $jadwal) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?= $jadwal['nama'] ?></td>
-                                            <td><?= $jadwal['kode'] ?></td>
-                                            <td><?= $jadwal['sks'] ?></td>
-                                            <td>
-                                                <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];
-                                                else echo '-'; ?>
-                                            </td>
-                                            <td><?= $jadwal['hari'] ?></td>
-                                            <td><?= $jadwal['waktu'] ?></td>
-                                            <td><?= $jadwal['ruangan'] ?></td>
-                                            <td class="text-center">
-                                                <a href="<?= site_url('prodi/akademik/jadwal-kuliah/edit/' . $jadwal['id']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/jadwal-kuliah/delete/' . $jadwal['id']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

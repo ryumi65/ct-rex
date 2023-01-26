@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 13, 2023 at 03:19 PM
+-- Generation Time: Jan 26, 2023 at 07:12 AM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -44,6 +44,7 @@ CREATE TABLE `akun` (
 INSERT INTO `akun` (`id_akun`, `username`, `password`, `status`, `level`, `foto_profil`, `foto_header`) VALUES
 ('200102009', 'sandra', '$2y$10$uFKZVIefRnm1Kv4jCgsF4Ozj2xsmDRIft1A76RkXPmvnuSFRsGJAG', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102011', 'renal', '$2y$10$1eJ9mIuecovZGSK6voQNCuZqQgkidkNnpyHvx..MKk.0uJnpeNSCK', 'Y', 4, 'curved.jpg', 'default.png'),
+('200102021', 'aiman', '$2y$10$2IJmTB1kXUfLw1nBHr3R4.5ik9HpIdMTsXl8bymbwaE95jj9o7Em6', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102045', 'ema', '$2y$10$rkkFNRdLsM5nus4UuoP.guPkv8qceSkIrr6SgQQ/wxFFqe8vdCfO2', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102075', 'lutfi', '$2y$10$PdfnKJ4ot8Mx6jYy3dhIxeiEwfPhFjBAdc2ktPYAjfvphTWPTiY02', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102083', 'reza', '$2y$10$2s5DfuGMqWukAvVgJgP19uAnOY2r77I.gySyI6fFvX.kgFL90qnFu', 'Y', 4, 'curved.jpg', 'default.png'),
@@ -321,7 +322,7 @@ INSERT INTO `fakultas` (`id_fakultas`, `nama`) VALUES
 --
 
 CREATE TABLE `jadwal` (
-  `id_jadwal` varchar(30) NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
   `hari` enum('Senin','Selasa','Rabu','Kamis','Jumat','Sabtu') DEFAULT NULL,
   `pukul` varchar(16) DEFAULT NULL,
   `id_matkul` int(11) DEFAULT NULL,
@@ -333,11 +334,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `hari`, `pukul`, `id_matkul`, `id_ruangan`) VALUES
-('SEL.07:00-08:30.L2L1', 'Selasa', '07:00 - 08:30', 46, 'L2L1'),
-('SEL.09:00-10:30.K6L4', 'Selasa', '09:00 - 10:30', 26, 'K6L4'),
-('SEL.10:00-11:30.K6L4', 'Selasa', '10:00 - 11:30', 45, 'K6L4'),
-('SEN.08:00-09:30.K6L4', 'Senin', '08:00 - 09:30', 25, 'K6L4'),
-('SEN.08:00-10:30.K6L4', 'Senin', '08:00 - 10:30', 1, 'K6L4');
+(1, 'Kamis', '08:00 - 09:30', 25, 'K6L4');
 
 -- --------------------------------------------------------
 
@@ -348,37 +345,13 @@ INSERT INTO `jadwal` (`id_jadwal`, `hari`, `pukul`, `id_matkul`, `id_ruangan`) V
 CREATE TABLE `krs` (
   `id_krs` int(11) NOT NULL,
   `nim` varchar(20) NOT NULL,
-  `id_jadwal` varchar(30) NOT NULL,
-  `status` enum('Y','N') NOT NULL DEFAULT 'N',
+  `id_jadwal` int(11) NOT NULL,
+  `status` enum('Y','N','T') NOT NULL DEFAULT 'N',
   `nilai_presensi` int(3) DEFAULT NULL,
   `nilai_tugas` int(3) DEFAULT NULL,
   `nilai_uts` int(3) DEFAULT NULL,
   `nilai_uas` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `krs`
---
-
-INSERT INTO `krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai_presensi`, `nilai_tugas`, `nilai_uts`, `nilai_uas`) VALUES
-(1, '200102083', 'SEN.08:00-09:30.K6L4', 'Y', 100, 100, 100, 100),
-(2, '200102083', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(4, '200102083', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(5, '200102009', 'SEN.08:00-09:30.K6L4', 'Y', 80, 85, 90, 80),
-(6, '200102009', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(7, '200102009', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(8, '200102009', 'SEL.07:00-08:30.L2L1', 'Y', NULL, NULL, NULL, NULL),
-(14, '200102011', 'SEN.08:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(15, '200102011', 'SEN.08:00-09:30.K6L4', 'Y', 50, 50, 50, 50),
-(16, '200102011', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(17, '200102011', 'SEL.10:00-11:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(18, '200102011', 'SEL.07:00-08:30.L2L1', 'Y', NULL, NULL, NULL, NULL),
-(19, '200102075', 'SEN.08:00-09:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(20, '200102075', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL),
-(21, '200102045', 'SEL.10:00-11:30.K6L4', 'N', NULL, NULL, NULL, NULL),
-(22, '200102045', 'SEL.07:00-08:30.L2L1', 'N', NULL, NULL, NULL, NULL),
-(23, '200102045', 'SEN.08:00-09:30.K6L4', 'Y', 110, 100, 110, 110),
-(24, '200102045', 'SEL.09:00-10:30.K6L4', 'Y', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -473,7 +446,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200102018', 'Abiya Lalang Cristharion R.', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102019', 'Achmat Nursutji Pirdaus', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Keluar', NULL),
 ('200102020', 'Adam Putra Pratama', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('200102021', 'AIMAN MUHAMMAD AWWALUDDIN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
+('200102021', 'AIMAN MUHAMMAD AWWALUDDIN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078'),
 ('200102024', 'Alfi Sani Agustian', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102025', 'Alif Fathur Rizqy', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('200102027', 'Allif Fadhlan Ariidhi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Cuti', NULL),
@@ -747,9 +720,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200106060', 'Dzikri Nugraha', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
 ('200106061', 'Ena Vadila', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
 ('200106062', 'Fadilatussalichah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
-('200106063', 'Fahrisa Rianti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
-('200106064', 'Fairuz Putri Agustria', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL);
+('200106063', 'Fahrisa Rianti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('200106064', 'Fairuz Putri Agustria', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
 ('200106065', 'FARHAN AZIZI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
 ('200106066', 'Fariha Faza\' Az-zahwa Jufri', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
 ('200106067', 'Fatimah Adilah Amanah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', NULL),
@@ -1082,9 +1055,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200207209', 'Rakhma Zulfa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('200207210', 'Rakhmad Fadhillah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('200207212', 'Rangga Alianriz Ismail', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
-('200207214', 'Raquita Dibba', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
-('200207215', 'Ratu Emma Nurbani Alam', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL);
+('200207214', 'Raquita Dibba', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('200207215', 'Ratu Emma Nurbani Alam', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('200207216', 'Raynadia Fathya Hidayat', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('200207217', 'Regita Aryaputri Lesmana', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('200207218', 'Rema Nur Indriyani', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
@@ -1416,9 +1389,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200211044', 'Nursultan Nazarbayevin Lubis', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
 ('200211045', 'Oktaviani Rahmawati', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
 ('200211046', 'Panji Pengkuh Sanubari', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
-('200211048', 'Ranti Dwiandini', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
-('200211049', 'Rendra Renggana Mahesa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL);
+('200211048', 'Ranti Dwiandini', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('200211049', 'Rendra Renggana Mahesa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
 ('200211050', 'Revika Adhitya Nesta', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
 ('200211051', 'Riki Mulyana', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
 ('200211052', 'Rismawati', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AP', 'Aktif', NULL),
@@ -1754,9 +1727,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200313285', 'Imam Alamsyah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200313286', 'Ichwan Bahtiar', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200313287', 'Fatimah Permata Azzahro', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
-('200313288', 'Alifah Nasywa Nafisa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
-('200313289', 'Erna Melina Sunarto', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL);
+('200313288', 'Alifah Nasywa Nafisa', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('200313289', 'Erna Melina Sunarto', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200313291', 'Dhea Ayu Novita', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200313292', 'Depi Pirliyani', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('200313293', 'Siti Rahim Mardhatillah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
@@ -2090,9 +2063,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('200416010', 'ARWA NABILAH NASYWA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
 ('200416011', 'AULIA PUTRI RIZQIASIH', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
 ('200416012', 'AYU MARYAM GUNAWAN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
-('200416013', 'BETY RAHMAWATI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
-('200416014', 'CUARNI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL);
+('200416013', 'BETY RAHMAWATI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('200416014', 'CUARNI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
 ('200416015', 'CUCU HAYATI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
 ('200416016', 'DESI RAHMAWATI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
 ('200416017', 'DEVI NURUL FITRI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', NULL),
@@ -2425,9 +2398,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('210102045', 'Ridwan Nurhakim', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('210102046', 'Rizki Ahmad Maulana', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('210102047', 'Rossy Silvi Aulia', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('210102048', 'Salma Zain Fauziyyah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
-('210102049', 'Satria Aryandhi Febrian Koto', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL);
+('210102048', 'Salma Zain Fauziyyah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('210102049', 'Satria Aryandhi Febrian Koto', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('210102050', 'Sulthan Muhamad Rifqi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('210102051', 'SYAFRIZAL', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
 ('210102052', 'Syahrul Muharom', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL),
@@ -2761,9 +2734,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('210207069', 'M. Khairul Akbar Al Ghifari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('210207070', 'Khoirotun Nisa', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('210207071', 'LEA FANICA NURHALIZA PUTRI', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
-('210207072', 'Leny Pitriasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
-('210207073', 'Lia Amalia Supandi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL);
+('210207072', 'Leny Pitriasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('210207073', 'Lia Amalia Supandi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('210207074', 'Lu\'lu Karima Mara\'tus Sholihah Azzahra', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('210207075', 'LUTHFI ARIANDINI', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
 ('210207076', 'Luthfi naufal qosi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', NULL),
@@ -3098,9 +3071,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('210312096', 'Fahima \'Alimatush Sholichah Al chabibah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
 ('210312097', 'Fidia Kusumah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
 ('210312098', 'Fifit fitri nurhasanah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
-('210312099', 'Fitriani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
-('210312100', 'Hanifah Nur Halimah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL);
+('210312099', 'Fitriani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('210312100', 'Hanifah Nur Halimah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
 ('210312101', 'Indah Kurniasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
 ('210312102', 'Irfan Fauzi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
 ('210312103', 'Jesica Ellenasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', NULL),
@@ -3435,9 +3408,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tangga
 ('210313290', 'Riki Kuswandi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('210313291', 'Risman hermansyah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('210313292', 'Risqi Tama Wibowo', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
-('210313293', 'Rizqan Pratama', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
-('210313294', 'Rupa Wiguna', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL);
+('210313293', 'Rizqan Pratama', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL);
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`) VALUES
+('210313294', 'Rupa Wiguna', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('210313295', 'Sabina Putri Nabila Sudirman', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Keluar', NULL),
 ('210313296', 'Salma Hanissa Effendi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
 ('210313297', 'SALSABILLA DWI PUTRI', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', NULL),
@@ -5498,7 +5471,7 @@ INSERT INTO `matkul` (`id_matkul`, `kode_matkul`, `nama`, `nama_inggris`, `jenis
 (15, 'IF0209', 'Analisis Ide Wirausaha Digital', NULL, 'Wajib Prodi', 'Teori', 2, NULL, 'IF', '2'),
 (16, 'MWN02002', 'Kewarganegaraan', NULL, 'Wajib Umum', 'Teori', 2, NULL, 'IF', '2'),
 (17, 'MWU02002', 'Islamic Technopreneurship', NULL, 'Wajib Umum', 'Teori', 3, NULL, 'IF', '2'),
-(18, 'FST0204', 'Bahasa Inggris', NULL, 'Wajib Fakultas', 'Teori', 2, NULL, 'IF', '2'),
+(18, 'FST0204', 'Bahasa Inggris', '', 'Wajib Fakultas', 'Teori', 2, '201922021960110085 ', 'IF', '2'),
 (19, 'IF0110', 'Statistika dan Probabilitas', NULL, 'Wajib Prodi', 'Teori', 3, NULL, 'IF', '3'),
 (20, 'IF0111', 'Manajemen Basis Data', NULL, 'Wajib Prodi', 'Teori', 2, NULL, 'IF', '3'),
 (21, 'IF0112', 'Praktikum Manajemen Basis Data', NULL, 'Wajib Prodi', 'Praktikum', 1, NULL, 'IF', '3'),
@@ -11698,6 +11671,27 @@ INSERT INTO `orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pengumuman`
+--
+
+CREATE TABLE `pengumuman` (
+  `id_pengumuman` int(20) NOT NULL,
+  `tanggal_mulai` date NOT NULL,
+  `tenggang_waktu` date NOT NULL,
+  `tema` varchar(255) NOT NULL,
+  `isi_pengumuman` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`id_pengumuman`, `tanggal_mulai`, `tenggang_waktu`, `tema`, `isi_pengumuman`) VALUES
+(1, '2023-01-24', '2023-01-27', 'aaa', 'bbb');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `presensi`
 --
 
@@ -11708,24 +11702,6 @@ CREATE TABLE `presensi` (
   `pertemuan` int(2) NOT NULL,
   `id_krs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `presensi`
---
-
-INSERT INTO `presensi` (`id_presensi`, `kehadiran`, `tanggal`, `pertemuan`, `id_krs`) VALUES
-(1, 'Hadir', '2023-01-13', 1, 5),
-(2, 'Izin', '2023-01-13', 1, 15),
-(3, 'Sakit', '2023-01-13', 1, 1),
-(4, 'Hadir', '2023-01-13', 1, 5),
-(5, 'Hadir', '2023-01-13', 1, 15),
-(6, 'Izin', '2023-01-13', 1, 19),
-(7, 'Sakit', '2023-01-13', 1, 1),
-(13, 'Hadir', '2023-01-13', 2, 5),
-(14, 'Hadir', '2023-01-13', 2, 15),
-(15, 'Izin', '2023-01-13', 2, 23),
-(16, 'Sakit', '2023-01-13', 2, 19),
-(17, 'Alfa', '2023-01-13', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -11792,7 +11768,8 @@ CREATE TABLE `remember_me` (
 
 INSERT INTO `remember_me` (`id`, `selector`, `hashedValidator`, `id_akun`, `expires`) VALUES
 (4, 'n08W0xhiJFUE0tXk', '18c4cba73902d00a8614704cd36f7be2a5bc672005df1ab7c25ddb04b2674007', '200102009', '2022-12-29 19:06:31'),
-(5, 'A80jeA5tFo44hDRs', '7f5b357f40e075a4c66682e26da58559d760d654448233c016f3d16b5bdc8301', '200102009', '2023-01-02 00:15:14');
+(5, 'A80jeA5tFo44hDRs', '7f5b357f40e075a4c66682e26da58559d760d654448233c016f3d16b5bdc8301', '200102009', '2023-01-02 00:15:14'),
+(6, 'FFbtloRVxIPWK/p0', '6971a1f19a298a8175002ae970f3bc3293a6ca83f964f7437f46525a4ddf10e2', '200102083', '2023-02-23 06:34:10');
 
 -- --------------------------------------------------------
 
@@ -11901,6 +11878,12 @@ ALTER TABLE `orang_tua`
   ADD PRIMARY KEY (`nim`);
 
 --
+-- Indexes for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  ADD PRIMARY KEY (`id_pengumuman`);
+
+--
 -- Indexes for table `presensi`
 --
 ALTER TABLE `presensi`
@@ -11937,10 +11920,16 @@ ALTER TABLE `semester`
 --
 
 --
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `matkul`
@@ -11949,16 +11938,22 @@ ALTER TABLE `matkul`
   MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1140;
 
 --
+-- AUTO_INCREMENT for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  MODIFY `id_pengumuman` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `remember_me`
 --
 ALTER TABLE `remember_me`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

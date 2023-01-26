@@ -5,7 +5,7 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class=" d-flex justify-content-between flex-wrap">
+                        <div class="d-flex justify-content-between flex-wrap">
                             <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
                             <a href="<?= site_url('dosen/perkuliahan/nilai/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">Input Nilai</a>
                         </div>
@@ -32,12 +32,14 @@
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                         UAS<p class="mb-0"><span class="text-sm">40%</span></p>
                                     </th>
-                                    <th colspan="3" class="font-weight-bolder text-uppercase text-xs text-center">
+                                    <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center">
                                         Nilai Akhir</th>
                                 </tr>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Angka</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Indeks</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Huruf</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
@@ -62,6 +64,19 @@
                                             $uas = round(($mahasiswa['nilai_uas'] * 40) / 100, 2);
 
                                             echo $akhir = $presensi + $tugas + $uts + $uas;
+                                            ?>
+                                        </td>
+                                        <td class="text-center">
+                                            <?php
+                                            if ($akhir >= 80 && $akhir <= 100) echo '4';
+                                            elseif ($akhir >= 77 && $akhir < 80) echo '3.75';
+                                            elseif ($akhir >= 74 && $akhir < 77) echo '3.5';
+                                            elseif ($akhir >= 68 && $akhir < 74) echo '3';
+                                            elseif ($akhir >= 65 && $akhir < 68) echo '2.75';
+                                            elseif ($akhir >= 62 && $akhir < 65) echo '2.5';
+                                            elseif ($akhir >= 56 && $akhir < 62) echo '2';
+                                            elseif ($akhir >= 41 && $akhir < 56) echo '1';
+                                            elseif ($akhir < 41) echo '0';
                                             ?>
                                         </td>
                                         <td class="text-center">
@@ -107,7 +122,7 @@
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 9],
+                    targets: [0, 10],
                     orderable: false,
                     searchable: false,
                 }],

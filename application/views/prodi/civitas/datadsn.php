@@ -37,10 +37,13 @@
                                         <td><?= $dosen['nidn_dosen'] ?></td>
                                         <td><?= $dosen['status_dosen'] ?></td>
                                         <td class="text-center">
-                                            <a href="<?= site_url('prodi/civitas/data-dosen/edit/' . $dosen['nik']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            <a href="<?= site_url('prodi/civitas/data-dosen/' . $dosen['nik'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                <i class="fa-solid fa-user"></i>
                                             </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/data-dosen/delete/' . $dosen['nik']) ?>')">
+                                            <a href="<?= site_url('prodi/civitas/data-dosen/' . $dosen['nik'] . '/jadwalkuliah') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Mengajar">
+                                                <i class="fa-solid fa-chalkboard-user"></i>
+                                            </a>
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datamhs/delete/' . $dosen['nik']) ?>')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>

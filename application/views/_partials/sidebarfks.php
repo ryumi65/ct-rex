@@ -35,7 +35,22 @@
                 </li>
 
                 <!-- Data Prodi -->
+                <?php if (fnmatch('fakultas/dataprd*', uri_string())) {
+                    $navlinkDataprodi = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkDataprodi = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
+                    <a class="<?= $navlinkDataprodi ?>" href="<?= site_url('fakultas/dataprd') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Prodi</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#dataprodi" class="nav-link" aria-controls="dataprodi" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: #000"></i>
@@ -50,10 +65,27 @@
                                 </a>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- Data Dosen  -->
+                <?php if (fnmatch('fakultas/datadsn*', uri_string())) {
+                    $navlinkDatadsn = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkDatadsn = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
+                    <a class="<?= $navlinkDatadsn ?>" href="<?= site_url('fakultas/datadsn') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-graduation-cap" style=" color: <?= $color ?>"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Dosen</span>
+                    </a>
+                </li>
+
+
+                <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#datadosen" class="nav-link" aria-controls="datadosen" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-graduation-cap" style="color: #000"></i>
@@ -68,10 +100,26 @@
                                 </a>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- Data Mahasiswa -->
+                <?php if (fnmatch('fakultas/datamhs*', uri_string())) {
+                    $navlinkDatamhs = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkDatamhs = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
+                    <a class="<?= $navlinkDatamhs ?>" href="<?= site_url('fakultas/datamhs') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-chalkboard-user" " style=" color: <?= $color ?>"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Mahasiswa</span>
+                    </a>
+                </li>
+
+                <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#datamahasiswa" class="nav-link" aria-controls="datamahasiswa" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-chalkboard-user" style="color: #000"></i>
@@ -112,7 +160,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- Pembatas Halaman Profil -->
                 <li class="nav-item mt-3">

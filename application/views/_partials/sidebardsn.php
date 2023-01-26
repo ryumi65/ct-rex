@@ -42,27 +42,37 @@
                     $navlinkPerkuliahan = 'nav-link';
                     $color = '#000';
                 } ?>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
+                        <a data-bs-toggle="collapse" href="#perkuliahan" class="<?= $navlinkPerkuliahan ?>" aria-controls="perkuliahan" role="button" aria-expanded="false">
+                            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
+                                <i class="fa-solid fa-chalkboard-user" style="color: <?= $color ?>"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Perkuliahan</span>
+                        </a>
+                        <div class="collapse" id="perkuliahan">
+                            <ul class="nav ms-4 ps-3">
+                                <li class="nav-item">
+                                    <a class="nav-link link-secondary" href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
+                                        Mata Kuliah
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link link-secondary" href="<?= site_url('dosen/listmatkulbap') ?>">
+                                        BAP
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#perkuliahan" class="<?= $navlinkPerkuliahan ?>" aria-controls="perkuliahan" role="button" aria-expanded="false">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
+                    <a class="<?= $navlinkPerkuliahan ?>" href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-chalkboard-user" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Perkuliahan</span>
                     </a>
-                    <div class="collapse" id="perkuliahan">
-                        <ul class="nav ms-4 ps-3">
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
-                                    Mata Kuliah
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link-secondary" href="<?= site_url('dosen/listmatkulbap') ?>">
-                                    BAP
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
                 <!-- Bimbingan -->
@@ -92,7 +102,7 @@
                                     Bimbingan Akademik
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
                                     Bimbingan Skripsi
                                 </a>
@@ -101,7 +111,7 @@
                                 <a class="nav-link link-secondary" href="#">
                                     Catatan Studi
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>

@@ -61,11 +61,11 @@
                                     Jadwal Kuliah
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
                                     Kuisioner Dosen
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>
@@ -102,11 +102,11 @@
                                     Data Bimbingan Akademik
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link link-secondary" href="<?= site_url('prodi/civitas/data-dosen-wali') ?>">
                                     Data Bimbingan Skripsi
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>

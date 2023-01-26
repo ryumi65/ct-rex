@@ -40,10 +40,13 @@
                                         <td><?= ucwords($mahasiswa['status']) ?></td>
                                         <td>
                                             <div class="text-center">
-                                                <a href="<?= site_url('fakultas/datamhs/edit/' . $mahasiswa['nim']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                    <i class="fa-solid fa-user"></i>
                                                 </a>
-                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datamhs/delete/' . $mahasiswa['nim']) ?>')">
+                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/akademik') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
+                                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                                </a>
+                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datamhs/delete/' . $mahasiswa['nim']) ?>')">
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </a>
                                             </div>

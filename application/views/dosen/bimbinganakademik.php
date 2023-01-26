@@ -21,8 +21,7 @@
                                 </div>
                                 <div class="card-footer bg-primary">
                                     <a class="stretched-link text-body text-sm font-weight-bold icon-move-right mb-0" data-bs-toggle="modal" data-bs-target="#semester">
-                                        Lihat Detail
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                        <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
                                     </a>
                                 </div>
                             </div>
@@ -37,10 +36,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer bg-warning">
-                                    <a class="stretched-link text-body text-sm font-weight-bold icon-move-right mb-0" href="<?= site_url('dosen/acckrs') ?>">
-                                        Lihat Detail
-                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                <div class="card-footer bg-warning ">
+                                    <a class="stretched-link text-body text-sm font-weight-bold icon-move-right mb-0 text-white" href="<?= site_url('dosen/acckrs') ?>">
+                                        <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
                                     </a>
                                 </div>
                             </div>

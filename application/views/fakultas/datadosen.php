@@ -24,6 +24,8 @@
                                         NIDN</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="text-sm">
@@ -38,10 +40,13 @@
                                         <td><?= ucwords($dosen['status_dosen']) ?></td>
                                         <td>
                                             <div class="text-center">
-                                                <a href="<?= site_url('fakultas/datadsn/edit/' . $dosen['nik']) ?>" class="btn btn-warning mx-1 mb-0" data-bs-toggle="tooltip" title="Edit">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $dosen['nik'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                    <i class="fa-solid fa-user"></i>
                                                 </a>
-                                                <a class="btn btn-danger mx-1 mb-0" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datadsn/delete/' . $dosen['nik']) ?>')">
+                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $dosen['nik'] . '/jadwal') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Mengajar">
+                                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                                </a>
+                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datadsn/delete/' . $dosen['nik']) ?>')">
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </a>
                                             </div>

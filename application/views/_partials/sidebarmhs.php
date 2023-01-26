@@ -71,7 +71,7 @@
                 </li>
 
                 <!-- Pendaftaran -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#pendaftaran" class="nav-link" aria-controls="pendaftaran" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: #000"></i>
@@ -102,10 +102,10 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- Perwalian -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#perwalian" class="nav-link" aria-controls="perwalian role=" button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-pen-to-square" style="color:#000"></i>
@@ -121,27 +121,27 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- Jadwal -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-regular fa-calendar-days" style="color:#000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Kalender Akademik</span>
                     </a>
-                </li>
+                </li> -->
 
                 <!-- Pembayaran -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-money-check-dollar" style="color:#000"></i>
                         </div>
                         <span class="nav-link-text ms-1">Biaya Pendidikan</span>
                     </a>
-                </li>
+                </li> -->
 
                 <!-- Pembatas Halaman Profil -->
                 <li class="nav-item mt-3">

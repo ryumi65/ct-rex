@@ -7,7 +7,7 @@
                         <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -18,7 +18,7 @@
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Angkatan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Status KRS</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>

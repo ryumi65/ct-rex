@@ -14,7 +14,7 @@
                         <div class="row g-3">
                             <?php for ($i = 1; $i <= 8; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-28.png'); background-size: cover;">
+                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/L<?= $i ?>.png'); background-size: cover;">
                                         <div class="card-body">
                                             <h5 class="card-title text-white fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">

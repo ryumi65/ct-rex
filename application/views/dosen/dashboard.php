@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto my-3 my-md-0 ">
+                    <div class="d-flex d-inline ms-auto my-3 my-md-0">
                         <div class="fs-6 fs-md-5">
                             <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
                             <h3 class="text-center my-0"><?= $mhswali ?></h3>

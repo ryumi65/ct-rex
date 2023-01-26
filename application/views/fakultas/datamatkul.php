@@ -93,6 +93,7 @@
 
             table = $('#table').DataTable({
 
+                deferRender: true,
                 responsive: true,
                 order: [2, 'asc'],
 

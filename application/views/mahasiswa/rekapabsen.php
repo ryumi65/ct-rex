@@ -1,62 +1,62 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-5 pt-xl-0">
 
-            <!-- Absensi -->
+            <!-- Jadwal Kuliah -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h5>Presensi</h5>
-                            <a href="" class="btn btn-primary btn-sm">input Absen</a>
-                        </div>
+                        <h5>Presensi Mata Kuliah <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
                             <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mahasiswa</th>
                                         <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
                                             Pertemuan</th>
                                     </tr>
                                     <tr class="bg-gradient-primary text-white">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                <?= $i ?>
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                <?php if ($i === 8) echo 'UTS';
+                                                elseif ($i === 16) echo 'UAS';
+                                                else echo $i; ?>
                                             </th>
                                         <?php endfor ?>
                                     </tr>
-
                                 </thead>
                                 <tbody class="text-sm">
                                     <tr>
-                                        <td></td>
-                                        <td>200102011</td>
-                                        <td>renal</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                        <td>9</td>
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
-                                        <td>13</td>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
+                                        <?php for ($i = 0; $i < 16; $i++) {
+                                            if (isset($presensi[$i])) {
+                                                switch ($presensi[$i]) {
+                                                    case 'Hadir':
+                                                        echo '<td class="text-center"><span class="badge bg-primary">H</span></td>';
+                                                        break;
+                                                    case 'Izin':
+                                                        echo '<td class="text-center"><span class="badge bg-info">I</span></td>';
+                                                        break;
+                                                    case 'Sakit':
+                                                        echo '<td class="text-center"><span class="badge bg-dark">S</span></td>';
+                                                        break;
+                                                    case 'Alfa':
+                                                        echo '<td class="text-center"><span class="badge bg-danger">A</span></td>';
+                                                        break;
+                                                }
+                                            } else echo '<td class="text-center">-</td>';
+                                        } ?>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div class="card-footer p-3">
+                        <h6>Keterangan</h6>
+                        <div class="d-flex gap-3">
+                            <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
+                            <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
+                            <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
+                            <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
                         </div>
                     </div>
                 </div>
@@ -76,24 +76,13 @@
             table = $('#table').DataTable({
 
                 dom: "",
-                order: [1, 'asc'],
+                responsive: true,
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
                     orderable: false,
                     searchable: false,
                 }],
             });
-
-            table.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
-                });
-            }).draw();
         });
     </script>

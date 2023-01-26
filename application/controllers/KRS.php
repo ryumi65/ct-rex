@@ -17,6 +17,6 @@ class KRS extends CI_Controller {
     public function acc() {
         $this->model_krs->acc_krs($this->input->post('id_krs[]'));
         // $this->session->set_userdata('acckrssuccess', true);
-        redirect('dosen/bimbinganakademik');
+        redirect('dosen/bimbingan/akademik/krs');
     }
 }

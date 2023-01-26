@@ -150,7 +150,7 @@ class Dosen extends CI_Controller {
             $listp = $this->model_dosen->get_presensi($id_matkul, $i);
 
             foreach ($listp as $presensi) {
-                $pertemuan[$presensi['id_krs']][] = $presensi['kehadiran'];
+                $pertemuan[$presensi['id_krs']][$i - 1] = $presensi['kehadiran'];
             }
 
             if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
@@ -305,10 +305,27 @@ class Dosen extends CI_Controller {
         $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
 
         foreach ($listm as $mhs) {
+            $listj = $this->model_krs->get_krs($mhs['nim'], 'object');
+
+            if ($listj->num_rows() > 0) {
+                $result = $listj->result_array();
+
+                foreach ($result as $value) {
+                    if ($value['status'] === 'N') {
+                        $krs = 'Menunggu Persetujuan';
+
+                        break;
+                    }
+
+                    $krs = 'Sudah KRS';
+                }
+            } else $krs = 'Belum KRS';
+
             $lists[] = [
                 'nim' => $mhs['nim'],
                 'nama' => $mhs['nama'],
                 'jenis_kelamin' => $mhs['jenis_kelamin'],
+                'krs' => $krs,
                 'tahun_angkatan' => $mhs['tahun_angkatan'],
                 'status' => $mhs['status'],
                 'listj' => $this->model_krs->get_krs($mhs['nim']),

@@ -15,7 +15,13 @@
                                     <ul class="dropdown-menu">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
                                             <?php if ($pertemuan[$i - 1] === 'true') : ?>
-                                                <li><a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/update/' . $i) ?>">Pertemuan <?= $i ?></a></li>
+                                                <li>
+                                                    <a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/update/' . $i) ?>">Pertemuan
+                                                        <?php if ($i === 8) echo 'UTS';
+                                                        elseif ($i === 16) echo 'UAS';
+                                                        else echo $i; ?>
+                                                    </a>
+                                                </li>
                                             <?php endif ?>
                                         <?php endfor ?>
                                     </ul>
@@ -41,7 +47,9 @@
                                     <tr class="bg-gradient-primary text-white">
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
                                             <th class="font-weight-bolder text-uppercase text-xs px-3 text-center">
-                                                <?= $i ?>
+                                                <?php if ($i === 8) echo 'UTS';
+                                                elseif ($i === 16) echo 'UAS';
+                                                else echo $i; ?>
                                             </th>
                                         <?php endfor ?>
                                     </tr>

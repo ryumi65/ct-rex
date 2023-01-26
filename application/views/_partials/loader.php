@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     .preload {
         position: fixed;
         top: 0;
@@ -372,7 +372,6 @@
     }
 </style>
 
-
 <body>
     <div class="preload">
         <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
@@ -404,4 +403,4 @@
         preload.classList.add("preload-finish");
         wheelhamster.classList.add("wheel-and-hamster-finish");
     });
-</script>
+</script> -->

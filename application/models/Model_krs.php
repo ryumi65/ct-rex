@@ -31,7 +31,7 @@ class Model_krs extends CI_Model {
         return $this->db->count_all_results();
     }
 
-    public function get_krs($nim = '') {
+    public function get_krs($nim = '', $type = '') {
         if ($nim === '') {
             $query = $this->db->select('j.id_jadwal as id, k.id_krs, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status')
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')->get();
@@ -40,6 +40,8 @@ class Model_krs extends CI_Model {
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
                 ->where('k.nim', $nim)->get();
         }
+
+        if ($type === 'object') return $query;
 
         return $query->result_array();
     }
@@ -51,11 +53,11 @@ class Model_krs extends CI_Model {
 
             $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where(['k.nim' => $nim, 'j.hari' => $hari])->get();
+                ->where(['k.nim' => $nim, 'j.hari' => $hari, 'k.status' => 'Y'])->get();
         } else {
             $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
                 ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where('k.nim', $nim)->get();
+                ->where(['k.nim' => $nim, 'k.status' => 'Y'])->get();
         }
 
         return $query->result_array();

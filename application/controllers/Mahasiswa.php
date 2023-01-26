@@ -234,7 +234,7 @@ class Mahasiswa extends CI_Controller {
             $listp = $this->model_mahasiswa->get_presensi($this->session->id, $id_matkul, $i);
 
             foreach ($listp as $presensi) {
-                $pertemuan[] = $presensi['kehadiran'];
+                $pertemuan[$i - 1] = $presensi['kehadiran'];
             }
         }
 
@@ -246,7 +246,7 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
-        $this->load->view('mahasiswa/presensi', $data);
+        $this->load->view('mahasiswa/rekapabsen', $data);
         $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }

@@ -17,23 +17,31 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        JK</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Status KRS</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="text-sm">
-                                <?php foreach ($lists as $mhs) : ?>
+                                <?php foreach ($lists as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mhs['nim'] ?></td>
-                                        <td><a href="berkasmhs"><?= $mhs['nama'] ?></a></td>
-                                        <td><?= $mhs['jenis_kelamin'] ?></td>
-                                        <td><?= $mhs['tahun_angkatan'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <td><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td class="text-center">
+                                            <?php if ($mahasiswa['krs'] === 'Sudah KRS') : ?>
+                                                <span class="badge bg-gradient-success"><?= $mahasiswa['krs'] ?></span>
+                                            <?php elseif ($mahasiswa['krs'] === 'Menunggu Persetujuan') : ?>
+                                                <span class="badge bg-gradient-warning"><?= $mahasiswa['krs'] ?></span>
+                                            <?php elseif ($mahasiswa['krs'] === 'Belum KRS') : ?>
+                                                <span class="badge bg-gradient-danger"><?= $mahasiswa['krs'] ?></span>
+                                            <?php endif ?>
+                                        </td>
                                         <td class="d-flex justify-content-center">
-                                            <div class="mx-1" data-bs-toggle="modal" data-bs-target="#id-<?= $mhs['nim'] ?>" style="cursor: pointer; max-width: fit-content;">
+                                            <div class="mx-1" data-bs-toggle="modal" data-bs-target="#id-<?= $mahasiswa['nim'] ?>" style="cursor: pointer; max-width: fit-content;">
                                                 <a class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="KRS">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -45,17 +53,17 @@
                         </table>
 
                         <!-- Modal -->
-                        <?php foreach ($lists as $mhs) : ?>
-                            <div class="modal fade" id="id-<?= $mhs['nim'] ?>" tabindex="-1" aria-hidden="true">
+                        <?php foreach ($lists as $mahasiswa) : ?>
+                            <div class="modal fade" id="id-<?= $mahasiswa['nim'] ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="label-<?= $mhs['nim'] ?>">Kartu Rencana Studi <?= $mhs['nama'] ?></h1>
+                                            <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi <?= $mahasiswa['nama'] ?></h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <?= form_open('krs/acc') ?>
                                         <div class="modal-body">
-                                            <table class="table table-striped align-items-center" id="table-<?= $mhs['nim'] ?>">
+                                            <table class="table table-striped align-items-center" id="table-<?= $mahasiswa['nim'] ?>">
                                                 <thead>
                                                     <tr class="bg-gradient-primary text-white">
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -75,8 +83,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-sm">
-                                                    <?php foreach ($mhs['listj'] as $krs) :
-                                                        if ($krs['status'] == 'N') : ?>
+                                                    <?php foreach ($mahasiswa['listj'] as $krs) :
+                                                        if ($krs['status'] === 'N') : ?>
                                                             <tr>
                                                                 <td></td>
                                                                 <td><?= $krs['nama'] ?></td>
@@ -97,8 +105,8 @@
                                             </table>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary mb-0">Simpan</button>
+                                            <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
                                         </div>
                                         </form>
                                     </div>

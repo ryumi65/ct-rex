@@ -6,7 +6,7 @@ class Model_jadwal extends CI_Model {
 
     public function get_jadwal($id_prodi) {
         $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, m.semester, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
-            ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->where('m.id_prodi', $id_prodi)->get();
+            ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->where('m.id_prodi', $id_prodi)->get();
 
         return $query->result_array();
     }
@@ -17,11 +17,11 @@ class Model_jadwal extends CI_Model {
             $hari = $list_hari[date('w')];
 
             $query = $this->db->select('m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
-                ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
                 ->where(['m.nik_dosen' => $nik, 'j.hari' => $hari])->get();
         } else {
             $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari, m.semester')
-                ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
                 ->where('m.nik_dosen', $nik)->get();
         }
 
@@ -39,7 +39,7 @@ class Model_jadwal extends CI_Model {
             'id_ruangan' => $this->input->post('id_ruangan'),
         ];
 
-        return $this->db->insert('jadwal', $data);
+        return $this->db->insert('ak_jadwal', $data);
     }
 
     public function update_jadwal($id_jadwal) {
@@ -53,10 +53,10 @@ class Model_jadwal extends CI_Model {
             'id_ruangan' => $this->input->post('id_ruangan'),
         ];
 
-        return $this->db->update('jadwal', $data, ['id_jadwal' => $id_jadwal]);
+        return $this->db->update('ak_jadwal', $data, ['id_jadwal' => $id_jadwal]);
     }
 
     public function delete_jadwal($id_jadwal) {
-        return $this->db->delete('jadwal', ['id_jadwal' => $id_jadwal]);
+        return $this->db->delete('ak_jadwal', ['id_jadwal' => $id_jadwal]);
     }
 }

@@ -17,7 +17,7 @@ class Mahasiswa extends CI_Controller {
     public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
-        $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
+        $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
         $list_sks = $this->model_krs->get_sks($this->session->id);
         $jumlah_sks = 0;
@@ -65,7 +65,7 @@ class Mahasiswa extends CI_Controller {
             'header' => $akun['foto_header'],
             'hari' => $list_hari[date('w')],
             'sks' => $jumlah_sks,
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'listip' => $ip,
             'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
@@ -81,7 +81,7 @@ class Mahasiswa extends CI_Controller {
     //==================== CRUD ====================//
 
     public function create() {
-        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+        $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -95,9 +95,9 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function update($nim) {
-        $data['mahasiswa'] = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $nim]);
-        $data['ortu'] = $this->model_mahasiswa->get_db('orang_tua', ['nim' => $nim]);
-        $data['listp'] = $this->model_mahasiswa->get_db('prodi');
+        $data['mahasiswa'] = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $nim]);
+        $data['ortu'] = $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $nim]);
+        $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
@@ -124,13 +124,13 @@ class Mahasiswa extends CI_Controller {
     //==================== PROFIL ====================//
 
     public function profil() {
-        $akun = $this->model_mahasiswa->get_db('akun', ['id_akun' => $this->session->id]);
+        $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
-            'ortu' => $this->model_mahasiswa->get_db('orang_tua', ['nim' => $this->session->id]),
-            'listp' => $this->model_mahasiswa->get_db('prodi'),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
+            'ortu' => $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $this->session->id]),
+            'listp' => $this->model_mahasiswa->get_db('ak_prodi'),
         ];
 
         $this->load->view('_partials/head');
@@ -156,7 +156,7 @@ class Mahasiswa extends CI_Controller {
         $krs = [];
         $mk = [];
         $sks_smt = [];
-        $tahun = $this->model_mahasiswa->get_db('durasi', ['id_tahun' => $this->session->tahun]);
+        $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
         $tanggal_awal = date_create($tahun['tanggal_awal']);
         $tanggal_akhir = date_create($tahun['tanggal_akhir']);
 
@@ -175,7 +175,7 @@ class Mahasiswa extends CI_Controller {
         }
 
         $data = [
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'tanggal' => date('Y-m-d'),
             'tanggal_awal' => date_format($tanggal_awal, 'Y-m-d'),
             'tanggal_akhir' => date_format($tanggal_akhir, 'Y-m-d'),
@@ -194,7 +194,7 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function formkrs($semester) {
-        $mahasiswa = $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]);
+        $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
 
         $data = [
             'mahasiswa' => $mahasiswa,
@@ -245,7 +245,7 @@ class Mahasiswa extends CI_Controller {
 
     public function jadwalkuliah() {
         $data = [
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'all'),
         ];
 
@@ -258,7 +258,7 @@ class Mahasiswa extends CI_Controller {
     }
 
     public function presensi($id_matkul) {
-        $matkul = $this->model_mahasiswa->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_mahasiswa->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if (!$this->model_mahasiswa->presensi_validation($this->session->id, $id_matkul)) redirect(strtolower($this->session->access));
 
         $pertemuan = [];
@@ -352,7 +352,7 @@ class Mahasiswa extends CI_Controller {
         else $total_ipk = 0;
 
         $data = [
-            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'ipk' => $total_ipk,
             'listip' => $ip,
             'listk' => $krs,

@@ -10,7 +10,7 @@ class Model_prodi extends CI_Model {
             'id_fakultas' => $this->input->post('id_fakultas'),
         ];
 
-        return $this->db->insert('prodi', $data);
+        return $this->db->insert('ak_prodi', $data);
     }
 
     public function update_prodi($id_prodi) {
@@ -20,11 +20,11 @@ class Model_prodi extends CI_Model {
             'id_fakultas' => $this->input->post('id_fakultas'),
         ];
 
-        return $this->db->update('prodi', $data, ['id_prodi' => $id_prodi]);
+        return $this->db->update('ak_prodi', $data, ['id_prodi' => $id_prodi]);
     }
 
     public function get_count_mhs_wali($nik) {
-        $this->db->from('mahasiswa')
+        $this->db->from('ak_mahasiswa')
             ->where('dosen_wali', $nik);
 
         return $this->db->count_all_results();
@@ -34,14 +34,14 @@ class Model_prodi extends CI_Model {
         $nik['dosen_wali'] = $this->input->post('nik');
 
         for ($i = 0; $i < count($input); $i++) {
-            $this->db->update('mahasiswa', $nik, ['nim' => $input[$i]]);
+            $this->db->update('ak_mahasiswa', $nik, ['nim' => $input[$i]]);
         }
     }
 
     public function delete_mhs_wali($nim) {
         $data['dosen_wali'] = null;
 
-        return $this->db->update('mahasiswa', $data, ['nim' => $nim]);
+        return $this->db->update('ak_mahasiswa', $data, ['nim' => $nim]);
     }
 
 }

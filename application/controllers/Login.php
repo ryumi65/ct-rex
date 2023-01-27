@@ -23,7 +23,7 @@ class Login extends CI_Controller {
         $password = $this->input->post('password');
 
         if (!$this->model_login->password_validation($username, $password)) return $this->message('error');
-        $akun = $this->model_login->get_db('akun', ['username' => $username]);
+        $akun = $this->model_login->get_db('ak_akun', ['username' => $username]);
 
         if ($akun['status'] !== 'Y') return $this->message('blokir');
 
@@ -38,10 +38,10 @@ class Login extends CI_Controller {
         $explodedTokenCookie = explode(':', get_cookie('token'));
 
         if (!$this->model_login->cookie_validation($idCookie, $explodedTokenCookie[0])) return false;
-        $cookie = $this->model_login->get_db('remember_me', ['id_akun' => $idCookie]);
+        $cookie = $this->model_login->get_db('ak_remember_me', ['id_akun' => $idCookie]);
 
         if (!hash_equals(hash('sha256', $explodedTokenCookie[1]), $cookie['hashedValidator'])) return false;
-        $akun = $this->model_login->get_db('akun', ['id_akun' => $idCookie]);
+        $akun = $this->model_login->get_db('ak_akun', ['id_akun' => $idCookie]);
 
         if ($akun['status'] !== 'Y') return $this->message('blokir');
         $this->sess_user($akun['id_akun'], $akun['level']);
@@ -70,7 +70,7 @@ class Login extends CI_Controller {
     }
 
     private function sess_user($id, $level) {
-        $tahun = $this->model_login->get_db('tahun', ['status' => 'Y']);
+        $tahun = $this->model_login->get_db('ak_tahun', ['status' => 'Y']);
 
         $this->session->set_userdata(['logged' => true, 'id' => $id]);
 

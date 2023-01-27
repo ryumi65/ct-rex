@@ -189,11 +189,11 @@
                                     Lihat Data Fakultas
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
                                     Ubah Password
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>

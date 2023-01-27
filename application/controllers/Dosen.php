@@ -17,15 +17,15 @@ class Dosen extends CI_Controller {
     public function index() {
         if (uri_string() === 'dosen/index') return redirect('dosen');
 
-        $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
+        $akun = $this->model_dosen->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
             'hari' => $list_hari[date('w')],
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
-            'mhswali' => $this->model_dosen->get_db_count('mahasiswa', ['dosen_wali' => $this->session->id]),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'mhswali' => $this->model_dosen->get_db_count('ak_mahasiswa', ['dosen_wali' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
         ];
 
@@ -38,13 +38,13 @@ class Dosen extends CI_Controller {
     }
 
     public function profil() {
-        $akun = $this->model_dosen->get_db('akun', ['id_akun' => $this->session->id]);
+        $akun = $this->model_dosen->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
-            'mhswali' => $this->model_dosen->get_db_count('mahasiswa', ['dosen_wali' => $this->session->id]),
-            'listp' => $this->model_dosen->get_db('prodi'),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'mhswali' => $this->model_dosen->get_db_count('ak_mahasiswa', ['dosen_wali' => $this->session->id]),
+            'listp' => $this->model_dosen->get_db('ak_prodi'),
         ];
 
         $this->load->view('_partials/head');
@@ -57,7 +57,7 @@ class Dosen extends CI_Controller {
 
     public function jadwalkuliah() {
         $data = [
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id, 'all'),
         ];
 
@@ -79,7 +79,7 @@ class Dosen extends CI_Controller {
     }
 
     public function create() {
-        $data['listp'] = $this->model_dosen->get_db('prodi');
+        $data['listp'] = $this->model_dosen->get_db('ak_prodi');
 
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -106,8 +106,8 @@ class Dosen extends CI_Controller {
 
     public function update($nik) {
         $data = [
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $nik]),
-            'listp' => $this->model_dosen->get_db('prodi'),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $nik]),
+            'listp' => $this->model_dosen->get_db('ak_prodi'),
             'status_dosen' => ['Aktif', 'Cuti', 'Keluar', 'Almarhum', 'Pensiun', 'Studi Lanjut', 'Tugas di Instansi Lain'],
             'status_kerja' => ['Dosen Tetap', 'Dosen PNS di Pekerjaan', 'Dosen Honorer PTN', 'Dosen Honorer no PTN', 'Dosen Kontrak']
         ];
@@ -140,7 +140,7 @@ class Dosen extends CI_Controller {
     }
 
     public function rekapabsen($id_matkul) {
-        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $pertemuan = [];
@@ -173,7 +173,7 @@ class Dosen extends CI_Controller {
     }
 
     public function inputabsen($id_matkul) {
-        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $data = [
@@ -190,7 +190,7 @@ class Dosen extends CI_Controller {
     }
 
     public function updateabsen($id_matkul, $pertemuan) {
-        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $data = [
@@ -221,7 +221,7 @@ class Dosen extends CI_Controller {
     //==================== NILAI ====================//
 
     public function nilai($id_matkul) {
-        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $data = [
@@ -238,7 +238,7 @@ class Dosen extends CI_Controller {
     }
 
     public function inputnilai($id_matkul) {
-        $matkul = $this->model_dosen->get_db('matkul', ['id_matkul' => $id_matkul]);
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $data = [
@@ -273,7 +273,7 @@ class Dosen extends CI_Controller {
 
     public function bimbinganakademik() {
         $lists = [];
-        $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+        $listm = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
 
         foreach ($listm as $mhs) {
             $lists[] = [
@@ -287,7 +287,7 @@ class Dosen extends CI_Controller {
         }
 
         $data = [
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'lists' => $lists,
         ];
 
@@ -302,7 +302,7 @@ class Dosen extends CI_Controller {
 
     public function acckrs() {
         $lists = [];
-        $listm = $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+        $listm = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
 
         foreach ($listm as $mhs) {
             $listj = $this->model_krs->get_krs($mhs['nim'], 'object');
@@ -333,7 +333,7 @@ class Dosen extends CI_Controller {
         }
 
         $data = [
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'lists' => $lists,
         ];
 
@@ -347,8 +347,8 @@ class Dosen extends CI_Controller {
 
     public function daftarmhswali() {
         $data = [
-            'dosen' => $this->model_dosen->get_db('dosen', ['nik' => $this->session->id]),
-            'listm' => $this->model_dosen->get_db('mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
         ];
 
         $this->load->view('_partials/head');
@@ -361,7 +361,7 @@ class Dosen extends CI_Controller {
 
     // BERKAS MAHASISWA BIMBINGAN
     public function berkasmhs($nim) {
-        $mahasiswa = $this->model_dosen->get_db('mahasiswa', ['nim' => $nim]);
+        $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $krs = [];

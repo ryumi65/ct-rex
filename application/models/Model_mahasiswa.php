@@ -25,7 +25,7 @@ class Model_mahasiswa extends CI_Model {
             'kode_pos' => $this->input->post('kode_pos'),
         ];
 
-        return $this->db->insert('mahasiswa', $data);
+        return $this->db->insert('ak_mahasiswa', $data);
     }
 
     public function update_mahasiswa($nim) {
@@ -47,7 +47,7 @@ class Model_mahasiswa extends CI_Model {
             'kode_pos' => $this->input->post('kode_pos'),
         ];
 
-        return $this->db->update('mahasiswa', $data, ['nim' => $nim]);
+        return $this->db->update('ak_mahasiswa', $data, ['nim' => $nim]);
     }
 
     public function update_ortu($nim) {
@@ -72,15 +72,15 @@ class Model_mahasiswa extends CI_Model {
             'penghasilan_wali' => $this->input->post('penghasilan_wali'),
         ];
 
-        return $this->db->update('orang_tua', $data, ['nim' => $nim]);
+        return $this->db->update('ak_orang_tua', $data, ['nim' => $nim]);
     }
 
     public function delete_mahasiswa($nim) {
-        return $this->db->delete('mahasiswa', ['nim' => $nim]);
+        return $this->db->delete('ak_mahasiswa', ['nim' => $nim]);
     }
 
     public function presensi_validation($nim, $id_matkul) {
-        $query = $this->db->from('krs k')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+        $query = $this->db->from('ak_krs k')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
             ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul])->get();
 
         if ($query->num_rows() > 0) return true;
@@ -89,8 +89,8 @@ class Model_mahasiswa extends CI_Model {
     }
 
     public function get_presensi($nim, $id_matkul, $pertemuan) {
-        $query = $this->db->select('p.kehadiran')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
-            ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
+        $query = $this->db->select('p.kehadiran')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
             ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
 
         return $query->result_array();

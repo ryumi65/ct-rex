@@ -15,8 +15,8 @@ class Akun extends CI_Controller {
     }
 
     public function register() {
-        $idValidation = $this->model_akun->get_akun('akun', 'id_akun', $this->input->post('id_akun'));
-        $usernameValidation = $this->model_akun->get_akun('akun', 'username', $this->input->post('username'));
+        $idValidation = $this->model_akun->get_akun('ak_akun', 'id_akun', $this->input->post('id_akun'));
+        $usernameValidation = $this->model_akun->get_akun('ak_akun', 'username', $this->input->post('username'));
 
         if ($idValidation->num_rows() > 0) return $this->message('idError');
 

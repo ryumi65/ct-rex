@@ -14,7 +14,7 @@ class Model_ruangan extends CI_Model {
 
         ];
 
-        return $this->db->insert('ruangan', $data);
+        return $this->db->insert('ak_ruangan', $data);
     }
 
     public function update_ruangan($id_ruangan) {
@@ -27,10 +27,10 @@ class Model_ruangan extends CI_Model {
 
         ];
 
-        return $this->db->update('ruangan', $data, ['id_ruangan' => $id_ruangan]);
+        return $this->db->update('ak_ruangan', $data, ['id_ruangan' => $id_ruangan]);
     }
 
     public function delete_ruangan($id_ruangan) {
-        return $this->db->delete('ruangan', ['id_ruangan' => $id_ruangan]);
+        return $this->db->delete('ak_ruangan', ['id_ruangan' => $id_ruangan]);
     }
 }

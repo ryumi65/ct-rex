@@ -22,7 +22,7 @@ class Model_dosen extends CI_Model {
 
         ];
 
-        return $this->db->insert('dosen', $data);
+        return $this->db->insert('ak_dosen', $data);
     }
 
     public function update_dosen($nik) {
@@ -41,19 +41,19 @@ class Model_dosen extends CI_Model {
             'status_kerja' => $this->input->post('status_kerja'),
         ];
 
-        return $this->db->update('dosen', $data, ['nik' => $nik]);
+        return $this->db->update('ak_dosen', $data, ['nik' => $nik]);
     }
 
     public function delete_dosen($nik) {
-        return $this->db->delete('dosen', ['nik' => $nik]);
+        return $this->db->delete('ak_dosen', ['nik' => $nik]);
     }
 
     public function get_mhs($id_matkul, $nik = '') {
         if ($nik === '') {
-            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('akun a', 'k.nim = a.id_akun')
+            $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
                 ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get();
         } else {
-            $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('akun a', 'k.nim = a.id_akun')
+            $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
                 ->where(['m.dosen_wali' => $nik, 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get();
         }
 
@@ -61,7 +61,7 @@ class Model_dosen extends CI_Model {
     }
 
     public function set_nilai($id_matkul) {
-        $query = $this->db->from('matkul m')->join('jadwal j', 'm.id_matkul = j.id_matkul')->join('krs k', 'j.id_jadwal = k.id_jadwal')
+        $query = $this->db->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
             ->where('m.id_matkul', $id_matkul)->get()->result_array();
 
         foreach ($query as $krs) {
@@ -83,14 +83,14 @@ class Model_dosen extends CI_Model {
                     'nilai_uas' => $uas,
                 ];
 
-                $this->db->update('krs', $data, ['id_krs' => $krs['id_krs']]);
+                $this->db->update('ak_krs', $data, ['id_krs' => $krs['id_krs']]);
             }
         }
     }
 
     public function get_presensi($id_matkul, $pertemuan, $type = '') {
-        $query = $this->db->select('p.id_krs, p.kehadiran')->from('presensi p')->join('krs k', 'p.id_krs = k.id_krs')
-            ->join('jadwal j', 'k.id_jadwal = j.id_jadwal')->join('matkul m', 'j.id_matkul = m.id_matkul')
+        $query = $this->db->select('p.id_krs, p.kehadiran')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
             ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
 
         if ($type === 'validation') {
@@ -103,7 +103,7 @@ class Model_dosen extends CI_Model {
     }
 
     public function set_presensi($id_matkul) {
-        $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+        $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
             ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get()->result_array();
 
         foreach ($query as $mahasiswa) {
@@ -119,13 +119,13 @@ class Model_dosen extends CI_Model {
                     'tanggal' => $this->input->post('tanggal'),
                 ];
 
-                $this->db->insert('presensi', $data);
+                $this->db->insert('ak_presensi', $data);
             }
         }
     }
 
     public function update_presensi($id_matkul, $pertemuan) {
-        $query = $this->db->from('mahasiswa m')->join('krs k', 'm.nim = k.nim')->join('jadwal j', 'k.id_jadwal = j.id_jadwal')
+        $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
             ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get()->result_array();
 
         foreach ($query as $mahasiswa) {
@@ -141,7 +141,7 @@ class Model_dosen extends CI_Model {
                     'pertemuan' => $pertemuan,
                 ];
 
-                $this->db->update('presensi', $data, ['id_krs' => $mahasiswa['id_krs'], 'pertemuan' => $pertemuan]);
+                $this->db->update('ak_presensi', $data, ['id_krs' => $mahasiswa['id_krs'], 'pertemuan' => $pertemuan]);
             }
         }
     }

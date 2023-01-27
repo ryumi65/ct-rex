@@ -14,12 +14,12 @@ class Fakultas extends CI_Controller {
     public function index() {
         if (uri_string() === 'fakultas/index') return redirect('fakultas');
 
-        $akun = $this->model_fakultas->get_db('akun', ['id_akun' => $this->session->id]);
+        $akun = $this->model_fakultas->get_db('ak_akun', ['id_akun' => $this->session->id]);
 
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
-            'fakultas' => $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]),
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
         ];
 
         $this->load->view('_partials/head');
@@ -31,7 +31,7 @@ class Fakultas extends CI_Controller {
     }
 
     public function profil() {
-        $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -54,7 +54,7 @@ class Fakultas extends CI_Controller {
     }
 
     public function update() {
-        $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
 
         $this->form_validation->set_rules('id_fakultas', 'id_fakultas', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -68,7 +68,7 @@ class Fakultas extends CI_Controller {
     }
 
     public function dataprd() {
-        $listp = $this->model_fakultas->get_db('prodi', ['id_fakultas' => $this->session->id], 'result');
+        $listp = $this->model_fakultas->get_db('ak_prodi', ['id_fakultas' => $this->session->id], 'result');
 
         foreach ($listp as $prodi) {
             $jumlah_dosen = $this->model_fakultas->count_dosen($prodi['id_prodi']);
@@ -83,7 +83,7 @@ class Fakultas extends CI_Controller {
             $jumlah[] = $count;
         }
 
-        $data['fakultas'] = $this->model_fakultas->get_db('fakultas', ['id_fakultas' => $this->session->id]);
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
         $data['listp'] = $jumlah;
 
         $this->load->view('_partials/head');
@@ -95,8 +95,8 @@ class Fakultas extends CI_Controller {
     }
 
     public function datadsn() {
-        $data['fakultas'] = $this->model_fakultas->join_dosen('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->join_dosen('dosen', ['nik' => $this->session->id]);
+        $data['fakultas'] = $this->model_fakultas->join_dosen('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_fakultas->join_dosen('ak_dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -107,8 +107,8 @@ class Fakultas extends CI_Controller {
     }
 
     public function datamhs() {
-        $data['fakultas'] = $this->model_fakultas->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->join_mhs('mahasiswa', ['nim' => $this->session->id]);
+        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -118,9 +118,9 @@ class Fakultas extends CI_Controller {
     }
 
     public function profilmhs($nim) {
-        $data['fakultas'] = $this->model_fakultas->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listm'] = $this->model_fakultas->join_mhs('fakultas');
-        $data['mahasiswa'] = $this->model_fakultas->join_mhs('mahasiswa', ['nim' => $nim]);
+        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listm'] = $this->model_fakultas->join_mhs('ak_fakultas');
+        $data['mahasiswa'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -130,9 +130,9 @@ class Fakultas extends CI_Controller {
     }
 
     public function profildsn($nik) {
-        $data['fakultas'] = $this->model_prodi->join_mhs('fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_prodi->join_mhs('fakultas');
-        $data['dosen'] = $this->model_prodi->join_mhs('dosen', ['nik' => $nik]);
+        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listd'] = $this->model_fakultas->join_mhs('ak_fakultas');
+        $data['dosen'] = $this->model_fakultas->join_mhs('ak_dosen', ['nik' => $nik]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
@@ -143,7 +143,7 @@ class Fakultas extends CI_Controller {
 
     public function datamatkul() {
         $data = [
-            'listm' => $this->model_fakultas->get_db('matkul'),
+            'listm' => $this->model_fakultas->get_db('ak_matkul'),
         ];
 
         $this->load->view('_partials/head');

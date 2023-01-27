@@ -30,8 +30,8 @@ class Admin extends CI_Controller {
     }
 
     public function datadsn() {
-        $data['admin'] = $this->model_admin->join_dosen('admin', ['id_admin' => $this->session->id]);
-        $data['listd'] = $this->model_admin->join_dosen('dosen', ['nik' => $this->session->id]);
+        $data['admin'] = $this->model_admin->join_dosen('ak_admin', ['id_admin' => $this->session->id]);
+        $data['listd'] = $this->model_admin->join_dosen('ak_dosen', ['nik' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
@@ -42,8 +42,8 @@ class Admin extends CI_Controller {
     }
 
     public function datamhs() {
-        $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
-        $data['listm'] = $this->model_admin->join_mhs('mahasiswa', ['nim' => $this->session->id]);
+        $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
+        $data['listm'] = $this->model_admin->join_mhs('ak_mahasiswa', ['nim' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
@@ -54,9 +54,9 @@ class Admin extends CI_Controller {
     }
 
     public function profilmhs($nim) {
-        $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
-        $data['listm'] = $this->model_admin->join_mhs('admin');
-        $data['mahasiswa'] = $this->model_admin->join_mhs('mahasiswa', ['nim' => $nim]);
+        $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
+        $data['listm'] = $this->model_admin->join_mhs('ak_admin');
+        $data['mahasiswa'] = $this->model_admin->join_mhs('ak_mahasiswa', ['nim' => $nim]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
@@ -67,9 +67,9 @@ class Admin extends CI_Controller {
     }
 
     public function profildsn($nik) {
-        $data['admin'] = $this->model_admin->join_mhs('admin', ['id_admin' => $this->session->id]);
-        $data['listd'] = $this->model_admin->join_mhs('admin');
-        $data['dosen'] = $this->model_admin->join_mhs('dosen', ['nik' => $nik]);
+        $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
+        $data['listd'] = $this->model_admin->join_mhs('ak_admin');
+        $data['dosen'] = $this->model_admin->join_mhs('ak_dosen', ['nik' => $nik]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
@@ -81,7 +81,7 @@ class Admin extends CI_Controller {
 
     public function dataruangan() {
         $data = [
-            'listr' => $this->model_admin->get_db('ruangan'),
+            'listr' => $this->model_admin->get_db('ak_ruangan'),
         ];
 
         $this->load->view('_partials/head');
@@ -94,7 +94,7 @@ class Admin extends CI_Controller {
 
     public function inputruangan() {
         $data = [
-            'listr' => $this->model_admin->get_db('ruangan'),
+            'listr' => $this->model_admin->get_db('ak_ruangan'),
         ];
         $this->form_validation->set_rules('nama', 'nama tidak boleh kosong', 'required');
         if ($this->form_validation->run() == false) {
@@ -127,7 +127,7 @@ class Admin extends CI_Controller {
 
     public function durasikrs() {
         $data = [
-            'listt' => $this->model_admin->get_db('tahun'),
+            'listt' => $this->model_admin->get_db('ak_tahun'),
         ];
 
         $this->load->view('_partials/head');
@@ -146,7 +146,7 @@ class Admin extends CI_Controller {
 
     public function tahunajaran() {
         $data = [
-            'listt' => $this->model_admin->get_db('tahun'),
+            'listt' => $this->model_admin->get_db('ak_tahun'),
         ];
 
         $this->load->view('_partials/head');

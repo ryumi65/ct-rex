@@ -16,7 +16,7 @@ class model_matkul extends CI_Model {
             'semester' => $this->input->post('semester'),
         ];
 
-        return $this->db->insert('matkul', $data);
+        return $this->db->insert('ak_matkul', $data);
     }
 
     public function update_matkul($id_matkul) {
@@ -32,10 +32,10 @@ class model_matkul extends CI_Model {
             'semester' => $this->input->post('semester'),
         ];
 
-        return $this->db->update('matkul', $data, ['id_matkul' => $id_matkul]);
+        return $this->db->update('ak_matkul', $data, ['id_matkul' => $id_matkul]);
     }
 
     public function delete_matkul($id_matkul) {
-        return $this->db->delete('matkul', ['id_matkul' => $id_matkul]);
+        return $this->db->delete('ak_matkul', ['id_matkul' => $id_matkul]);
     }
 }

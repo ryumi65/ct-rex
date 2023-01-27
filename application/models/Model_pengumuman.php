@@ -12,7 +12,7 @@ class Model_pengumuman extends CI_Model {
 
         ];
 
-        return $this->db->insert('pengumuman', $data);
+        return $this->db->insert('ak_pengumuman', $data);
     }
 
     public function update_pengumuman($id_pengumuman) {
@@ -24,10 +24,10 @@ class Model_pengumuman extends CI_Model {
 
         ];
 
-        return $this->db->update('pengumuman', $data, ['id_pengumuman' => $id_pengumuman]);
+        return $this->db->update('ak_pengumuman', $data, ['id_pengumuman' => $id_pengumuman]);
     }
 
     public function delete_pengumuman($id_pengumuman) {
-        return $this->db->delete('pengumuman', ['id_pengumuman' => $id_pengumuman]);
+        return $this->db->delete('ak_pengumuman', ['id_pengumuman' => $id_pengumuman]);
     }
 }

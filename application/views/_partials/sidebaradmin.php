@@ -53,12 +53,12 @@
                          <ul class="nav ms-4 ps-3">
                              <li class="nav-item">
                                  <a class="nav-link link-secondary" href="<?= site_url('admin/tahunajaran') ?>">
-                                    Tahun Ajaran
+                                     Tahun Ajaran
                                  </a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link link-secondary" href="<?= site_url('admin/durasikrs') ?>">
-                                    Durasi KRS
+                                     Durasi KRS
                                  </a>
                              </li>
                          </ul>
@@ -128,13 +128,12 @@
                      </a>
                  </li>
 
-
-                 <!-- Pembatas Halaman Profil -->
+                 <!-- Pembatas Halaman Profil
                  <li class="nav-item mt-3">
                      <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Halaman Profil</h6>
                  </li>
 
-                 <!-- Profil -->
+                 <!-- Profil
                  <?php if (fnmatch('prodi/profil*', uri_string())) {
                         $navlinkProfil = 'nav-link active shadow';
                         $color = '#fff';
@@ -168,7 +167,7 @@
                              </li>
                          </ul>
                      </div>
-                 </li>
+                 </li> -->
 
                  <!-- Logout -->
                  <li class="nav-item">

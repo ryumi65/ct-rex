@@ -86,7 +86,7 @@
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>
                                                 <td class="text-center">
-                                                    <?php if ($krs['nilai_presensi'] === null && $krs['nilai_tugas'] === null && $krs['nilai_uts'] && $krs['nilai_uas']) : ?>
+                                                    <?php if ($krs['nilai_presensi'] === null && $krs['nilai_tugas'] === null && $krs['nilai_uts'] === null && $krs['nilai_uas'] === null) : ?>
                                                         <?php if ($krs['status'] === 'Y') : ?>
                                                             <span class="badge bg-gradient-success">Aktif</span>
                                                         <?php elseif ($krs['status'] === 'N') : ?>

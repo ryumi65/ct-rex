@@ -70,5 +70,5 @@
             </div>
         </div>
 
-        <?= $this->load->view('_partials/footer') ?>
+        <?php $this->load->view('_partials/footer') ?>
     </div>

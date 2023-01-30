@@ -115,7 +115,6 @@ class Admin extends CI_Controller {
         redirect('admin/akademik/dataruangan');
     }
 
-
     public function listpengumuman() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');

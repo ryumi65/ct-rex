@@ -35,9 +35,9 @@
                                             foreach ($listd as $dosen) {
                                                 if ($matkul['nik_dosen'] === $dosen['nik']) { ?>
                                                     <?php if ($matkul['id_matkul'] === $jadwal['id_matkul']) : ?>
-                                                        <option selected value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] ?></option>
+                                                        <option selected value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] . ' - Semester ' . $matkul['semester'] ?></option>
                                                     <?php else : ?>
-                                                        <option value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] ?></option>
+                                                        <option value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] . ' - Semester ' . $matkul['semester'] ?></option>
                                                     <?php endif ?>
                                         <?php }
                                             }

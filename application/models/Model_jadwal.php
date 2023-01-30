@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 class Model_jadwal extends CI_Model {
 
     public function get_jadwal($id_prodi) {
-        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
+        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, m.semester, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
             ->from('dosen d')->join('matkul m', 'd.nik = m.nik_dosen')->join('jadwal j', 'm.id_matkul = j.id_matkul')->where('m.id_prodi', $id_prodi)->get();
 
         return $query->result_array();

@@ -68,7 +68,7 @@
                                     <div class="mb-2 progress-bar bg-gradient-info" role="progressbar" aria-valuenow="<?= $persen_sks ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $persen_sks ?>%;"></div>
                                 </div>
                             </div>
-                            <p>Saat ini kamu berada di Semester 8 dan telah berhasil menempuh <?= $sks ?> SKS dari 144 SKS.</p>
+                            <p>Saat ini kamu berada di Semester <?= $mahasiswa['semester'] ?> dan telah berhasil menempuh <?= $sks ?> SKS dari 144 SKS.</p>
                             <p class="mb-0">Tetap semangat belajar ya!</p>
                         </div>
                     </div>

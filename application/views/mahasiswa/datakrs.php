@@ -12,23 +12,23 @@
 
                         <!-- Card Semester -->
                         <div class="row g-3">
-                            <?php for ($i = 1; $i <= 8; $i++) : ?>
+                            <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/L<?= $i ?>.png'); background-size: cover;">
+                                    <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
                                         <div class="card-body">
-                                            <h5 class="card-title text-white fw-bolder">Semester <?= $i ?></h5>
+                                            <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">Total Mata Kuliah</p>
-                                                <p class="mb-0"><?= $listm[$i - 1] ?></p>
+                                                <p class="text-white mb-0"><?= $listm[$i - 1] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">Total sks</p>
-                                                <p class="mb-0"><?= $lists[$i - 1] ?></p>
+                                                <p class="text-white mb-0"><?= $lists[$i - 1] ?></p>
                                             </div>
                                         </div>
                                         <div class="card-footer pt-0">
                                             <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">
-                                                <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                                <p class="mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
                                             </a>
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
             </div>
 
             <!-- Modal -->
-            <?php for ($i = 1; $i <= 8; $i++) : ?>
+            <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                 <div class="modal fade" id="semester-<?= $i ?>" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-scrollable">
                         <div class="modal-content">
@@ -86,13 +86,25 @@
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>
                                                 <td class="text-center">
-                                                    <?php if ($krs['status'] === 'Y') : ?>
-                                                        <span class="badge bg-gradient-success">Aktif</span>
-                                                    <?php elseif ($krs['status'] === 'N') : ?>
-                                                        <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
-                                                    <?php elseif ($krs['status'] === 'T') : ?>
-                                                        <span class="badge bg-gradient-danger">Ditolak</span>
-                                                    <?php endif ?>
+                                                    <?php if ($krs['nilai_presensi'] === null && $krs['nilai_tugas'] === null && $krs['nilai_uts'] && $krs['nilai_uas']) : ?>
+                                                        <?php if ($krs['status'] === 'Y') : ?>
+                                                            <span class="badge bg-gradient-success">Aktif</span>
+                                                        <?php elseif ($krs['status'] === 'N') : ?>
+                                                            <span class="badge bg-gradient-warning">Menunggu Persetujuan</span>
+                                                        <?php elseif ($krs['status'] === 'T') : ?>
+                                                            <span class="badge bg-gradient-danger">Ditolak</span>
+                                                        <?php endif ?>
+                                                    <?php else :
+                                                        $presensi = round(($krs['nilai_presensi'] * 15) / 100, 2);
+                                                        $tugas = round(($krs['nilai_tugas'] * 15) / 100, 2);
+                                                        $uts = round(($krs['nilai_uts'] * 30) / 100, 2);
+                                                        $uas = round(($krs['nilai_uas'] * 40) / 100, 2);
+
+                                                        $akhir = $presensi + $tugas + $uts + $uas;
+
+                                                        if ($akhir >= 56 && $akhir <= 100) echo '<span class="badge bg-gradient-success">Lulus</span>';
+                                                        elseif ($akhir >= 0 && $akhir < 56) echo '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                                    endif; ?>
                                                 </td>
                                                 <td class="text-center">
                                                     <?php if ($krs['status'] === 'Y') : ?>
@@ -110,9 +122,27 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="modal-footer d-flex justify-content-end">
-                                <a class="btn btn-primary btn-sm mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/' . $i . '/tambah') ?>">Tambah KRS</a>
-                                <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
+                            <?php if ($i == $mahasiswa['semester']) $flex = 'between';
+                            else $flex = 'end'; ?>
+                            <div class="modal-footer d-flex align-items-end justify-content-<?= $flex ?>">
+                                <?php if ($i == $mahasiswa['semester']) : ?>
+                                    <div>
+                                        <h6>Durasi pengisian KRS: <?= $tahun['tanggal_awal'] ?> - <?= $tahun['tanggal_akhir'] ?></h6>
+                                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
+                                            <span class="badge bg-gradient-success">KRS dibuka</span>
+                                        <?php else : ?>
+                                            <span class="badge bg-gradient-danger">KRS ditutup</span>
+                                        <?php endif ?>
+                                    </div>
+                                <?php endif ?>
+                                <div class="d-flex justify-content-end">
+                                    <?php if ($i == $mahasiswa['semester']) : ?>
+                                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
+                                            <a class="btn btn-primary btn-sm mx-2 mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/' . $i . '/tambah') ?>">Tambah KRS</a>
+                                    <?php endif;
+                                    endif; ?>
+                                    <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,7 +159,7 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 1; i <= <?= $mahasiswa['semester'] ?>; i++) {
             let table;
 
             $(document).ready(() => {

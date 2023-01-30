@@ -75,6 +75,7 @@ $route['prodi/akademik/jadwal-kuliah/delete/(:any)']       = 'jadwal/delete/$1';
 $route['prodi/akademik/tambah-jadwal']                     = 'prodi/createjadwal';
 $route['prodi/civitas/data-dosen']                         = 'prodi/datadsn';
 $route['prodi/civitas/data-dosen/(:num)/profil']           = 'prodi/profildsn/$1';
+$route['prodi/civitas/data-dosen/(:num)/jadwal']           = 'prodi/datamengajar/$1';
 $route['prodi/civitas/data-dosen/edit/(:num)']             = 'prodi/updatedsn/$1';
 $route['prodi/civitas/data-dosen/delete/(:num)']           = 'prodi/deletedsn/$1';
 $route['prodi/civitas/data-mahasiswa']                     = 'prodi/datamhs';

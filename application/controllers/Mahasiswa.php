@@ -156,6 +156,9 @@ class Mahasiswa extends CI_Controller {
         $krs = [];
         $mk = [];
         $sks_smt = [];
+        $tahun = $this->model_mahasiswa->get_db('durasi', ['id_tahun' => $this->session->tahun]);
+        $tanggal_awal = date_create($tahun['tanggal_awal']);
+        $tanggal_akhir = date_create($tahun['tanggal_akhir']);
 
         for ($i = 1; $i <= 8; $i++) {
             $jumlah_sks = 0;
@@ -172,6 +175,11 @@ class Mahasiswa extends CI_Controller {
         }
 
         $data = [
+            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'tanggal' => date('Y-m-d'),
+            'tanggal_awal' => date_format($tanggal_awal, 'Y-m-d'),
+            'tanggal_akhir' => date_format($tanggal_akhir, 'Y-m-d'),
+            'tahun' => $tahun,
             'listk' => $krs,
             'listm' => $mk,
             'lists' => $sks_smt,
@@ -206,6 +214,31 @@ class Mahasiswa extends CI_Controller {
         $this->model_krs->delete_krs($nim, $id_jadwal);
 
         redirect('mahasiswa/perkuliahan/data-krs');
+    }
+
+    private function tanggal_indonesia($tanggal) {
+        $bulan = [
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        ];
+
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tahun
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tanggal
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 
     //==================== PRESENSI ====================//
@@ -267,6 +300,9 @@ class Mahasiswa extends CI_Controller {
         $krs = [];
         $sks_smt = [];
 
+        $count_ipk = 0;
+        $ipk = 0;
+
         for ($i = 1; $i <= 8; $i++) {
             $jumlah_ip = 0;
             $jumlah_sks = 0;
@@ -294,8 +330,11 @@ class Mahasiswa extends CI_Controller {
                 $jumlah_ip += $indeks;
             }
 
-            if (count($list_krs) > 0) $total_ip = round($jumlah_ip / count($list_krs), 2);
-            else $total_ip = 0;
+            if (count($list_krs) > 0) {
+                $total_ip = round($jumlah_ip / count($list_krs), 2);
+                $ipk += $total_ip;
+                $count_ipk++;
+            } else $total_ip = 0;
 
             $list_sks = $this->model_krs->get_sks($this->session->id, $i);
 
@@ -309,7 +348,12 @@ class Mahasiswa extends CI_Controller {
             array_push($sks_smt, $jumlah_sks);
         }
 
+        if ($count_ipk > 0) $total_ipk = round($ipk / $count_ipk, 2);
+        else $total_ipk = 0;
+
         $data = [
+            'mahasiswa' => $this->model_mahasiswa->get_db('mahasiswa', ['nim' => $this->session->id]),
+            'ipk' => $total_ipk,
             'listip' => $ip,
             'listk' => $krs,
             'lists' => $sks_smt,

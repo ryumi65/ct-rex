@@ -30,7 +30,7 @@
                                         <?php foreach ($listm as $matkul) {
                                             foreach ($listd as $dosen) {
                                                 if ($matkul['nik_dosen'] === $dosen['nik']) { ?>
-                                                    <option value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] ?></option>
+                                                    <option value="<?= $matkul['id_matkul'] ?>"><?= $matkul['nama'] . ' - ' . $dosen['nama'] . ' - Semester ' . $matkul['semester'] ?></option>
                                         <?php }
                                             }
                                         } ?>

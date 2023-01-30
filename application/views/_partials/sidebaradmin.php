@@ -52,13 +52,13 @@
                      <div class="collapse" id="akademik">
                          <ul class="nav ms-4 ps-3">
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/nilaimhs') ?>">
-                                     Nilai Seluruh Mahasiswa
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/tahunajaran') ?>">
+                                    Tahun Ajaran
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/dataruangan') ?>">
-                                     Data Ruangan
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/durasikrs') ?>">
+                                    Durasi KRS
                                  </a>
                              </li>
                          </ul>
@@ -85,12 +85,12 @@
                      <div class="collapse" id="datacivitas">
                          <ul class="nav ms-4 ps-3">
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-civitas/data-fakultas') ?>">
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-fakultas') ?>">
                                      Data Fakultas
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-civitas/data-prodi') ?>">
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-prodi') ?>">
                                      Data Prodi
                                  </a>
                              </li>

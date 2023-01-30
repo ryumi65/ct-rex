@@ -36,6 +36,8 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         SKS</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Semester</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Dosen Pengampu</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Hari</th>
@@ -54,6 +56,7 @@
                                         <td><?= $jadwal['nama'] ?></td>
                                         <td><?= $jadwal['kode'] ?></td>
                                         <td><?= $jadwal['sks'] ?></td>
+                                        <td><?= $jadwal['semester'] ?></td>
                                         <td>
                                             <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];
                                             else echo '-'; ?>
@@ -94,7 +97,7 @@
             table = $('#table').DataTable({
 
                 responsive: true,
-                order: [1, 'asc'],
+                order: [4, 'asc'],
 
                 columnDefs: [{
                     targets: [0, 8],

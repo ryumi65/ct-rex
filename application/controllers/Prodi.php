@@ -102,6 +102,19 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function datamengajar($nik) {
+        $data = [
+            'dosen' => $this->model_prodi->get_db('dosen', ['nik' => $nik]),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($nik, 'all'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/datamengajar', $data);
+        $this->load->view('_partials/script');
+    }
+
     public function updatedsn($nik) {
         $data = [
             'dosen' => $this->model_prodi->get_db('dosen', ['nik' => $nik]),

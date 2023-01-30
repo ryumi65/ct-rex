@@ -46,9 +46,6 @@
                                                 <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/akademik') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
                                                     <i class="fa-solid fa-chalkboard-user"></i>
                                                 </a>
-                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datamhs/delete/' . $mahasiswa['nim']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
                                             </div>
                                         </td>
                                     </tr>

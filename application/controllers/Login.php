@@ -70,31 +70,33 @@ class Login extends CI_Controller {
     }
 
     private function sess_user($id, $level) {
+        $tahun = $this->model_login->get_db('tahun', ['status' => 'Y']);
+
         $this->session->set_userdata(['logged' => true, 'id' => $id]);
 
         switch ($level) {
             case 0:
-                $this->session->set_userdata(['access' => 'Admin', 'level' => $level]);
+                $this->session->set_userdata(['access' => 'Admin', 'level' => $level, 'tahun' => $tahun['id_tahun']]);
 
                 return redirect('admin');
 
             case 1:
-                $this->session->set_userdata(['access' => 'Fakultas', 'level' => $level]);
+                $this->session->set_userdata(['access' => 'Fakultas', 'level' => $level, 'tahun' => $tahun['id_tahun']]);
 
                 return redirect('fakultas');
 
             case 2:
-                $this->session->set_userdata(['access' => 'Prodi', 'level' => $level]);
+                $this->session->set_userdata(['access' => 'Prodi', 'level' => $level, 'tahun' => $tahun['id_tahun']]);
 
                 return redirect('prodi');
 
             case 3:
-                $this->session->set_userdata(['access' => 'Dosen', 'level' => $level]);
+                $this->session->set_userdata(['access' => 'Dosen', 'level' => $level, 'tahun' => $tahun['id_tahun']]);
 
                 return redirect('dosen');
 
             case 4:
-                $this->session->set_userdata(['access' => 'Mahasiswa', 'level' => $level]);
+                $this->session->set_userdata(['access' => 'Mahasiswa', 'level' => $level, 'tahun' => $tahun['id_tahun']]);
 
                 return redirect('mahasiswa');
 

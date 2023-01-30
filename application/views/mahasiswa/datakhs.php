@@ -4,32 +4,34 @@
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0 d-inline d-flex justify-content-between">
-                        <h5>Kartu Hasil Studi</h5>
-                        <p> IPK Saat Ini</p>
-                        <p>4.00</p>
+                    <div class="card-header p-3 d-inline d-flex justify-content-between">
+                        <h5 class="mb-0">Kartu Hasil Studi</h5>
+                        <div>
+                            <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>
+                            <p class="d-inline mb-0"><?= $ipk ?></p>
+                        </div>
                     </div>
 
                     <!-- Card Semester -->
                     <div class="card-body p-3 pt-0">
                         <div class="row g-3">
-                            <?php for ($i = 1; $i <= 8; $i++) : ?>
+                            <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer text-white" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/card-28.png'); background-size: cover;">
+                                    <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
                                         <div class="card-body">
-                                            <h5 class="card-title text-white fw-bolder">Semester <?= $i ?></h5>
+                                            <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">Total sks</p>
-                                                <p class="mb-0"><?= $lists[$i - 1] ?></p>
+                                                <p class="text-white mb-0"><?= $lists[$i - 1] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">IP</p>
-                                                <p class="mb-0"><?= $listip[$i - 1] ?></p>
+                                                <p class="text-white mb-0"><?= $listip[$i - 1] ?></p>
                                             </div>
                                         </div>
                                         <div class="card-footer pt-0">
                                             <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">
-                                                <p class="text-white mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
+                                                <p class="mb-0">Lihat Detail<i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i></p>
                                             </a>
                                         </div>
                                     </div>
@@ -41,7 +43,7 @@
             </div>
 
             <!-- Modal -->
-            <?php for ($i = 1; $i <= 8; $i++) : ?>
+            <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                 <div class="modal fade" id="semester-<?= $i ?>" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-scrollable">
                         <div class="modal-content">
@@ -170,7 +172,7 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 1; i <= <?= $mahasiswa['semester'] ?>; i++) {
             let table;
 
             $(document).ready(() => {

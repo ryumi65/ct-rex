@@ -1,24 +1,22 @@
    <?php
-    $label1 = "MAU";
-    $label2 = "MAKAN";
-    $label3 = "APA";
-    $label4 = "SKRG";
+    $label1 = "FST";
+    $label2 = "FSH";
+    $label3 = "FEB";
+    $label4 = "FAI";
     ?>
 
    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
        <div class="container-fluid pt-5 pt-xl-0">
 
            <!-- Header -->
-           <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/header-mhs.png'); background-position-y: 80%;"></div>
+           <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/gedungdash.jpg'); background-position-y: 80%;"></div>
            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                <div class="d-flex justify-content-between">
-                   <div class="row gx-3 ">
-                       <div class="col-auto">
+                   <div class="row gx-3">
+                       <div class="col-auto my-auto">
                            <div class="avatar avatar-xl position-relative">
                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                            </div>
-                       </div>
-                       <div class="col-auto my-auto">
                        </div>
                    </div>
                    <div class="d-flex d-inline ms-auto">
@@ -311,15 +309,15 @@
        const skrgColor = 'rgba(162, 0,  0, 1)';
        const skrgBorder = 'rgba(162, 0, 0, 0.1)';
        const data = {
-           labels: ['MAU', 'MAKAN', 'APA', 'SKRG'],
+           labels: ['FST', 'FSH', 'FEB', 'FAI'],
            datasets: [{
-               label: 'MAU',
+               label: 'Dosen',
                data: mauData,
                backgroundColor: mauColor,
                borderColor: mauBorder,
                borderWidth: 1
            }, {
-               label: 'MAM',
+               label: 'Mahasiswa',
                data: mau1Data,
                backgroundColor: mau1Color,
                borderColor: mau1Border,
@@ -347,25 +345,25 @@
 
        function updateLabel(label) {
            chart1.data.datasets[0].label = label;
-           if (label === 'MAU') {
-               chart1.data.datasets[0].data = mauData;
-               chart1.data.datasets[0].backgroundColor = mauColor;
-               chart1.data.datasets[0].borderColor = mauBorder;
+           if (label === 'FST') {
+               chart1.data.datasets[0].data = FSTData;
+               chart1.data.datasets[0].backgroundColor = FSTColor;
+               chart1.data.datasets[0].borderColor = FSTBorder;
            }
-           if (label === 'MAKAN') {
-               chart1.data.datasets[0].data = makanData;
-               chart1.data.datasets[0].backgroundColor = makanColor;
-               chart1.data.datasets[0].borderColor = makanBorder;
+           if (label === 'FSH') {
+               chart1.data.datasets[0].data = FSHData;
+               chart1.data.datasets[0].backgroundColor = FSHColor;
+               chart1.data.datasets[0].borderColor = FSHBorder;
            }
-           if (label === 'APA') {
-               chart1.data.datasets[0].data = apaData;
-               chart1.data.datasets[0].backgroundColor = apaColor;
-               chart1.data.datasets[0].borderColor = apaBorder;
+           if (label === 'FEB') {
+               chart1.data.datasets[0].data = FEBData;
+               chart1.data.datasets[0].backgroundColor = FEBColor;
+               chart1.data.datasets[0].borderColor = FEBBorder;
            }
-           if (label === 'SKRG') {
-               chart1.data.datasets[0].data = skrgData;
-               chart1.data.datasets[0].backgroundColor = skrgColor;
-               chart1.data.datasets[0].borderColor = skrgBorder;
+           if (label === 'FAI') {
+               chart1.data.datasets[0].data = FAIData;
+               chart1.data.datasets[0].backgroundColor = FAIColor;
+               chart1.data.datasets[0].borderColor = FAIBorder;
            }
            console.log(label);
            chart1.update();
@@ -694,19 +692,3 @@
            },
        });
    </script>
-
-   <script>
-       var win = navigator.platform.indexOf('Win') > -1;
-       if (win && document.querySelector('#sidenav-scrollbar')) {
-           var options = {
-               damping: '0.5'
-           }
-           Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-       }
-   </script>
-
-   <!-- Github buttons -->
-   <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-   <script src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>

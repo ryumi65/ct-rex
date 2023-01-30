@@ -138,6 +138,7 @@
                                 </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                                 <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>

@@ -172,13 +172,6 @@
                                 <div class="modal-footer">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Cetak</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -217,13 +210,6 @@
                                 <div class="modal-footer">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
-                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Cetak</button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

@@ -93,16 +93,16 @@
                             <div class="table-responsive">
                                 <table class="table align-items-center mb-0">
                                     <thead>
-                                        <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <tr class="bg-gradient-primary text-white">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Kode Dosen</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Nama Dosen</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 NIDN</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Status Dosen</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Beban SKS</th>
                                         </tr>
                                     </thead>
@@ -133,13 +133,10 @@
                                                     <h6 class="mb-0 text-sm">Aktif</h6>
                                                 </div>
                                             </td>
-
-
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -158,16 +155,16 @@
                             <div class="table-responsive">
                                 <table class="table align-items-center mb-0">
                                     <thead>
-                                        <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <tr class="bg-gradient-primary text-white">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2"">
                                                 Mata Kuliah</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class=" font-weight-bolder text-uppercase text-xs ps-2">
                                                 Dosen Pengampu</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Ruangan</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Waktu</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Jumlah Pertemuan</th>
                                         </tr>
                                     </thead>

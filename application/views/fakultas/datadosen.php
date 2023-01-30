@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <table class="table table-striped align-items-center mb-0 ps-3" id="table">
                             <thead>
-                                <tr>
+                                <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">

@@ -82,20 +82,24 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer p-3 pt-0">
-                        <h6>Keterangan</h6>
-                        <div class="d-flex gap-3">
-                            <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
-                            <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
-                            <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
-                            <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
+                    <div class="d-flex justify-content-between card-footer p-3 mx-2">
+                        <div class="d-flex inline">
+                            <h6>Keterangan</h6>
+                            <div class="d-flex gap-3">
+                                <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
+                                <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
+                                <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
+                                <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
+                            </div>
                         </div>
+                        <a href="" class="btn btn-primary btn-sm">Cetak Presensi</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <?php $this->load->view('_partials/footer') ?>
+    <?php $this->load->view('_partials/footer') ?>
     </div>
 
     <!-- JQuery -->

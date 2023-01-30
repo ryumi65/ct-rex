@@ -5,7 +5,14 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body p-0 pb-3">
                         <div class="table-responsive">

@@ -3,8 +3,12 @@
 
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3 d-inline d-flex justify-content-between">
                         <h5>Data Perkuliahan <?= $mahasiswa['nama'] ?></h5>
+                        <div>
+                            <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>
+                            <p class="d-inline mb-0"><?= $ipk ?></p>
+                        </div>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -75,6 +79,9 @@
                                             </div>
                                         </div>
                                     <?php endfor ?>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -154,6 +161,7 @@
                                 </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                                 <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
@@ -274,6 +282,7 @@
                                 </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                                 <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>

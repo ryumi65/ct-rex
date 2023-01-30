@@ -438,7 +438,7 @@ class Dosen extends CI_Controller {
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/berkasmhs', $data);
         $this->load->view('_partials/script');

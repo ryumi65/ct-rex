@@ -19,11 +19,19 @@ class Dosen extends CI_Controller {
 
         $akun = $this->model_dosen->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $list_sks = $this->model_krs->get_sks_dosen($this->session->id);
+        $jumlah_sks = 0;
+
+        for ($i = 0; $i < count($list_sks); $i++) {
+            $sks = intval($list_sks[$i]['sks']);
+            $jumlah_sks += $sks;
+        }
 
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
             'hari' => $list_hari[date('w')],
+            'sks' => $jumlah_sks,
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'mhswali' => $this->model_dosen->get_db_count('ak_mahasiswa', ['dosen_wali' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),

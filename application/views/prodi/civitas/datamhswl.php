@@ -2,51 +2,49 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Tabel Mhs Wali -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-0 pb-3">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mahasiswa</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            JK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Tahun Angkatan</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Status Mahasiswa</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Aksi</th>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Tahun Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Status Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listm as $mahasiswa) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= $mahasiswa['jenis_kelamin'] ?></td>
+                                        <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td><?= $mahasiswa['status'] ?></td>
+                                        <td class="text-center">
+                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listm as $mahasiswa) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?= $mahasiswa['nim'] ?></td>
-                                            <td><a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
-                                            <td><?= $mahasiswa['jenis_kelamin'] ?></td>
-                                            <td><?= $mahasiswa['tahun_angkatan'] ?></td>
-                                            <td><?= $mahasiswa['status'] ?></td>
-                                            <td class="text-center">
-                                                <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

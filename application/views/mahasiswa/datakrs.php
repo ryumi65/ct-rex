@@ -5,7 +5,14 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between p-3 pb-0">
-                        <h5>Kartu Rencana Studi</h5>
+                        <h5 class="d-flex align-items-center mb-0">
+                            Kartu Rencana Studi
+                            <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
+                                <span class="badge bg-gradient-success text-xs">Dibuka</span>
+                            <?php else : ?>
+                                <span class="badge bg-gradient-danger text-xs">Ditutup</span>
+                            <?php endif ?>
+                        </h5>
                         <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
                             <a class="btn btn-primary btn-sm mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/tambah') ?>">Tambah KRS</a>
                         <?php endif ?>
@@ -17,11 +24,6 @@
                         <p class="mb-0">
                             Durasi pengisian KRS: <b><?= $tanggal_awal ?> - <?= $tanggal_akhir ?></b>
                         </p>
-                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
-                            <span class="badge bg-gradient-success mt-2 mb-3">KRS dibuka</span>
-                        <?php else : ?>
-                            <span class="badge bg-gradient-danger mt-2 mb-3">KRS ditutup</span>
-                        <?php endif ?>
 
                         <!-- Card Semester -->
                         <div class="row g-3">

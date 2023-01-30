@@ -45,7 +45,7 @@
                         </div>
                         <div>
                             <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
-                            <h3 class="text-center my-0">1</h3>
+                            <h3 class="text-center my-0"><?= $sks ?></h3>
                             <h6 class="text-center my-0">sks</h6>
                         </div>
                     </div>

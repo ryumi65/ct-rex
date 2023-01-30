@@ -30,61 +30,59 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body px-3 py-0">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3 pe-1" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Mahasiswa</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Pertemuan</th>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-2" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Pertemuan</th>
+                                </tr>
+                                <tr class="bg-gradient-primary text-white">
+                                    <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                        <th class="font-weight-bolder text-uppercase text-xs px-3 text-center">
+                                            <?php if ($i === 8) echo 'UTS';
+                                            elseif ($i === 16) echo 'UAS';
+                                            else echo $i; ?>
+                                        </th>
+                                    <?php endfor ?>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listm as $mahasiswa) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <?php for ($i = 0; $i < 16; $i++) {
+                                            if (isset($presensi[$mahasiswa['id_krs']][$i])) {
+                                                switch ($presensi[$mahasiswa['id_krs']][$i]) {
+                                                    case 'Hadir':
+                                                        echo '<td class="text-center"><span class="badge bg-primary">H</span></td>';
+                                                        break;
+                                                    case 'Izin':
+                                                        echo '<td class="text-center"><span class="badge bg-info">I</span></td>';
+                                                        break;
+                                                    case 'Sakit':
+                                                        echo '<td class="text-center"><span class="badge bg-dark">S</span></td>';
+                                                        break;
+                                                    case 'Alfa':
+                                                        echo '<td class="text-center"><span class="badge bg-danger">A</span></td>';
+                                                        break;
+                                                }
+                                            } else echo '<td class="text-center">-</td>';
+                                        } ?>
                                     </tr>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <th class="font-weight-bolder text-uppercase text-xs px-3 text-center">
-                                                <?php if ($i === 8) echo 'UTS';
-                                                elseif ($i === 16) echo 'UAS';
-                                                else echo $i; ?>
-                                            </th>
-                                        <?php endfor ?>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listm as $mahasiswa) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?= $mahasiswa['nama'] ?></td>
-                                            <td><?= $mahasiswa['nim'] ?></td>
-                                            <?php for ($i = 0; $i < 16; $i++) {
-                                                if (isset($presensi[$mahasiswa['id_krs']][$i])) {
-                                                    switch ($presensi[$mahasiswa['id_krs']][$i]) {
-                                                        case 'Hadir':
-                                                            echo '<td class="text-center"><span class="badge bg-primary">H</span></td>';
-                                                            break;
-                                                        case 'Izin':
-                                                            echo '<td class="text-center"><span class="badge bg-info">I</span></td>';
-                                                            break;
-                                                        case 'Sakit':
-                                                            echo '<td class="text-center"><span class="badge bg-dark">S</span></td>';
-                                                            break;
-                                                        case 'Alfa':
-                                                            echo '<td class="text-center"><span class="badge bg-danger">A</span></td>';
-                                                            break;
-                                                    }
-                                                } else echo '<td class="text-center">-</td>';
-                                            } ?>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="card-footer p-3">
+                    <div class="card-footer p-3 pt-0">
                         <h6>Keterangan</h6>
                         <div class="d-flex gap-3">
                             <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>

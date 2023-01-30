@@ -183,6 +183,7 @@
                 table = $(`#table${i}`).DataTable({
 
                     dom: "",
+                    paging: false,
                     order: [1, 'asc'],
 
                     columnDefs: [{

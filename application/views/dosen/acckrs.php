@@ -55,7 +55,7 @@
                         <!-- Modal -->
                         <?php foreach ($lists as $mahasiswa) : ?>
                             <div class="modal fade" id="id-<?= $mahasiswa['nim'] ?>" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                <div class="modal-dialog modal-xl modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi <?= $mahasiswa['nama'] ?></h1>
@@ -133,7 +133,8 @@
 
             table = $('#table').DataTable({
 
-                responsive: true,
+                dom: "",
+                paging: false,
                 order: [1, 'asc'],
 
                 columnDefs: [{
@@ -163,6 +164,7 @@
                 table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
 
                     dom: "",
+                    paging: false,
                     order: [1, 'asc'],
 
                     columnDefs: [{

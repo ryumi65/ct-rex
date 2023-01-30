@@ -85,12 +85,12 @@
                      <div class="collapse" id="datacivitas">
                          <ul class="nav ms-4 ps-3">
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-fakultas') ?>">
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/datafks') ?>">
                                      Data Fakultas
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link link-secondary" href="<?= site_url('admin/data-prodi') ?>">
+                                 <a class="nav-link link-secondary" href="<?= site_url('admin/dataprd') ?>">
                                      Data Prodi
                                  </a>
                              </li>

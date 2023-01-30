@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_admin');
         $this->load->model('model_ruangan');
@@ -11,7 +13,8 @@ class Admin extends CI_Controller {
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -20,7 +23,35 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function nilaimhs() {
+
+    public function datafks()
+    {
+        $data = [
+            'fakultas' => $this->model_admin->get_db('ak_prodi', ['id_fakultas' => $this->session->id]),
+            'listf' => $this->model_admin->get_db('ak_mahasiswa', ['id_fakultas' => $this->session->id], 'result'),
+        ];
+
+        $this->load->model('model_admin');
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/datafakultas', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function dataprd()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/dataprodi');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function nilaimhs()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -29,7 +60,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datadsn() {
+    public function datadsn()
+    {
         $data['admin'] = $this->model_admin->join_dosen('ak_admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_dosen('ak_dosen', ['nik' => $this->session->id]);
 
@@ -41,7 +73,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function datamhs() {
+    public function datamhs()
+    {
         $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
         $data['listm'] = $this->model_admin->join_mhs('ak_mahasiswa', ['nim' => $this->session->id]);
 
@@ -53,7 +86,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profilmhs($nim) {
+    public function profilmhs($nim)
+    {
         $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
         $data['listm'] = $this->model_admin->join_mhs('ak_admin');
         $data['mahasiswa'] = $this->model_admin->join_mhs('ak_mahasiswa', ['nim' => $nim]);
@@ -66,7 +100,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function profildsn($nik) {
+    public function profildsn($nik)
+    {
         $data['admin'] = $this->model_admin->join_mhs('ak_admin', ['id_admin' => $this->session->id]);
         $data['listd'] = $this->model_admin->join_mhs('ak_admin');
         $data['dosen'] = $this->model_admin->join_mhs('ak_dosen', ['nik' => $nik]);
@@ -79,7 +114,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function dataruangan() {
+    public function dataruangan()
+    {
         $data = [
             'listr' => $this->model_admin->get_db('ak_ruangan'),
         ];
@@ -92,7 +128,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function inputruangan() {
+    public function inputruangan()
+    {
         $data = [
             'listr' => $this->model_admin->get_db('ak_ruangan'),
         ];
@@ -110,12 +147,14 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function deleteruangan() {
+    public function deleteruangan()
+    {
         $this->model_dosen->delete_ruangan();
         redirect('admin/akademik/dataruangan');
     }
 
-    public function listpengumuman() {
+    public function listpengumuman()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
@@ -124,7 +163,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function durasikrs() {
+    public function durasikrs()
+    {
         $data = [
             'listt' => $this->model_admin->get_db('ak_tahun'),
         ];
@@ -137,13 +177,15 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function setdurasi() {
+    public function setdurasi()
+    {
         $this->model_admin->set_durasi();
 
         redirect('admin');
     }
 
-    public function tahunajaran() {
+    public function tahunajaran()
+    {
         $data = [
             'listt' => $this->model_admin->get_db('ak_tahun'),
         ];
@@ -156,7 +198,8 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function ubahtahun() {
+    public function ubahtahun()
+    {
         $this->model_admin->ubah_tahun();
 
         redirect('admin');

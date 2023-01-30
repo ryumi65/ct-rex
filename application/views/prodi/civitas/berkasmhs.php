@@ -305,6 +305,7 @@
                 tablekrs = $(`#tablekrs${i}`).DataTable({
 
                     dom: "",
+                    paging: false,
                     order: [1, 'asc'],
 
                     columnDefs: [{
@@ -334,6 +335,7 @@
                 tablekhs = $(`#tablekhs${i}`).DataTable({
 
                     dom: "",
+                    paging: false,
                     order: [1, 'asc'],
 
                     columnDefs: [{

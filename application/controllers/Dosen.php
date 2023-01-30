@@ -209,11 +209,15 @@ class Dosen extends CI_Controller {
         $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        $presensi = $this->model_dosen->get_presensi($id_matkul, $pertemuan);
+        $tanggal = date_create($presensi[0]['tanggal']);
+
         $data = [
             'matkul' => $matkul,
             'pertemuan' => $pertemuan,
+            'tanggal' => date_format($tanggal, 'Y-m-d'),
             'listm' => $this->model_dosen->get_mhs($id_matkul),
-            'listp' => $this->model_dosen->get_presensi($id_matkul, $pertemuan),
+            'listp' => $presensi,
         ];
 
         $this->load->view('_partials/head');

@@ -10,6 +10,12 @@
                     <div class="card-body px-3 py-0">
                         <?= form_open('dosen/updatepresensi/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
                         <div class="row g-3">
+                            <div class="col-12">
+                                <label>Tanggal Pertemuan</label>
+                                <div class="mb-3">
+                                    <input type="date" name="tanggal" class="form-control" value="<?= $tanggal ?>">
+                                </div>
+                            </div>
                             <?php foreach ($listm as $mahasiswa) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
                                     <div class="card card-profile card-plain cursor-pointer" id="card-pop">

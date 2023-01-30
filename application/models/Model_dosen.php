@@ -89,7 +89,7 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_presensi($id_matkul, $pertemuan, $type = '') {
-        $query = $this->db->select('p.id_krs, p.kehadiran')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+        $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
             ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
             ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
 
@@ -139,6 +139,7 @@ class Model_dosen extends CI_Model {
                     'id_krs' => $id_krs,
                     'kehadiran' => $kehadiran,
                     'pertemuan' => $pertemuan,
+                    'tanggal' => $this->input->post('tanggal'),
                 ];
 
                 $this->db->update('ak_presensi', $data, ['id_krs' => $mahasiswa['id_krs'], 'pertemuan' => $pertemuan]);

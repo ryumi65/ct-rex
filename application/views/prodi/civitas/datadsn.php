@@ -3,12 +3,12 @@
 
             <div class="col-12 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 d-inline d-flex justify-content-between">
+                    <div class="card-header d-flex justify-content-between p-3">
                         <h5 class="mb-0">Daftar Dosen Prodi <?= $prodi['nama'] ?></h5>
-                        <a href="<?= site_url('prodi/inputdsn') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Dosen</a>
+                        <a href="<?= site_url('prodi/civitas/tambah-dosen') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Dosen</a>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">

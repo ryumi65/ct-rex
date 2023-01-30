@@ -7,39 +7,37 @@
                     <div class="card-header p-3 pb-0">
                         <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-0 pb-3">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kode MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Hari</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Ruangan</th>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Kode MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Hari</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Waktu</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Ruangan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listj as $jadwal) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $jadwal['nama'] ?></td>
+                                        <td><?= $jadwal['kode'] ?></td>
+                                        <td><?= $jadwal['hari'] ?></td>
+                                        <td><?= $jadwal['waktu'] ?></td>
+                                        <td><?= $jadwal['ruangan'] ?></td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listj as $jadwal) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?= $jadwal['nama'] ?></td>
-                                            <td><?= $jadwal['kode'] ?></td>
-                                            <td><?= $jadwal['hari'] ?></td>
-                                            <td><?= $jadwal['waktu'] ?></td>
-                                            <td><?= $jadwal['ruangan'] ?></td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

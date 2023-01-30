@@ -78,6 +78,7 @@ $route['prodi/civitas/data-dosen/(:num)/profil']           = 'prodi/profildsn/$1
 $route['prodi/civitas/data-dosen/(:num)/jadwal']           = 'prodi/datamengajar/$1';
 $route['prodi/civitas/data-dosen/edit/(:num)']             = 'prodi/updatedsn/$1';
 $route['prodi/civitas/data-dosen/delete/(:num)']           = 'prodi/deletedsn/$1';
+$route['prodi/civitas/tambah-dosen']                       = 'prodi/inputdsn';
 $route['prodi/civitas/data-mahasiswa']                     = 'prodi/datamhs';
 $route['prodi/civitas/data-mahasiswa/(:num)/profil']       = 'prodi/profilmhs/$1';
 $route['prodi/civitas/data-mahasiswa/(:num)/akademik']     = 'prodi/berkasmhs/$1';
@@ -85,6 +86,9 @@ $route['prodi/civitas/data-dosen-wali']                    = 'prodi/datadsnwl';
 $route['prodi/civitas/data-dosen-wali/(:num)']             = 'prodi/datamhswl/$1';
 $route['prodi/civitas/data-dosen-wali/tambah-wali']        = 'prodi/createwali';
 $route['prodi/civitas/hapus-mahasiswa-wali/(:num)/(:num)'] = 'prodi/deletemhswl/$1/$2';
+$route['prodi/pengumuman/tambah']                          = 'prodi/inputpengumuman';
+$route['prodi/pengumuman/(:num)/edit']                     = 'prodi/ubahpengumuman/$1';
+$route['prodi/pengumuman/(:num)/delete']                   = 'prodi/deletepengumuman/$1';
 $route['prodi/profil/edit']                                = 'prodi/update';
 
 //==================== DOSEN ====================//
@@ -105,7 +109,7 @@ $route['dosen/profil/edit/(:num)']                         = 'dosen/update/$1';
 //==================== MAHASISWA ====================//
 
 $route['mahasiswa/perkuliahan/data-krs']                   = 'mahasiswa/datakrs';
-$route['mahasiswa/perkuliahan/data-krs/(:num)/tambah']     = 'mahasiswa/formkrs/$1';
+$route['mahasiswa/perkuliahan/data-krs/tambah']            = 'mahasiswa/formkrs';
 $route['mahasiswa/perkuliahan/data-khs']                   = 'mahasiswa/datakhs';
 $route['mahasiswa/perkuliahan/jadwal-kuliah']              = 'mahasiswa/jadwalkuliah';
 $route['mahasiswa/perkuliahan/presensi/(:num)']            = 'mahasiswa/presensi/$1';

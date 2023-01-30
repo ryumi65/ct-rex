@@ -17,8 +17,8 @@ class Model_krs extends CI_Model {
     }
 
     public function get_list_krs($id_prodi, $semester) {
-        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
-            ->from('ak_jadwal j')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->join('ak_dosen d', 'm.nik_dosen = d.nik')
+        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')->from('ak_jadwal j')
+            ->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->join('ak_dosen d', 'm.nik_dosen = d.nik')
             ->where(['m.id_prodi' => $id_prodi, 'm.semester' => $semester])->get();
 
         return $query->result_array();

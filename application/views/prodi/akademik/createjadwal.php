@@ -4,11 +4,10 @@
             <!-- Form Jadwal Kuliah -->
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Form Pengisian Jadwal Kuliah</h5>
                     </div>
-                    <div class="card-body p-3">
-                        <?= validation_errors() ?>
+                    <div class="card-body p-3 pt-0">
                         <?= form_open('jadwal/create') ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">

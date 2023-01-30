@@ -2,12 +2,12 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Profil -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3 pb-0">
                         <h5 class="mb-0">Profil Mahasiswa</h5>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pt-0">
                         <div class="avatar avatar-xxl position-relative">
                             <img src="<?= base_url(); ?>assets/img/uploads/profile/curved.jpg" alt="profile_image" class="w-300 border-radius-lg shadow-sm">
                         </div>

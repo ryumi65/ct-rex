@@ -4,53 +4,58 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
-                        <h5>Tambah Kartu Rencana Studi Semester <?= $semester ?></h5>
+                        <h5>Tambah Kartu Rencana Studi Semester <?= $mahasiswa['semester'] ?></h5>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <?= form_open('krs/create') ?>
-                        <table class="table table-striped align-items-center" id="table">
-                            <thead>
-                                <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kode MK</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Nama MK</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Total SKS</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Dosen Pengampu</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Hari</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Waktu</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Ruangan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                        Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm">
-                                <?php foreach ($listk as $krs) : ?>
-                                    <tr>
-                                        <td></td>
-                                        <td><?= $krs['kode'] ?></td>
-                                        <td><?= $krs['nama'] ?></td>
-                                        <td><?= $krs['sks'] ?></td>
-                                        <td><?= $krs['dosen'] ?></td>
-                                        <td><?= $krs['hari'] ?></td>
-                                        <td><?= $krs['waktu'] ?></td>
-                                        <td><?= $krs['ruangan'] ?></td>
-                                        <td class="d-flex justify-content-center">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $krs['id'] ?>">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
+                        <?php for ($i = 1; $i <= 8; $i++) :
+                            if ($i % 2 === $semester) : ?>
+                                <h6>KRS Semester <?= $i ?></h6>
+                                <table class="table table-striped align-items-center" id="table<?= $i ?>">
+                                    <thead>
+                                        <tr class="bg-gradient-primary text-white">
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                No.</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Kode MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Nama MK</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Total SKS</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Dosen Pengampu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Hari</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Waktu</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                Ruangan</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <?php foreach ($listk[$i] as $krs) : ?>
+                                            <tr>
+                                                <td></td>
+                                                <td><?= $krs['kode'] ?></td>
+                                                <td><?= $krs['nama'] ?></td>
+                                                <td><?= $krs['sks'] ?></td>
+                                                <td><?= $krs['dosen'] ?></td>
+                                                <td><?= $krs['hari'] ?></td>
+                                                <td><?= $krs['waktu'] ?></td>
+                                                <td><?= $krs['ruangan'] ?></td>
+                                                <td class="d-flex justify-content-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $krs['id'] ?>">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                        <?php endif;
+                        endfor; ?>
                         <div class="d-flex justify-content-end text-center">
                             <button type="submit" class="btn btn-primary btn-sm mt-3 mb-0">Simpan</button>
                         </div>
@@ -137,31 +142,35 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
-        let table;
+        for (let i = 1; i <= 8; i++) {
+            if (i % 2 == <?= $semester ?>) {
+                let table;
 
-        $(document).ready(() => {
+                $(document).ready(() => {
 
-            table = $('#table').DataTable({
+                    table = $(`#table${i}`).DataTable({
 
-                dom: "",
-                order: [1, 'asc'],
+                        dom: "",
+                        order: [1, 'asc'],
 
-                columnDefs: [{
-                    targets: [0, 8],
-                    orderable: false,
-                    searchable: false,
-                }],
-            });
+                        columnDefs: [{
+                            targets: [0, 8],
+                            orderable: false,
+                            searchable: false,
+                        }],
+                    });
 
-            table.on('order.dt search.dt', () => {
-                let j = 1;
+                    table.on('order.dt search.dt', () => {
+                        let j = 1;
 
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(j++);
+                        table.cells(null, 0, {
+                            order: 'applied',
+                            search: 'applied',
+                        }).every(function(cell) {
+                            this.data(j++);
+                        });
+                    }).draw();
                 });
-            }).draw();
-        });
+            }
+        }
     </script>

@@ -4,11 +4,24 @@
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3">
-                        <h5 class="mb-0">Kartu Rencana Studi</h5>
+                    <div class="card-header d-flex justify-content-between p-3 pb-0">
+                        <h5>Kartu Rencana Studi</h5>
+                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
+                            <a class="btn btn-primary btn-sm mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/tambah') ?>">Tambah KRS</a>
+                        <?php endif ?>
                     </div>
 
                     <div class="card-body p-3 pt-0">
+
+                        <!-- Durasi -->
+                        <p class="mb-0">
+                            Durasi pengisian KRS: <b><?= $tanggal_awal ?> - <?= $tanggal_akhir ?></b>
+                        </p>
+                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
+                            <span class="badge bg-gradient-success mt-2 mb-3">KRS dibuka</span>
+                        <?php else : ?>
+                            <span class="badge bg-gradient-danger mt-2 mb-3">KRS ditutup</span>
+                        <?php endif ?>
 
                         <!-- Card Semester -->
                         <div class="row g-3">
@@ -122,27 +135,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <?php if ($i == $mahasiswa['semester']) $flex = 'between';
-                            else $flex = 'end'; ?>
-                            <div class="modal-footer d-flex align-items-end justify-content-<?= $flex ?>">
-                                <?php if ($i == $mahasiswa['semester']) : ?>
-                                    <div>
-                                        <h6>Durasi pengisian KRS: <?= $tahun['tanggal_awal'] ?> - <?= $tahun['tanggal_akhir'] ?></h6>
-                                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
-                                            <span class="badge bg-gradient-success">KRS dibuka</span>
-                                        <?php else : ?>
-                                            <span class="badge bg-gradient-danger">KRS ditutup</span>
-                                        <?php endif ?>
-                                    </div>
-                                <?php endif ?>
-                                <div class="d-flex justify-content-end">
-                                    <?php if ($i == $mahasiswa['semester']) : ?>
-                                        <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
-                                            <a class="btn btn-primary btn-sm mx-2 mb-0" href="<?= site_url('mahasiswa/perkuliahan/data-krs/' . $i . '/tambah') ?>">Tambah KRS</a>
-                                    <?php endif;
-                                    endif; ?>
-                                    <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
-                                </div>
+                            <div class="modal-footer d-flex justify-content-end">
+                                <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

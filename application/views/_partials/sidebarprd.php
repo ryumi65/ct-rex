@@ -72,14 +72,14 @@
 
                 <!-- Data Civitas -->
                 <?php if (fnmatch('prodi/civitas*', uri_string())) {
-                    $navlinkData = 'nav-link active shadow';
+                    $navlinkCiv = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
-                    $navlinkData = 'nav-link';
+                    $navlinkCiv = 'nav-link';
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkData ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
+                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkCiv ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
                         </div>
@@ -121,10 +121,18 @@
                     </a>
                 </li> -->
 
+                <!-- Pengumuman -->
+                <?php if (fnmatch('prodi/pengumuman*', uri_string())) {
+                    $navlinkPgm = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkPgm = 'nav-link';
+                    $color = '#000';
+                } ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url('prodi/pengumuman') ?>">
-                        <div class=" icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-bullhorn" style="color:#000"></i>
+                    <a class="<?= $navlinkPgm ?>" href="<?= site_url('prodi/pengumuman') ?>">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-bullhorn" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Pengumuman</span>
                     </a>

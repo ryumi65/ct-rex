@@ -157,8 +157,11 @@ class Mahasiswa extends CI_Controller {
         $mk = [];
         $sks_smt = [];
         $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
-        $tanggal_awal = date_create($tahun['tanggal_awal']);
-        $tanggal_akhir = date_create($tahun['tanggal_akhir']);
+
+        $create_tanggal_awal = date_create($tahun['tanggal_awal']);
+        $create_tanggal_akhir = date_create($tahun['tanggal_akhir']);
+        $tanggal_awal = date_format($create_tanggal_awal, 'Y-m-d');
+        $tanggal_akhir = date_format($create_tanggal_akhir, 'Y-m-d');
 
         for ($i = 1; $i <= 8; $i++) {
             $jumlah_sks = 0;
@@ -177,8 +180,8 @@ class Mahasiswa extends CI_Controller {
         $data = [
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'tanggal' => date('Y-m-d'),
-            'tanggal_awal' => date_format($tanggal_awal, 'Y-m-d'),
-            'tanggal_akhir' => date_format($tanggal_akhir, 'Y-m-d'),
+            'tanggal_awal' => $this->indonesian_date($tanggal_awal),
+            'tanggal_akhir' => $this->indonesian_date($tanggal_akhir),
             'tahun' => $tahun,
             'listk' => $krs,
             'listm' => $mk,
@@ -193,13 +196,39 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function formkrs($semester) {
+    public function formkrs() {
         $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
+        $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
+        $tanggal_awal = date_create($tahun['tanggal_awal']);
+        $tanggal_akhir = date_create($tahun['tanggal_akhir']);
+
+        if (
+            date('Y-m-d') < date_format($tanggal_awal, 'Y-m-d') ||
+            date('Y-m-d') > date_format($tanggal_akhir, 'Y-m-d')
+        ) redirect('mahasiswa/perkuliahan/data-krs');
+
+        if ($mahasiswa['semester'] % 2 === 0) {
+            $krs = [
+                2 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 2),
+                4 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 4),
+                6 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 6),
+                8 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 8),
+            ];
+            $semester = 0;
+        } elseif ($mahasiswa['semester'] % 2 === 1) {
+            $krs = [
+                1 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 1),
+                3 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 3),
+                5 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 5),
+                7 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 7),
+            ];
+            $semester = 1;
+        }
 
         $data = [
             'mahasiswa' => $mahasiswa,
             'semester' => $semester,
-            'listk' => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], $semester),
+            'listk' => $krs,
         ];
 
         $this->load->view('_partials/head');
@@ -216,8 +245,8 @@ class Mahasiswa extends CI_Controller {
         redirect('mahasiswa/perkuliahan/data-krs');
     }
 
-    private function tanggal_indonesia($tanggal) {
-        $bulan = [
+    private function indonesian_date($date) {
+        $month = [
             1 => 'Januari',
             'Februari',
             'Maret',
@@ -232,13 +261,9 @@ class Mahasiswa extends CI_Controller {
             'Desember'
         ];
 
-        $pecahkan = explode('-', $tanggal);
+        $exp = explode('-', $date);
 
-        // variabel pecahkan 0 = tahun
-        // variabel pecahkan 1 = bulan
-        // variabel pecahkan 2 = tanggal
-
-        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+        return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
     }
 
     //==================== PRESENSI ====================//

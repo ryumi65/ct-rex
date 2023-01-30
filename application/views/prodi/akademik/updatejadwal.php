@@ -4,11 +4,10 @@
             <!-- Form Jadwal Kuliah -->
             <div class="col-12 mb-md-0 my-4">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Form Pengisian Jadwal Kuliah</h5>
                     </div>
-                    <div class="card-body p-3">
-                        <?= validation_errors() ?>
+                    <div class="card-body p-3 pt-0">
                         <?= form_open('jadwal/update/' . $jadwal['id_jadwal']) ?>
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
@@ -60,16 +59,17 @@
                                     </select>
                                 </div>
                             </div>
+                            <?php $tanggal = explode(' - ', $jadwal['pukul']); ?>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jam Awal</label>
                                 <div class="mb-3">
-                                    <input type="time" name="pukul_awal" class="form-control">
+                                    <input type="time" name="pukul_awal" class="form-control" value="<?= $tanggal[0] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jam Akhir</label>
                                 <div class="mb-3">
-                                    <input type="time" name="pukul_akhir" class="form-control">
+                                    <input type="time" name="pukul_akhir" class="form-control" value="<?= $tanggal[1] ?>">
                                 </div>
                             </div>
 

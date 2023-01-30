@@ -2,20 +2,18 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Beban Mengajar -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
-                            <div class="mx-0 col-4 my-1">
-                                <select class="form-select" name="nik_dosen" required>
-                                    <option selected disabled>Pilih Tahun Ajaran</option>
-                                </select>
-                            </div>
+                    <div class="card-header d-flex align-items-center justify-content-between p-3">
+                        <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
+                        <div class="mx-0 col-4 my-1">
+                            <select class="form-select">
+                                <option selected disabled>Pilih Tahun Ajaran</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">

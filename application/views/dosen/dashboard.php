@@ -30,7 +30,7 @@
                                 <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
-                        <div class="col-auto my-auto">
+                        <div class="col-auto m-2 m-md-auto">
                             <div>
                                 <h5 class="mb-2"><?= $dosen['nama'] ?></h5>
                                 <p class="mb-0 font-weight-bold text-sm"><?= $dosen['nik'] ?></p>
@@ -53,10 +53,10 @@
             </div>
 
             <!-- Content -->
-            <div class="row g-3 mt-1">
+            <div class="row g-3 mt-3">
 
                 <!-- Riwayat sks -->
-                <div class="col-12">
+                <div class="col-12 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Riwayat sks yang Diampu</h5>
@@ -70,7 +70,7 @@
                 </div>
 
                 <!-- Jadwal Kuliah -->
-                <div class="col-12">
+                <div class="col-12 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3">
                             <h5>Jadwal Perkuliahan Hari <?= $hari ?></h5>
@@ -119,7 +119,7 @@
                 </div>
 
                 <!-- Pengumuman Universitas -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
@@ -146,7 +146,7 @@
                 </div>
 
                 <!-- Pengumuman Fakultas -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">

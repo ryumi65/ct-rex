@@ -2,12 +2,12 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Profil -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
-                        <h5 class="mb-0">Input Data Dosen</h5>
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Tambah Data Dosen</h5>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pt-0">
                         <?= validation_errors() ?>
                         <?= form_open('prodi/inputdsn') ?>
                         <div class="row">
@@ -40,7 +40,6 @@
                                         <?php endif ?>
                                     </select>
                                 </div>
-                            </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Tempat Lahir</label>

@@ -2,45 +2,43 @@
         <div class="container-fluid pt-5 pt-xl-0">
 
             <!-- Tabel Dosen Wali -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0">Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h5>
-                            <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
-                        </div>
-                        <div class="card-body px-0">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Dosen</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            JK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIDN</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            Mahasiswa Wali</th>
+                    <div class="card-header d-flex justify-content-between p-3">
+                        <h5 class="mb-0">Daftar Dosen Wali Prodi <?= $prodi['nama'] ?></h5>
+                        <a href="<?= site_url('prodi/civitas/data-dosen-wali/tambah-wali') ?>" class="btn btn-primary btn-sm mb-0">Tambah Data Wali</a>
+                    </div>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Dosen</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIDN</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        Mahasiswa Wali</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listd as $dosen) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
+                                        <td><?= $dosen['nik'] ?></td>
+                                        <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
+                                        <td><?= $dosen['nidn_dosen'] ?></td>
+                                        <td><?= $mhswl[$dosen['nik']] ?></td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listd as $dosen) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><a href="<?= site_url('prodi/civitas/data-dosen-wali/' . $dosen['nik']) ?>"><?= $dosen['nama'] ?></a></td>
-                                            <td><?= $dosen['nik'] ?></td>
-                                            <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
-                                            <td><?= $dosen['nidn_dosen'] ?></td>
-                                            <td><?= $mhswl[$dosen['nik']] ?></td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

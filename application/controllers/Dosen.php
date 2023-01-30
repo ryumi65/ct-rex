@@ -176,8 +176,16 @@ class Dosen extends CI_Controller {
         $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        $pertemuan_validation = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+        }
+
         $data = [
             'matkul' => $matkul,
+            'pertemuan' => $pertemuan_validation,
             'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 

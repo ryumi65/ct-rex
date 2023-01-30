@@ -16,7 +16,15 @@
                                     <select class="form-select" name="pertemuan">
                                         <option selected disabled>Pilih Pertemuan</option>
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <option value="<?= $i ?>">Pertemuan <?= $i ?></option>
+                                            <?php if ($pertemuan[$i - 1] === 'false') : ?>
+                                                <li>
+                                                    <option value="<?= $i ?>">Pertemuan
+                                                        <?php if ($i === 8) echo 'UTS';
+                                                        elseif ($i === 16) echo 'UAS';
+                                                        else echo $i; ?>
+                                                    </option>
+                                                </li>
+                                            <?php endif ?>
                                         <?php endfor ?>
                                     </select>
                                 </div>

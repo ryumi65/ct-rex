@@ -140,7 +140,7 @@
 
                     <!-- Pengumuman Fakultas -->
                     <div class="card mb-3" id="card-pop">
-                        <div class="card-header bg-gradient-info p-3 pb-0">
+                        <div class="card-header bg-gradient-primary p-3 pb-0">
                             <h5 class="text-white">Pengumuman Fakultas</h5>
                         </div>
                         <div class="card-body p-3 pt-0">
@@ -203,7 +203,7 @@
                         </div>
                     </div>
 
-                    <!--modal univ -->
+                    <!-- Modal Univ -->
                     <div class="modal fade" id="univModal" tabindex="-1" aria-labelledby="univModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">

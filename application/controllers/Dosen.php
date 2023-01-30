@@ -372,12 +372,46 @@ class Dosen extends CI_Controller {
         $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        $ip = [];
         $krs = [];
         $mk = [];
         $sks_smt = [];
 
+        $count_ipk = 0;
+        $ipk = 0;
+
         for ($i = 1; $i <= 8; $i++) {
+            $jumlah_ip = 0;
             $jumlah_sks = 0;
+            $list_krs = $this->model_krs->get_krs_smt($nim, $i);
+
+            foreach ($list_krs as $value) {
+                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
+                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
+                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
+                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+
+                $akhir = $presensi + $tugas + $uts + $uas;
+
+                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
+                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
+                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
+                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
+                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
+                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
+                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
+                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
+                elseif ($akhir < 41) $indeks = 0;
+
+                $jumlah_ip += $indeks;
+            }
+
+            if (count($list_krs) > 0) {
+                $total_ip = round($jumlah_ip / count($list_krs), 2);
+                $ipk += $total_ip;
+                $count_ipk++;
+            } else $total_ip = 0;
+
             $list_sks = $this->model_krs->get_sks($nim, $i);
 
             for ($j = 0; $j < count($list_sks); $j++) {
@@ -385,23 +419,28 @@ class Dosen extends CI_Controller {
                 $jumlah_sks += $sks;
             }
 
-            array_push($krs, $this->model_krs->get_krs_smt($nim, $i));
+            array_push($ip, $total_ip);
+            array_push($krs, $list_krs);
             array_push($mk, $this->model_krs->get_mk($nim, $i));
             array_push($sks_smt, $jumlah_sks);
         }
 
+        if ($count_ipk > 0) $total_ipk = round($ipk / $count_ipk, 2);
+        else $total_ipk = 0;
+
         $data = [
             'mahasiswa' => $mahasiswa,
+            'ipk' => $total_ipk,
+            'listip' => $ip,
             'listk' => $krs,
             'listm' => $mk,
             'lists' => $sks_smt,
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('dosen/berkasmhs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 

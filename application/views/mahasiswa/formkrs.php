@@ -35,19 +35,31 @@
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm">
-                                        <?php foreach ($listk[$i] as $krs) : ?>
+                                        <?php foreach ($listj[$i] as $jadwal) : ?>
+                                            <?php
+                                            $status = '';
+
+                                            foreach ($listk as $krs) {
+                                                if ($jadwal['id'] == $krs['id_jadwal']) {
+                                                    $status = 'break';
+                                                }
+                                            }
+
+                                            if ($status === 'break') {
+                                                break;
+                                            } ?>
                                             <tr>
                                                 <td></td>
-                                                <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
-                                                <td><?= $krs['sks'] ?></td>
-                                                <td><?= $krs['dosen'] ?></td>
-                                                <td><?= $krs['hari'] ?></td>
-                                                <td><?= $krs['waktu'] ?></td>
-                                                <td><?= $krs['ruangan'] ?></td>
+                                                <td><?= $jadwal['kode'] ?></td>
+                                                <td><?= $jadwal['nama'] ?></td>
+                                                <td><?= $jadwal['sks'] ?></td>
+                                                <td><?= $jadwal['dosen'] ?></td>
+                                                <td><?= $jadwal['hari'] ?></td>
+                                                <td><?= $jadwal['waktu'] ?></td>
+                                                <td><?= $jadwal['ruangan'] ?></td>
                                                 <td class="d-flex justify-content-center">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $krs['id'] ?>">
+                                                        <input class="form-check-input" type="checkbox" name="id_jadwal[]" value="<?= $jadwal['id'] ?>">
                                                     </div>
                                                 </td>
                                             </tr>

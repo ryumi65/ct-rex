@@ -69,22 +69,22 @@ class model_admin extends CI_Model
 
 
         foreach ($listd as $durasi) {
-            if ($durasi['id_tahun'] === $id_tahun) {
+            if ($durasi['id_tahun'] == $id_tahun) {
                 $data = [
                     'tanggal_awal' => $this->input->post('tanggal_awal'),
                     'tanggal_akhir' => $this->input->post('tanggal_akhir'),
                 ];
 
-                $this->db->update('ak_durasi', $data, ['id_tahun' => $id_tahun]);
-            } else {
-                $data = [
-                    'id_tahun' => $id_tahun,
-                    'tanggal_awal' => $this->input->post('tanggal_awal'),
-                    'tanggal_akhir' => $this->input->post('tanggal_akhir'),
-                ];
-
-                $this->db->insert('ak_durasi', $data);
+                return $this->db->update('ak_durasi', $data, ['id_tahun' => $id_tahun]);
             }
         }
+
+        $data = [
+            'id_tahun' => $id_tahun,
+            'tanggal_awal' => $this->input->post('tanggal_awal'),
+            'tanggal_akhir' => $this->input->post('tanggal_akhir'),
+        ];
+
+        return $this->db->insert('ak_durasi', $data);
     }
 }

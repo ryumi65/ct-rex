@@ -484,8 +484,8 @@ class Prodi extends CI_Controller {
         redirect('prodi/pengumuman');
     }
 
-    public function deletepengumuman() {
-        $this->model_pengumuman->delete_pengumuman();
+    public function deletepengumuman($id_pengumuman) {
+        $this->model_pengumuman->delete_pengumuman($id_pengumuman);
         redirect('prodi/pengumuman');
     }
 }

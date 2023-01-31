@@ -14,49 +14,50 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-0 pb-3">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Kode MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Hari</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Ruangan</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                            Aksi</th>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Kode MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Hari</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Waktu</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Ruangan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listj as $jadwal) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $jadwal['nama'] ?></td>
+                                        <td><?= $jadwal['kode'] ?></td>
+                                        <td><?= $jadwal['hari'] ?></td>
+                                        <td><?= $jadwal['waktu'] ?></td>
+                                        <td><?= $jadwal['ruangan'] ?></td>
+                                        <td class="text-center">
+                                            <a href="<?= site_url('dosen/perkuliahan/presensi/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                                <i class="fa-solid fa-book-bookmark"></i>
+                                            </a>
+                                            <a href="<?= site_url('dosen/perkuliahan/bap/' . $jadwal['id_matkul']) ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Berita Acara Perkuliahan">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </a>
+                                            <a href="<?= site_url('dosen/perkuliahan/nilai/' . $jadwal['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
+                                                <i class="fa-solid fa-clipboard-user"></i>
+                                            </a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                    <?php foreach ($listj as $jadwal) : ?>
-                                        <tr>
-                                            <td></td>
-                                            <td><?= $jadwal['nama'] ?></td>
-                                            <td><?= $jadwal['kode'] ?></td>
-                                            <td><?= $jadwal['hari'] ?></td>
-                                            <td><?= $jadwal['waktu'] ?></td>
-                                            <td><?= $jadwal['ruangan'] ?></td>
-                                            <td class="text-center">
-                                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $jadwal['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
-                                                    <i class="fa-solid fa-book-bookmark"></i>
-                                                </a>
-                                                <a href="<?= site_url('dosen/perkuliahan/nilai/' . $jadwal['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
-                                                    <i class="fa-solid fa-clipboard-user"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

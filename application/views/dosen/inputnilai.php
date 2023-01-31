@@ -39,16 +39,16 @@
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['nama'] ?></td>
                                         <td>
-                                            <input type="text" name="nilai-presensi-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_presensi'] ?>">
+                                            <input type="text" name="nilai-presensi-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_presensi'] ?>" required>
                                         </td>
                                         <td>
-                                            <input type="text" name="nilai-tugas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_tugas'] ?>">
+                                            <input type="text" name="nilai-tugas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_tugas'] ?>" required>
                                         </td>
                                         <td>
-                                            <input type="text" name="nilai-uts-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uts'] ?>">
+                                            <input type="text" name="nilai-uts-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uts'] ?>" required>
                                         </td>
                                         <td>
-                                            <input type="text" name="nilai-uas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uas'] ?>">
+                                            <input type="text" name="nilai-uas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uas'] ?>" required>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

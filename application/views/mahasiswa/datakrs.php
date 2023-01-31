@@ -8,9 +8,9 @@
                         <h5 class="d-flex align-items-center mb-0">
                             Kartu Rencana Studi
                             <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
-                                <span class="badge bg-gradient-success text-xs">Dibuka</span>
+                                <span class="badge bg-gradient-success text-xs mx-2">Dibuka</span>
                             <?php else : ?>
-                                <span class="badge bg-gradient-danger text-xs">Ditutup</span>
+                                <span class="badge bg-gradient-danger text-xs mx-2">Ditutup</span>
                             <?php endif ?>
                         </h5>
                         <?php if ($tanggal >= $tahun['tanggal_awal'] && $tanggal <= $tahun['tanggal_akhir']) : ?>
@@ -21,9 +21,7 @@
                     <div class="card-body p-3 pt-0">
 
                         <!-- Durasi -->
-                        <p class="mb-0">
-                            Durasi pengisian KRS: <b><?= $tanggal_awal ?> - <?= $tanggal_akhir ?></b>
-                        </p>
+                        <p class="mt-2">Durasi pengisian KRS: <b><?= $tanggal_awal ?> - <?= $tanggal_akhir ?></b></p>
 
                         <!-- Card Semester -->
                         <div class="row g-3">

@@ -27,7 +27,7 @@
                                 <label>Jenis Kelamin</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="jenis_kelamin" required>
-                                        <option selected disabled>Pilih Jenis Kelamin</option>
+                                        <option selected disabled value="">Pilih Jenis Kelamin</option>
                                         <?php if ($dosen['jenis_kelamin'] === 'L') : ?>
                                             <option selected value="L">Laki-laki</option>
                                             <option value="P">Perempuan</option>
@@ -56,20 +56,20 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Email</label>
                                 <div class="mb-3">
-                                    <input type="text" name="email" class="form-control" placeholder="Email" required>
+                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>No Handphone</label>
                                 <div class="mb-3">
-                                    <input type="text" name="no_handphone" class="form-control" placeholder="No Handphone" required>
+                                    <input type="number" name="no_handphone" class="form-control" placeholder="No Handphone" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Kewarganegaraan</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="kewarganegaraan" required>
-                                        <option selected disabled>Pilih Kewarganegaraan</option>
+                                        <option selected disabled value="">Pilih Kewarganegaraan</option>
                                         <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
                                             <option selected value="WNI">Warga Negara Indonesia</option>
                                             <option value="WNA">Warga Negara Asing</option>
@@ -98,7 +98,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>NIDN</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nidn" class="form-control" placeholder="NIDN" required>
+                                    <input type="number" name="nidn" class="form-control" placeholder="NIDN" required>
                                 </div>
                             </div>
                         <div class="text-end">

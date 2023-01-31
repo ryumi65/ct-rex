@@ -13,8 +13,8 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Hari</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="hari">
-                                        <option selected disabled>Pilih Hari</option>
+                                    <select class="form-select" name="hari" required>
+                                        <option selected disabled value="">Pilih Hari</option>
                                         <?php for ($i = 0; $i < count($hari); $i++) : ?>
                                             <?php if ($hari[$i] === $jadwal['hari']) : ?>
                                                 <option selected value="<?= $hari[$i] ?>"><?= $hari[$i] ?></option>
@@ -28,8 +28,8 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Mata Kuliah</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="id_matkul">
-                                        <option selected disabled>Pilih Mata Kuliah</option>
+                                    <select class="form-select" name="id_matkul" required>
+                                        <option selected disabled value="">Pilih Mata Kuliah</option>
                                         <?php foreach ($listm as $matkul) {
                                             foreach ($listd as $dosen) {
                                                 if ($matkul['nik_dosen'] === $dosen['nik']) { ?>
@@ -47,8 +47,8 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Ruangan</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="id_ruangan">
-                                        <option selected disabled>Pilih Ruangan</option>
+                                    <select class="form-select" name="id_ruangan" required>
+                                        <option selected disabled value="">Pilih Ruangan</option>
                                         <?php foreach ($listr as $ruangan) : ?>
                                             <?php if ($ruangan['id_ruangan'] === $jadwal['id_ruangan']) : ?>
                                                 <option selected value="<?= $ruangan['id_ruangan'] ?>"><?= $ruangan['id_ruangan'] . ' - ' . $ruangan['nama'] ?></option>
@@ -63,13 +63,13 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Jam Awal</label>
                                 <div class="mb-3">
-                                    <input type="time" name="pukul_awal" class="form-control" value="<?= $tanggal[0] ?>">
+                                    <input type="time" name="pukul_awal" class="form-control" value="<?= $tanggal[0] ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Jam Akhir</label>
                                 <div class="mb-3">
-                                    <input type="time" name="pukul_akhir" class="form-control" value="<?= $tanggal[1] ?>">
+                                    <input type="time" name="pukul_akhir" class="form-control" value="<?= $tanggal[1] ?>" required>
                                 </div>
                             </div>
 

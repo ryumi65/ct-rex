@@ -88,10 +88,16 @@ class Model_dosen extends CI_Model {
         }
     }
 
-    public function get_presensi($id_matkul, $pertemuan, $type = '') {
-        $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
-            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+    public function get_presensi($id_matkul, $pertemuan = '', $type = '') {
+        if ($pertemuan === '') {
+            $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+                ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+                ->where('j.id_matkul', $id_matkul)->get();
+        } else {
+            $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+                ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+                ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+        }
 
         if ($type === 'validation') {
             if ($query->num_rows() > 0) return true;
@@ -145,5 +151,40 @@ class Model_dosen extends CI_Model {
                 $this->db->update('ak_presensi', $data, ['id_krs' => $mahasiswa['id_krs'], 'pertemuan' => $pertemuan]);
             }
         }
+    }
+
+    public function jumlah_presensi($id_matkul, $pertemuan) {
+        $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
+
+        return $query->count_all_results();
+    }
+
+    public function get_bap($id_matkul) {
+        $query = $this->db->from('ak_bap b')->join('ak_jadwal j', 'b.id_jadwal = j.id_jadwal')
+            ->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->where('m.id_matkul', $id_matkul)->get();
+
+        return $query->result_array();
+    }
+
+    public function set_bap($id_matkul, $pertemuan) {
+        $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
+
+        $presensi = $query->get()->result_array();
+        $jumlah = $this->jumlah_presensi($id_matkul, $pertemuan);
+
+        $data = [
+            'id_jadwal' => $presensi[0]['id_jadwal'],
+            'pertemuan' => $pertemuan,
+            'pokok' => $this->input->post('pokok'),
+            'metode' => $this->input->post('metode'),
+            'evaluasi' => $this->input->post('evaluasi'),
+            'jumlah_mhs_hadir' => $jumlah,
+        ];
+
+        return $this->db->insert('ak_bap', $data);
     }
 }

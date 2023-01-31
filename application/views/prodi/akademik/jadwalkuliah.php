@@ -65,10 +65,10 @@
                                         <td><?= $jadwal['waktu'] ?></td>
                                         <td><?= $jadwal['ruangan'] ?></td>
                                         <td class="text-center">
-                                            <a href="<?= site_url('prodi/akademik/jadwal-kuliah/edit/' . $jadwal['id']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
+                                            <a href="<?= site_url('prodi/akademik/jadwal-kuliah/edit/' . $jadwal['id']) ?>" class="badge bg-warning cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/jadwal-kuliah/delete/' . $jadwal['id']) ?>')">
+                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/jadwal-kuliah/delete/' . $jadwal['id']) ?>')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>
@@ -100,7 +100,7 @@
                 order: [4, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 8],
+                    targets: [0, 9],
                     orderable: false,
                     searchable: false,
                 }],

@@ -136,7 +136,7 @@ class Dosen extends CI_Controller {
         }
     }
 
-    //==================== ABSEN ====================//
+    //==================== PRESENSI ====================//
 
     public function absen() {
         $this->load->view('_partials/head');
@@ -236,6 +236,92 @@ class Dosen extends CI_Controller {
     public function updatepresensi($id_matkul, $pertemuan) {
         $this->model_dosen->update_presensi($id_matkul, $pertemuan);
         redirect('dosen/perkuliahan/presensi/' . $id_matkul);
+    }
+
+    //==================== BAP ====================//
+
+    public function bap($id_matkul) {
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $pertemuan_validation = [];
+        $list_presensi = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_dosen->get_presensi($id_matkul, $i);
+
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+
+            foreach ($listp as $presensi) {
+                if ($presensi['pertemuan'] == $i) {
+                    $create = date_create($presensi['tanggal']);
+                    $date = date_format($create, 'Y-m-d');
+                    $day = date('w', strtotime($date));
+
+                    $list_presensi[$i] = $list_hari[$day] . ', ' . $this->indonesian_date($date) . ' (' . $presensi['pukul'] . ')';
+                    break;
+                }
+            }
+        }
+
+        $data = [
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan_validation,
+            'tanggal' => $list_presensi,
+            'listb' => $this->model_dosen->get_bap($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/bap', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function formbap($id_matkul, $pertemuan) {
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/formbap', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function inputbap($id_matkul, $pertemuan) {
+        $this->model_dosen->set_bap($id_matkul, $pertemuan);
+        redirect('dosen/perkuliahan/bap/' . $id_matkul);
+    }
+
+    private function indonesian_date($date) {
+        $month = [
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        ];
+
+        $exp = explode('-', $date);
+
+        return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
     }
 
     //==================== NILAI ====================//
@@ -453,34 +539,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/berkasmhs', $data);
-        $this->load->view('_partials/script');
-    }
-
-    // BAP
-    public function listmatkulbap() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
-        $this->load->view('_partials/header');
-        $this->load->view('dosen/listmatkulbap');
-        $this->load->view('_partials/loader');
-        $this->load->view('_partials/script');
-    }
-
-    public function listbap() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
-        $this->load->view('_partials/header');
-        $this->load->view('dosen/listbap');
-        $this->load->view('_partials/loader');
-        $this->load->view('_partials/script');
-    }
-
-    public function formbap() {
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
-        $this->load->view('_partials/header');
-        $this->load->view('dosen/formbap');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 }

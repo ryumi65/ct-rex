@@ -13,8 +13,8 @@
                             <div class="col-md-6">
                                 <label>Pertemuan</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="pertemuan">
-                                        <option selected disabled>Pilih Pertemuan</option>
+                                    <select class="form-select" name="pertemuan" required>
+                                        <option selected disabled value="">Pilih Pertemuan</option>
                                         <?php for ($i = 1; $i <= 16; $i++) : ?>
                                             <?php if ($pertemuan[$i - 1] === 'false') : ?>
                                                 <li>
@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <label>Tanggal Pertemuan</label>
                                 <div class="mb-3">
-                                    <input type="date" name="tanggal" class="form-control">
+                                    <input type="date" name="tanggal" class="form-control" required>
                                 </div>
                             </div>
                             <?php foreach ($listm as $mahasiswa) : ?>
@@ -45,13 +45,13 @@
                                             <h5 class="text-sm mt-3 mb-0"><?= $mahasiswa['nama'] ?></h5>
                                             <h6 class="text-xs mb-3"><?= $mahasiswa['nim'] ?></h6>
                                             <div>
-                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Hadir-<?= $mahasiswa['nim'] ?>" value="Hadir">
+                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Hadir-<?= $mahasiswa['nim'] ?>" value="Hadir" required>
                                                 <label class="btn btn-outline-primary rounded-circle px-3" for="Hadir-<?= $mahasiswa['nim'] ?>">H</label>
-                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Izin-<?= $mahasiswa['nim'] ?>" value="Izin">
+                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Izin-<?= $mahasiswa['nim'] ?>" value="Izin" required>
                                                 <label class="btn btn-outline-info rounded-circle px-3" for="Izin-<?= $mahasiswa['nim'] ?>">I</label>
-                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Sakit-<?= $mahasiswa['nim'] ?>" value="Sakit">
+                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Sakit-<?= $mahasiswa['nim'] ?>" value="Sakit" required>
                                                 <label class="btn btn-outline-dark rounded-circle px-3" for="Sakit-<?= $mahasiswa['nim'] ?>">S</label>
-                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Alfa-<?= $mahasiswa['nim'] ?>" value="Alfa">
+                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Alfa-<?= $mahasiswa['nim'] ?>" value="Alfa" required>
                                                 <label class="btn btn-outline-danger rounded-circle px-3" for="Alfa-<?= $mahasiswa['nim'] ?>">A</label>
                                             </div>
                                         </div>

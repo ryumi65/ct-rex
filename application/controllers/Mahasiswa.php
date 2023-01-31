@@ -228,7 +228,8 @@ class Mahasiswa extends CI_Controller {
         $data = [
             'mahasiswa' => $mahasiswa,
             'semester' => $semester,
-            'listk' => $krs,
+            'listj' => $krs,
+            'listk' => $this->model_mahasiswa->get_db('ak_krs', ['nim' => $this->session->id], 'result'),
         ];
 
         $this->load->view('_partials/head');

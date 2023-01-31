@@ -78,6 +78,8 @@
                                                             Hari</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
+                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                            Semester</th>
                                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
                                                     </tr>
@@ -92,6 +94,7 @@
                                                                 <td><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
+                                                                <td><?= $krs['semester'] ?></td>
                                                                 <td class="text-center">
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
                                                                     <label class="btn btn-outline-primary px-3 py-2 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>

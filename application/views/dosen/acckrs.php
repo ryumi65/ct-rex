@@ -29,7 +29,7 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
-                                        <td><?= $mahasiswa['nama'] ?></td>
+                                        <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td class="text-center">
                                             <?php if ($mahasiswa['krs'] === 'Sudah KRS') : ?>
@@ -61,7 +61,7 @@
                                             <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi <?= $mahasiswa['nama'] ?></h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <?= form_open('krs/acc') ?>
+                                        <?= form_open('KRS/acc') ?>
                                         <div class="modal-body">
                                             <table class="table table-striped align-items-center" id="table-<?= $mahasiswa['nim'] ?>">
                                                 <thead>
@@ -89,9 +89,9 @@
                                                         if ($krs['status'] === 'N') : ?>
                                                             <tr>
                                                                 <td></td>
-                                                                <td><?= $krs['nama'] ?></td>
+                                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                                 <td><?= $krs['sks'] ?></td>
-                                                                <td><?= $krs['dosen'] ?></td>
+                                                                <td class="text-wrap"><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
                                                                 <td><?= $krs['semester'] ?></td>
@@ -136,8 +136,7 @@
 
             table = $('#table').DataTable({
 
-                dom: "",
-                paging: false,
+                responsive: true,
                 order: [1, 'asc'],
 
                 columnDefs: [{
@@ -171,7 +170,7 @@
                     order: [1, 'asc'],
 
                     columnDefs: [{
-                        targets: [0, 6],
+                        targets: [0, 7],
                         orderable: false,
                         searchable: false,
                     }],

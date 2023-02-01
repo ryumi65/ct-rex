@@ -22,11 +22,11 @@
                                             <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">Total sks</p>
-                                                <p class="text-white mb-0"><?= $lists[$i - 1] ?></p>
+                                                <p class="text-white fw-bold mb-0"><?= $lists[$i - 1] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <p class="font-weight-normal mb-0">IP</p>
-                                                <p class="text-white mb-0"><?= $listip[$i - 1] ?></p>
+                                                <p class="text-white fw-bold mb-0"><?= $listip[$i - 1] ?></p>
                                             </div>
                                         </div>
                                         <div class="card-footer pt-0">

@@ -19,12 +19,8 @@
                 <div class="card">
                     <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0"> Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('prodi/akademik/tambah-matkul') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
-                            </div>
+                            <h5 class="mb-0">Daftar Mata Kuliah Prodi <?= $prodi['nama'] ?></h5>
+                            <a href="<?= site_url('prodi/akademik/tambah-matkul') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
@@ -38,9 +34,9 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Kode Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Jenis Matkul</th>
+                                        Dosen Pengampu</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kategori</th>
+                                        Jenis Matkul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         sks</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -51,12 +47,12 @@
                             </thead>
                             <tbody class="text-sm">
                                 <?php foreach ($listm as $matkul) : ?>
-                                    <tr>
+                                    <tr style="color: black">
                                         <td></td>
-                                        <td><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
+                                        <td class="text-wrap"><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
                                         <td><?= $matkul['kode_matkul'] ?></td>
+                                        <td class="text-wrap"><?= $matkul['nama_dosen'] ?></td>
                                         <td><?= $matkul['jenis'] ?></td>
-                                        <td><?= $matkul['kategori'] ?></td>
                                         <td><?= $matkul['sks'] ?></td>
                                         <td><?= $matkul['semester'] ?></td>
                                         <td class="text-center">

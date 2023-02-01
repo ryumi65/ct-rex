@@ -61,11 +61,11 @@
                                     Jadwal Kuliah
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link link-secondary" href="#">
-                                    Kuisioner Dosen
+                                    Data Perkuliahan
                                 </a>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
                 </li>

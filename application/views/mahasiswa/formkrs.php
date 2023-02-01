@@ -7,7 +7,7 @@
                         <h5>Tambah Kartu Rencana Studi Semester <?= $mahasiswa['semester'] ?></h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <?= form_open('krs/create') ?>
+                        <?= form_open('KRS/create') ?>
                         <?php for ($i = 1; $i <= 8; $i++) :
                             if ($i % 2 === $semester) : ?>
                                 <h6>KRS Semester <?= $i ?></h6>

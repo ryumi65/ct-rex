@@ -6,14 +6,14 @@ class model_admin extends CI_Model
 
     public function join_dosen()
     {
-        $query = $this->db->from('ak_prodi')->join('dosen', 'prodi.id_prodi = dosen.id_prodi')->get();
+        $query = $this->db->from('ak_prodi p')->join('ak_dosen d', 'p.id_prodi = d.id_prodi')->get();
 
         return $query->result_array();
     }
 
     public function join_mhs()
     {
-        $query = $this->db->from('ak_prodi')->join('mahasiswa', 'prodi.id_prodi = mahasiswa.id_prodi')->get();
+        $query = $this->db->from('ak_prodi p')->join('ak_mahasiswa m', 'p.id_prodi = m.id_prodi')->get();
 
         return $query->result_array();
     }

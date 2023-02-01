@@ -180,18 +180,6 @@
                         data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
                         maxBarThickness: 6
                     },
-                    {
-                        label: "Setengah",
-                        tension: 0.4,
-                        borderWidth: 0,
-                        pointRadius: 0,
-                        borderColor: "#4a100f",
-                        borderWidth: 3,
-                        backgroundColor: gradientStroke2,
-                        fill: true,
-                        data: [34, 32, 34, 40, 90, 200, 300, 530, 450],
-                        maxBarThickness: 6
-                    },
                 ],
             },
             options: {

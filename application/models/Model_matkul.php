@@ -14,6 +14,8 @@ class model_matkul extends CI_Model {
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
             'semester' => $this->input->post('semester'),
+            'cpl_prodi' => $this->input->post('cpl_prodi'),
+            'cp_mk' => $this->input->post('cp_mk'),
         ];
 
         return $this->db->insert('ak_matkul', $data);
@@ -30,6 +32,8 @@ class model_matkul extends CI_Model {
             'nik_dosen' => $this->input->post('nik_dosen'),
             'id_prodi' => $this->session->id,
             'semester' => $this->input->post('semester'),
+            'cpl_prodi' => $this->input->post('cpl_prodi'),
+            'cp_mk' => $this->input->post('cp_mk'),
         ];
 
         return $this->db->update('ak_matkul', $data, ['id_matkul' => $id_matkul]);
@@ -37,5 +41,12 @@ class model_matkul extends CI_Model {
 
     public function delete_matkul($id_matkul) {
         return $this->db->delete('ak_matkul', ['id_matkul' => $id_matkul]);
+    }
+    
+    public function get_matkul($id_prodi) {
+        $query = $this->db->select('m.id_matkul, m.nama, m.kode_matkul, d.nama as nama_dosen, m.jenis, m.kategori, m.sks, m.semester')->from('ak_matkul m')->join('ak_dosen d', 'm.nik_dosen = d.nik')
+            ->where('m.id_prodi', $id_prodi)->get();
+
+        return $query->result_array();
     }
 }

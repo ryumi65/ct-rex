@@ -10,7 +10,7 @@
                     <div class="card-body p-3">
                         <?= validation_errors() ?>
                         <?= form_open('matkul/update/' . $matkul['id_matkul']) ?>
-                        <div class="row">
+                        <div class="row g-3">
                             <div class="col-md-4 col-sm-6">
                                 <label>Kode Mata Kuliah</label>
                                 <div class="mb-3">
@@ -26,7 +26,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Nama Mata Kuliah (Inggris)</label>
                                 <div class="mb-3">
-                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris" value="<?= $matkul['nama_inggris'] ?>" required>
+                                    <input type="text" name="nama_inggris" class="form-control" placeholder="Nama Matkul Inggris" value="<?= $matkul['nama_inggris'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -45,10 +45,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
-                                <label>Kategori sks</label>
+                                <label>Kategori Mata Kuliah</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="kategori" required>
-                                        <option selected disabled value="">Pilih Kategori sks</option>
+                                        <option selected disabled value="">Pilih Kategori Mata Kuliah</option>
                                         <?php for ($i = 0; $i < count($kategori); $i++) : ?>
                                             <?php if ($matkul['kategori'] === $kategori[$i]) : ?>
                                                 <option selected value="<?= $kategori[$i] ?>"><?= $kategori[$i] ?></option>
@@ -93,6 +93,18 @@
                                             <?php endif ?>
                                         <?php endfor ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating">
+                                    <textarea name="cpl_prodi" class="form-control" placeholder="CPL Prodi" id="floatingTextCPL" style="height: 200px" required><?= $matkul['cpl_prodi'] ?></textarea>
+                                    <label for="floatingTextCPL">Isi CPL Prodi</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating">
+                                    <textarea name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" id="floatingTextCP" style="height: 200px" required><?= $matkul['cp_mk'] ?></textarea>
+                                    <label for="floatingTextCP">Isi CP Mata Kuliah</label>
                                 </div>
                             </div>
 

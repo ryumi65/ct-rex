@@ -385,7 +385,7 @@ class Prodi extends CI_Controller {
     public function datamatkul() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listm' => $this->model_prodi->get_db('ak_matkul', ['id_prodi' => $this->session->id], 'result'),
+            'listm' => $this->model_matkul->get_matkul($this->session->id),
         ];
 
         $this->load->view('_partials/head');

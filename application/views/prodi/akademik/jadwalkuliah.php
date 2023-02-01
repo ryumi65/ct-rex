@@ -32,8 +32,6 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama MK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Kode MK</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         SKS</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Semester</th>
@@ -53,11 +51,10 @@
                                 <?php foreach ($listj as $jadwal) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $jadwal['nama'] ?></td>
-                                        <td><?= $jadwal['kode'] ?></td>
-                                        <td><?= $jadwal['sks'] ?></td>
-                                        <td><?= $jadwal['semester'] ?></td>
-                                        <td>
+                                        <td class="text-wrap"><?= $jadwal['kode'] . ' - ' . $jadwal['nama'] ?></td>
+                                        <td class="text-center"><?= $jadwal['sks'] ?></td>
+                                        <td class="text-center"><?= $jadwal['semester'] ?></td>
+                                        <td class="text-wrap">
                                             <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];
                                             else echo '-'; ?>
                                         </td>
@@ -97,10 +94,10 @@
             table = $('#table').DataTable({
 
                 responsive: true,
-                order: [4, 'asc'],
+                order: [6, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 9],
+                    targets: [0, 8],
                     orderable: false,
                     searchable: false,
                 }],

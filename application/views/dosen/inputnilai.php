@@ -34,7 +34,7 @@
                             </thead>
                             <tbody class="text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
-                                    <tr>
+                                    <tr style="color: black">
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['nama'] ?></td>

@@ -29,18 +29,18 @@
                             <!-- KRS -->
                             <div class="tab-pane fade show active" id="krs-tab-pane" role="tabpanel" aria-labelledby="krs-tab" tabindex="0">
                                 <div class="row g-3 pt-3">
-                                    <?php for ($i = 1; $i <= 8; $i++) : ?>
+                                    <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                         <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
                                             <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
                                                 <div class="card-body">
                                                     <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                                     <div class="d-flex justify-content-between">
                                                         <p class="font-weight-normal mb-0">Total Mata Kuliah</p>
-                                                        <p class="text-white mb-0"><?= $listm[$i - 1] ?></p>
+                                                        <p class="text-white fw-bold mb-0"><?= $listm[$i - 1] ?></p>
                                                     </div>
                                                     <div class="d-flex justify-content-between">
                                                         <p class="font-weight-normal mb-0">Total sks</p>
-                                                        <p class="text-white mb-0"><?= $lists[$i - 1] ?></p>
+                                                        <p class="text-white fw-bold mb-0"><?= $lists[$i - 1] ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer pt-0">
@@ -57,18 +57,18 @@
                             <!-- KHS -->
                             <div class="tab-pane fade" id="khs-tab-pane" role="tabpanel" aria-labelledby="khs-tab" tabindex="0">
                                 <div class="row g-3 pt-3">
-                                    <?php for ($i = 1; $i <= 8; $i++) : ?>
+                                    <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                         <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
                                             <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
                                                 <div class="card-body">
                                                     <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                                     <div class="d-flex justify-content-between">
                                                         <p class="font-weight-normal mb-0">Total sks</p>
-                                                        <p class="text-white mb-0"><?= $lists[$i - 1] ?></p>
+                                                        <p class="text-white fw-bold mb-0"><?= $lists[$i - 1] ?></p>
                                                     </div>
                                                     <div class="d-flex justify-content-between">
                                                         <p class="font-weight-normal mb-0">IP</p>
-                                                        <p class="text-white mb-0"><?= $listip[$i - 1] ?></p>
+                                                        <p class="text-white fw-bold mb-0"><?= $listip[$i - 1] ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer pt-0">

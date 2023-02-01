@@ -4,7 +4,7 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between p-3">
+                    <div class="card-header d-flex justify-content-between p-3 pb-0">
                         <h5 class="mb-0">Berita Acara Perkuliahan <?= $matkul['nama'] ?></h5>
                         <div class="dropdown">
                             <a class="btn btn-primary btn-sm dropdown-toggle mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,8 +26,12 @@
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
-                            <thead class="bg-gradient-primary text-white">
+                        <div class="my-2">
+                            <h6 class="mb-0">CPL Prodi : </h6><?= $matkul['cpl_prodi'] ?>
+                            <h6 class="mb-0">CP Mata Kuliah : </h6><?= $matkul['cp_mk'] ?>
+                        </div>
+                        <table class="table table-bordered align-items-center mb-0 pe-1" id="table">
+                            <thead>
                                 <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                     TM ke</th>
                                 <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -47,7 +51,7 @@
                                 <?php foreach ($listb as $bap) : ?>
                                     <tr>
                                         <td><?= $bap['pertemuan'] ?></td>
-                                        <td><?= $tanggal[$bap['pertemuan']] ?></td>
+                                        <td class="text-wrap"><?= $tanggal[$bap['pertemuan']] ?></td>
                                         <td><?= $bap['pokok'] ?></td>
                                         <td><?= $bap['metode'] ?></td>
                                         <td><?= $bap['evaluasi'] ?></td>

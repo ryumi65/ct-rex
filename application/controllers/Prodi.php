@@ -29,6 +29,9 @@ class Prodi extends CI_Controller {
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'dsnaktif' => $this->model_prodi->get_db_count('ak_dosen', ['id_prodi' => $this->session->id, 'status_dosen' => 'aktif']),
             'mhsaktif' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'aktif']),
+            'mhslulus' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'lulus']),
+            'mhscuti' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'cuti']),
+            'mhskeluar' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'keluar']),
         ];
 
         $this->load->view('_partials/head');

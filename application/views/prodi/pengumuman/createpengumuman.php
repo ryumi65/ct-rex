@@ -29,6 +29,18 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-4 col-sm-6">
+                                <label>Objek Pengumuman</label>
+                                <div class="mb-3">
+                                    <select class="form-select" name="objek pengumuman">
+                                        <option value="Dosen">Dosen</option>
+                                        <option value="Mahasiswa">Mahasiswa</option>
+                                        <option value="Keduanya">Keduanya</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="d-flex justify-content-end text-center">
                                 <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>

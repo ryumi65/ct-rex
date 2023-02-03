@@ -23,6 +23,16 @@
                             <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
                         </div>
                         <div>
+                            <h6 class="mx-3 my-0"><u>Mahasiswa Non Aktif</u></h6>
+                            <h3 class="text-center my-0"><?= $dsnaktif ?></h3>
+                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
+                        </div>
+                        <div>
+                            <h6 class="mx-3 my-0"><u>Mahasiswa Lulus</u></h6>
+                            <h3 class="text-center my-0"><?= $dsnaktif ?></h3>
+                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
+                        </div>
+                        <div>
                             <h6 class="mx-3 my-0"><u>Dosen Aktif</u></h6>
                             <h3 class="text-center my-0"><?= $dsnaktif ?></h3>
                             <h6 class="font-weight- text-center my-0">Dosen</h6>

@@ -28,6 +28,7 @@
                                                 <p class="font-weight-normal mb-0">IP</p>
                                                 <p class="text-white fw-bold mb-0"><?= $listip[$i - 1] ?></p>
                                             </div>
+                                            <span class="badge bg-gradient-danger text-xs mt-1">Ada Yang Belum Lulus</span>
                                         </div>
                                         <div class="card-footer pt-0">
                                             <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">

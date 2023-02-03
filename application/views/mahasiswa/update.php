@@ -84,26 +84,24 @@
                                         <div class="mb-3">
                                             <select class="form-select" name="jenis_kelamin">
                                                 <option selected disabled>Pilih Agama</option>
-                                                <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
-                                                    <option selected value="L">Laki-laki</option>
-                                                    <option value="P">Perempuan</option>
-                                                <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
-                                                    <option value="L">Laki-laki</option>
-                                                    <option selected value="P">Perempuan</option>
-                                                <?php else : ?>
-                                                    <option value="L">Laki-laki</option>
-                                                    <option value="P">Perempuan</option>
-                                                <?php endif ?>
-
+                                                <option value="Islam">Islam</option>
+                                                <option value="Kristen">Kristen</option>
+                                                <option value="Katolik">Katolik</option>
+                                                <option value="Hindu">Hindu</option>
+                                                <option value="Budha">Budha</option>
+                                                <option value="Khonghucu">Khonghucu</option>
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Handphone</label>
                                         <div class="mb-3">
                                             <input type="text" name="no_hp" class="form-control" placeholder="Nomor Handphone" value="<?= $mahasiswa['no_hp'] ?>">
                                         </div>
                                     </div>
+
+
                                     <div class="col-md-4 col-sm-6">
                                         <label>Email</label>
                                         <div class="mb-3">
@@ -254,9 +252,18 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_ayah" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_ayah'] ?>">
+                                            <select class="form-select" name="jenis_kelamin">
+                                                <option selected disabled>Pilih Penghasilan</option>
+                                                <option value="<500k">Kurang dari Rp.500.000</option>
+                                                <option value="600-1k">Rp.500.000 -Rp.1.000.000</option>
+                                                <option value="1k-2k">Rp.1.000.000 - Rp.2.000.000</option>
+                                                <option value="2k-5k">Rp.2.000.000 - Rp.5.000.000</option>
+                                                <option value="5k-20k">Rp.5.000.00 - Rp.20.000.000</option>
+                                                <option value="Lebih">Lebih Dari Rp.20.000.000</option>
+                                            </select>
                                         </div>
                                     </div>
+
 
                                     <!-- Ibu -->
                                     <div class="col-12">
@@ -298,7 +305,15 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_ibu" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_ibu'] ?>">
+                                            <select class="form-select" name="jenis_kelamin">
+                                                <option selected disabled>Pilih Penghasilan</option>
+                                                <option value="<500k">Kurang dari Rp.500.000</option>
+                                                <option value="600-1k">Rp.500.000 -Rp.1.000.000</option>
+                                                <option value="1k-2k">Rp.1.000.000 - Rp.2.000.000</option>
+                                                <option value="2k-5k">Rp.2.000.000 - Rp.5.000.000</option>
+                                                <option value="5k-20k">Rp.5.000.00 - Rp.20.000.000</option>
+                                                <option value="Lebih">Lebih Dari Rp.20.000.000</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -342,7 +357,15 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Penghasilan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="penghasilan_wali" class="form-control" placeholder="Penghasilan" value="<?= $ortu['penghasilan_wali'] ?>">
+                                            <select class="form-select" name="jenis_kelamin">
+                                                <option selected disabled>Pilih Penghasilan</option>
+                                                <option value="<500k">Kurang dari Rp.500.000</option>
+                                                <option value="600-1k">Rp.500.000 -Rp.1.000.000</option>
+                                                <option value="1k-2k">Rp.1.000.000 - Rp.2.000.000</option>
+                                                <option value="2k-5k">Rp.2.000.000 - Rp.5.000.000</option>
+                                                <option value="5k-20k">Rp.5.000.00 - Rp.20.000.000</option>
+                                                <option value="Lebih">Lebih Dari Rp.20.000.000</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

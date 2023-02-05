@@ -18,23 +18,26 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between p-3 pb-0">
                         <h5 class="mb-0">Berita Acara Perkuliahan <?= $matkul['nama'] ?></h5>
-                        <div class="dropdown">
-                            <a class="btn btn-primary btn-sm dropdown-toggle mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Buat BAP
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                    <?php if ($pertemuan[$i - 1] === 'true') : ?>
-                                        <li>
-                                            <a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/bap/' . $matkul['id_matkul'] . '/tambah/' . $i) ?>">Pertemuan
-                                                <?php if ($i === 8) echo 'UTS';
-                                                elseif ($i === 16) echo 'UAS';
-                                                else echo $i; ?>
-                                            </a>
-                                        </li>
-                                    <?php endif ?>
-                                <?php endfor ?>
-                            </ul>
+                        <div class="d-flex d-inline">
+                            <a href="<?= site_url('dosen/ubahcapaian/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm mx-2 mb-0">Ubah Capaian</a>
+                            <div class="dropdown">
+                                <a class="btn btn-primary btn-sm dropdown-toggle mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Buat BAP
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                        <?php if ($pertemuan[$i - 1] === 'true') : ?>
+                                            <li>
+                                                <a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/bap/' . $matkul['id_matkul'] . '/tambah/' . $i) ?>">Pertemuan
+                                                    <?php if ($i === 8) echo 'UTS';
+                                                    elseif ($i === 16) echo 'UAS';
+                                                    else echo $i; ?>
+                                                </a>
+                                            </li>
+                                        <?php endif ?>
+                                    <?php endfor ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">

@@ -211,4 +211,13 @@ class Model_dosen extends CI_Model {
     public function delete_bap($id_bap) {
         return $this->db->delete('ak_bap', ['id_bap' => $id_bap]);
     }
+
+    public function update_capaian($id_matkul) {
+        $data = [
+            'cpl_prodi' => $this->input->post('cpl_prodi'),
+            'cp_mk' => $this->input->post('cp_mk'),
+        ];
+
+        return $this->db->update('ak_matkul', $data, ['id_matkul' => $id_matkul]);
+    }
 }

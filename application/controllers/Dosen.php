@@ -331,6 +331,27 @@ class Dosen extends CI_Controller {
         redirect('dosen/perkuliahan/bap/' . $id_matkul);
     }
 
+    public function ubahcapaian($id_matkul) {
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $matkul,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/updatecapaian', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function updatecapaian($id_matkul) {
+        $this->model_dosen->update_capaian($id_matkul);
+        redirect('dosen/perkuliahan/bap/' . $id_matkul);
+    }
+
     private function indonesian_date($date) {
         $month = [
             1 => 'Januari',

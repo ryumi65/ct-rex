@@ -14,7 +14,7 @@
             </div>
 
             <!-- Profil -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
                         <h5 class="mb-0">Ubah Profil</h5>

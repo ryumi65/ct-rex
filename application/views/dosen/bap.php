@@ -71,10 +71,10 @@
                                         <td class="text-wrap"><?= $bap['evaluasi'] ?></td>
                                         <td class="text-center"><?= $bap['jumlah_mhs_hadir'] ?></td>
                                         <td class="text-center">
-                                            <a class="badge bg-warning cursor-pointer px-3 py-2" data-bs-toggle="">
+                                            <a href="<?= site_url('dosen/ubahbap/' . $matkul['id_matkul'] . '/' . $bap['pertemuan'] . '/' . $bap['id_bap']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url() ?>')">
+                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('dosen/deletebap/' . $matkul['id_matkul'] . '/' . $bap['id_bap']) ?>')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>
@@ -92,6 +92,9 @@
 
         <?php $this->load->view('_partials/footer') ?>
     </div>
+
+    <!-- Alert -->
+    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>

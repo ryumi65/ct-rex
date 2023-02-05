@@ -298,8 +298,36 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function ubahbap($id_matkul, $pertemuan, $id_bap) {
+        $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'bap' => $this->model_dosen->get_db('ak_bap', ['id_bap' => $id_bap]),
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/updatebap', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
     public function inputbap($id_matkul, $pertemuan) {
         $this->model_dosen->set_bap($id_matkul, $pertemuan);
+        redirect('dosen/perkuliahan/bap/' . $id_matkul);
+    }
+
+    public function updatebap($id_matkul, $pertemuan, $id_bap) {
+        $this->model_dosen->update_bap($id_matkul, $pertemuan, $id_bap);
+        redirect('dosen/perkuliahan/bap/' . $id_matkul);
+    }
+
+    public function deletebap($id_matkul, $id_bap) {
+        $this->model_dosen->delete_bap($id_bap);
         redirect('dosen/perkuliahan/bap/' . $id_matkul);
     }
 

@@ -187,4 +187,28 @@ class Model_dosen extends CI_Model {
 
         return $this->db->insert('ak_bap', $data);
     }
+
+    public function update_bap($id_matkul, $pertemuan, $id_bap) {
+        $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
+            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
+
+        $presensi = $query->get()->result_array();
+        $jumlah = $this->jumlah_presensi($id_matkul, $pertemuan);
+
+        $data = [
+            'id_jadwal' => $presensi[0]['id_jadwal'],
+            'pertemuan' => $pertemuan,
+            'pokok' => $this->input->post('pokok'),
+            'metode' => $this->input->post('metode'),
+            'evaluasi' => $this->input->post('evaluasi'),
+            'jumlah_mhs_hadir' => $jumlah,
+        ];
+
+        return $this->db->update('ak_bap', $data, ['id_bap' => $id_bap]);
+    }
+
+    public function delete_bap($id_bap) {
+        return $this->db->delete('ak_bap', ['id_bap' => $id_bap]);
+    }
 }

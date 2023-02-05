@@ -1,6 +1,18 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('dosen') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>"><u>Perkuliahan</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">BAP</li>
+                    </ol>
+                </nav>
+            </div>
+
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
@@ -54,9 +66,9 @@
                                     <tr>
                                         <td><?= $bap['pertemuan'] ?></td>
                                         <td class="text-wrap"><?= $tanggal[$bap['pertemuan']] ?></td>
-                                        <td><?= $bap['pokok'] ?></td>
-                                        <td><?= $bap['metode'] ?></td>
-                                        <td><?= $bap['evaluasi'] ?></td>
+                                        <td class="text-wrap"><?= $bap['pokok'] ?></td>
+                                        <td class="text-wrap"><?= $bap['metode'] ?></td>
+                                        <td class="text-wrap"><?= $bap['evaluasi'] ?></td>
                                         <td class="text-center"><?= $bap['jumlah_mhs_hadir'] ?></td>
                                         <td class="text-center">
                                             <a class="badge bg-warning cursor-pointer px-3 py-2" data-bs-toggle="">
@@ -71,8 +83,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer p-3 pt-0 d-flex justify-content-end">
-                        <a class="btn btn-primary btn-sm mb-0" href="#">Cetak</a>
+                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
+                        <a class="btn btn-success btn-sm mb-0" href="#">Cetak</a>
                     </div>
                 </div>
             </div>

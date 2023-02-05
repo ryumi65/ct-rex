@@ -12,19 +12,15 @@
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Daftar Matkul -->
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5 class="mb-0"> Daftar Mata Kuliah</h5>
-                            </div>
-                            <div>
-                                <a href="<?= site_url('fakultas/datamatkul') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
-                            </div>
+                            <h5 class="mb-0"> Daftar Mata Kuliah</h5>
+                            <a href="<?= site_url('fakultas/datamatkul') ?>" class="btn btn-primary btn-sm mb-0">Tambah Mata Kuliah</a>
                         </div>
                     </div>
                     <div class="card-body">

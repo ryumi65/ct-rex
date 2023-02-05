@@ -165,6 +165,7 @@ class Prodi extends CI_Controller {
     public function datamhs() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
+            'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
             'listm' => $this->model_prodi->get_db('ak_mahasiswa', ['id_prodi' => $this->session->id], 'result'),
         ];
 

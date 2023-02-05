@@ -1,5 +1,5 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Beban Mengajar -->
             <div class="col-12 my-3">
@@ -27,6 +27,8 @@
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Angkatan</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Dosen Wali</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
@@ -36,10 +38,15 @@
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nama'] ?></td>
+                                        <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['jenis_kelamin'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td class="text-wrap">
+                                            <?php foreach ($listd as $dosen) {
+                                                if ($mahasiswa['dosen_wali'] == $dosen['nik']) echo $dosen['nama'];
+                                            } ?>
+                                        </td>
                                         <td><?= $mahasiswa['status'] ?></td>
                                         <td class="text-center">
                                             <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">

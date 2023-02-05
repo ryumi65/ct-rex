@@ -1,5 +1,5 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Form Jadwal Kuliah -->
             <div class="col-12 mb-md-0 my-4">

@@ -1,17 +1,13 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Jadwal Kuliah -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
-                            </div>
+                            <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
+                            <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                         </div>
                     </div>
                     <div class="card-body p-0 pb-3">

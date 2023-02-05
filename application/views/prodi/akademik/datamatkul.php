@@ -12,10 +12,21 @@
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
+
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Mata Kuliah</li>
+                    </ol>
+                </nav>
+            </div>
 
             <!-- Daftar Matkul -->
-            <div class="col-12 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
@@ -37,9 +48,9 @@
                                         Dosen Pengampu</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Jenis Matkul</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         sks</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Semester</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
@@ -53,8 +64,8 @@
                                         <td><?= $matkul['kode_matkul'] ?></td>
                                         <td class="text-wrap"><?= $matkul['nama_dosen'] ?></td>
                                         <td><?= $matkul['jenis'] ?></td>
-                                        <td><?= $matkul['sks'] ?></td>
-                                        <td><?= $matkul['semester'] ?></td>
+                                        <td class="text-center"><?= $matkul['sks'] ?></td>
+                                        <td class="text-center"><?= $matkul['semester'] ?></td>
                                         <td class="text-center">
                                             <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>

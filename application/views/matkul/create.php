@@ -1,5 +1,17 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
+
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/akademik/data-matkul') ?>"><u>Mata Kuliah</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                    </ol>
+                </nav>
+            </div>
 
             <!-- Form Mata Kuliah -->
             <div class="col-12 my-3">
@@ -77,18 +89,6 @@
                                             <option value="<?= $semester[$i] ?>"><?= $semester[$i] ?></option>
                                         <?php endfor ?>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-floating">
-                                    <textarea name="cpl_prodi" class="form-control" placeholder="CPL Prodi" id="floatingTextCPL" style="height: 200px" required></textarea>
-                                    <label for="floatingTextCPL">Isi CPL Prodi</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-floating">
-                                    <textarea name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" id="floatingTextCP" style="height: 200px" required></textarea>
-                                    <label for="floatingTextCP">Isi CP Mata Kuliah</label>
                                 </div>
                             </div>
 

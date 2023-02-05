@@ -1,10 +1,10 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid pt-5 pt-xl-0">
+        <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 d-inline d-flex justify-content-between">
+                    <div class="card-header d-inline d-flex justify-content-between p-3">
                         <h5 class="mb-0">Kartu Hasil Studi</h5>
                         <div>
                             <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>

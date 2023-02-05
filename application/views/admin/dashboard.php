@@ -6,7 +6,7 @@
     ?>
 
    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-       <div class="container-fluid pt-5 pt-xl-0">
+       <div class="container-fluid pt-6 pt-xl-0">
 
            <!-- Header -->
            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/gedungdash.jpg'); background-position-y: 80%;"></div>

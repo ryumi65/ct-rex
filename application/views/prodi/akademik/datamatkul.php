@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                        <table class="table align-items-center mb-0 pe-1" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -58,15 +58,18 @@
                             </thead>
                             <tbody class="text-sm">
                                 <?php foreach ($listm as $matkul) : ?>
-                                    <tr style="color: black">
+                                    <tr class="text-dark">
                                         <td></td>
-                                        <td class="text-wrap"><a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>"><?= $matkul['nama'] ?></a></td>
+                                        <td class="text-wrap"><?= $matkul['nama'] ?></td>
                                         <td><?= $matkul['kode_matkul'] ?></td>
                                         <td class="text-wrap"><?= $matkul['nama_dosen'] ?></td>
                                         <td><?= $matkul['jenis'] ?></td>
                                         <td class="text-center"><?= $matkul['sks'] ?></td>
                                         <td class="text-center"><?= $matkul['semester'] ?></td>
                                         <td class="text-center">
+                                            <a href="<?= site_url('prodi/akademik/data-matkul/' . $matkul['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Detail">
+                                                <i class="fa-solid fa-book-open"></i>
+                                            </a>
                                             <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>

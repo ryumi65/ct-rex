@@ -1,10 +1,22 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/civitas/data-mahasiswa') ?>"><u>Data Mahasiswa</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Akademik</li>
+                    </ol>
+                </nav>
+            </div>
+
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 d-inline d-flex justify-content-between">
-                        <h5>Data Perkuliahan <?= $mahasiswa['nama'] ?></h5>
+                        <h5>Data Akademik <?= $mahasiswa['nama'] ?></h5>
                         <div>
                             <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>
                             <p class="d-inline mb-0"><?= $ipk ?></p>
@@ -100,7 +112,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <table class="table table-striped align-items-center" id="tablekrs<?= $i ?>">
+                                <table class="table align-items-center" id="tablekrs<?= $i ?>">
                                     <thead>
                                         <tr class="bg-gradient-primary text-white">
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -123,14 +135,14 @@
                                                 Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-sm">
+                                    <tbody class="text-dark text-sm">
                                         <?php foreach ($listk[$i - 1] as $krs) : ?>
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['sks'] ?></td>
-                                                <td><?= $krs['dosen'] ?></td>
+                                                <td class="text-wrap"><?= $krs['dosen'] ?></td>
                                                 <td><?= $krs['hari'] ?></td>
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>
@@ -177,7 +189,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <table class="table table-striped align-items-center w-100" id="tablekhs<?= $i ?>">
+                                <table class="table align-items-center w-100" id="tablekhs<?= $i ?>">
                                     <thead>
                                         <tr class="bg-gradient-primary text-white">
                                             <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -212,12 +224,12 @@
                                                 Keterangan</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-sm">
+                                    <tbody class="text-dark text-sm">
                                         <?php foreach ($listk[$i - 1] as $krs) : ?>
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['nilai_presensi'] ?></td>
                                                 <td><?= $krs['nilai_tugas'] ?></td>
                                                 <td><?= $krs['nilai_uts'] ?></td>

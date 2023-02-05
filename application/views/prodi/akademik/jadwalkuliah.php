@@ -16,7 +16,7 @@
 
             <!-- Navigasi -->
             <div class="d-flex d-inline mt-4 mb-3">
-                <a class="badge bg-primary px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
@@ -58,9 +58,9 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="text-dark text-sm">
                                 <?php foreach ($listj as $jadwal) : ?>
-                                    <tr class="text-dark">
+                                    <tr>
                                         <td></td>
                                         <td class="text-wrap"><?= $jadwal['kode'] . ' - ' . $jadwal['nama'] ?></td>
                                         <td class="text-center"><?= $jadwal['sks'] ?></td>

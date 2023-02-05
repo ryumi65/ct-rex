@@ -30,7 +30,7 @@
                                                 Waktu</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Ruangan</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center" style="width: 5%">
                                                 Aksi</th>
                                         </tr>
                                     </thead>

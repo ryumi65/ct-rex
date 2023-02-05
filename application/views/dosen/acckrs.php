@@ -1,7 +1,19 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
-            <div class="col-12 my-4">
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('dosen') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('dosen/bimbingan/akademik') ?>"><u>Bimbingan Akademik</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">KRS</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3">
                         <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
@@ -97,9 +109,9 @@
                                                                 <td><?= $krs['semester'] ?></td>
                                                                 <td class="text-center">
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
-                                                                    <label class="btn btn-outline-primary px-3 py-2 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
+                                                                    <label class="btn btn-outline-primary px-2 py-1 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="tolak-<?= $krs['id_krs'] ?>" value="T">
-                                                                    <label class="btn btn-outline-danger px-3 py-2 mb-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
+                                                                    <label class="btn btn-outline-danger px-2 py-1 mb-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
                                                                 </td>
                                                             </tr>
                                                     <?php endif;

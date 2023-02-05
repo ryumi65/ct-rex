@@ -1,6 +1,17 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
+                    </ol>
+                </nav>
+            </div>
+
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
@@ -18,31 +29,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto">
-                        <div>
-                            <h6 class="mx-3 my-0"><u>Mahasiswa Aktif</u></h6>
-                            <h3 class="text-center my-0"><?= $mhsaktif ?></h3>
-                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
-                        </div>
-                        <div>
-                            <h6 class="mx-3 my-0"><u>Dosen Aktif</u></h6>
-                            <h3 class="text-center my-0"><?= $dsnaktif ?></h3>
-                            <h6 class="font-weight- text-center my-0">Dosen</h6>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <!-- Profil -->
-            <div class="col-12 mb-md-0 my-4">
+            <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Profil Prodi</h5>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pt-0">
                         <ul class="list-group">
-                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">ID Program Studi:</strong>
-                                &nbsp; <?= $prodi['id_prodi'] ?></li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nama Program Studi:</strong> &nbsp;
                                 <?= $prodi['nama'] ?></li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fakultas:</strong> &nbsp;

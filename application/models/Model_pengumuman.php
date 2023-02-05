@@ -9,6 +9,7 @@ class Model_pengumuman extends CI_Model {
             'tenggang_waktu' => $this->input->post('tenggang_waktu'),
             'tema' => $this->input->post('tema'),
             'isi_pengumuman' => $this->input->post('isi_pengumuman'),
+            'target' => $this->input->post('target'),
 
         ];
 
@@ -21,7 +22,7 @@ class Model_pengumuman extends CI_Model {
             'tenggang_waktu' => $this->input->post('tenggang_waktu'),
             'tema' => $this->input->post('tema'),
             'isi_pengumuman' => $this->input->post('isi_pengumuman'),
-
+            'target' => $this->input->post('target'),
         ];
 
         return $this->db->update('ak_pengumuman', $data, ['id_pengumuman' => $id_pengumuman]);

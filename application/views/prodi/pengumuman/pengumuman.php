@@ -1,7 +1,18 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
-            <!-- Absensi -->
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Pengumuman -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between p-3">
@@ -18,24 +29,24 @@
                                         Judul</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Isi Pengumuman</th>
-                                    </th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Tanggal Mulai</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Tenggang Waktu</th>
-                                    </th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Target</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Aksi</th>
-                                    </th>
                                 </thead>
                                 <tbody class="bg-gray-100 text-dark text-sm">
                                     <?php foreach ($listp as $pengumuman) : ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $pengumuman['tema'] ?></td>
-                                            <td><?= $pengumuman['isi_pengumuman'] ?></td>
+                                            <td class="text-wrap"><?= $pengumuman['tema'] ?></td>
+                                            <td class="text-wrap"><?= $pengumuman['isi_pengumuman'] ?></td>
                                             <td><?= $pengumuman['tanggal_mulai'] ?></td>
                                             <td><?= $pengumuman['tenggang_waktu'] ?></td>
+                                            <td><?= $pengumuman['target'] ?></td>
                                             <td class="text-center">
                                                 <a href="<?= site_url('prodi/pengumuman/' . $pengumuman['id_pengumuman'] . '/edit') ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                     <i class="fa-solid fa-pen-to-square"></i>
@@ -73,7 +84,7 @@
                 order: [3, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 5],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],

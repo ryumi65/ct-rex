@@ -4,12 +4,12 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5>Input Nilai <?= $matkul['nama'] ?></h5>
                     </div>
+                    <?= form_open('dosen/setnilai/' . $matkul['id_matkul']) ?>
                     <div class="card-body p-3 pt-0">
-                        <?= form_open('dosen/setnilai/' . $matkul['id_matkul']) ?>
-                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -32,12 +32,12 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
-                                    <tr style="color: black">
+                                    <tr>
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
-                                        <td><?= $mahasiswa['nama'] ?></td>
+                                        <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
                                         <td>
                                             <input type="text" name="nilai-presensi-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_presensi'] ?>" required>
                                         </td>
@@ -54,11 +54,11 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
-                        </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -4,34 +4,32 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3">
-                        <div class=" d-flex justify-content-between flex-wrap">
-                            <h5>Presensi <?= $matkul['nama'] ?></h5>
-                            <div class="d-flex justify-content-end">
-                                <div class="dropdown">
-                                    <a class="btn btn-primary btn-sm dropdown-toggle mx-2 mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ubah Presensi
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <?php if ($pertemuan[$i - 1] === 'true') : ?>
-                                                <li>
-                                                    <a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/update/' . $i) ?>">Pertemuan
-                                                        <?php if ($i === 8) echo 'UTS';
-                                                        elseif ($i === 16) echo 'UAS';
-                                                        else echo $i; ?>
-                                                    </a>
-                                                </li>
-                                            <?php endif ?>
-                                        <?php endfor ?>
-                                    </ul>
-                                </div>
-                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
+                    <div class="card-header d-flex justify-content-between flex-wrap p-3">
+                        <h5>Presensi <?= $matkul['nama'] ?></h5>
+                        <div class="d-flex justify-content-end">
+                            <div class="dropdown">
+                                <a class="btn btn-primary btn-sm dropdown-toggle mx-2 mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ubah Presensi
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                        <?php if ($pertemuan[$i - 1] === 'true') : ?>
+                                            <li>
+                                                <a class="dropdown-item" href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/update/' . $i) ?>">Pertemuan
+                                                    <?php if ($i === 8) echo 'UTS';
+                                                    elseif ($i === 16) echo 'UAS';
+                                                    else echo $i; ?>
+                                                </a>
+                                            </li>
+                                        <?php endif ?>
+                                    <?php endfor ?>
+                                </ul>
                             </div>
+                            <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 pe-2" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -53,7 +51,7 @@
                                     <?php endfor ?>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
@@ -92,7 +90,7 @@
                                 <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
+                        <a href="" class="btn btn-success btn-sm mb-0">Cetak Presensi</a>
                     </div>
                 </div>
             </div>

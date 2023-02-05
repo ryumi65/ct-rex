@@ -9,7 +9,7 @@
                         <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center pe-1" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -32,7 +32,7 @@
                                         Indeks</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <tr>
                                     <td></td>
                                     <td></td>

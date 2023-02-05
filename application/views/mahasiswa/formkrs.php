@@ -11,7 +11,7 @@
                         <?php for ($i = 1; $i <= 8; $i++) :
                             if ($i % 2 === $semester) : ?>
                                 <h6>KRS Semester <?= $i ?></h6>
-                                <table class="table table-striped align-items-center" id="table<?= $i ?>">
+                                <table class="table align-items-center w-100" id="table<?= $i ?>">
                                     <thead>
                                         <tr class="bg-gradient-primary text-white">
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -34,7 +34,7 @@
                                                 Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-sm">
+                                    <tbody class="bg-gray-100 text-dark text-sm">
                                         <?php foreach ($listj[$i] as $jadwal) : ?>
                                             <?php
                                             $status = '';

@@ -30,24 +30,26 @@
                             <h6 class="mb-0">CPL Prodi : </h6><?= $matkul['cpl_prodi'] ?>
                             <h6 class="mb-0">CP Mata Kuliah : </h6><?= $matkul['cp_mk'] ?>
                         </div>
-                        <table class="table table-bordered align-items-center mb-0 pe-1" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
-                                <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                    TM ke</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Hari/Tanggal/Jam</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Pokok Bahasan</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Metode</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Evaluasi</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Kehadiran</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    Aksi</th>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        TM ke</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Hari/Tanggal/Jam</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Pokok Bahasan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Metode</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Evaluasi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Kehadiran</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listb as $bap) : ?>
                                     <tr>
                                         <td><?= $bap['pertemuan'] ?></td>
@@ -55,7 +57,7 @@
                                         <td><?= $bap['pokok'] ?></td>
                                         <td><?= $bap['metode'] ?></td>
                                         <td><?= $bap['evaluasi'] ?></td>
-                                        <td><?= $bap['jumlah_mhs_hadir'] ?></td>
+                                        <td class="text-center"><?= $bap['jumlah_mhs_hadir'] ?></td>
                                         <td class="text-center">
                                             <a class="badge bg-warning cursor-pointer px-3 py-2" data-bs-toggle="">
                                                 <i class="fa-solid fa-pen-to-square"></i>

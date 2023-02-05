@@ -7,26 +7,24 @@
                         <h5 class="mb-0">Daftar Prodi <?= $fakultas['nama'] ?></h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                <thead>
-                                    <tr>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            ID Prodi</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Nama Prodi</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jumlah Mahasiswa</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            Jumlah Dosen</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-sm">
-                                </tbody>
-                            </table>
-                        </div>
+                        <table class="table align-items-center w-100" id="table">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        ID Prodi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Prodi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Jumlah Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Jumlah Dosen</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-gray-100 text-dark text-sm">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body p-3 pt-0">
                         <div>
-                            <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                            <table class="table align-items-center w-100" id="table">
                                 <thead class="bg-gradient-primary text-white text-center">
                                     <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No</th>
@@ -28,7 +28,7 @@
                                         Aksi</th>
                                     </th>
                                 </thead>
-                                <tbody class="text-sm">
+                                <tbody class="bg-gray-100 text-dark text-sm">
                                     <?php foreach ($listp as $pengumuman) : ?>
                                         <tr>
                                             <td></td>

@@ -11,9 +11,9 @@
                                 <a class="btn btn-primary mx-2" href="formbap"> Buat Pengumuman</a>
                             </div>
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-3 pt-0">
                             <div>
-                                <table class="table align-items-center" id="table">
+                                <table class="table align-items-center w-100" id="table">
                                     <thead class="bg-gradient-primary text-white text-center">
                                         <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                             No</th>
@@ -31,8 +31,8 @@
                                             Aksi</th>
                                         </th>
                                     </thead>
-                                    <tbody class="text-sm">
-                                        <tr class="text-center">
+                                    <tbody class="bg-gray-100 text-dark text-sm">
+                                        <tr>
                                             <td>1</td>
                                             <td>Kamis,25 Januari 2002</td>
                                             <td>UAS</td>

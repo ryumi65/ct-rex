@@ -20,7 +20,7 @@
                         <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table align-items-center" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -39,7 +39,7 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-dark text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>

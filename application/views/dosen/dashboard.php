@@ -84,36 +84,34 @@
                                 <?php endif ?>
                             </p>
                         </div>
-                        <div class="card-body p-0 pb-3">
-                            <div class="table-responsive">
-                                <table class="table table-striped align-items-center mb-0 ps-3" id="table">
-                                    <thead>
-                                        <tr class="bg-gradient-primary text-white">
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                                No.</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Waktu</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Kode MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Nama MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Ruangan</th>
+                        <div class="card-body p-3 pt-0">
+                            <table class="table align-items-center w-100" id="table">
+                                <thead>
+                                    <tr class="bg-gradient-primary text-white">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Waktu</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Kode MK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Nama MK</th>
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Ruangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-100 text-dark text-sm">
+                                    <?php foreach ($listj as $jadwal) : ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><?= $jadwal['waktu'] ?></td>
+                                            <td><?= $jadwal['kode'] ?></td>
+                                            <td><?= $jadwal['nama'] ?></td>
+                                            <td><?= $jadwal['ruangan'] ?></td>
                                         </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <?php foreach ($listj as $jadwal) : ?>
-                                            <tr>
-                                                <td></td>
-                                                <td><?= $jadwal['waktu'] ?></td>
-                                                <td><?= $jadwal['kode'] ?></td>
-                                                <td><?= $jadwal['nama'] ?></td>
-                                                <td><?= $jadwal['ruangan'] ?></td>
-                                            </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

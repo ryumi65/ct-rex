@@ -39,7 +39,7 @@
                                 </div>
                             <?php endfor ?>
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
+                                <button type="button" class="btn btn-success btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <table class="table table-striped align-items-center w-100" id="table<?= $i ?>">
+                                <table class="table align-items-center w-100" id="table<?= $i ?>">
                                     <thead>
                                         <tr class="bg-gradient-primary text-white">
                                             <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -91,7 +91,7 @@
                                                 Keterangan</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-sm">
+                                    <tbody class="bg-gray-100 text-dark text-sm">
                                         <?php foreach ($listk[$i - 1] as $krs) : ?>
                                             <tr>
                                                 <td></td>
@@ -161,7 +161,7 @@
                                 </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
+                                <button type="button" class="btn btn-success btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                                 <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body p-0 pb-3">
                         <div class="table-responsive">
-                            <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                            <table class="table align-items-center w-100" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
                                         <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
@@ -25,7 +25,7 @@
                                         <?php endfor ?>
                                     </tr>
                                 </thead>
-                                <tbody class="text-sm">
+                                <tbody class="bg-gray-100 text-dark text-sm">
                                     <tr>
                                         <?php for ($i = 0; $i < 16; $i++) {
                                             if (isset($presensi[$i])) {

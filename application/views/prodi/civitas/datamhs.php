@@ -45,7 +45,7 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-dark text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>

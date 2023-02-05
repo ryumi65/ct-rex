@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -46,7 +46,7 @@
                                         Keterangan</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
@@ -101,9 +101,9 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                        <div class="mt-2 d-flex justify-content-end">
-                            <a href="#" class="btn btn-success btn-sm">Cetak</a>
-                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
+                        <a href="#" class="btn btn-success btn-sm mb-0">Cetak</a>
                     </div>
                 </div>
             </div>

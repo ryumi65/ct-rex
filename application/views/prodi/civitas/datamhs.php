@@ -15,13 +15,8 @@
             <!-- Beban Mengajar -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between p-3">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Daftar Mahasiswa Prodi <?= $prodi['nama'] ?></h5>
-                        <div class="col-2">
-                            <select class="form-select form-select-sm">
-                                <option selected disabled>Pilih Tahun Ajaran</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <table class="table align-items-center w-100" id="table">
@@ -67,6 +62,24 @@
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
+                            <tfoot>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Dosen Wali</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Status</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -83,9 +96,29 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
         $(document).ready(() => {
-
             $('#table').DataTable({
+                initComplete: function() {
+                    this.api()
+                        .columns(3)
+                        .every(function() {
+                            var column = this;
+                            var select = $('<select class="form-select form-select-sm"><option value="">Seluruh Angkatan</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
                 responsive: true,
                 stateSave: true,
                 order: [1, 'asc'],

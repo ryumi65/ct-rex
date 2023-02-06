@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 03, 2023 at 02:43 AM
+-- Generation Time: Feb 06, 2023 at 01:38 AM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -69,7 +69,7 @@ INSERT INTO `ak_akun` (`id_akun`, `username`, `password`, `status`, `level`, `fo
 ('20041702', 'reyyanfaturahman', '$2y$10$IU1nofrDGfrax5KHRqm11el4aYcgXKb3DIOFoF49wMwADxOR5HBrG', 'Y', 4, 'curved.jpg', 'default.png'),
 ('2016020564210047', 'dosen_ktf', '$2y$10$xIwZORTEEYMFjjnJi5t.QuMz5vc2TpWcvfMJwi0J1WyeMqyBZZbeS', 'Y', 4, 'curved.jpg', 'default.png'),
 ('2016050569110016', 'dosenktf', '$2y$10$w2gZHAWWOAAFECTO8xsFHuKFxfUUZlaL0hKV1hTSb67g7XuoiltfK', 'Y', 3, 'curved.jpg', 'default.png'),
-('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'Y', 3, '568eee0fc08a80e01b8b7bf5.webp', '201809041991210078.jpg'),
+('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'Y', 3, 'curved.jpg', 'default.png'),
 ('210102017', 'ndeniars', '$2y$10$7oIsQ1SENLIcIAqtTlTfvu6zGsoFLtF7tLFITKUn6x7HiJfzwDKQO', 'Y', 4, '210102017.jpeg', 'default.png'),
 ('210209033', 'shafa', '$2y$10$7rqd04lKea/PkSkkQ5Gh6e1IhHF0udSqOJZTr2a7VbdWrRqzVy3jW', 'Y', 4, 'curved.jpg', 'default.png'),
 ('210312074', 'mochraffi00', '$2y$10$PtBZ/TkR82X7mJtcVqvZnOjc1OF5kAto9jyIuTGXZxpQO/NAkZG1W', 'Y', 4, 'WhatsApp Image 2023-01-31 at 09_56_02.jpeg', 'default.png'),
@@ -125,7 +125,6 @@ CREATE TABLE `ak_bap` (
 
 INSERT INTO `ak_bap` (`id_bap`, `id_jadwal`, `pertemuan`, `pokok`, `metode`, `evaluasi`, `jumlah_mhs_hadir`) VALUES
 (5, 209, 1, 'Sejarah Seni Rupa', 'Praktik dan Tatap Muka', 'Okay Okay', 1),
-(6, 209, 1, 'pendahuluan', '123', '456', 1),
 (7, 209, 12, 'Renaissance', 'Ceramah dan Tatap Muka', 'Okay Okay', 2),
 (8, 209, 3, 'tes', 'tes', 'tes', 2);
 
@@ -368,6 +367,7 @@ CREATE TABLE `ak_durasi` (
 
 INSERT INTO `ak_durasi` (`id_tahun`, `tanggal_awal`, `tanggal_akhir`) VALUES
 ('20202', '2023-01-27', '2023-01-30'),
+('20212', '2023-02-03', '2023-02-04'),
 ('20221', '2023-01-24', '2023-01-31');
 
 -- --------------------------------------------------------
@@ -637,7 +637,7 @@ CREATE TABLE `ak_mahasiswa` (
   `provinsi` varchar(20) DEFAULT NULL,
   `kode_pos` varchar(5) DEFAULT NULL,
   `id_prodi` varchar(10) DEFAULT NULL,
-  `status` enum('Aktif','Cuti','Keluar') DEFAULT 'Aktif',
+  `status` enum('Aktif','Cuti','Keluar','Lulus') DEFAULT 'Aktif',
   `dosen_wali` varchar(20) DEFAULT NULL,
   `semester` enum('1','2','3','4','5','6','7','8') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -693,7 +693,7 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200102001', 'Alifa Faturrahman', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016090888110051', '5'),
 ('200102002', 'Aulia Yuqo Safaroh', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016160685210005', '5'),
 ('200102004', 'Hasmy Anshari Aulia', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '202015031967110151', '5'),
-('200102006', 'Luthfi Faris', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', NULL, '5'),
+('200102006', 'Luthfi Faris', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '202118051981120181', '5'),
 ('200102007', 'Mevani Kamilah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '202015031967110151', '5'),
 ('200102009', 'Raessandra Putri Mayendra', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '202118051981120181', '5'),
 ('200102010', 'Ramdan Gojali', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016160685210005', '5'),
@@ -5759,7 +5759,7 @@ INSERT INTO `ak_matkul` (`id_matkul`, `kode_matkul`, `nama`, `nama_inggris`, `je
 (39, 'IF0228', 'Praktikum Pemrograman Web', '', 'Wajib Prodi', 'Praktikum', 1, '2016160685210005', 'IF', '4', NULL, NULL),
 (40, 'MWU02003', 'Muhammadiyah dan Spirit Teologi Al Maun', '', 'Wajib Umum', 'Teori', 3, '2016230290210041', 'IF', '4', NULL, NULL),
 (41, 'IF0129', 'Jaringan Saraf Tiruan', '', 'Wajib Prodi', 'Teori', 3, '201818111990210074', 'IF', '5', NULL, NULL),
-(42, 'IF0130', 'Rekayasa Perangkat Lunak', '', 'Wajib Prodi', 'Teori', 3, '201809041991210078', 'IF', '5', NULL, NULL),
+(42, 'IF0130', 'Rekayasa Perangkat Lunak', '', 'Wajib Prodi', 'Teori', 3, '201809041991210078', 'IF', '5', 'Test CPLP', 'Test CPMK'),
 (43, 'IF0131', 'Pemrograman Perangkat Bergerak', '', 'Wajib Prodi', 'Teori', 2, '2016230290210041', 'IF', '5', NULL, NULL),
 (44, 'IF0132', 'Praktikum Pemrograman Perangkat Bergerak', '', 'Wajib Prodi', 'Praktikum', 1, '2016230290210041', 'IF', '5', NULL, NULL),
 (45, 'IF0133', 'Multimedia', '', 'Wajib Prodi', 'Teori', 2, '2016261088210042', 'IF', '5', NULL, NULL),
@@ -11957,7 +11957,8 @@ CREATE TABLE `ak_pengumuman` (
   `tanggal_mulai` date NOT NULL,
   `tenggang_waktu` date NOT NULL,
   `tema` varchar(255) NOT NULL,
-  `isi_pengumuman` text NOT NULL
+  `isi_pengumuman` text NOT NULL,
+  `target` enum('dosen','mahasiswa','keduanya') NOT NULL DEFAULT 'keduanya'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -12009,39 +12010,41 @@ CREATE TABLE `ak_prodi` (
   `nama` varchar(50) DEFAULT NULL,
   `kelas` varchar(20) DEFAULT NULL,
   `jenjang` varchar(5) DEFAULT NULL,
-  `id_fakultas` varchar(3) DEFAULT NULL
+  `id_fakultas` varchar(3) DEFAULT NULL,
+  `visi` text DEFAULT NULL,
+  `misi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `ak_prodi`
 --
 
-INSERT INTO `ak_prodi` (`id_prodi`, `nama`, `kelas`, `jenjang`, `id_fakultas`) VALUES
-('AG', 'Agribisnis', 'Reguler', 'S1', 'FST'),
-('AK', 'Akuntansi', 'Reguler', 'S1', 'FEB'),
-('AK-K', 'Akuntansi', 'Karyawan', 'S1', 'FEB'),
-('AP', 'Administrasi Publik', 'Reguler', 'S1', 'FSH'),
-('AP-K', 'Administrasi Publik', 'Karyawan', 'S1', 'FSH'),
-('BE', 'Bioteknologi', 'Reguler', 'S1', 'FST'),
-('ESY', 'Ekonomi Syariah', 'Reguler', 'S1', 'FAI'),
-('ESY-K', 'Ekonomi Syariah', 'Karyawan', 'S1', 'FAI'),
-('FA', 'Farmasi', 'Reguler', 'S1', 'FST'),
-('HKI', 'Hukum Keluarga Islam', 'Reguler', 'S1', 'FAI'),
-('HKI-K', 'Hukum Keluarga Islam', 'Karyawan', 'S1', 'FAI'),
-('IF', 'Teknik Informatika', 'Reguler', 'S1', 'FST'),
-('IK', 'Ilmu Komunikasi', 'Reguler', 'S1', 'FSH'),
-('KPI', 'Komunikasi dan Penyiaran Islam', 'Reguler', 'S1', 'FAI'),
-('KPI-K', 'Komunikasi dan Penyiaran Islam', 'Karyawan', 'S1', 'FAI'),
-('KTF', 'Kriya Tekstil dan Fashion', 'Reguler', 'S1', 'FSH'),
-('MJ', 'Manajemen', 'Reguler', 'S1', 'FEB'),
-('PAI', 'Pendidikan Agama Islam', 'Reguler', 'S1', 'FAI'),
-('PAI-K', 'Pendidikan Agama Islam', 'Karyawan', 'S1', 'FAI'),
-('PIAUD', 'Pendidikan Islam Anak Usia Dini', 'Reguler', 'S1', 'FAI'),
-('PIAUD-K', 'Pendidikan Islam Anak Usia Dini', 'Karyawan', 'S1', 'FAI'),
-('PS', 'Psikologi', 'Reguler', 'S1', 'FSH'),
-('TE', 'Teknik Elektro', 'Reguler', 'S1', 'FST'),
-('TI', 'Teknik Industri', 'Reguler', 'S1', 'FST'),
-('TPH', 'Teknologi Pangan Halal', 'Reguler', 'S1', 'FST');
+INSERT INTO `ak_prodi` (`id_prodi`, `nama`, `kelas`, `jenjang`, `id_fakultas`, `visi`, `misi`) VALUES
+('AG', 'Agribisnis', 'Reguler', 'S1', 'FST', NULL, NULL),
+('AK', 'Akuntansi', 'Reguler', 'S1', 'FEB', NULL, NULL),
+('AK-K', 'Akuntansi', 'Karyawan', 'S1', 'FEB', NULL, NULL),
+('AP', 'Administrasi Publik', 'Reguler', 'S1', 'FSH', NULL, NULL),
+('AP-K', 'Administrasi Publik', 'Karyawan', 'S1', 'FSH', NULL, NULL),
+('BE', 'Bioteknologi', 'Reguler', 'S1', 'FST', NULL, NULL),
+('ESY', 'Ekonomi Syariah', 'Reguler', 'S1', 'FAI', NULL, NULL),
+('ESY-K', 'Ekonomi Syariah', 'Karyawan', 'S1', 'FAI', NULL, NULL),
+('FA', 'Farmasi', 'Reguler', 'S1', 'FST', NULL, NULL),
+('HKI', 'Hukum Keluarga Islam', 'Reguler', 'S1', 'FAI', NULL, NULL),
+('HKI-K', 'Hukum Keluarga Islam', 'Karyawan', 'S1', 'FAI', NULL, NULL),
+('IF', 'Teknik Informatika', 'Reguler', 'S1', 'FST', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+('IK', 'Ilmu Komunikasi', 'Reguler', 'S1', 'FSH', NULL, NULL),
+('KPI', 'Komunikasi dan Penyiaran Islam', 'Reguler', 'S1', 'FAI', NULL, NULL),
+('KPI-K', 'Komunikasi dan Penyiaran Islam', 'Karyawan', 'S1', 'FAI', NULL, NULL),
+('KTF', 'Kriya Tekstil dan Fashion', 'Reguler', 'S1', 'FSH', NULL, NULL),
+('MJ', 'Manajemen', 'Reguler', 'S1', 'FEB', NULL, NULL),
+('PAI', 'Pendidikan Agama Islam', 'Reguler', 'S1', 'FAI', NULL, NULL),
+('PAI-K', 'Pendidikan Agama Islam', 'Karyawan', 'S1', 'FAI', NULL, NULL),
+('PIAUD', 'Pendidikan Islam Anak Usia Dini', 'Reguler', 'S1', 'FAI', NULL, NULL),
+('PIAUD-K', 'Pendidikan Islam Anak Usia Dini', 'Karyawan', 'S1', 'FAI', NULL, NULL),
+('PS', 'Psikologi', 'Reguler', 'S1', 'FSH', NULL, NULL),
+('TE', 'Teknik Elektro', 'Reguler', 'S1', 'FST', NULL, NULL),
+('TI', 'Teknik Industri', 'Reguler', 'S1', 'FST', NULL, NULL),
+('TPH', 'Teknologi Pangan Halal', 'Reguler', 'S1', 'FST', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12177,8 +12180,8 @@ CREATE TABLE `ak_tahun` (
 INSERT INTO `ak_tahun` (`id_tahun`, `nama`, `tahun_ajaran`, `status`) VALUES
 ('20202', 'genap', '2020/2021', 'N'),
 ('20211', 'ganjil', '2021/2022', 'N'),
-('20212', 'genap', '2021/2022', 'N'),
-('20221', 'ganjil', '2022/2023', 'Y'),
+('20212', 'genap', '2021/2022', 'Y'),
+('20221', 'ganjil', '2022/2023', 'N'),
 ('20222', 'genap', '2022/2023', 'N');
 
 --
@@ -12326,7 +12329,7 @@ ALTER TABLE `ak_matkul`
 -- AUTO_INCREMENT for table `ak_pengumuman`
 --
 ALTER TABLE `ak_pengumuman`
-  MODIFY `id_pengumuman` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengumuman` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ak_presensi`

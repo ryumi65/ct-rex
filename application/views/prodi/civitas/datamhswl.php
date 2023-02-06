@@ -23,15 +23,13 @@
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                        No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        JK</th>
+                                        NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Tahun Angkatan</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status Mahasiswa</th>
@@ -42,11 +40,10 @@
                             <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
-                                        <td></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['jenis_kelamin'] ?></td>
-                                        <td><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td class="text-center"><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= $mahasiswa['status'] ?></td>
                                         <td class="text-center">
                                             <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
@@ -59,6 +56,22 @@
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
+                            <tfoot>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Tahun Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Status Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -75,33 +88,40 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
     <script>
-        let table;
-
         $(document).ready(() => {
+            $('#table').DataTable({
+                initComplete: function() {
+                    this.api()
+                        .columns(3)
+                        .every(function() {
+                            var column = this;
+                            var select = $('<select class="form-select form-select-sm"><option value="">Seluruh Angkatan</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-            table = $('#table').DataTable({
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
 
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
                 responsive: true,
+                stateSave: true,
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 6],
+                    targets: [5],
                     orderable: false,
                     searchable: false,
                 }],
 
             });
-
-            table.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
-                });
-            }).draw();
-
         });
     </script>

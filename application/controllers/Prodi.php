@@ -58,22 +58,22 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function update() {
+    public function ubahvisimisi() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listf' => $this->model_prodi->get_db('ak_fakultas'),
         ];
 
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('id_fakultas', 'ID Fakultas', 'required');
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/profil/updatevisimisi', $data);
+        $this->load->view('_partials/script');
+    }
 
-        if (!$this->form_validation->run()) {
-            $this->load->view('prodi/update', $data);
-        } else {
-            $this->model_prodi->update_prodi($this->session->id);
-            redirect('prodi/profil');
-        }
+    public function updatevisimisi() {
+        $this->model_prodi->update_visimisi();
+        redirect('prodi/profil');
     }
 
     //==================== DOSEN ====================//
@@ -517,13 +517,13 @@ class Prodi extends CI_Controller {
         $pertemuan_validation = [];
 
         for ($i = 1; $i <= 16; $i++) {
-            $listp = $this->model_prodi->get_presensi($id_matkul, $i);
+            $listp = $this->model_dosen->get_presensi($id_matkul, $i);
 
             foreach ($listp as $presensi) {
                 $pertemuan[$presensi['id_krs']][$i - 1] = $presensi['kehadiran'];
             }
 
-            if ($this->model_prodi->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
             else array_push($pertemuan_validation, 'false');
         }
 
@@ -531,7 +531,7 @@ class Prodi extends CI_Controller {
             'matkul' => $matkul,
             'pertemuan' => $pertemuan_validation,
             'presensi' => $pertemuan,
-            'listm' => $this->model_prodi->get_mhs($id_matkul),
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 
         $this->load->view('_partials/head');
@@ -551,9 +551,9 @@ class Prodi extends CI_Controller {
         $list_presensi = [];
 
         for ($i = 1; $i <= 16; $i++) {
-            $listp = $this->model_prodi->get_presensi($id_matkul, $i);
+            $listp = $this->model_dosen->get_presensi($id_matkul, $i);
 
-            if ($this->model_prodi->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
             else array_push($pertemuan_validation, 'false');
 
             foreach ($listp as $presensi) {
@@ -572,7 +572,7 @@ class Prodi extends CI_Controller {
             'matkul' => $matkul,
             'pertemuan' => $pertemuan_validation,
             'tanggal' => $list_presensi,
-            'listb' => $this->model_prodi->get_bap($id_matkul),
+            'listb' => $this->model_dosen->get_bap($id_matkul),
         ];
 
         $this->load->view('_partials/head');
@@ -610,7 +610,7 @@ class Prodi extends CI_Controller {
 
         $data = [
             'matkul' => $matkul,
-            'listm' => $this->model_prodi->get_mhs($id_matkul),
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 
         $this->load->view('_partials/head');

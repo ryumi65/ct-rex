@@ -35,8 +35,9 @@
             <!-- Profil -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3">
-                        <h5 class="mb-0">Profil Prodi</h5>
+                    <div class="card-header d-flex justify-content-between p-3 pb-0">
+                        <h5 class="mb-0">Profil Program Studi</h5>
+                        <a href="<?= site_url('prodi/ubahvisimisi') ?>" class="btn btn-primary btn-sm mb-0">Ubah Visi Misi</a>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <ul class="list-group">
@@ -44,6 +45,10 @@
                                 <?= $prodi['nama'] ?></li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fakultas:</strong> &nbsp;
                                 <?= $prodi['id_fakultas'] ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Visi:</strong> &nbsp;
+                                <?= $prodi['visi'] ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Misi:</strong> &nbsp;
+                                <?= $prodi['misi'] ?></li>
                         </ul>
                     </div>
                 </div>

@@ -2,9 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 
-class Mahasiswa extends CI_Controller {
+class Mahasiswa extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('model_mahasiswa');
         $this->load->model('model_jadwal');
@@ -14,7 +16,8 @@ class Mahasiswa extends CI_Controller {
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
     }
 
-    public function index() {
+    public function index()
+    {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
         $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
@@ -80,7 +83,8 @@ class Mahasiswa extends CI_Controller {
 
     //==================== CRUD ====================//
 
-    public function create() {
+    public function create()
+    {
         $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
@@ -94,7 +98,8 @@ class Mahasiswa extends CI_Controller {
         }
     }
 
-    public function update($nim) {
+    public function update($nim)
+    {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $nim]);
         $data['ortu'] = $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $nim]);
         $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
@@ -115,7 +120,8 @@ class Mahasiswa extends CI_Controller {
         }
     }
 
-    public function update_ortu($nim) {
+    public function update_ortu($nim)
+    {
         $this->model_mahasiswa->update_ortu($nim);
         $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
@@ -123,7 +129,8 @@ class Mahasiswa extends CI_Controller {
 
     //==================== PROFIL ====================//
 
-    public function profil() {
+    public function profil()
+    {
         $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -141,7 +148,8 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function update_foto() {
+    public function update_foto()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -152,7 +160,8 @@ class Mahasiswa extends CI_Controller {
 
     //==================== KRS ====================//
 
-    public function datakrs() {
+    public function datakrs()
+    {
         $krs = [];
         $mk = [];
         $sks_smt = [];
@@ -196,7 +205,8 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function formkrs() {
+    public function formkrs()
+    {
         $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
         $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
         $tanggal_awal = date_create($tahun['tanggal_awal']);
@@ -240,13 +250,15 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function deletekrs($nim, $id_jadwal) {
+    public function deletekrs($nim, $id_jadwal)
+    {
         $this->model_krs->delete_krs($nim, $id_jadwal);
 
         redirect('mahasiswa/perkuliahan/data-krs');
     }
 
-    private function indonesian_date($date) {
+    private function indonesian_date($date)
+    {
         $month = [
             1 => 'Januari',
             'Februari',
@@ -269,7 +281,8 @@ class Mahasiswa extends CI_Controller {
 
     //==================== PRESENSI ====================//
 
-    public function jadwalkuliah() {
+    public function jadwalkuliah()
+    {
         $data = [
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'all'),
@@ -283,7 +296,8 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function presensi($id_matkul) {
+    public function presensi($id_matkul)
+    {
         $matkul = $this->model_mahasiswa->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if (!$this->model_mahasiswa->presensi_validation($this->session->id, $id_matkul)) redirect(strtolower($this->session->access));
 
@@ -310,7 +324,8 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function rekappresensi() {
+    public function rekappresensi()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -321,7 +336,8 @@ class Mahasiswa extends CI_Controller {
 
     //==================== NILAI ====================//
 
-    public function datakhs() {
+    public function datakhs()
+    {
         $ip = [];
         $krs = [];
         $sks_smt = [];
@@ -393,11 +409,33 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function transkrip() {
+    public function transkrip()
+    {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/transkrip');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    // CATATAN STUDI
+    public function catatanstudi()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/listcstudi');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function tambahperwalian()
+    {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/formcstudi');
         $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }

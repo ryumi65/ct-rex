@@ -105,7 +105,7 @@
                 </li> -->
 
                 <!-- Perwalian -->
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#perwalian" class="nav-link" aria-controls="perwalian role=" button" aria-expanded="false">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-pen-to-square" style="color:#000"></i>
@@ -115,13 +115,13 @@
                     <div class="collapse" id="perwalian">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?= site_url('mahasiswa/catatanstudi') ?>">
                                     Catatan Studi
                                 </a>
                             </li>
                         </ul>
                     </div>
-                </li> -->
+                </li>
 
                 <!-- Jadwal -->
                 <!-- <li class="nav-item">

@@ -492,4 +492,132 @@ class Prodi extends CI_Controller {
         $this->model_pengumuman->delete_pengumuman($id_pengumuman);
         redirect('prodi/pengumuman');
     }
+
+    //==================== PERKULIAHAN ====================//
+
+    public function perkuliahan() {
+        $data = [
+            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal($this->session->id),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/perkuliahan', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function presensi($id_matkul) {
+        $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $pertemuan = [];
+        $pertemuan_validation = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_prodi->get_presensi($id_matkul, $i);
+
+            foreach ($listp as $presensi) {
+                $pertemuan[$presensi['id_krs']][$i - 1] = $presensi['kehadiran'];
+            }
+
+            if ($this->model_prodi->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+        }
+
+        $data = [
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan_validation,
+            'presensi' => $pertemuan,
+            'listm' => $this->model_prodi->get_mhs($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/presensi', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function bap($id_matkul) {
+        $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $pertemuan_validation = [];
+        $list_presensi = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_prodi->get_presensi($id_matkul, $i);
+
+            if ($this->model_prodi->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+
+            foreach ($listp as $presensi) {
+                if ($presensi['pertemuan'] == $i) {
+                    $create = date_create($presensi['tanggal']);
+                    $date = date_format($create, 'Y-m-d');
+                    $day = date('w', strtotime($date));
+
+                    $list_presensi[$i] = $list_hari[$day] . ', ' . $this->indonesian_date($date) . ' (' . $presensi['pukul'] . ')';
+                    break;
+                }
+            }
+        }
+
+        $data = [
+            'matkul' => $matkul,
+            'pertemuan' => $pertemuan_validation,
+            'tanggal' => $list_presensi,
+            'listb' => $this->model_prodi->get_bap($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/bap', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    private function indonesian_date($date) {
+        $month = [
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        ];
+
+        $exp = explode('-', $date);
+
+        return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
+    }
+
+    public function nilai($id_matkul) {
+        $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $matkul,
+            'listm' => $this->model_prodi->get_mhs($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/nilai', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
 }

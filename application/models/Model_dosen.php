@@ -48,14 +48,9 @@ class Model_dosen extends CI_Model {
         return $this->db->delete('ak_dosen', ['nik' => $nik]);
     }
 
-    public function get_mhs($id_matkul, $nik = '') {
-        if ($nik === '') {
-            $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
-                ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get();
-        } else {
-            $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
-                ->where(['m.dosen_wali' => $nik, 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get();
-        }
+    public function get_mhs($id_matkul) {
+        $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
+            ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get();
 
         return $query->result_array();
     }

@@ -381,7 +381,7 @@ class Dosen extends CI_Controller {
 
         $data = [
             'matkul' => $matkul,
-            'listm' => $this->model_dosen->get_mhs($id_matkul, $this->session->id),
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 
         $this->load->view('_partials/head');
@@ -398,7 +398,7 @@ class Dosen extends CI_Controller {
 
         $data = [
             'matkul' => $matkul,
-            'listm' => $this->model_dosen->get_mhs($id_matkul, $this->session->id),
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
         ];
 
         $this->load->view('_partials/head');

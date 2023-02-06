@@ -9,6 +9,11 @@
             alert('Edit mata kuliah berhasil!');
         </script>";
         unset($_SESSION['updatemksuccess']);
+    } elseif (isset($_SESSION['deletemkfailed'])) {
+        echo "<script>
+            alert('Hapus mata kuliah gagal! Mohon kosongkan jadwal yang terkait pada mata kuliah.');
+        </script>";
+        unset($_SESSION['deletemkfailed']);
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
@@ -73,7 +78,7 @@
                                             <a href="<?= site_url('prodi/akademik/data-matkul/edit/' . $matkul['id_matkul']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
+                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/akademik/data-matkul/delete/' . $matkul['id_matkul']) ?>')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>

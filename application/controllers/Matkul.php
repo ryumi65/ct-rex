@@ -22,6 +22,12 @@ class Matkul extends CI_Controller {
     }
 
     public function delete($id_matkul) {
+        $total = $this->model_matkul->get_db_count('ak_jadwal', ['id_matkul' => $id_matkul]);
+        if ($total > 0) {
+            $this->session->set_userdata('deletemkfailed', true);
+            redirect('prodi/akademik/data-matkul');
+        }
+
         $this->model_matkul->delete_matkul($id_matkul);
         redirect('prodi/akademik/data-matkul');
     }

@@ -9,6 +9,11 @@
             alert('Edit jadwal kuliah berhasil!');
         </script>";
         unset($_SESSION['updatejdwlsuccess']);
+    } elseif (isset($_SESSION['deletejdwlfailed'])) {
+        echo "<script>
+            alert('Hapus jadwal kuliah gagal! Mohon kosongkan KRS yang terkait pada jadwal.');
+        </script>";
+        unset($_SESSION['deletejdwlfailed']);
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">

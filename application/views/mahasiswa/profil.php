@@ -68,12 +68,11 @@
                     <!-- Mahasiswa -->
                     <div class="tab-pane fade show active" id="mahasiswa-tab-pane" role="tabpanel" aria-labelledby="mahasiswa-tab" tabindex="0">
 
+
                         <!-- Judul -->
-                        <div class="row mb-3">
-                            <div class="col-md-8">
-                                <h5 class="mb-0">Profil Mahasiswa</h5>
-                            </div>
-                            <div class="col-md-4 text-end">
+                        <div class="card my-3">
+                            <div class="d-flex justify-content-between p-3">
+                                <h5 class="mb-0">Profil Anda</h5>
                                 <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">Ubah Profil</a>
                             </div>
                         </div>
@@ -274,15 +273,10 @@
                     <!-- Orang Tua -->
                     <div class="tab-pane fade" id="orangtua-tab-pane" role="tabpanel" aria-labelledby="orangtua-tab" tabindex="0">
 
-                        <!-- Judul -->
-                        <div class="row mb-3">
-                            <div class="col-md-8">
+                        <div class="card my-3">
+                            <div class="d-flex justify-content-between p-3">
                                 <h5 class="mb-0">Profil Orang Tua</h5>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">
-                                    Edit Profil
-                                </a>
+                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">Ubah Profil</a>
                             </div>
                         </div>
 

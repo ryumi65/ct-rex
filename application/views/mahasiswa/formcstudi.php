@@ -7,8 +7,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-gray-100 my-0 py-0">
                     <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa') ?>"><u>Home</u></a></li>
-                    <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa/perwalian') ?>"><u>Perwalian</u></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                    <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa/catatanstudi') ?>"><u>Perwalian</u></a></li>
+                    <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Tambah</li>
                 </ol>
             </nav>
         </div>

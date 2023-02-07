@@ -1,6 +1,18 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa/perkuliahan/data-krs') ?>"><u>KRS</u></a></li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Tambah</li>
+                    </ol>
+                </nav>
+            </div>
+
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3 pb-0">
@@ -20,8 +32,8 @@
                                                 Kode MK</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Nama MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Total SKS</th>
+                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                SKS</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Dosen Pengampu</th>
                                             <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -51,9 +63,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $jadwal['kode'] ?></td>
-                                                <td><?= $jadwal['nama'] ?></td>
+                                                <td class="text-wrap"><?= $jadwal['nama'] ?></td>
                                                 <td><?= $jadwal['sks'] ?></td>
-                                                <td><?= $jadwal['dosen'] ?></td>
+                                                <td class="text-wrap"><?= $jadwal['dosen'] ?></td>
                                                 <td><?= $jadwal['hari'] ?></td>
                                                 <td><?= $jadwal['waktu'] ?></td>
                                                 <td><?= $jadwal['ruangan'] ?></td>

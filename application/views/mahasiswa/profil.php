@@ -20,7 +20,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('mahasiswa') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Profil</li>
                     </ol>
                 </nav>
             </div>
@@ -73,7 +73,7 @@
                         <div class="card my-3">
                             <div class="d-flex justify-content-between p-3">
                                 <h5 class="mb-0">Profil Anda</h5>
-                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">Ubah Profil</a>
+                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm mb-0">Ubah Profil</a>
                             </div>
                         </div>
 
@@ -276,7 +276,7 @@
                         <div class="card my-3">
                             <div class="d-flex justify-content-between p-3">
                                 <h5 class="mb-0">Profil Orang Tua</h5>
-                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm">Ubah Profil</a>
+                                <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm mb-0">Ubah Profil</a>
                             </div>
                         </div>
 

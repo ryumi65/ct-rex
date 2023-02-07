@@ -4,7 +4,7 @@
             <div class="row">
 
                 <!-- Foto Profil -->
-                <div class="col-md-6 my-4">
+                <div class="col-md-6 my-3">
                     <div class="card">
                         <div class="card-header pb-0 p-3">
                             <h5 class="mb-0">Edit Foto Profil</h5>
@@ -27,7 +27,7 @@
                 </div>
 
                 <!-- Foto Header -->
-                <div class="col-md-6 my-4">
+                <div class="col-md-6 my-3">
                     <div class="card">
                         <div class="card-header pb-0 p-3">
                             <h5 class="mb-0">Edit Foto Header</h5>

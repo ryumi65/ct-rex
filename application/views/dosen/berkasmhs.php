@@ -140,9 +140,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['sks'] ?></td>
-                                                <td><?= $krs['dosen'] ?></td>
+                                                <td class="text-wrap"><?= $krs['dosen'] ?></td>
                                                 <td><?= $krs['hari'] ?></td>
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>
@@ -229,7 +229,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['nilai_presensi'] ?></td>
                                                 <td><?= $krs['nilai_tugas'] ?></td>
                                                 <td><?= $krs['nilai_uts'] ?></td>

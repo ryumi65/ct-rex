@@ -107,7 +107,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['nilai_presensi'] ?></td>
                                                 <td><?= $krs['nilai_tugas'] ?></td>
                                                 <td><?= $krs['nilai_uts'] ?></td>

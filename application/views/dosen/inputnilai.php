@@ -9,7 +9,7 @@
                         <li class="breadcrumb-item"><a href="<?= site_url('dosen') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>"><u>Perkuliahan</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('dosen/perkuliahan/nilai/' . $matkul['id_matkul']) ?>"><u>Nilai</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Input</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Input</li>
                     </ol>
                 </nav>
             </div>

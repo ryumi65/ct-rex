@@ -49,8 +49,10 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_mhs($id_matkul) {
+        $status = ['N', 'T'];
+
         $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
-            ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get();
+            ->where('j.id_matkul', $id_matkul)->where_not_in('k.status', $status)->order_by('k.nim', 'ASC')->get();
 
         return $query->result_array();
     }
@@ -84,14 +86,16 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_presensi($id_matkul, $pertemuan = '', $type = '') {
+        $status = ['N', 'T'];
+
         if ($pertemuan === '') {
             $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
                 ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-                ->where('j.id_matkul', $id_matkul)->get();
+                ->where('j.id_matkul', $id_matkul)->where_not_in('k.status', $status)->get();
         } else {
             $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
                 ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-                ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+                ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->where_not_in('k.status', $status)->get();
         }
 
         if ($type === 'validation') {

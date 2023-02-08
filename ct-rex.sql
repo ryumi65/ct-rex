@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 06, 2023 at 01:38 AM
+-- Generation Time: Feb 08, 2023 at 11:38 PM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -124,9 +124,8 @@ CREATE TABLE `ak_bap` (
 --
 
 INSERT INTO `ak_bap` (`id_bap`, `id_jadwal`, `pertemuan`, `pokok`, `metode`, `evaluasi`, `jumlah_mhs_hadir`) VALUES
-(5, 209, 1, 'Sejarah Seni Rupa', 'Praktik dan Tatap Muka', 'Okay Okay', 1),
-(7, 209, 12, 'Renaissance', 'Ceramah dan Tatap Muka', 'Okay Okay', 2),
-(8, 209, 3, 'tes', 'tes', 'tes', 2);
+(5, 209, 1, 'Sejarah Seni Rupa', 'Praktik dan Tatap Muka', 'Okay Okay', 2),
+(7, 209, 12, 'Renaissance', 'Ceramah dan Tatap Muka', 'Okay Okay', 2);
 
 -- --------------------------------------------------------
 
@@ -204,7 +203,7 @@ INSERT INTO `ak_dosen` (`nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal
 ('201805101989210081', 'TITIAN DARU ASMARA TUGON, S.Farm, M.Farm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', '0405108903', 'Aktif', 'Dosen Tetap'),
 ('201807011983210084 ', 'YUTI YUNIARTI, S.Pd, M.Pd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', '0407018302', 'Aktif', 'Dosen Tetap'),
 ('201807101989210062', 'ANGGI ANGGRAENI, S.Psi, M.Psi, Psikolog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', '0407108903', 'Aktif', 'Dosen Tetap'),
-('201809041991210078', 'Assoc. Prof.  Nama Dosen, S.T., M.T', NULL, '', '2023-01-31', '', '', NULL, '', '', 'IF', '0409049101', NULL, NULL),
+('201809041991210078', 'Dianti Eka Aprilia, S.T., M.T', NULL, '', '2023-01-31', '', '', NULL, '', '', 'IF', '0409049101', NULL, NULL),
 ('201816091983210064', 'ENI KUSUMAWATI, S.P, M.Si', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0416098301', 'Aktif', 'Dosen Tetap'),
 ('201817041988210077', 'YAYU ULFAH MARLIANI, S.P, M.Si', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0417048803', 'Aktif', 'Dosen Tetap'),
 ('201817081976110076', 'AGUS SUTANDI, S.TP, M.P', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AG', '0417087608', 'Aktif', 'Dosen Tetap'),
@@ -368,7 +367,7 @@ CREATE TABLE `ak_durasi` (
 INSERT INTO `ak_durasi` (`id_tahun`, `tanggal_awal`, `tanggal_akhir`) VALUES
 ('20202', '2023-01-27', '2023-01-30'),
 ('20212', '2023-02-03', '2023-02-04'),
-('20221', '2023-01-24', '2023-01-31');
+('20221', '2023-02-07', '2023-02-11');
 
 -- --------------------------------------------------------
 
@@ -588,29 +587,28 @@ CREATE TABLE `ak_krs` (
   `nim` varchar(20) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status` enum('Y','N','T') NOT NULL DEFAULT 'N',
-  `nilai_presensi` int(3) DEFAULT NULL,
-  `nilai_tugas` int(3) DEFAULT NULL,
-  `nilai_uts` int(3) DEFAULT NULL,
-  `nilai_uas` int(3) DEFAULT NULL
+  `nilai` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `ak_krs`
 --
 
-INSERT INTO `ak_krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai_presensi`, `nilai_tugas`, `nilai_uts`, `nilai_uas`) VALUES
-(20, '200102083', 195, 'T', NULL, NULL, NULL, NULL),
-(21, '200102011', 102, 'Y', NULL, NULL, NULL, NULL),
-(22, '200102011', 111, 'Y', NULL, NULL, NULL, NULL),
-(23, '200102011', 209, 'Y', 90, 90, 90, 90),
-(24, '200102011', 195, 'Y', NULL, NULL, NULL, NULL),
-(25, '200102011', 109, 'N', NULL, NULL, NULL, NULL),
-(26, '200102011', 94, 'T', NULL, NULL, NULL, NULL),
-(27, '200102011', 98, 'N', NULL, NULL, NULL, NULL),
-(28, '200102015', 102, 'Y', NULL, NULL, NULL, NULL),
-(29, '200102015', 111, 'Y', NULL, NULL, NULL, NULL),
-(30, '200102015', 209, 'Y', 90, 90, 90, 90),
-(31, '200102015', 195, 'Y', NULL, NULL, NULL, NULL);
+INSERT INTO `ak_krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai`) VALUES
+(20, '200102083', 195, 'T', NULL),
+(21, '200102011', 102, 'Y', NULL),
+(22, '200102011', 111, 'Y', NULL),
+(23, '200102011', 209, 'Y', 90),
+(24, '200102011', 195, 'Y', NULL),
+(25, '200102011', 109, 'T', NULL),
+(26, '200102011', 94, 'T', NULL),
+(28, '200102015', 102, 'Y', NULL),
+(29, '200102015', 111, 'Y', NULL),
+(30, '200102015', 209, 'Y', 60),
+(31, '200102015', 195, 'Y', NULL),
+(34, '200102083', 209, 'N', NULL),
+(35, '200102083', 111, 'N', NULL),
+(36, '200102011', 98, 'Y', NULL);
 
 -- --------------------------------------------------------
 
@@ -11958,7 +11956,7 @@ CREATE TABLE `ak_pengumuman` (
   `tenggang_waktu` date NOT NULL,
   `tema` varchar(255) NOT NULL,
   `isi_pengumuman` text NOT NULL,
-  `target` enum('dosen','mahasiswa','keduanya') NOT NULL DEFAULT 'keduanya'
+  `target` enum('Dosen','Mahasiswa','Keduanya') NOT NULL DEFAULT 'Keduanya'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -11980,8 +11978,8 @@ CREATE TABLE `ak_presensi` (
 --
 
 INSERT INTO `ak_presensi` (`id_presensi`, `kehadiran`, `tanggal`, `pertemuan`, `id_krs`) VALUES
-(25, 'Alfa', '2023-01-31', 1, 23),
-(26, 'Sakit', '2023-01-31', 1, 30),
+(25, 'Hadir', '2023-01-31', 1, 23),
+(26, 'Hadir', '2023-01-31', 1, 30),
 (27, 'Hadir', '2023-01-31', 13, 23),
 (28, 'Hadir', '2023-01-31', 13, 30),
 (29, 'Izin', '2023-01-25', 6, 23),
@@ -11992,8 +11990,8 @@ INSERT INTO `ak_presensi` (`id_presensi`, `kehadiran`, `tanggal`, `pertemuan`, `
 (34, 'Sakit', '2022-12-04', 2, 30),
 (35, 'Hadir', '2023-03-14', 12, 23),
 (36, 'Hadir', '2023-03-14', 12, 30),
-(37, 'Hadir', '2023-02-07', 3, 23),
-(38, 'Hadir', '2023-02-07', 3, 30),
+(37, 'Alfa', '2023-02-07', 3, 23),
+(38, 'Sakit', '2023-02-07', 3, 30),
 (39, 'Izin', '2023-01-31', 7, 23),
 (40, 'Izin', '2023-01-31', 7, 30),
 (41, 'Izin', '2023-02-01', 4, 23),
@@ -12180,8 +12178,8 @@ CREATE TABLE `ak_tahun` (
 INSERT INTO `ak_tahun` (`id_tahun`, `nama`, `tahun_ajaran`, `status`) VALUES
 ('20202', 'genap', '2020/2021', 'N'),
 ('20211', 'ganjil', '2021/2022', 'N'),
-('20212', 'genap', '2021/2022', 'Y'),
-('20221', 'ganjil', '2022/2023', 'N'),
+('20212', 'genap', '2021/2022', 'N'),
+('20221', 'ganjil', '2022/2023', 'Y'),
 ('20222', 'genap', '2022/2023', 'N');
 
 --
@@ -12305,7 +12303,7 @@ ALTER TABLE `ak_tahun`
 -- AUTO_INCREMENT for table `ak_bap`
 --
 ALTER TABLE `ak_bap`
-  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `ak_jadwal`
@@ -12317,7 +12315,7 @@ ALTER TABLE `ak_jadwal`
 -- AUTO_INCREMENT for table `ak_krs`
 --
 ALTER TABLE `ak_krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `ak_matkul`
@@ -12329,7 +12327,7 @@ ALTER TABLE `ak_matkul`
 -- AUTO_INCREMENT for table `ak_pengumuman`
 --
 ALTER TABLE `ak_pengumuman`
-  MODIFY `id_pengumuman` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengumuman` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ak_presensi`

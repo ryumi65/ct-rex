@@ -514,6 +514,52 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function perwalian()
+    {
+        $data = [
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/listperwalian', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function cstudimhs()
+    {
+        $data = [
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/cstudimhs', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function viewcstudi()
+    {
+        $data = [
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/formcstudi', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+
     // profilmhs
     public function profilmahasiswa($nim) {
         // $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);

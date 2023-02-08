@@ -75,18 +75,6 @@
                                                 Kode MK</th>
                                             <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                 Nama MK</th>
-                                            <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Hadir<p class="mb-0"><span class="text-sm">15%</span></p>
-                                            </th>
-                                            <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Tugas<p class="mb-0"><span class="text-sm">15%</span></p>
-                                            </th>
-                                            <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                UTS<p class="mb-0"><span class="text-sm">30%</span></p>
-                                            </th>
-                                            <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                UAS<p class="mb-0"><span class="text-sm">40%</span></p>
-                                            </th>
                                             <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center">
                                                 Nilai Akhir</th>
                                         </tr>
@@ -107,62 +95,47 @@
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
                                                 <td class="text-wrap"><?= $krs['nama'] ?></td>
-                                                <td><?= $krs['nilai_presensi'] ?></td>
-                                                <td><?= $krs['nilai_tugas'] ?></td>
-                                                <td><?= $krs['nilai_uts'] ?></td>
-                                                <td><?= $krs['nilai_uas'] ?></td>
                                                 <td class="text-center">
                                                     <?php
-                                                    if ($krs['nilai_presensi'] !== null && $krs['nilai_presensi'] !== null && $krs['nilai_presensi'] !== null && $krs['nilai_presensi'] !== null) {
-                                                        $presensi = round(($krs['nilai_presensi'] * 15) / 100, 2);
-                                                        $tugas = round(($krs['nilai_tugas'] * 15) / 100, 2);
-                                                        $uts = round(($krs['nilai_uts'] * 30) / 100, 2);
-                                                        $uas = round(($krs['nilai_uas'] * 40) / 100, 2);
-
-                                                        echo $akhir = $presensi + $tugas + $uts + $uas;
-                                                    } else {
-                                                        echo $akhir = '-';
-                                                    }
+                                                    if (isset($krs['nilai'])) echo $krs['nilai'];
+                                                    else echo '-';
                                                     ?>
                                                 </td>
                                                 <td class="text-center">
                                                     <?php
-                                                    if ($akhir === '-') echo '-';
-                                                    else {
-                                                        if ($akhir >= 80 && $akhir <= 100) echo '4';
-                                                        elseif ($akhir >= 77 && $akhir < 80) echo '3.75';
-                                                        elseif ($akhir >= 74 && $akhir < 77) echo '3.5';
-                                                        elseif ($akhir >= 68 && $akhir < 74) echo '3';
-                                                        elseif ($akhir >= 65 && $akhir < 68) echo '2.75';
-                                                        elseif ($akhir >= 62 && $akhir < 65) echo '2.5';
-                                                        elseif ($akhir >= 56 && $akhir < 62) echo '2';
-                                                        elseif ($akhir >= 41 && $akhir < 56) echo '1';
-                                                        elseif ($akhir < 41) echo '0';
-                                                    }
+                                                    if (isset($krs['nilai'])) {
+                                                        if ($krs['nilai'] >= 80 && $krs['nilai'] <= 100) echo '4';
+                                                        elseif ($krs['nilai'] >= 77 && $krs['nilai'] < 80) echo '3.75';
+                                                        elseif ($krs['nilai'] >= 74 && $krs['nilai'] < 77) echo '3.5';
+                                                        elseif ($krs['nilai'] >= 68 && $krs['nilai'] < 74) echo '3';
+                                                        elseif ($krs['nilai'] >= 65 && $krs['nilai'] < 68) echo '2.75';
+                                                        elseif ($krs['nilai'] >= 62 && $krs['nilai'] < 65) echo '2.5';
+                                                        elseif ($krs['nilai'] >= 56 && $krs['nilai'] < 62) echo '2';
+                                                        elseif ($krs['nilai'] >= 41 && $krs['nilai'] < 56) echo '1';
+                                                        elseif ($krs['nilai'] < 41) echo '0';
+                                                    } else echo '-';
                                                     ?>
                                                 </td>
                                                 <td class="text-center">
                                                     <?php
-                                                    if ($akhir === '-') echo '-';
-                                                    else {
-                                                        if ($akhir >= 80 && $akhir <= 100) echo 'A';
-                                                        elseif ($akhir >= 77 && $akhir < 80) echo 'A-';
-                                                        elseif ($akhir >= 74 && $akhir < 77) echo 'B+';
-                                                        elseif ($akhir >= 68 && $akhir < 74) echo 'B';
-                                                        elseif ($akhir >= 65 && $akhir < 68) echo 'B-';
-                                                        elseif ($akhir >= 62 && $akhir < 65) echo 'C+';
-                                                        elseif ($akhir >= 56 && $akhir < 62) echo 'C';
-                                                        elseif ($akhir >= 41 && $akhir < 56) echo 'D';
-                                                        elseif ($akhir < 41) echo 'E';
-                                                    }
+                                                    if (isset($krs['nilai'])) {
+                                                        if ($krs['nilai'] >= 80 && $krs['nilai'] <= 100) echo 'A';
+                                                        elseif ($krs['nilai'] >= 77 && $krs['nilai'] < 80) echo 'A-';
+                                                        elseif ($krs['nilai'] >= 74 && $krs['nilai'] < 77) echo 'B+';
+                                                        elseif ($krs['nilai'] >= 68 && $krs['nilai'] < 74) echo 'B';
+                                                        elseif ($krs['nilai'] >= 65 && $krs['nilai'] < 68) echo 'B-';
+                                                        elseif ($krs['nilai'] >= 62 && $krs['nilai'] < 65) echo 'C+';
+                                                        elseif ($krs['nilai'] >= 56 && $krs['nilai'] < 62) echo 'C';
+                                                        elseif ($krs['nilai'] >= 41 && $krs['nilai'] < 56) echo 'D';
+                                                        elseif ($krs['nilai'] < 41) echo 'E';
+                                                    } else echo '-';
                                                     ?>
                                                 </td>
                                                 <?php
-                                                if ($akhir === '-') $status = '<span class="badge bg-gradient-warning">Belum Diisi</span>';
-                                                else {
-                                                    if ($akhir >= 56 && $akhir <= 100) $status = '<span class="badge bg-gradient-success">Lulus</span>';
-                                                    elseif ($akhir >= 0 && $akhir < 56) $status = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
-                                                }
+                                                if (isset($krs['nilai'])) {
+                                                    if ($krs['nilai'] >= 56 && $krs['nilai'] <= 100) $status = '<span class="badge bg-gradient-success">Lulus</span>';
+                                                    elseif ($krs['nilai'] >= 0 && $krs['nilai'] < 56) $status = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                                } else $status = '<span class="badge bg-gradient-warning">Belum Diisi</span>';
                                                 ?>
                                                 <td class="text-center"><?= $status ?></td>
                                             </tr>
@@ -198,7 +171,7 @@
                     order: [1, 'asc'],
 
                     columnDefs: [{
-                        targets: [0, 10],
+                        targets: [0],
                         orderable: false,
                         searchable: false,
                     }],

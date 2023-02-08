@@ -16,7 +16,7 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
                     </div>
                     <div class="card-body px-3 py-0">
@@ -29,18 +29,6 @@
                                         NIM</th>
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Hadir<p class="mb-0"><span class="text-sm">15%</span></p>
-                                    </th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        Tugas<p class="mb-0"><span class="text-sm">15%</span></p>
-                                    </th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        UTS<p class="mb-0"><span class="text-sm">30%</span></p>
-                                    </th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        UAS<p class="mb-0"><span class="text-sm">40%</span></p>
-                                    </th>
                                     <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center">
                                         Nilai Akhir</th>
                                 </tr>
@@ -60,50 +48,43 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
-                                        <td><?= $mahasiswa['nama'] ?></td>
-                                        <td><?= $mahasiswa['nilai_presensi'] ?></td>
-                                        <td><?= $mahasiswa['nilai_tugas'] ?></td>
-                                        <td><?= $mahasiswa['nilai_uts'] ?></td>
-                                        <td><?= $mahasiswa['nilai_uas'] ?></td>
+                                        <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                        <td class="text-center"><?= $mahasiswa['nilai'] ?></td>
                                         <td class="text-center">
                                             <?php
-                                            $presensi = round(($mahasiswa['nilai_presensi'] * 15) / 100, 2);
-                                            $tugas = round(($mahasiswa['nilai_tugas'] * 15) / 100, 2);
-                                            $uts = round(($mahasiswa['nilai_uts'] * 30) / 100, 2);
-                                            $uas = round(($mahasiswa['nilai_uas'] * 40) / 100, 2);
-
-                                            echo $akhir = $presensi + $tugas + $uts + $uas;
+                                            if (isset($mahasiswa['nilai'])) {
+                                                if ($mahasiswa['nilai'] >= 80 && $mahasiswa['nilai'] <= 100) echo '4';
+                                                elseif ($mahasiswa['nilai'] >= 77 && $mahasiswa['nilai'] < 80) echo '3.75';
+                                                elseif ($mahasiswa['nilai'] >= 74 && $mahasiswa['nilai'] < 77) echo '3.5';
+                                                elseif ($mahasiswa['nilai'] >= 68 && $mahasiswa['nilai'] < 74) echo '3';
+                                                elseif ($mahasiswa['nilai'] >= 65 && $mahasiswa['nilai'] < 68) echo '2.75';
+                                                elseif ($mahasiswa['nilai'] >= 62 && $mahasiswa['nilai'] < 65) echo '2.5';
+                                                elseif ($mahasiswa['nilai'] >= 56 && $mahasiswa['nilai'] < 62) echo '2';
+                                                elseif ($mahasiswa['nilai'] >= 41 && $mahasiswa['nilai'] < 56) echo '1';
+                                                elseif ($mahasiswa['nilai'] < 41) echo '0';
+                                            } else echo '-';
                                             ?>
                                         </td>
                                         <td class="text-center">
                                             <?php
-                                            if ($akhir >= 80 && $akhir <= 100) echo '4';
-                                            elseif ($akhir >= 77 && $akhir < 80) echo '3.75';
-                                            elseif ($akhir >= 74 && $akhir < 77) echo '3.5';
-                                            elseif ($akhir >= 68 && $akhir < 74) echo '3';
-                                            elseif ($akhir >= 65 && $akhir < 68) echo '2.75';
-                                            elseif ($akhir >= 62 && $akhir < 65) echo '2.5';
-                                            elseif ($akhir >= 56 && $akhir < 62) echo '2';
-                                            elseif ($akhir >= 41 && $akhir < 56) echo '1';
-                                            elseif ($akhir < 41) echo '0';
-                                            ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($akhir >= 80 && $akhir <= 100) echo 'A';
-                                            elseif ($akhir >= 77 && $akhir < 80) echo 'A-';
-                                            elseif ($akhir >= 74 && $akhir < 77) echo 'B+';
-                                            elseif ($akhir >= 68 && $akhir < 74) echo 'B';
-                                            elseif ($akhir >= 65 && $akhir < 68) echo 'B-';
-                                            elseif ($akhir >= 62 && $akhir < 65) echo 'C+';
-                                            elseif ($akhir >= 56 && $akhir < 62) echo 'C';
-                                            elseif ($akhir >= 41 && $akhir < 56) echo 'D';
-                                            elseif ($akhir < 41) echo 'E';
+                                            if (isset($mahasiswa['nilai'])) {
+                                                if ($mahasiswa['nilai'] >= 80 && $mahasiswa['nilai'] <= 100) echo 'A';
+                                                elseif ($mahasiswa['nilai'] >= 77 && $mahasiswa['nilai'] < 80) echo 'A-';
+                                                elseif ($mahasiswa['nilai'] >= 74 && $mahasiswa['nilai'] < 77) echo 'B+';
+                                                elseif ($mahasiswa['nilai'] >= 68 && $mahasiswa['nilai'] < 74) echo 'B';
+                                                elseif ($mahasiswa['nilai'] >= 65 && $mahasiswa['nilai'] < 68) echo 'B-';
+                                                elseif ($mahasiswa['nilai'] >= 62 && $mahasiswa['nilai'] < 65) echo 'C+';
+                                                elseif ($mahasiswa['nilai'] >= 56 && $mahasiswa['nilai'] < 62) echo 'C';
+                                                elseif ($mahasiswa['nilai'] >= 41 && $mahasiswa['nilai'] < 56) echo 'D';
+                                                elseif ($mahasiswa['nilai'] < 41) echo 'E';
+                                            } else echo '-';
                                             ?>
                                         </td>
                                         <?php
-                                        if ($akhir >= 56 && $akhir <= 100) $status = '<span class="badge bg-gradient-success">Lulus</span>';
-                                        elseif ($akhir >= 0 && $akhir < 56) $status = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                        if (isset($mahasiswa['nilai'])) {
+                                            if ($mahasiswa['nilai'] >= 56 && $mahasiswa['nilai'] <= 100) $status = '<span class="badge bg-gradient-success">Lulus</span>';
+                                            elseif ($mahasiswa['nilai'] >= 0 && $mahasiswa['nilai'] < 56) $status = '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                        } else $status = '<span class="badge bg-gradient-warning">Belum Diisi</span>';
                                         ?>
                                         <td class="text-center"><?= $status ?></td>
                                     </tr>
@@ -134,7 +115,7 @@
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 10],
+                    targets: [0],
                     orderable: false,
                     searchable: false,
                 }],

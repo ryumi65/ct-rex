@@ -62,22 +62,13 @@ class Model_dosen extends CI_Model {
             ->where('m.id_matkul', $id_matkul)->get()->result_array();
 
         foreach ($query as $krs) {
-            $presensi = $this->input->post('nilai-presensi-' . $krs['id_krs']);
-            $tugas = $this->input->post('nilai-tugas-' . $krs['id_krs']);
-            $uts = $this->input->post('nilai-uts-' . $krs['id_krs']);
-            $uas = $this->input->post('nilai-uas-' . $krs['id_krs']);
+            $nilai = $this->input->post('nilai-' . $krs['id_krs']);
 
-            if (isset($presensi) && isset($tugas) && isset($uts) && isset($uas)) {
-                if ($presensi > 100) $presensi = 100;
-                if ($tugas > 100) $tugas = 100;
-                if ($uts > 100) $uts = 100;
-                if ($uas > 100) $uas = 100;
+            if (isset($nilai)) {
+                if ($nilai > 100) $nilai = 100;
 
                 $data = [
-                    'nilai_presensi' => $presensi,
-                    'nilai_tugas' => $tugas,
-                    'nilai_uts' => $uts,
-                    'nilai_uas' => $uas,
+                    'nilai' => $nilai,
                 ];
 
                 $this->db->update('ak_krs', $data, ['id_krs' => $krs['id_krs']]);

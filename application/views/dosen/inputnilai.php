@@ -31,18 +31,8 @@
                                         NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 10%">
-                                        Hadir
-                                    </th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 10%">
-                                        Tugas
-                                    </th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 10%">
-                                        UTS
-                                    </th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 10%">
-                                        UAS
-                                    </th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center" style="width: 10%">
+                                        Nilai</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-gray-100 text-dark text-sm">
@@ -52,16 +42,7 @@
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
                                         <td>
-                                            <input type="text" name="nilai-presensi-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_presensi'] ?>" required>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="nilai-tugas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_tugas'] ?>" required>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="nilai-uts-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uts'] ?>" required>
-                                        </td>
-                                        <td>
-                                            <input type="text" name="nilai-uas-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai_uas'] ?>" required>
+                                            <input type="text" name="nilai-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai'] ?>" required>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -92,7 +73,7 @@
                 order: [1, 'asc'],
 
                 columnDefs: [{
-                    targets: [0, 3, 4, 5, 6],
+                    targets: [0, 3],
                     orderable: false,
                     searchable: false,
                 }],

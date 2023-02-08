@@ -2,11 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 
-class Mahasiswa extends CI_Controller
-{
+class Mahasiswa extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_mahasiswa');
         $this->load->model('model_jadwal');
@@ -16,8 +14,7 @@ class Mahasiswa extends CI_Controller
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
     }
 
-    public function index()
-    {
+    public function index() {
         if (uri_string() === 'mahasiswa/index') return redirect('mahasiswa');
 
         $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
@@ -26,38 +23,39 @@ class Mahasiswa extends CI_Controller
         $jumlah_sks = 0;
         $ip = [];
 
-        for ($i = 0; $i < count($list_sks); $i++) {
-            $sks = intval($list_sks[$i]['sks']);
-            $jumlah_sks += $sks;
+        foreach ($list_sks as $value) {
+            if (isset($value['nilai'])) {
+                if ($value['nilai'] >= 56 && $value['nilai'] <= 100) {
+                    $sks = intval($value['sks']);
+                    $jumlah_sks += $sks;
+                }
+            }
         }
 
         for ($i = 1; $i <= 8; $i++) {
+            $jumlah_krs = 0;
             $jumlah_ip = 0;
 
             $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
 
             foreach ($list_krs as $value) {
-                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
-                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
-                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
-                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+                if (isset($value['nilai'])) {
+                    if ($value['nilai'] >= 80 && $value['nilai'] <= 100) $indeks = 4;
+                    elseif ($value['nilai'] >= 77 && $value['nilai'] < 80) $indeks = 3.75;
+                    elseif ($value['nilai'] >= 74 && $value['nilai'] < 77) $indeks = 3.5;
+                    elseif ($value['nilai'] >= 68 && $value['nilai'] < 74) $indeks = 3;
+                    elseif ($value['nilai'] >= 65 && $value['nilai'] < 68) $indeks = 2.75;
+                    elseif ($value['nilai'] >= 62 && $value['nilai'] < 65) $indeks = 2.5;
+                    elseif ($value['nilai'] >= 56 && $value['nilai'] < 62) $indeks = 2;
+                    elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
+                    elseif ($value['nilai'] < 41) $indeks = 0;
 
-                $akhir = $presensi + $tugas + $uts + $uas;
-
-                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
-                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
-                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
-                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
-                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
-                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
-                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
-                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
-                elseif ($akhir < 41) $indeks = 0;
-
-                $jumlah_ip += $indeks;
+                    $jumlah_krs++;
+                    $jumlah_ip += $indeks;
+                }
             }
 
-            if (count($list_krs) > 0) $total_ip = round($jumlah_ip / count($list_krs), 2);
+            if ($jumlah_krs > 0) $total_ip = round($jumlah_ip / $jumlah_krs, 2);
             else $total_ip = 0;
 
             array_push($ip, $total_ip);
@@ -83,8 +81,7 @@ class Mahasiswa extends CI_Controller
 
     //==================== CRUD ====================//
 
-    public function create()
-    {
+    public function create() {
         $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
 
         $this->form_validation->set_rules('nim', 'NIM', 'required');
@@ -98,8 +95,7 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    public function update($nim)
-    {
+    public function update($nim) {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $nim]);
         $data['ortu'] = $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $nim]);
         $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
@@ -120,8 +116,7 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    public function update_ortu($nim)
-    {
+    public function update_ortu($nim) {
         $this->model_mahasiswa->update_ortu($nim);
         $this->session->set_userdata('ortusuccess', true);
         redirect('mahasiswa/profil');
@@ -129,8 +124,7 @@ class Mahasiswa extends CI_Controller
 
     //==================== PROFIL ====================//
 
-    public function profil()
-    {
+    public function profil() {
         $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -148,8 +142,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function update_foto()
-    {
+    public function update_foto() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -160,8 +153,7 @@ class Mahasiswa extends CI_Controller
 
     //==================== KRS ====================//
 
-    public function datakrs()
-    {
+    public function datakrs() {
         $krs = [];
         $mk = [];
         $sks_smt = [];
@@ -205,8 +197,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function formkrs()
-    {
+    public function formkrs() {
         $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
         $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
         $tanggal_awal = date_create($tahun['tanggal_awal']);
@@ -250,15 +241,13 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function deletekrs($nim, $id_jadwal)
-    {
+    public function deletekrs($nim, $id_jadwal) {
         $this->model_krs->delete_krs($nim, $id_jadwal);
 
         redirect('mahasiswa/perkuliahan/data-krs');
     }
 
-    private function indonesian_date($date)
-    {
+    private function indonesian_date($date) {
         $month = [
             1 => 'Januari',
             'Februari',
@@ -281,11 +270,17 @@ class Mahasiswa extends CI_Controller
 
     //==================== PRESENSI ====================//
 
-    public function jadwalkuliah()
-    {
+    public function jadwalkuliah() {
+        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+        foreach ($list_hari as $hari) {
+            $listj[$hari] = $this->model_krs->get_krs_mhs($this->session->id, $hari);
+        }
+
         $data = [
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
-            'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'all'),
+            'listh' => $list_hari,
+            'listj' => $listj,
         ];
 
         $this->load->view('_partials/head');
@@ -296,8 +291,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function presensi($id_matkul)
-    {
+    public function presensi($id_matkul) {
         $matkul = $this->model_mahasiswa->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if (!$this->model_mahasiswa->presensi_validation($this->session->id, $id_matkul)) redirect(strtolower($this->session->access));
 
@@ -324,8 +318,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function rekappresensi()
-    {
+    public function rekappresensi() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -336,8 +329,7 @@ class Mahasiswa extends CI_Controller
 
     //==================== NILAI ====================//
 
-    public function datakhs()
-    {
+    public function datakhs() {
         $ip = [];
         $krs = [];
         $sks_smt = [];
@@ -346,34 +338,31 @@ class Mahasiswa extends CI_Controller
         $ipk = 0;
 
         for ($i = 1; $i <= 8; $i++) {
+            $jumlah_krs = 0;
             $jumlah_ip = 0;
             $jumlah_sks = 0;
 
             $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
 
             foreach ($list_krs as $value) {
-                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
-                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
-                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
-                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+                if (isset($value['nilai'])) {
+                    if ($value['nilai'] >= 80 && $value['nilai'] <= 100) $indeks = 4;
+                    elseif ($value['nilai'] >= 77 && $value['nilai'] < 80) $indeks = 3.75;
+                    elseif ($value['nilai'] >= 74 && $value['nilai'] < 77) $indeks = 3.5;
+                    elseif ($value['nilai'] >= 68 && $value['nilai'] < 74) $indeks = 3;
+                    elseif ($value['nilai'] >= 65 && $value['nilai'] < 68) $indeks = 2.75;
+                    elseif ($value['nilai'] >= 62 && $value['nilai'] < 65) $indeks = 2.5;
+                    elseif ($value['nilai'] >= 56 && $value['nilai'] < 62) $indeks = 2;
+                    elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
+                    elseif ($value['nilai'] < 41) $indeks = 0;
 
-                $akhir = $presensi + $tugas + $uts + $uas;
-
-                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
-                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
-                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
-                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
-                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
-                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
-                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
-                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
-                elseif ($akhir < 41) $indeks = 0;
-
-                $jumlah_ip += $indeks;
+                    $jumlah_krs++;
+                    $jumlah_ip += $indeks;
+                }
             }
 
-            if (count($list_krs) > 0) {
-                $total_ip = round($jumlah_ip / count($list_krs), 2);
+            if ($jumlah_krs > 0) {
+                $total_ip = round($jumlah_ip / $jumlah_krs, 2);
                 $ipk += $total_ip;
                 $count_ipk++;
             } else $total_ip = 0;
@@ -409,8 +398,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function transkrip()
-    {
+    public function transkrip() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -420,8 +408,7 @@ class Mahasiswa extends CI_Controller
     }
 
     // CATATAN STUDI
-    public function catatanstudi()
-    {
+    public function catatanstudi() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
@@ -430,8 +417,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function tambahperwalian()
-    {
+    public function tambahperwalian() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');

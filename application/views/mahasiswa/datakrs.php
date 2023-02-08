@@ -109,7 +109,7 @@
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>
                                                 <td class="text-center">
-                                                    <?php if ($krs['nilai_presensi'] === null && $krs['nilai_tugas'] === null && $krs['nilai_uts'] === null && $krs['nilai_uas'] === null) : ?>
+                                                    <?php if ($krs['nilai'] === null) : ?>
                                                         <?php if ($krs['status'] === 'Y') : ?>
                                                             <span class="badge bg-gradient-success">Aktif</span>
                                                         <?php elseif ($krs['status'] === 'N') : ?>
@@ -118,15 +118,8 @@
                                                             <span class="badge bg-gradient-danger">Ditolak</span>
                                                         <?php endif ?>
                                                     <?php else :
-                                                        $presensi = round(($krs['nilai_presensi'] * 15) / 100, 2);
-                                                        $tugas = round(($krs['nilai_tugas'] * 15) / 100, 2);
-                                                        $uts = round(($krs['nilai_uts'] * 30) / 100, 2);
-                                                        $uas = round(($krs['nilai_uas'] * 40) / 100, 2);
-
-                                                        $akhir = $presensi + $tugas + $uts + $uas;
-
-                                                        if ($akhir >= 56 && $akhir <= 100) echo '<span class="badge bg-gradient-success">Lulus</span>';
-                                                        elseif ($akhir >= 0 && $akhir < 56) echo '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
+                                                        if ($krs['nilai'] >= 56 && $krs['nilai'] <= 100) echo '<span class="badge bg-gradient-success">Lulus</span>';
+                                                        elseif ($krs['nilai'] >= 0 && $krs['nilai'] < 56) echo '<span class="badge bg-gradient-danger">Tidak Lulus</span>';
                                                     endif; ?>
                                                 </td>
                                                 <td class="text-center">

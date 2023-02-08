@@ -46,25 +46,21 @@ class Model_krs extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_krs_mhs($nim, $jenis = '') {
-        if ($jenis === '') {
+    public function get_krs_mhs($nim, $hari = '') {
+        if ($hari === '') {
             $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
             $hari = $list_hari[date('w')];
-
-            $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
-                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where(['k.nim' => $nim, 'j.hari' => $hari, 'k.status' => 'Y'])->get();
-        } else {
-            $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
-                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where(['k.nim' => $nim, 'k.status' => 'Y'])->get();
         }
+
+        $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+            ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+            ->where(['k.status' => 'Y', 'k.nim' => $nim, 'j.hari' => $hari])->get();
 
         return $query->result_array();
     }
 
     public function get_krs_smt($nim, $semester) {
-        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai_presensi, k.nilai_tugas, k.nilai_uts, k.nilai_uas')
+        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai')
             ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
             ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
 
@@ -72,14 +68,12 @@ class Model_krs extends CI_Model {
     }
 
     public function get_sks($nim, $semester = '') {
-        $status = ['N', 'T'];
-
         if ($semester === '') {
-            $query = $this->db->select('m.sks')->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where('k.nim', $nim)->where_not_in('k.status', $status)->get();
+            $query = $this->db->select('m.sks, k.nilai')->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
+                ->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')->where(['k.status' => 'Y', 'k.nim' => $nim])->get();
         } else {
-            $query = $this->db->select('m.sks')->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-                ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
+            $query = $this->db->select('m.sks, k.nilai')->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['k.status' => 'Y', 'k.nim' => $nim, 'm.semester' => $semester])->get();
         }
 
         return $query->result_array();

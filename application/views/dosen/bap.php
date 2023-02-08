@@ -1,3 +1,10 @@
+    <?php
+    if (isset($_SESSION['updatefailed'])) {
+        $var = $_SESSION['updatefailed'];
+        echo "<script>alert('{$var}')</script>";
+        unset($_SESSION['updatefailed']);
+    } ?>
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 

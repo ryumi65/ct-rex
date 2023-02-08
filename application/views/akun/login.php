@@ -9,7 +9,7 @@
                     <div class="row">
 
                         <!-- Form -->
-                        <div class="col-xl-4 col-lg-5 col-md-6 mt-3 d-flex flex-column mx-auto">
+                        <div class="col-xl-4 col-lg-5 col-md-6 my-3 d-flex flex-column mx-auto">
                             <div class="card card-plain">
 
                                 <!-- Judul -->
@@ -56,13 +56,13 @@
 
                                     <!-- Remember Me -->
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" name="remember_me">
+                                        <input class="form-check-input" type="checkbox" role="switch" name="remember_me">
                                         <label class="form-check-label">Remember me</label>
                                     </div>
 
                                     <!-- Sign In -->
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign In</button>
+                                        <button type="submit" class="btn bg-gradient-primary w-100 my-3">Masuk</button>
                                     </div>
                                     </form>
                                 </div>

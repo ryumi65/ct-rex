@@ -317,8 +317,13 @@ class Dosen extends CI_Controller {
     }
 
     public function inputbap($id_matkul, $pertemuan) {
-        $this->model_dosen->set_bap($id_matkul, $pertemuan);
-        redirect('dosen/perkuliahan/bap/' . $id_matkul);
+        try {
+            $this->model_dosen->set_bap($id_matkul, $pertemuan);
+            redirect('dosen/perkuliahan/bap/' . $id_matkul);
+        } catch(Exception $e) {
+            $this->session->set_userdata('updatefailed', $e->getMessage());
+            redirect('dosen/perkuliahan/bap/' . $id_matkul);
+        }
     }
 
     public function updatebap($id_matkul, $pertemuan, $id_bap) {

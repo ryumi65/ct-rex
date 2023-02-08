@@ -170,10 +170,15 @@ class Model_dosen extends CI_Model {
     public function set_bap($id_matkul, $pertemuan) {
         $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
             ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
+            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir'])->get();
 
-        $presensi = $query->get()->result_array();
         $jumlah = $this->jumlah_presensi($id_matkul, $pertemuan);
+
+        if ($query->num_rows() > 0) {
+            $presensi = $query->result_array();
+        } else {
+            throw new Exception('Gagal membuat BAP. Tidak ada mahasiswa yang hadir pada presensi.');
+        }
 
         $data = [
             'id_jadwal' => $presensi[0]['id_jadwal'],
@@ -188,15 +193,9 @@ class Model_dosen extends CI_Model {
     }
 
     public function update_bap($id_matkul, $pertemuan, $id_bap) {
-        $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
-            ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
-
-        $presensi = $query->get()->result_array();
         $jumlah = $this->jumlah_presensi($id_matkul, $pertemuan);
 
         $data = [
-            'id_jadwal' => $presensi[0]['id_jadwal'],
             'pertemuan' => $pertemuan,
             'pokok' => $this->input->post('pokok'),
             'metode' => $this->input->post('metode'),

@@ -17,30 +17,26 @@
             <!-- Profil -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Ubah Capaian <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3">
-                        <?= form_open('dosen/updatecapaian/' . $matkul['id_matkul']) ?>
+                    <?= form_open('dosen/updatecapaian/' . $matkul['id_matkul']) ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row">
                             <div class="col-sm-6">
                                 <label>CPL Prodi</label>
-                                <div class="mb-3">
-                                    <input type="text" name="cpl_prodi" class="form-control" placeholder="CPL Prodi" value="<?= $matkul['cpl_prodi'] ?>" required>
-                                </div>
+                                <input type="text" name="cpl_prodi" class="form-control" placeholder="CPL Prodi" value="<?= $matkul['cpl_prodi'] ?>" required>
                             </div>
                             <div class="col-sm-6">
                                 <label>CP Mata Kuliah</label>
-                                <div class="mb-3">
-                                    <input type="text" name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" value="<?= $matkul['cp_mk'] ?>" required>
-                                </div>
+                                <input type="text" name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" value="<?= $matkul['cp_mk'] ?>" required>
                             </div>
                         </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                        </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

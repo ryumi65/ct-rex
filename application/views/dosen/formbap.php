@@ -20,8 +20,8 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Berita Acara Perkuliahan <?= $matkul['nama'] ?> Pertemuan <?= $pertemuan ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('dosen/inputbap/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
+                    <?= form_open('dosen/inputbap/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -41,13 +41,12 @@
                                     <label for="floatingTextEvaluasi">Isi Evaluasi</label>
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-end text-center">
-                                <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                            </div>
                         </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

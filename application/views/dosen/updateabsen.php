@@ -20,8 +20,8 @@
                     <div class="card-header p-3 pb-0">
                         <h5>Ubah Presensi <?= $matkul['nama'] ?> Pertemuan <?= $pertemuan ?></h5>
                     </div>
+                    <?= form_open('dosen/updatepresensi/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
                     <div class="card-body px-3 py-0">
-                        <?= form_open('dosen/updatepresensi/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
                         <div class="row g-3">
                             <div class="col-12">
                                 <label>Tanggal Pertemuan</label>
@@ -76,20 +76,20 @@
                                 </div>
                             <?php endforeach ?>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary mt-3 mb-0">Simpan</button>
-                        </div>
-                        </form>
                     </div>
-                    <div class="card-footer p-3">
-                        <h6>Keterangan</h6>
-                        <div class="d-flex gap-3">
-                            <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
-                            <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
-                            <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
-                            <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
+                    <div class="card-footer d-flex inline align-items-end justify-content-between p-3">
+                        <div>
+                            <h6>Keterangan</h6>
+                            <div class="d-flex gap-3">
+                                <p class="mb-0"><span class="badge bg-primary">H</span> = Hadir</p>
+                                <p class="mb-0"><span class="badge bg-info">I</span> = Izin</p>
+                                <p class="mb-0"><span class="badge bg-dark">S</span> = Sakit</p>
+                                <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
+                            </div>
                         </div>
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

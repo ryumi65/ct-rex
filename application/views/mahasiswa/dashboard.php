@@ -160,15 +160,12 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Pengumuman Fakultas</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                 </div>
-                                <div class="modal-footer">
-                                    <div class="btn-group">
-                                        <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
-                                    </div>
+                                <div class="modal-footer d-flex justify-content-end">
+                                    <button class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -198,15 +195,12 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Pengumuman Universitas</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                 </div>
-                                <div class="modal-footer">
-                                    <div class="btn-group">
-                                        <button class="btn btn-secondary btn-sm mx-2" data-bs-dismiss="modal">Close</button>
-                                    </div>
+                                <div class="modal-footer d-flex justify-content-end">
+                                    <button class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

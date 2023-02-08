@@ -70,7 +70,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5">Kartu Rencana Studi Semester <?= $i ?></h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <table class="table align-items-center w-100" id="table<?= $i ?>">
@@ -147,7 +146,7 @@
                                 </table>
                             </div>
                             <div class="modal-footer d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
+                                <button type="button" class="btn btn-primary btn-sm mb-0">Cetak</button>
                                 <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>

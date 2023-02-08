@@ -18,7 +18,7 @@
                 <div class="card">
 
                     <!-- Button -->
-                    <div class="card-header pb-0 p-3">
+                    <div class="card-header p-3">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                             <!-- Button Mahasiswa -->
@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- Isi -->
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pt-0">
                         <div class="tab-content" id="myTabContent">
 
                             <!-- Mahasiswa -->
@@ -208,7 +208,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-end text-center">
-                                    <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-2 mb-0">Simpan</button>
                                 </div>
                                 </form>
                             </div>
@@ -280,7 +280,7 @@
                                     <!-- Ibu -->
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <hr class="horizontal dark">
+                                            <hr class="bg-dark">
                                             <h6>Data Ibu</h6>
                                         </div>
                                     </div>
@@ -332,7 +332,7 @@
                                     <!-- Wali -->
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <hr class="horizontal dark">
+                                            <hr class="bg-dark">
                                             <h6>Data Wali</h6>
                                         </div>
                                     </div>
@@ -383,7 +383,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-end text-center">
-                                    <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-2 mb-0">Simpan</button>
                                 </div>
                                 </form>
                             </div>

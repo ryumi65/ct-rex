@@ -16,12 +16,12 @@
             <!-- Profil -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5 class="mb-0">Ubah Profil</h5>
                     </div>
-                    <div class="card-body p-3">
-                        <?= validation_errors() ?>
-                        <?= form_open('dosen/update/' . $dosen['nik']) ?>
+                    <?= validation_errors() ?>
+                    <?= form_open('dosen/update/' . $dosen['nik']) ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <label>Nomor Induk Kependudukan</label>
@@ -163,11 +163,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                        </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

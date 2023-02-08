@@ -16,11 +16,11 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between flex-wrap p-3">
+                    <div class="card-header d-flex justify-content-between p-3">
                         <h5>Presensi <?= $matkul['nama'] ?></h5>
                         <div class="d-flex justify-content-end">
                             <div class="dropdown">
-                                <a class="btn btn-primary btn-sm dropdown-toggle mx-2 mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-primary btn-sm dropdown-toggle mx-2 mb-0" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Ubah Presensi
                                 </a>
                                 <ul class="dropdown-menu">
@@ -40,7 +40,7 @@
                             <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
                         </div>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
@@ -92,7 +92,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex inline align-items-end justify-content-between p-3 pt-0">
+                    <div class="card-footer d-flex inline align-items-end justify-content-between p-3">
                         <div>
                             <h6>Keterangan</h6>
                             <div class="d-flex gap-3">
@@ -102,7 +102,7 @@
                                 <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-success btn-sm mb-0">Cetak Presensi</a>
+                        <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
                     </div>
                 </div>
             </div>

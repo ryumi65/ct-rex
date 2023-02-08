@@ -19,7 +19,7 @@
                 <div class="card-header p-3">
                     <h5 class="mb-0">Form Pengisian Catatan Studi</h5>
                 </div>
-                <div class="card-body p-3 pt-0">
+                <div class="card-body px-3 py-0">
                     <div class="row g-3">
                         <div class="col-sm-6 col-md-4">
                             <label>Hari, Tanggal</label>
@@ -35,12 +35,10 @@
                                 <label for="floatingTextPengumuman">Isi Masalah</label>
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-end text-center">
-                            <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                        </div>
                     </div>
-                    </form>
+                </div>
+                <div class="card-footer d-flex justify-content-end p-3">
+                    <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
                 </div>
             </div>
         </div>

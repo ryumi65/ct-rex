@@ -64,9 +64,16 @@ class Dosen extends CI_Controller {
     }
 
     public function jadwalkuliah() {
+        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+        foreach ($list_hari as $hari) {
+            $listj[$hari] = $this->model_jadwal->get_jadwal_dsn($this->session->id, $hari);
+        }
+
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
-            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id, 'all'),
+            'listh' => $list_hari,
+            'listj' => $listj,
         ];
 
         $this->load->view('_partials/head');
@@ -320,7 +327,7 @@ class Dosen extends CI_Controller {
         try {
             $this->model_dosen->set_bap($id_matkul, $pertemuan);
             redirect('dosen/perkuliahan/bap/' . $id_matkul);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->session->set_userdata('updatefailed', $e->getMessage());
             redirect('dosen/perkuliahan/bap/' . $id_matkul);
         }
@@ -519,8 +526,7 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function perwalian()
-    {
+    public function perwalian() {
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
@@ -534,8 +540,7 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function cstudimhs()
-    {
+    public function cstudimhs() {
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
@@ -549,8 +554,7 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function viewcstudi()
-    {
+    public function viewcstudi() {
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),

@@ -18,7 +18,7 @@
                     <div class="card-header p-3">
                         <div class="d-flex justify-content-between">
                             <h5>Jadwal Kuliah <?= $mahasiswa['nama'] ?></h5>
-                            <a href="#" class="btn btn-success btn-sm mb-0">Cetak</a>
+                            <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                         </div>
                     </div>
                     <div class="card-body p-3 pt-0">

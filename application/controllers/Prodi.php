@@ -1,11 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Prodi extends CI_Controller
-{
+class Prodi extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('model_prodi');
         $this->load->model('model_dosen');
@@ -21,8 +19,7 @@ class Prodi extends CI_Controller
 
     //==================== PRODI ====================//
 
-    public function index()
-    {
+    public function index() {
         if (uri_string() === 'prodi/index') return redirect('prodi');
 
         $akun = $this->model_prodi->get_db('ak_akun', ['id_akun' => $this->session->id]);
@@ -44,8 +41,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profil()
-    {
+    public function profil() {
         $akun = $this->model_prodi->get_db('ak_akun', ['id_akun' => $this->session->id]);
         $data = [
             'profil' => $akun['foto_profil'],
@@ -62,8 +58,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function ubahvisimisi()
-    {
+    public function ubahvisimisi() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listf' => $this->model_prodi->get_db('ak_fakultas'),
@@ -76,16 +71,14 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function updatevisimisi()
-    {
+    public function updatevisimisi() {
         $this->model_prodi->update_visimisi();
         redirect('prodi/profil');
     }
 
     //==================== DOSEN ====================//
 
-    public function datadsn()
-    {
+    public function datadsn() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
@@ -98,8 +91,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profildsn($nik)
-    {
+    public function profildsn($nik) {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listp' => $this->model_prodi->get_db('ak_prodi'),
@@ -113,8 +105,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function datamengajar($nik)
-    {
+    public function datamengajar($nik) {
         $data = [
             'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
             'listj' => $this->model_jadwal->get_jadwal_dsn($nik, 'all'),
@@ -127,8 +118,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function inputdsn()
-    {
+    public function inputdsn() {
         $this->form_validation->set_rules('nik', 'NIK', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
@@ -144,8 +134,7 @@ class Prodi extends CI_Controller
         }
     }
 
-    public function updatedsn($nik)
-    {
+    public function updatedsn($nik) {
         $data = [
             'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
             'listp' => $this->model_prodi->get_db('ak_prodi'),
@@ -166,16 +155,14 @@ class Prodi extends CI_Controller
         }
     }
 
-    public function deletedsn($nik)
-    {
+    public function deletedsn($nik) {
         $this->model_dosen->delete_dosen($nik);
         redirect('prodi/civitas/data-dosen');
     }
 
     //==================== MAHASISWA ====================//
 
-    public function datamhs()
-    {
+    public function datamhs() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
@@ -189,8 +176,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function profilmhs($nim)
-    {
+    public function profilmhs($nim) {
         $mahasiswa = $this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -207,8 +193,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function berkasmhs($nim)
-    {
+    public function berkasmhs($nim) {
         $mahasiswa = $this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -286,8 +271,7 @@ class Prodi extends CI_Controller
 
     //==================== WALI ====================//
 
-    public function datadsnwl()
-    {
+    public function datadsnwl() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
@@ -301,8 +285,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function datamhswl($nik)
-    {
+    public function datamhswl($nik) {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
@@ -316,8 +299,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function createwali()
-    {
+    public function createwali() {
         $data = [
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
             'listm' => $this->model_prodi->get_db('ak_mahasiswa', ['id_prodi' => $this->session->id, 'dosen_wali' => null], 'result'),
@@ -337,16 +319,14 @@ class Prodi extends CI_Controller
         }
     }
 
-    public function deletemhswl($nik, $nim)
-    {
+    public function deletemhswl($nik, $nim) {
         if ($this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim, 'dosen_wali' => $nik])) {
             $this->model_prodi->delete_mhs_wali($nim);
             redirect('prodi/civitas/data-dosen-wali/' . $nik);
         }
     }
 
-    private function jumlah_mhs_wali()
-    {
+    private function jumlah_mhs_wali() {
         $listd = $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result');
 
         foreach ($listd as $dosen) {
@@ -360,8 +340,7 @@ class Prodi extends CI_Controller
 
     //==================== JADWAL ====================//
 
-    public function jadwalkuliah()
-    {
+    public function jadwalkuliah() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal($this->session->id),
@@ -374,8 +353,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function createjadwal()
-    {
+    public function createjadwal() {
         $data = [
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
             'listm' => $this->model_prodi->get_db('ak_matkul', ['id_prodi' => $this->session->id], 'result'),
@@ -390,8 +368,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function updatejadwal($id_jadwal)
-    {
+    public function updatejadwal($id_jadwal) {
         $data = [
             'jadwal' => $this->model_prodi->get_db('ak_jadwal', ['id_jadwal' => $id_jadwal]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
@@ -409,8 +386,7 @@ class Prodi extends CI_Controller
 
     //==================== MATKUL ====================//
 
-    public function datamatkul()
-    {
+    public function datamatkul() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listm' => $this->model_matkul->get_matkul($this->session->id),
@@ -423,8 +399,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function detailmatkul($id_matkul)
-    {
+    public function detailmatkul($id_matkul) {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'matkul' => $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
@@ -438,8 +413,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function creatematkul()
-    {
+    public function creatematkul() {
         $data = [
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
             'jenis' => ['Wajib Umum', 'Wajib Nasional', 'Wajib Fakultas', 'Wajib Prodi', 'Pilihan', 'Peminatan', 'Tugas Akhir', 'MBKM'],
@@ -454,8 +428,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function updatematkul($id_matkul)
-    {
+    public function updatematkul($id_matkul) {
         $data = [
             'matkul' => $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
@@ -473,8 +446,7 @@ class Prodi extends CI_Controller
 
     //==================== PENGUMUMAN ====================//
 
-    public function pengumuman()
-    {
+    public function pengumuman() {
         $data = [
             'listp' => $this->model_prodi->get_db('ak_pengumuman'),
         ];
@@ -486,8 +458,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function inputpengumuman()
-    {
+    public function inputpengumuman() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
@@ -495,8 +466,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function ubahpengumuman($id_pengumuman)
-    {
+    public function ubahpengumuman($id_pengumuman) {
         $data = [
             'pengumuman' => $this->model_pengumuman->get_db('ak_pengumuman', ['id_pengumuman' => $id_pengumuman]),
         ];
@@ -508,28 +478,24 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function setpengumuman()
-    {
+    public function setpengumuman() {
         $this->model_pengumuman->set_pengumuman();
         redirect('prodi/pengumuman');
     }
 
-    public function updatepengumuman($id_pengumuman)
-    {
+    public function updatepengumuman($id_pengumuman) {
         $this->model_pengumuman->update_pengumuman($id_pengumuman);
         redirect('prodi/pengumuman');
     }
 
-    public function deletepengumuman($id_pengumuman)
-    {
+    public function deletepengumuman($id_pengumuman) {
         $this->model_pengumuman->delete_pengumuman($id_pengumuman);
         redirect('prodi/pengumuman');
     }
 
     //==================== PERKULIAHAN ====================//
 
-    public function perkuliahan()
-    {
+    public function perkuliahan() {
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'listj' => $this->model_jadwal->get_jadwal($this->session->id),
@@ -543,8 +509,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function presensi($id_matkul)
-    {
+    public function presensi($id_matkul) {
         $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -577,8 +542,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    public function bap($id_matkul)
-    {
+    public function bap($id_matkul) {
         $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
@@ -619,8 +583,7 @@ class Prodi extends CI_Controller
         $this->load->view('_partials/script');
     }
 
-    private function indonesian_date($date)
-    {
+    private function indonesian_date($date) {
         $month = [
             1 => 'Januari',
             'Februari',
@@ -641,8 +604,7 @@ class Prodi extends CI_Controller
         return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
     }
 
-    public function nilai($id_matkul)
-    {
+    public function nilai($id_matkul) {
         $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 

@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <div class="my-2">
                             <h6 class="mb-0">CPL Prodi : </h6><?= $matkul['cpl_prodi'] ?>
                             <h6 class="mb-0">CP Mata Kuliah : </h6><?= $matkul['cp_mk'] ?>
@@ -93,8 +93,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
-                        <a class="btn btn-success btn-sm mb-0" href="#">Cetak</a>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <a class="btn btn-primary btn-sm mb-0" href="#">Cetak</a>
                     </div>
                 </div>
             </div>

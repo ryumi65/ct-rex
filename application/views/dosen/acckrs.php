@@ -16,10 +16,10 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3">
-                        <h5 class="mb-0">Daftar Mahasiswa Bimbingan <?= $dosen['nama'] ?></h5>
+                        <h5 class="mb-0">Persetujuan KRS Mahasiswa</h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table table-striped align-items-center mb-0 pe-1" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -36,7 +36,7 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($lists as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
@@ -71,7 +71,6 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi <?= $mahasiswa['nama'] ?></h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <?= form_open('KRS/acc') ?>
                                         <div class="modal-body">
@@ -120,8 +119,8 @@
                                             </table>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary mb-0">Simpan</button>
-                                            <button type="button" class="btn btn-secondary mb-0" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                                            <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                                         </div>
                                         </form>
                                     </div>

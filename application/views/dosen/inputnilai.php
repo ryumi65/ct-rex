@@ -18,10 +18,10 @@
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3">
-                        <h5>Input Nilai <?= $matkul['nama'] ?></h5>
+                        <h5 class="mb-0">Input Nilai <?= $matkul['nama'] ?></h5>
                     </div>
                     <?= form_open('dosen/setnilai/' . $matkul['id_matkul']) ?>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
@@ -68,7 +68,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
+                    <div class="card-footer d-flex justify-content-end p-3">
                         <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
                     </div>
                     </form>

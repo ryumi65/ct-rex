@@ -15,11 +15,11 @@
 
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3 pb-0">
+                    <div class="card-header p-3">
                         <h5>Tambah Kartu Rencana Studi Semester <?= $mahasiswa['semester'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('KRS/create') ?>
+                    <?= form_open('KRS/create') ?>
+                    <div class="card-body px-3 py-0">
                         <?php for ($i = 1; $i <= 8; $i++) :
                             if ($i % 2 === $semester) : ?>
                                 <h6>KRS Semester <?= $i ?></h6>
@@ -63,9 +63,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $jadwal['kode'] ?></td>
-                                                <td class="text-wrap"><?= $jadwal['nama'] ?></td>
-                                                <td><?= $jadwal['sks'] ?></td>
-                                                <td class="text-wrap"><?= $jadwal['dosen'] ?></td>
+                                                <td class="text-wrap w-25"><?= $jadwal['nama'] ?></td>
+                                                <td class="text-center"><?= $jadwal['sks'] ?></td>
+                                                <td class="text-wrap w-25"><?= $jadwal['dosen'] ?></td>
                                                 <td><?= $jadwal['hari'] ?></td>
                                                 <td><?= $jadwal['waktu'] ?></td>
                                                 <td><?= $jadwal['ruangan'] ?></td>
@@ -78,13 +78,14 @@
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                <hr class="bg-dark">
                         <?php endif;
                         endfor; ?>
-                        <div class="d-flex justify-content-end text-center">
-                            <button type="submit" class="btn btn-primary btn-sm mt-3 mb-0">Simpan</button>
-                        </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
 

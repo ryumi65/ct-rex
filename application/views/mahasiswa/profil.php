@@ -316,7 +316,6 @@
                                     </div>
                                 </div>
 
-
                                 <!-- Data Ibu -->
                                 <div class="card mb-3">
                                     <div class="card-header p-3 pb-0">
@@ -436,7 +435,6 @@
                                     </div>
                                 </div>
 
-
                                 <!-- Wali -->
                                 <div class="card mb-3">
                                     <div class="card-body">
@@ -464,6 +462,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <?php $this->load->view('_partials/footer') ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php $this->load->view('_partials/footer') ?>
+    </div>

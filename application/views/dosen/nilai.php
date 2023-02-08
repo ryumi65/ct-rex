@@ -16,11 +16,11 @@
             <!-- Absensi -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between flex-wrap p-3 pb-0">
-                        <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
-                        <a href="<?= site_url('dosen/perkuliahan/nilai/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm">Input Nilai</a>
+                    <div class="card-header d-flex justify-content-between flex-wrap p-3">
+                        <h5 class="mb-0">Daftar Nilai <?= $matkul['nama'] ?></h5>
+                        <a href="<?= site_url('dosen/perkuliahan/nilai/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Nilai</a>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
@@ -112,8 +112,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
-                        <a href="#" class="btn btn-success btn-sm mb-0">Cetak</a>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                     </div>
                 </div>
             </div>

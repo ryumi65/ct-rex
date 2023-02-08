@@ -7,8 +7,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/perkuliahan') ?>"><u>Data Perkuliahan</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Nilai</li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/akademik/perkuliahan') ?>"><u>Data Perkuliahan</u></a></li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Nilai</li>
                     </ol>
                 </nav>
             </div>
@@ -19,7 +19,7 @@
                     <div class="card-header p-3 pb-0">
                         <h5>Daftar Nilai <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
@@ -111,8 +111,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex justify-content-end p-3 pt-0">
-                        <a href="#" class="btn btn-success btn-sm mb-0">Cetak</a>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
                     </div>
                 </div>
             </div>

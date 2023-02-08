@@ -106,9 +106,16 @@ class Prodi extends CI_Controller {
     }
 
     public function datamengajar($nik) {
+        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+        foreach ($list_hari as $hari) {
+            $listj[$hari] = $this->model_jadwal->get_jadwal_dsn($nik, $hari);
+        }
+
         $data = [
             'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
-            'listj' => $this->model_jadwal->get_jadwal_dsn($nik, 'all'),
+            'listh' => $list_hari,
+            'listj' => $listj,
         ];
 
         $this->load->view('_partials/head');
@@ -496,9 +503,16 @@ class Prodi extends CI_Controller {
     //==================== PERKULIAHAN ====================//
 
     public function perkuliahan() {
+        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+        foreach ($list_hari as $hari) {
+            $listj[$hari] = $this->model_jadwal->get_jadwal($this->session->id, $hari);
+        }
+
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listj' => $this->model_jadwal->get_jadwal($this->session->id),
+            'listh' => $list_hari,
+            'listj' => $listj,
         ];
 
         $this->load->view('_partials/head');
@@ -576,7 +590,7 @@ class Prodi extends CI_Controller {
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/bap', $data);
         $this->load->view('_partials/loader');

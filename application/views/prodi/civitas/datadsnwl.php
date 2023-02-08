@@ -7,7 +7,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Dosen Wali</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Data Dosen Wali</li>
                     </ol>
                 </nav>
             </div>
@@ -43,9 +43,9 @@
                                 <?php foreach ($listd as $dosen) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><a href=""><?= $dosen['nama'] ?></a></td>
+                                        <td class="text-wrap"><?= $dosen['nama'] ?></td>
                                         <td><?= $dosen['nik'] ?></td>
-                                        <td><?= ucfirst($dosen['jenis_kelamin']) ?></td>
+                                        <td><?= $dosen['jenis_kelamin'] ?></td>
                                         <td><?= $dosen['nidn_dosen'] ?></td>
                                         <td class="text-center"><?= $mhswl[$dosen['nik']] ?></td>
                                         <td class="text-center">

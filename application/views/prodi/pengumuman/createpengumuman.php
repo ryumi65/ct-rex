@@ -8,7 +8,7 @@
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi/pengumuman') ?>"><u>Pengumuman</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Tambah</li>
                     </ol>
                 </nav>
             </div>
@@ -19,8 +19,8 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Form Pengisian Pengumuman</h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('prodi/setpengumuman') ?>
+                    <?= form_open('prodi/setpengumuman') ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row g-3">
                             <div class="col-sm-6 col-md-4">
                                 <label>Judul</label>
@@ -40,26 +40,23 @@
                                     <label for="floatingTextPengumuman">Isi Pengumuman</label>
                                 </div>
                             </div>
-
                             <div class="col-md-4 col-sm-6">
                                 <label>Target Pengumuman</label>
                                 <div class="mb-3">
                                     <select class="form-select" name="target" required>
                                         <option selected disabled value="">Pilih Target</option>
-                                        <option value="dosen">Dosen</option>
-                                        <option value="mahasiswa">Mahasiswa</option>
-                                        <option value="keduanya">Keduanya</option>
-
+                                        <option value="Dosen">Dosen</option>
+                                        <option value="Mahasiswa">Mahasiswa</option>
+                                        <option value="Keduanya">Keduanya</option>
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-end text-center">
-                                <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                            </div>
                         </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

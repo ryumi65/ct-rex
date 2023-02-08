@@ -54,14 +54,14 @@
                     <div class="card z-index-2">
                         <div class="card-body p-3">
                             <div class="row text-dark">
-                                <p class="col-8 fs-6 fw-bold mb-0">Mahasiswa Aktif</p>
-                                <p class="col-4 fs-6 mb-0">: <?= $mhsaktif ?></p>
-                                <p class="col-8 fs-6 fw-bold mb-0">Mahasiswa Non-Aktif</p>
-                                <p class="col-4 fs-6 mb-0">: <?= $mhscuti + $mhskeluar ?></p>
-                                <p class="col-8 fs-6 fw-bold mb-0">Mahasiswa Lulus</p>
-                                <p class="col-4 fs-6 mb-0">: <?= $mhslulus ?></p>
-                                <p class="col-8 fs-6 fw-bold mb-0">Dosen Aktif</p>
-                                <p class="col-4 fs-6 mb-0">: <?= $dsnaktif ?></p>
+                                <p class="col-6 fs-6 fw-bold mb-0">Mahasiswa Aktif</p>
+                                <p class="col-6 fs-6 mb-0">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mhsaktif ?></p>
+                                <p class="col-6 fs-6 fw-bold mb-0">Mahasiswa Non-Aktif</p>
+                                <p class="col-6 fs-6 mb-0">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mhscuti + $mhskeluar ?></p>
+                                <p class="col-6 fs-6 fw-bold mb-0">Mahasiswa Lulus</p>
+                                <p class="col-6 fs-6 mb-0">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mhslulus ?></p>
+                                <p class="col-6 fs-6 fw-bold mb-0">Dosen Aktif</p>
+                                <p class="col-6 fs-6 mb-0">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dsnaktif ?></p>
                             </div>
                         </div>
                     </div>

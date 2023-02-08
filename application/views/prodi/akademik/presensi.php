@@ -7,8 +7,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/perkuliahan') ?>"><u>Data Perkuliahan</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Presensi</li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/akademik/perkuliahan') ?>"><u>Data Perkuliahan</u></a></li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Presensi</li>
                     </ol>
                 </nav>
             </div>
@@ -19,7 +19,7 @@
                     <div class="card-header p-3">
                         <h5>Presensi <?= $matkul['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
+                    <div class="card-body px-3 py-0">
                         <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
@@ -71,7 +71,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer d-flex inline align-items-end justify-content-between p-3 pt-0">
+                    <div class="card-footer d-flex align-items-end justify-content-between p-3">
                         <div>
                             <h6>Keterangan</h6>
                             <div class="d-flex gap-3">
@@ -81,7 +81,7 @@
                                 <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-success btn-sm mb-0">Cetak Presensi</a>
+                        <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
                     </div>
                 </div>
             </div>

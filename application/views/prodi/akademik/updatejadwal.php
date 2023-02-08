@@ -8,8 +8,7 @@
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi/akademik/jadwal-kuliah') ?>"><u>Jadwal Kuliah</u></a></li>
-                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/akademik/jadwal-kuliah/edit/' . $jadwal['id_jadwal']) ?>"><u><?= $jadwal['id_jadwal'] ?></u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ubah</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Ubah</li>
                     </ol>
                 </nav>
             </div>
@@ -20,8 +19,8 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Form Ubah Jadwal Kuliah</h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('jadwal/update/' . $jadwal['id_jadwal']) ?>
+                    <?= form_open('jadwal/update/' . $jadwal['id_jadwal']) ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <label>Hari</label>
@@ -85,13 +84,12 @@
                                     <input type="time" name="pukul_akhir" class="form-control" value="<?= $tanggal[1] ?>" required>
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-end text-center">
-                                <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                            </div>
                         </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi/civitas/data-dosen-wali') ?>"><u>Data Dosen Wali</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Mahasiswa Wali</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Mahasiswa Wali</li>
                     </ol>
                 </nav>
             </div>
@@ -49,7 +49,7 @@
                                             <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
                                                 <i class="fa-solid fa-user"></i>
                                             </a>
-                                            <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
+                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('prodi/civitas/hapus-mahasiswa-wali/' . $dosen['nik'] . '/' . $mahasiswa['nim']) ?>')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>

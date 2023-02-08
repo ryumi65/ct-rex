@@ -7,7 +7,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Profil</li>
                     </ol>
                 </nav>
             </div>
@@ -41,13 +41,13 @@
                     </div>
                     <div class="card-body p-3 pt-0">
                         <ul class="list-group">
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nama Program Studi:</strong> &nbsp;
+                            <li class="list-group-item border-0 ps-0 text-sm text-dark"><strong class="text-dark">Nama Program Studi:</strong> &nbsp;
                                 <?= $prodi['nama'] ?></li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fakultas:</strong> &nbsp;
+                            <li class="list-group-item border-0 ps-0 text-sm text-dark"><strong class="text-dark">Fakultas:</strong> &nbsp;
                                 <?= $prodi['id_fakultas'] ?></li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Visi:</strong> &nbsp;
+                            <li class="list-group-item border-0 ps-0 text-sm text-dark"><strong class="text-dark">Visi:</strong> &nbsp;
                                 <?= $prodi['visi'] ?></li>
-                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Misi:</strong> &nbsp;
+                            <li class="list-group-item border-0 ps-0 text-sm text-dark"><strong class="text-dark">Misi:</strong> &nbsp;
                                 <?= $prodi['misi'] ?></li>
                         </ul>
                     </div>

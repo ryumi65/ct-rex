@@ -8,7 +8,7 @@
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi/profil') ?>"><u>Profil</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ubah Visi Misi</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Ubah Visi Misi</li>
                     </ol>
                 </nav>
             </div>
@@ -19,8 +19,8 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Visi Misi <?= $prodi['nama'] ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('prodi/updatevisimisi') ?>
+                    <?= form_open('prodi/updatevisimisi') ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
@@ -34,13 +34,12 @@
                                     <label for="floatingTextMisi">Isi Misi</label>
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-end text-center">
-                                <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
-                            </div>
                         </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary btn-sm mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

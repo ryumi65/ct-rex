@@ -8,7 +8,7 @@
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
                         <li class="breadcrumb-item"><a href="<?= site_url('prodi/civitas/data-dosen') ?>"><u>Data Dosen</u></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Diri</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Data Diri</li>
                     </ol>
                 </nav>
             </div>

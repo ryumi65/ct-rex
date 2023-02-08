@@ -29,12 +29,18 @@
                                     <label for="floatingTextPokok">Isi Pokok Bahasan</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <textarea name="metode" class="form-control" placeholder="Metode Pembelajaran" id="floatingTextMetode" style="height: 200px" required></textarea>
-                                    <label for="floatingTextMetode">Isi Metode Pembelajaran</label>
+                            <div class="col-md-4 col-sm-6">
+                                <label>Metode</label>
+                                <div class="mb-3">
+                                    <select class="form-select" name="metode" required>
+                                        <option selected disabled value="">Pilih Metode Pembelajaran</option>
+                                            <option value="Kuliah Tatap Muka">Kuliah Tatap Muka</option>
+                                            <option value="Tugas">Tugas</option>
+                                            <option value="Kuliah Daring">Kuliah Daring</option>
+                                    </select>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea name="evaluasi" class="form-control" placeholder="Evaluasi" id="floatingTextEvaluasi" style="height: 200px" required></textarea>

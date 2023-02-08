@@ -23,7 +23,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row g-3 mt-3">
 
                     <!-- Left Content -->
@@ -31,60 +30,44 @@
 
                         <!-- Pertama -->
                         <div class="card mb-3">
-                            <div class="card-body">
 
-                                <label>Nama Lengkap</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $dosen['nama'] ?>" readonly>
+                            <div class="card-body p-3">
+                                <div class="row text-dark">
+
+                                    <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['nama'] ?></p>
+                                    <hr class="bg-dark">
+                                    <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['nik'] ?></p>
+                                    <hr class="bg-dark">
+                                    <p class="col-6 fs-6 fw-bold">Tempat Lahir</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['tempat_lahir'] ?></p>
+                                    <hr class="horizontal dark">
+                                    <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['tanggal_lahir'] ?></p>
+                                    <hr class="horizontal dark">
                                 </div>
-
-                                <label>Nomor Induk Kependudukan</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nik" class="form-control" placeholder="-" value="<?= $dosen['nik'] ?>" readonly>
-                                </div>
-
-                                <label>Tempat Lahir</label>
-                                <div class="mb-3">
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="-" value="<?= $dosen['tempat_lahir'] ?>" readonly>
-                                </div>
-
-
-                                <label>Tanggal Lahir</label>
-                                <div class="mb-3">
-                                    <input type="date" name="tanggal_lahir" class="form-control" placeholder="-" value="<?= $dosen['tanggal_lahir'] ?>" readonly>
-                                </div>
-
                             </div>
                         </div>
 
                         <!-- Kedua -->
                         <div class="card mb-3">
-                            <div class="card-body">
 
-                                <label>Jenis Kelamin</label>
-                                <div class="mb-3">
-                                    <?php if ($dosen['jenis_kelamin'] === 'L') : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" value="Laki-laki" readonly>
-                                    <?php elseif ($dosen['jenis_kelamin'] === 'P') : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" value="Perempuan" readonly>
-                                    <?php else : ?>
-                                        <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" readonly>
-                                    <?php endif ?>
-                                </div>
-
-                                <label>Agama</label>
-                                <div class="mb-3">
-                                    <input type="text" name="agama" class="form-control" placeholder="-" value="<?= $dosen['agama'] ?>" readonly>
-                                </div>
-
-                                <label>Nomor Handphone</label>
-                                <div class="mb-3">
-                                    <input type="text" name="no_hp" class="form-control" placeholder="-" value="<?= $dosen['no_hp'] ?>" readonly>
-                                </div>
-
-                                <label>Email</label>
-                                <div class="mb-3">
-                                    <input type="email" name="email" class="form-control" placeholder="-" value="<?= $dosen['email'] ?>" readonly>
+                            <div class="card-body p-3">
+                                <div class="row text-dark">
+                                    <p class="col-6 fs-6 fw-bold">Jenis Kelamin</p>
+                                    <p class="col-6 fs-6">: &nbsp;
+                                        <?php if ($dosen['jenis_kelamin'] === 'L') : ?>
+                                        <?php elseif ($dosen['jenis_kelamin'] === 'P') : ?>
+                                        <?php else : ?>
+                                        <?php endif ?>
+                                    </p>
+                                    <p class="col-6 fs-6 fw-bold">Agama</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['agama'] ?></p>
+                                    <p class="col-6 fs-6 fw-bold">Nomer Handphone</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['no_hp'] ?></p>
+                                    <p class="col-6 fs-6 fw-bold">Email</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['email'] ?></p>
                                 </div>
                             </div>
                         </div>
@@ -95,59 +78,45 @@
 
                         <!-- Pertama -->
                         <div class="card mb-3">
-                            <div class="card-body">
-                                <label>Program Studi</label>
-                                <div class="mb-3">
-                                    <?php foreach ($listp as $prodi) : ?>
-                                        <?php if ($prodi['id_prodi'] === $dosen['id_prodi']) : ?>
-                                            <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" readonly>
+
+                            <div class="card-body p-3">
+                                <div class="row text-dark">
+                                    <p class="col-6 fs-6 fw-bold">Program Studi</p>
+                                    <p class="col-6 fs-6">: &nbsp;
+                                        <?php foreach ($listp as $prodi) : ?>
+                                            <?php if ($prodi['id_prodi'] === $dosen['id_prodi']) : ?>
+                                                <?= $prodi['nama'] ?>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
+                                    </p>
+                                    <p class="col-6 fs-6 fw-bold">Kewarganegaraan</p>
+                                    <p class="col-6 fs-6">: &nbsp;
+                                        <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" readonly>
+                                        <?php elseif ($dosen['kewarganegaraan'] === 'WNA') : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Asing" readonly>
+                                        <?php else : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" readonly>
                                         <?php endif ?>
-                                    <?php endforeach ?>
+                                    </p>
+                                    <p class="col-6 fs-6 fw-bold">Nomor Induk Dosen</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['nidn_dosen'] ?></p>
+                                    <p class="col-6 fs-6 fw-bold">Alamat Tempat Tinggal</p>
+                                    <p class="col-6 fs-6">: &nbsp; <?= $dosen['alamat'] ?></p>
                                 </div>
-
-
-                                <label>Kewarganegaraan</label>
-                                <div class="mb-3">
-                                    <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" readonly>
-                                    <?php elseif ($dosen['kewarganegaraan'] === 'WNA') : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Asing" readonly>
-                                    <?php else : ?>
-                                        <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" readonly>
-                                    <?php endif ?>
-                                </div>
-
-                                <label>Alamat Tempat Tinggal</label>
-                                <div class="mb-3">
-                                    <input type="text" name="alamat" class="form-control" placeholder="-" value="<?= $dosen['alamat'] ?>" readonly>
-                                </div>
-
-
-                                <label>Nomor Induk Dosen</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nidn_dosen" class="form-control" placeholder="-" value="<?= $dosen['nidn_dosen'] ?>" readonly>
-                                </div>
-
                             </div>
                         </div>
 
                         <!-- Kedua -->
                         <div class="card mb-3">
-                            <div class="card-body">
-
-                                <label>Status Dosen</label>
-                                <div class="mb-3">
-                                    <input type="text" name="status_dosen" class="form-control" placeholder="-" value="<?= $dosen['status_dosen'] ?>" readonly>
-                                </div>
-
-                                <label>Status Kerja</label>
-                                <div class="mb-3">
-                                    <input type="text" name="status_dosen" class="form-control" placeholder="-" value="<?= $dosen['status_kerja'] ?>" readonly>
-                                </div>
+                            <div class="card-body p-3">
+                                <p class="col-6 fs-6 fw-bold">Status Dosen</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['status_dosen'] ?></p>
+                                <p class="col-6 fs-6 fw-bold">Status Kerja</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['status_kerja'] ?></p>
                             </div>
                         </div>
                     </div>
-
                     <?php $this->load->view('_partials/footer') ?>
                 </div>
             </div>

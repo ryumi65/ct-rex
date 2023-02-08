@@ -252,7 +252,17 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_ayah" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_ayah'] ?>">
+                                            <select class="form-select" name="pendidikan">
+                                                <option selected disabled>Pilih Pendidikan</option>
+                                                <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP/MTS</option>
+                                                <option value="SMA">SMA/MA</option>
+                                                <option value="D3">Diploma 3</option>
+                                                <option value="S1">Sarjana/Strata 1</option>
+                                                <option value="S2">Magister/Strata 2</option>
+                                                <option value="Doktor">Doktor</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
@@ -305,9 +315,20 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_ibu" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_ibu'] ?>">
+                                            <select class="form-select" name="pendidikan">
+                                                <option selected disabled>Pilih Pendidikan</option>
+                                                <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP/MTS</option>
+                                                <option value="SMA">SMA/MA</option>
+                                                <option value="D3">Diploma 3</option>
+                                                <option value="S1">Sarjana/Strata 1</option>
+                                                <option value="S2">Magister/Strata 2</option>
+                                                <option value="Doktor">Doktor</option>
+                                            </select>
                                         </div>
                                     </div>
+
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pekerjaan</label>
                                         <div class="mb-3">
@@ -357,7 +378,17 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Pendidikan</label>
                                         <div class="mb-3">
-                                            <input type="text" name="pendidikan_wali" class="form-control" placeholder="Pendidikan" value="<?= $ortu['pendidikan_wali'] ?>">
+                                            <select class="form-select" name="pendidikan">
+                                                <option selected disabled>Pilih Pendidikan</option>
+                                                <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP/MTS</option>
+                                                <option value="SMA">SMA/MA</option>
+                                                <option value="D3">Diploma 3</option>
+                                                <option value="S1">Sarjana/Strata 1</option>
+                                                <option value="S2">Magister/Strata 2</option>
+                                                <option value="Doktor">Doktor</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">

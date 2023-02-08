@@ -31,9 +31,19 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" name="isi_pengumuman" placeholder="Pengumuman" id="floatingTextPengumuman" style="height: 200px" required></textarea>
+                                <textarea class="form-control" style="height: 200px" required></textarea>
                                 <label for="floatingTextPengumuman">Isi Masalah</label>
                             </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" name="isi_pengumuman" placeholder="Pengumuman" id="floatingTextPengumuman" style="height: 200px" required></textarea>
+                                <label for="floatingTextPengumuman">Saran Dosen Wali</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end text-center">
+                            <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                         </div>
                     </div>
                 </div>

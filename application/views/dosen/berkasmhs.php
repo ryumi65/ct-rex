@@ -15,7 +15,7 @@
 
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex d-inline justify-content-between p-3">
+                    <div class="card-header d-flex d-inline justify-content-between p-3 pb-0">
                         <h5>Data Perkuliahan <?= $mahasiswa['nama'] ?></h5>
                         <div>
                             <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>

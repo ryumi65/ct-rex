@@ -77,22 +77,34 @@
                                             <table class="table align-items-center w-100" id="table-<?= $mahasiswa['nim'] ?>">
                                                 <thead>
                                                     <tr class="bg-gradient-primary text-white">
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                                             No.</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Nama MK</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             sks</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Dosen Pengampu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Hari</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Waktu</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                                             Semester</th>
-                                                        <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                                        <th colspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
+                                                    </tr>
+                                                    <tr class="bg-gradient-primary text-white">
+                                                        <th class="p-1">
+                                                            <div class="form-check d-flex justify-content-center">
+                                                                <input class="form-check-input" type="checkbox" name="cb-<?= $mahasiswa['nim'] ?>" onchange="cbCheckAll(this, 'cb-<?= $mahasiswa['nim'] ?>', 'table-<?= $mahasiswa['nim'] ?>', 'Y')">
+                                                            </div>
+                                                        </th>
+                                                        <th class="p-1">
+                                                            <div class="form-check d-flex justify-content-center">
+                                                                <input class="form-check-input" type="checkbox" name="cb-<?= $mahasiswa['nim'] ?>" onchange="cbCheckAll(this, 'cb-<?= $mahasiswa['nim'] ?>', 'table-<?= $mahasiswa['nim'] ?>', 'T')">
+                                                            </div>
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="bg-gray-100 text-dark text-sm">
@@ -108,9 +120,11 @@
                                                                 <td><?= $krs['semester'] ?></td>
                                                                 <td class="text-center">
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
-                                                                    <label class="btn btn-outline-primary px-2 py-1 mb-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
+                                                                    <label class="btn btn-outline-primary px-2 py-1 m-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>
+                                                                </td>
+                                                                <td class="text-center">
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="tolak-<?= $krs['id_krs'] ?>" value="T">
-                                                                    <label class="btn btn-outline-danger px-2 py-1 mb-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
+                                                                    <label class="btn btn-outline-danger px-2 py-1 m-0" for="tolak-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-xmark"></i></label>
                                                                 </td>
                                                             </tr>
                                                     <?php endif;
@@ -137,6 +151,9 @@
 
     <!-- Alert -->
     <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
+
+    <!-- Check All -->
+    <script defer src="<?= base_url(); ?>assets/js/check-all.js"></script>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
@@ -181,7 +198,7 @@
                     order: [1, 'asc'],
 
                     columnDefs: [{
-                        targets: [0, 7],
+                        targets: [0, 7, 8],
                         orderable: false,
                         searchable: false,
                     }],

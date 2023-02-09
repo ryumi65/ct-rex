@@ -25,52 +25,86 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label>Pertemuan</label>
-                                <div class="mb-3">
-                                    <select class="form-select" name="pertemuan" required>
-                                        <option selected disabled value="">Pilih Pertemuan</option>
-                                        <?php for ($i = 1; $i <= 16; $i++) : ?>
-                                            <?php if ($pertemuan[$i - 1] === 'false') : ?>
-                                                <li>
-                                                    <option value="<?= $i ?>">Pertemuan
-                                                        <?php if ($i === 8) echo 'UTS';
-                                                        elseif ($i === 16) echo 'UAS';
-                                                        else echo $i; ?>
-                                                    </option>
-                                                </li>
-                                            <?php endif ?>
-                                        <?php endfor ?>
-                                    </select>
-                                </div>
+                                <select class="form-select" name="pertemuan" required>
+                                    <option selected disabled value="">Pilih Pertemuan</option>
+                                    <?php for ($i = 1; $i <= 16; $i++) : ?>
+                                        <?php if ($pertemuan[$i - 1] === 'false') : ?>
+                                            <li>
+                                                <option value="<?= $i ?>">Pertemuan
+                                                    <?php if ($i === 8) echo 'UTS';
+                                                    elseif ($i === 16) echo 'UAS';
+                                                    else echo $i; ?>
+                                                </option>
+                                            </li>
+                                        <?php endif ?>
+                                    <?php endfor ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label>Tanggal Pertemuan</label>
-                                <div class="mb-3">
-                                    <input type="date" name="tanggal" class="form-control" required>
-                                </div>
+                                <input type="date" name="tanggal" class="form-control" required>
                             </div>
-                            <?php foreach ($listm as $mahasiswa) : ?>
-                                <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card card-profile card-plain cursor-pointer" id="card-pop">
-                                        <div class="card-body text-center bg-white shadow border-radius-lg p-3">
-                                            <div class="avatar avatar-xl position-relative">
-                                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $mahasiswa['foto_profil'] ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
+                            <table class="table align-items-center w-100" id="table">
+                                <thead>
+                                    <tr class="bg-gradient-primary text-white">
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                            No.</th>
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            NIM</th>
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                            Nama Mahasiswa</th>
+                                        <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center" style="width: 10%">
+                                            Presensi</th>
+                                    </tr>
+                                    <tr class="bg-gradient-primary text-white">
+                                        <th class="p-1">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Hadir')">
                                             </div>
-                                            <h5 class="text-sm mt-3 mb-0"><?= $mahasiswa['nama'] ?></h5>
-                                            <h6 class="text-xs mb-3"><?= $mahasiswa['nim'] ?></h6>
-                                            <div>
-                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Hadir-<?= $mahasiswa['nim'] ?>" value="Hadir" required checked>
-                                                <label class="btn btn-outline-primary rounded-circle px-3" for="Hadir-<?= $mahasiswa['nim'] ?>">H</label>
+                                        </th>
+                                        <th class="p-1">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Izin')">
+                                            </div>
+                                        </th>
+                                        <th class="p-1">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Sakit')">
+                                            </div>
+                                        </th>
+                                        <th class="p-1">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Alfa')">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-100 text-dark text-sm">
+                                    <?php foreach ($listm as $mahasiswa) : ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><?= $mahasiswa['nim'] ?></td>
+                                            <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                            <td class="text-center">
+                                                <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Hadir-<?= $mahasiswa['nim'] ?>" value="Hadir" required>
+                                                <label class="btn btn-outline-primary btn-sm px-2 py-1 m-0" for="Hadir-<?= $mahasiswa['nim'] ?>">H</label>
+                                            </td>
+                                            <td class="text-center">
                                                 <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Izin-<?= $mahasiswa['nim'] ?>" value="Izin" required>
-                                                <label class="btn btn-outline-info rounded-circle px-3" for="Izin-<?= $mahasiswa['nim'] ?>">I</label>
+                                                <label class="btn btn-outline-info btn-sm px-2 py-1 m-0" for="Izin-<?= $mahasiswa['nim'] ?>">I</label>
+                                            </td>
+                                            <td class="text-center">
                                                 <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Sakit-<?= $mahasiswa['nim'] ?>" value="Sakit" required>
-                                                <label class="btn btn-outline-dark rounded-circle px-3" for="Sakit-<?= $mahasiswa['nim'] ?>">S</label>
+                                                <label class="btn btn-outline-dark btn-sm px-2 py-1 m-0" for="Sakit-<?= $mahasiswa['nim'] ?>">S</label>
+                                            </td>
+                                            <td class="text-center">
                                                 <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Alfa-<?= $mahasiswa['nim'] ?>" value="Alfa" required>
-                                                <label class="btn btn-outline-danger rounded-circle px-3" for="Alfa-<?= $mahasiswa['nim'] ?>">A</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach ?>
+                                                <label class="btn btn-outline-danger btn-sm px-2 py-1 m-0" for="Alfa-<?= $mahasiswa['nim'] ?>">A</label>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="card-footer d-flex inline align-items-end justify-content-between p-3">
@@ -92,3 +126,38 @@
 
         <?php $this->load->view('_partials/footer') ?>
     </div>
+
+    <!-- Check All -->
+    <script defer src="<?= base_url(); ?>assets/js/check-all.js"></script>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script>
+        let table;
+
+        $(document).ready(() => {
+
+            table = $('#table').DataTable({
+
+                responsive: true,
+                order: [1, 'asc'],
+
+                columnDefs: [{
+                    targets: [0, 3, 4, 5, 6],
+                    orderable: false,
+                    searchable: false,
+                }],
+            });
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
+        });
+    </script>

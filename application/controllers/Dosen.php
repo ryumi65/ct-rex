@@ -571,13 +571,12 @@ class Dosen extends CI_Controller {
 
     // profilmhs
     public function profilmahasiswa($nim) {
-        // $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
-        // if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+        $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
+        if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $data = [
-            'prodi' => $this->model_dosen->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listp' => $this->model_dosen->get_db('ak_dosen'),
             'mahasiswa' => $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]),
+            'listp' => $this->model_dosen->get_db('ak_prodi'),
         ];
 
         $this->load->view('_partials/head');
@@ -602,33 +601,30 @@ class Dosen extends CI_Controller {
         $ipk = 0;
 
         for ($i = 1; $i <= 8; $i++) {
+            $jumlah_krs = 0;
             $jumlah_ip = 0;
             $jumlah_sks = 0;
             $list_krs = $this->model_krs->get_krs_smt($nim, $i);
 
             foreach ($list_krs as $value) {
-                $presensi = round(($value['nilai_presensi'] * 15) / 100, 2);
-                $tugas = round(($value['nilai_tugas'] * 15) / 100, 2);
-                $uts = round(($value['nilai_uts'] * 30) / 100, 2);
-                $uas = round(($value['nilai_uas'] * 40) / 100, 2);
+                if (isset($value['nilai'])) {
+                    if ($value['nilai'] >= 80 && $value['nilai'] <= 100) $indeks = 4;
+                    elseif ($value['nilai'] >= 77 && $value['nilai'] < 80) $indeks = 3.75;
+                    elseif ($value['nilai'] >= 74 && $value['nilai'] < 77) $indeks = 3.5;
+                    elseif ($value['nilai'] >= 68 && $value['nilai'] < 74) $indeks = 3;
+                    elseif ($value['nilai'] >= 65 && $value['nilai'] < 68) $indeks = 2.75;
+                    elseif ($value['nilai'] >= 62 && $value['nilai'] < 65) $indeks = 2.5;
+                    elseif ($value['nilai'] >= 56 && $value['nilai'] < 62) $indeks = 2;
+                    elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
+                    elseif ($value['nilai'] < 41) $indeks = 0;
 
-                $akhir = $presensi + $tugas + $uts + $uas;
-
-                if ($akhir >= 80 && $akhir <= 100) $indeks = 4;
-                elseif ($akhir >= 77 && $akhir < 80) $indeks = 3.75;
-                elseif ($akhir >= 74 && $akhir < 77) $indeks = 3.5;
-                elseif ($akhir >= 68 && $akhir < 74) $indeks = 3;
-                elseif ($akhir >= 65 && $akhir < 68) $indeks = 2.75;
-                elseif ($akhir >= 62 && $akhir < 65) $indeks = 2.5;
-                elseif ($akhir >= 56 && $akhir < 62) $indeks = 2;
-                elseif ($akhir >= 41 && $akhir < 56) $indeks = 1;
-                elseif ($akhir < 41) $indeks = 0;
-
-                $jumlah_ip += $indeks;
+                    $jumlah_krs++;
+                    $jumlah_ip += $indeks;
+                }
             }
 
-            if (count($list_krs) > 0) {
-                $total_ip = round($jumlah_ip / count($list_krs), 2);
+            if ($jumlah_krs > 0) {
+                $total_ip = round($jumlah_ip / $jumlah_krs, 2);
                 $ipk += $total_ip;
                 $count_ipk++;
             } else $total_ip = 0;

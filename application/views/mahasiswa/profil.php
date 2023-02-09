@@ -46,7 +46,7 @@
             </div>
 
             <!-- Button -->
-            <div class="card-header pb-0 p-3">
+            <div class="card-header p-3 pb-0">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                     <!-- Button Mahasiswa -->
@@ -62,12 +62,11 @@
             </div>
 
             <!-- Isi -->
-            <div class="card-header p-3">
+            <div class="card-body p-3">
                 <div class="tab-content" id="myTabContent">
 
                     <!-- Mahasiswa -->
                     <div class="tab-pane fade show active" id="mahasiswa-tab-pane" role="tabpanel" aria-labelledby="mahasiswa-tab" tabindex="0">
-
 
                         <!-- Judul -->
                         <div class="card my-3">
@@ -103,8 +102,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <!-- Kedua -->
                                 <div class="card mb-3">
                                     <div class="card-header pb-0">
@@ -138,7 +135,6 @@
                                     <div class="card-header pb-0">
                                         <h4>Nama</h4>
                                     </div>
-
 
                                     <div class="card-body p-3">
                                         <div class="row text-dark">
@@ -184,13 +180,8 @@
                                             <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['email'] ?></p>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-
-                            <!-- Ketiga -->
-
                         </div>
                     </div>
 
@@ -322,6 +313,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <?php $this->load->view('_partials/footer') ?>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php $this->load->view('_partials/footer') ?>
+    </div>

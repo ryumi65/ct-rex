@@ -88,8 +88,6 @@
                             <table class="table align-items-center w-100" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                            No.</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                             Waktu</th>
                                         <th class="font-weight-bolder text-uppercase text-xs ps-2">
@@ -103,7 +101,6 @@
                                 <tbody class="bg-gray-100 text-dark text-sm">
                                     <?php foreach ($listj as $jadwal) : ?>
                                         <tr>
-                                            <td></td>
                                             <td><?= $jadwal['waktu'] ?></td>
                                             <td><?= $jadwal['kode'] ?></td>
                                             <td><?= $jadwal['nama'] ?></td>
@@ -271,32 +268,19 @@
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
     <script>
-        let table;
-
         $(document).ready(() => {
 
-            table = $('#table').DataTable({
+            $('#table').DataTable({
 
                 dom: "",
                 responsive: true,
-                order: [1, 'asc'],
+                order: [0, 'asc'],
 
                 columnDefs: [{
-                    targets: [0],
+                    targets: [],
                     orderable: false,
                     searchable: false,
                 }],
             });
-
-            table.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
-                });
-            }).draw();
         });
     </script>

@@ -45,7 +45,7 @@
                                         <td class="text-center"><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= $mahasiswa['status'] ?></td>
                                         <td class="text-center">
-                                            <a href="<?= site_url('/dosen/profilmahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                            <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
                                                 <i class="fa-solid fa-user"></i>
                                             </a>
                                             <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim']) ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">

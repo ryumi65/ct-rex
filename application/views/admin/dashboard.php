@@ -11,13 +11,10 @@
            <!-- Header -->
            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/gedungdash.jpg'); background-position-y: 80%;"></div>
            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
-               <div class="d-flex justify-content-between">
-                   <div class="row gx-3">
-                       <div class="col-auto my-auto">
-                           <div class="avatar avatar-xl position-relative">
-                               <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
-                           </div>
-                       </div>
+               <div class="d-flex align-items-center justify-content-between">
+                   <div class="m-3">
+                       <h5 class="mb-2">Tahun Ajaran</h5>
+                       <p class="mb-0 font-weight-bold text-sm"><?= $tahun['tahun_ajaran'] . ' ' . $tahun['nama'] ?></p>
                    </div>
                    <div class="d-flex d-inline ms-auto">
                        <div>

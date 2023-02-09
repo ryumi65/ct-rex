@@ -81,7 +81,7 @@ class Model_mahasiswa extends CI_Model {
 
     public function presensi_validation($nim, $id_matkul) {
         $query = $this->db->from('ak_krs k')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
-            ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul])->get();
+            ->where(['j.id_tahun' => $this->session->tahun, 'k.nim' => $nim, 'j.id_matkul' => $id_matkul])->get();
 
         if ($query->num_rows() > 0) return true;
 
@@ -91,7 +91,7 @@ class Model_mahasiswa extends CI_Model {
     public function get_presensi($nim, $id_matkul, $pertemuan) {
         $query = $this->db->select('p.kehadiran')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
             ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['k.nim' => $nim, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
+            ->where(['j.id_tahun' => $this->session->tahun, 'k.nim' => $nim, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
 
         return $query->result_array();
     }

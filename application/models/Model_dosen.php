@@ -49,17 +49,15 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_mhs($id_matkul) {
-        $status = ['N', 'T'];
-
         $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_akun a', 'k.nim = a.id_akun')
-            ->where('j.id_matkul', $id_matkul)->where_not_in('k.status', $status)->order_by('k.nim', 'ASC')->get();
+            ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get();
 
         return $query->result_array();
     }
 
     public function set_nilai($id_matkul) {
         $query = $this->db->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-            ->where('m.id_matkul', $id_matkul)->get()->result_array();
+            ->where(['j.id_tahun' => $this->session->tahun, 'm.id_matkul' => $id_matkul])->get()->result_array();
 
         foreach ($query as $krs) {
             $nilai = $this->input->post('nilai-' . $krs['id_krs']);
@@ -77,16 +75,14 @@ class Model_dosen extends CI_Model {
     }
 
     public function get_presensi($id_matkul, $pertemuan = '', $type = '') {
-        $status = ['N', 'T'];
-
         if ($pertemuan === '') {
             $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
                 ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-                ->where('j.id_matkul', $id_matkul)->where_not_in('k.status', $status)->get();
+                ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'j.id_matkul' => $id_matkul])->get();
         } else {
             $query = $this->db->select('p.id_krs, p.kehadiran, p.tanggal, p.pertemuan, j.pukul, j.hari')->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
                 ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-                ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->where_not_in('k.status', $status)->get();
+                ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan])->get();
         }
 
         if ($type === 'validation') {
@@ -100,7 +96,7 @@ class Model_dosen extends CI_Model {
 
     public function set_presensi($id_matkul) {
         $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
-            ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get()->result_array();
+            ->where(['j.id_tahun' => $this->session->tahun, 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get()->result_array();
 
         foreach ($query as $mahasiswa) {
             $presensi = $this->input->post('presensi-' . $mahasiswa['nim'] . '-' . $mahasiswa['id_krs']);
@@ -122,7 +118,7 @@ class Model_dosen extends CI_Model {
 
     public function update_presensi($id_matkul, $pertemuan) {
         $query = $this->db->from('ak_mahasiswa m')->join('ak_krs k', 'm.nim = k.nim')->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')
-            ->where('j.id_matkul', $id_matkul)->order_by('k.nim', 'ASC')->get()->result_array();
+            ->where(['j.id_tahun' => $this->session->tahun, 'j.id_matkul' => $id_matkul])->order_by('k.nim', 'ASC')->get()->result_array();
 
         foreach ($query as $mahasiswa) {
             $presensi = $this->input->post('presensi-' . $mahasiswa['nim'] . '-' . $mahasiswa['id_krs']);
@@ -146,14 +142,14 @@ class Model_dosen extends CI_Model {
     public function jumlah_presensi($id_matkul, $pertemuan) {
         $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
             ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
+            ->where(['j.id_tahun' => $this->session->tahun, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir']);
 
         return $query->count_all_results();
     }
 
     public function get_bap($id_matkul) {
         $query = $this->db->from('ak_bap b')->join('ak_jadwal j', 'b.id_jadwal = j.id_jadwal')
-            ->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->where('m.id_matkul', $id_matkul)->get();
+            ->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->where(['j.id_tahun' => $this->session->tahun, 'm.id_matkul' => $id_matkul])->get();
 
         return $query->result_array();
     }
@@ -161,7 +157,7 @@ class Model_dosen extends CI_Model {
     public function set_bap($id_matkul, $pertemuan) {
         $query = $this->db->from('ak_presensi p')->join('ak_krs k', 'p.id_krs = k.id_krs')
             ->join('ak_jadwal j', 'k.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
-            ->where(['j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir'])->get();
+            ->where(['j.id_tahun' => $this->session->tahun, 'j.id_matkul' => $id_matkul, 'p.pertemuan' => $pertemuan, 'p.kehadiran' => 'Hadir'])->get();
 
         $jumlah = $this->jumlah_presensi($id_matkul, $pertemuan);
 

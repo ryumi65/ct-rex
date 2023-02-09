@@ -102,9 +102,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap w-25"><?= $krs['nama'] ?></td>
                                                 <td><?= $krs['sks'] ?></td>
-                                                <td class="text-wrap"><?= $krs['dosen'] ?></td>
+                                                <td class="text-wrap w-25"><?= $krs['dosen'] ?></td>
                                                 <td><?= $krs['hari'] ?></td>
                                                 <td><?= $krs['waktu'] ?></td>
                                                 <td><?= $krs['ruangan'] ?></td>

@@ -94,7 +94,7 @@
                                             <tr>
                                                 <td></td>
                                                 <td><?= $krs['kode'] ?></td>
-                                                <td class="text-wrap"><?= $krs['nama'] ?></td>
+                                                <td class="text-wrap w-25"><?= $krs['nama'] ?></td>
                                                 <td class="text-center">
                                                     <?php
                                                     if (isset($krs['nilai'])) echo $krs['nilai'];

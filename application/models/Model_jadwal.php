@@ -11,7 +11,7 @@ class Model_jadwal extends CI_Model {
         } else {
             $query = $this->db->select('j.id_jadwal as id, m.id_matkul, m.kode_matkul as kode, m.nama, m.sks, m.semester, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
                 ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
-                ->where(['m.id_prodi' => $id_prodi, 'j.hari' => $hari])->get();
+                ->where(['j.id_tahun' => $this->session->tahun, 'm.id_prodi' => $id_prodi, 'j.hari' => $hari])->get();
         }
 
         return $query->result_array();
@@ -25,7 +25,7 @@ class Model_jadwal extends CI_Model {
 
         $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
             ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
-            ->where(['m.nik_dosen' => $nik, 'j.hari' => $hari])->get();
+            ->where(['j.id_tahun' => $this->session->tahun, 'm.nik_dosen' => $nik, 'j.hari' => $hari])->get();
 
         return $query->result_array();
     }
@@ -39,6 +39,7 @@ class Model_jadwal extends CI_Model {
             'pukul' => "$pukul_awal - $pukul_akhir",
             'id_matkul' => $this->input->post('id_matkul'),
             'id_ruangan' => $this->input->post('id_ruangan'),
+            'id_tahun' => $this->session->tahun,
         ];
 
         return $this->db->insert('ak_jadwal', $data);
@@ -53,6 +54,7 @@ class Model_jadwal extends CI_Model {
             'pukul' => "$pukul_awal - $pukul_akhir",
             'id_matkul' => $this->input->post('id_matkul'),
             'id_ruangan' => $this->input->post('id_ruangan'),
+            'id_tahun' => $this->session->tahun,
         ];
 
         return $this->db->update('ak_jadwal', $data, ['id_jadwal' => $id_jadwal]);

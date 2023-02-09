@@ -13,9 +13,13 @@
                             <div class="mb-3">
                                 <select class="form-select" name="id_tahun">
                                     <option selected disabled>Pilih Tahun Ajaran</option>
-                                    <?php foreach ($listt as $tahun) : ?>
-                                        <option value="<?= $tahun['id_tahun'] ?>"><?= $tahun['tahun_ajaran'] . ' - ' . ucfirst($tahun['nama']) ?></option>
-                                    <?php endforeach ?>
+                                    <?php foreach ($listt as $tahun) :
+                                        if ($this->session->tahun === $tahun['id_tahun']) : ?>
+                                            <option selected value="<?= $tahun['id_tahun'] ?>"><?= $tahun['tahun_ajaran'] . ' - ' . $tahun['nama'] ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $tahun['id_tahun'] ?>"><?= $tahun['tahun_ajaran'] . ' - ' . $tahun['nama'] ?></option>
+                                    <?php endif;
+                                    endforeach; ?>
                                 </select>
                             </div>
                             <div class="text-end">

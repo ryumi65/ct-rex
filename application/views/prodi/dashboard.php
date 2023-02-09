@@ -22,35 +22,35 @@
             <div class="row g-3 mt-3">
 
                 <!-- Info -->
-                <div class="col-12 mt-0 mb-3 d-none d-sm-block">
+                <div class="col-12 mt-0 mb-3 d-none d-md-block">
                     <div class="card z-index-2">
-                        <div class="card-body d-flex d-inline flex-wrap justify-content-around p-1">
+                        <div class="card-body d-flex d-inline justify-content-around p-1">
                             <div class="text-center text-dark">
-                                <p class="fs-6 fw-bold mb-0"><u>Mahasiswa Aktif</u></p>
-                                <p class="fs-3 fw-bolder mb-0"><?= $mhsaktif ?></p>
-                                <p class="fs-6 fw-bold mb-0">Mahasiswa</p>
+                                <p class="fs-6 fw-bold my-0"><u>Mahasiswa Aktif</u></p>
+                                <h3 class="text-center my-0"><?= $mhsaktif ?></h3>
+                                <p class="fs-6 fw-bold my-0">Mahasiswa</p>
                             </div>
                             <div class="text-center text-dark">
-                                <p class="fs-6 fw-bold mb-0"><u>Mahasiswa Non-Aktif</u></p>
-                                <p class="fs-3 fw-bolder mb-0"><?= $mhscuti + $mhskeluar ?></p>
-                                <p class="fs-6 fw-bold mb-0">Mahasiswa</p>
+                                <p class="fs-6 fw-bold my-0"><u>Mahasiswa Non-Aktif</u></p>
+                                <h3 class="text-center my-0"><?= $mhscuti + $mhskeluar ?></h3>
+                                <p class="fs-6 fw-bold my-0">Mahasiswa</p>
                             </div>
                             <div class="text-center text-dark">
-                                <p class="fs-6 fw-bold mb-0"><u>Mahasiswa Lulus</u></p>
-                                <p class="fs-3 fw-bolder mb-0"><?= $mhslulus ?></p>
-                                <p class="fs-6 fw-bold mb-0">Mahasiswa</p>
+                                <p class="fs-6 fw-bold my-0"><u>Mahasiswa Lulus</u></p>
+                                <h3 class="text-center my-0"><?= $mhslulus ?></h3>
+                                <p class="fs-6 fw-bold my-0">Mahasiswa</p>
                             </div>
                             <div class="text-center text-dark">
-                                <p class="fs-6 fw-bold mb-0"><u>Dosen Aktif</u></p>
-                                <p class="fs-3 fw-bolder mb-0"><?= $dsnaktif ?></p>
-                                <p class="fs-6 fw-bold mb-0">Dosen</p>
+                                <p class="fs-6 fw-bold my-0"><u>Dosen Aktif</u></p>
+                                <h3 class="text-center my-0"><?= $dsnaktif ?></h3>
+                                <p class="fs-6 fw-bold my-0">Dosen</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Info Small -->
-                <div class="col-12 mt-0 mb-3 d-block d-sm-none">
+                <div class="col-12 mt-0 mb-3 d-block d-md-none">
                     <div class="card z-index-2">
                         <div class="card-body p-3">
                             <div class="row text-dark">

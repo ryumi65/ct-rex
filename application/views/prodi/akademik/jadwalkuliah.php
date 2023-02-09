@@ -67,10 +67,10 @@
                                 <?php foreach ($listj as $jadwal) : ?>
                                     <tr>
                                         <td></td>
-                                        <td class="text-wrap"><?= $jadwal['kode'] . ' - ' . $jadwal['nama'] ?></td>
+                                        <td class="text-wrap w-25"><?= $jadwal['kode'] . ' - ' . $jadwal['nama'] ?></td>
                                         <td class="text-center"><?= $jadwal['sks'] ?></td>
                                         <td class="text-center"><?= $jadwal['semester'] ?></td>
-                                        <td class="text-wrap">
+                                        <td class="text-wrap w-25">
                                             <?php if (isset($jadwal['dosen'])) echo $jadwal['dosen'];
                                             else echo '-'; ?>
                                         </td>

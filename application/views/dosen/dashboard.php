@@ -23,7 +23,7 @@
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
-                <div class="d-flex align-content-center justify-content-between flex-wrap">
+                <div class="d-flex align-content-center justify-content-between">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
@@ -37,16 +37,36 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto my-3 my-md-0">
-                        <div class="fs-6 fs-md-5">
-                            <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
-                            <h3 class="text-center my-0"><?= $mhswali ?></h3>
-                            <h6 class="text-center my-0">Mahasiswa</h6>
+                    <div class="d-none d-md-block">
+                        <div class="d-flex d-inline ms-auto my-3 my-md-0">
+                            <div class="fs-6 fs-md-5">
+                                <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
+                                <h3 class="text-center my-0"><?= $mhswali ?></h3>
+                                <h6 class="text-center my-0">Mahasiswa</h6>
+                            </div>
+                            <div>
+                                <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
+                                <h3 class="text-center my-0"><?= $sks ?></h3>
+                                <h6 class="text-center my-0">sks</h6>
+                            </div>
                         </div>
-                        <div>
-                            <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Small -->
+            <div class="col-12 my-3 d-block d-md-none">
+                <div class="card z-index-2 flex-wrap">
+                    <div class="card-body d-flex d-inline justify-content-around p-1">
+                        <div class="text-center text-dark">
+                            <p class="fs-6 fw-bold my-0"><u>Mahasiswa Wali</u></p>
+                            <h3 class="text-center my-0"><?= $mhswali ?></h3>
+                            <p class="fs-6 fw-bold my-0">Mahasiswa</p>
+                        </div>
+                        <div class="text-center text-dark">
+                            <p class="fs-6 fw-bold my-0"><u>sks Mengajar</u></p>
                             <h3 class="text-center my-0"><?= $sks ?></h3>
-                            <h6 class="text-center my-0">sks</h6>
+                            <p class="fs-6 fw-bold my-0">sks</p>
                         </div>
                     </div>
                 </div>

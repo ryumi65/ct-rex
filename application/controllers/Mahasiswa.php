@@ -342,7 +342,7 @@ class Mahasiswa extends CI_Controller {
             $jumlah_ip = 0;
             $jumlah_sks = 0;
 
-            $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
+            $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i, 'Y');
 
             foreach ($list_krs as $value) {
                 if (isset($value['nilai'])) {

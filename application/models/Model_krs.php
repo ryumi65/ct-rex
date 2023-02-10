@@ -26,7 +26,7 @@ class Model_krs extends CI_Model {
 
     public function get_mk($nim, $semester) {
         $this->db->from('ak_matkul m')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-            ->where(['k.status' => 'Y', 'k.nim' => $nim, 'm.semester' => $semester]);
+            ->where(['k.nim' => $nim, 'm.semester' => $semester]);
 
         return $this->db->count_all_results();
     }
@@ -60,10 +60,16 @@ class Model_krs extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_krs_smt($nim, $semester) {
-        $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai')
-            ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-            ->where(['k.status' => 'Y', 'k.nim' => $nim, 'm.semester' => $semester])->get();
+    public function get_krs_smt($nim, $semester, $status = '') {
+        if ($status === '') {
+            $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['k.nim' => $nim, 'm.semester' => $semester])->get();
+        } else {
+            $query = $this->db->select('j.id_jadwal as id, m.kode_matkul as kode, m.nama, m.sks, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan, k.status, k.nilai')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['k.status' => $status, 'k.nim' => $nim, 'm.semester' => $semester])->get();
+        }
 
         return $query->result_array();
     }

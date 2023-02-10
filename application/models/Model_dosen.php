@@ -71,6 +71,33 @@ class Model_dosen extends CI_Model {
 
                 $this->db->update('ak_krs', $data, ['id_krs' => $krs['id_krs']]);
             }
+
+            $this->check_nilai($krs['nim']);
+        }
+    }
+
+    private function check_nilai($nim) {
+        $listk = $this->get_db('ak_krs', ['nim' => $nim], 'result');
+        $semester_lama = 0;
+        $semester_baru = 0;
+        $status = false;
+
+        foreach ($listk as $krs) {
+            if (!isset($krs['nilai'])) {
+                $status = false;
+                break;
+            }
+
+            $status = true;
+        }
+
+        if ($status) {
+            $mahasiswa = $this->get_db('ak_mahasiswa', ['nim' => $nim]);
+            $semester_lama = intval($mahasiswa['semester']);
+            $semester_baru = $semester_lama + 1;
+
+            $this->db->update('ak_mahasiswa', ['semester' => $semester_baru], ['nim' => $nim]);
+            $this->db->update('ak_akun', ['status' => 'N'], ['id_akun' => $nim]);
         }
     }
 

@@ -135,7 +135,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Status Dosen</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="status_dosen">
+                                    <select class="form-select" name="status_dosen" disabled>
                                         <option selected disabled>Pilih Status Dosen</option>
                                         <?php for ($i = 0; $i < count($status_dosen); $i++) : ?>
                                             <?php if ($matkul['status_dosen'] === $status_dosen[$i]) : ?>
@@ -150,7 +150,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label>Status Kerja</label>
                                 <div class="mb-3">
-                                    <select class="form-select" name="status_kerja">
+                                    <select class="form-select" name="status_kerja" disabled>
                                         <option selected disabled>Pilih Status Kerja</option>
                                         <?php for ($i = 0; $i < count($status_kerja); $i++) : ?>
                                             <?php if ($matkul['status_kerja'] === $status_kerja[$i]) : ?>

@@ -67,118 +67,98 @@
 
                     <!-- Mahasiswa -->
                     <div class="tab-pane fade show active" id="mahasiswa-tab-pane" role="tabpanel" aria-labelledby="mahasiswa-tab" tabindex="0">
-
-                        <!-- Judul -->
-                        <div class="card my-3">
-                            <div class="d-flex justify-content-between p-3">
-                                <h5 class="mb-0">Profil Anda</h5>
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between p-3">
+                                <h5 class="mb-0">Profil Mahasiswa</h5>
                                 <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm mb-0">Ubah Profil</a>
                             </div>
-                        </div>
-
-                        <div class="row g-2 mt-2">
-
-                            <!-- Left Content -->
-                            <div class="col-12 col-md-5 my-0">
-
-                                <!-- Pertama -->
-                                <div class="col-12 mt-0 mb-3">
-                                    <div class="card mb-3">
-                                        <div class="card-header pb-0">
-                                            <h4>Nama</h4>
-                                        </div>
-                                        <div class="card-body p-3">
-                                            <div class="row text-dark">
-                                                <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
-                                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['nama'] ?></p>
-                                                <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
-                                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['nim'] ?></p>
-                                                <p class="col-6 fs-6 fw-bold">Tempat Lahir</p>
-                                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['tempat_lahir'] ?></p>
-                                                <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['tanggal_lahir'] ?></p>
-                                            </div>
-                                        </div>
+                            <div class="card-body row g-3 p-3 pt-0">
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Induk Mahasiswa</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nim" class="form-control" placeholder="-" value="<?= $mahasiswa['nim'] ?>" readonly>
                                     </div>
                                 </div>
-
-                                <!-- Kedua -->
-                                <div class="card mb-3">
-                                    <div class="card-header pb-0">
-                                        <h4>Nama</h4>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Jenis Kelamin</p>
-                                            <p class="col-6 fs-6">: &nbsp;
-                                                <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
-                                                <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
-                                                <?php else : ?>
-                                                <?php endif ?>
-                                            </p>
-                                            <p class="col-6 fs-6 fw-bold">Agama</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['agama'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Nomer Handphone</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['no_hp'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Email</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['email'] ?></p>
-                                        </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nama Lengkap</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nama" class="form-control" placeholder="-" value="<?= $mahasiswa['nama'] ?>" readonly>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Right Content -->
-                            <div class="col-12 col-md-6 my-0">
-
-                                <!-- Pertama -->
-                                <div class="card mb-3">
-                                    <div class="card-header pb-0">
-                                        <h4>Nama</h4>
-                                    </div>
-
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Program Studi</p>
-                                            <p class="col-6 fs-6">: &nbsp;
-                                                <?php foreach ($listp as $prodi) : ?>
-                                                    <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
-                                                        <?= $prodi['nama'] ?>
-                                                    <?php endif ?>
-                                                <?php endforeach ?>
-                                            </p>
-                                            <p class="col-6 fs-6 fw-bold">Tahun Angkatan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['agama'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Kewarganegaraan</p>
-                                            <p class="col-6 fs-6">: &nbsp;
-                                                <?php if ($mahasiswa['kewarganegaraan'] === 'WNI') : ?>
-                                                <?php elseif ($mahasiswa['kewarganegaraan'] === 'WNA') : ?>
-                                                <?php else : ?>
-                                                <?php endif ?>
-                                            </p>
-                                            <p class="col-6 fs-6 fw-bold">Nomor Induk Kependudukan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['nik'] ?></p>
-                                        </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tempat Lahir</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="tempat_lahir" class="form-control" placeholder="-" value="<?= $mahasiswa['tempat_lahir'] ?>" readonly>
                                     </div>
                                 </div>
-
-                                <!-- Kedua -->
-                                <div class="card mb-3">
-                                    <div class="card-header pb-0">
-                                        <h4>Nama</h4>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tanggal Lahir</label>
+                                    <div class="mb-3">
+                                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="-" value="<?= $mahasiswa['tanggal_lahir'] ?>" readonly>
                                     </div>
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Alamat Tempat Tinggal</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['alamat'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Desa/Kelurahan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['agama'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Kecamatan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['no_hp'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Kabupaten/Kota</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['email'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Kabupaten/Kota</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['email'] ?></p>
-                                        </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Jenis Kelamin</label>
+                                    <div class="mb-3">
+                                        <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
+                                            <input type="text" name="jenis_kelamin" class="form-control" value="Laki-laki" readonly>
+                                        <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
+                                            <input type="text" name="jenis_kelamin" class="form-control" value="Perempuan" readonly>
+                                        <?php else : ?>
+                                            <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" readonly>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Agama</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="agama" class="form-control" placeholder="-" value="<?= $mahasiswa['agama'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Handphone</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="no_hp" class="form-control" placeholder="-" value="<?= $mahasiswa['no_hp'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input type="email" name="email" class="form-control" placeholder="-" value="<?= $mahasiswa['email'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Program Studi</label>
+                                    <div class="mb-3">
+                                        <?php foreach ($listp as $prodi) : ?>
+                                            <?php if ($prodi['id_prodi'] === $mahasiswa['id_prodi']) : ?>
+                                                <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" readonly>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tahun Angkatan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="tahun_angkatan" class="form-control" placeholder="-" value="<?= $mahasiswa['tahun_angkatan'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Kewarganegaraan</label>
+                                    <div class="mb-3">
+                                        <?php if ($mahasiswa['kewarganegaraan'] === 'WNI') : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" readonly>
+                                        <?php elseif ($mahasiswa['kewarganegaraan'] === 'WNA') : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Asing" readonly>
+                                        <?php else : ?>
+                                            <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" readonly>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Induk Kependudukan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nik" class="form-control" placeholder="-" value="<?= $mahasiswa['nik'] ?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -187,130 +167,135 @@
 
                     <!-- Orang Tua -->
                     <div class="tab-pane fade" id="orangtua-tab-pane" role="tabpanel" aria-labelledby="orangtua-tab" tabindex="0">
-
-                        <div class="card my-3">
-                            <div class="d-flex justify-content-between p-3">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between p-3">
                                 <h5 class="mb-0">Profil Orang Tua</h5>
                                 <a href="<?= site_url('mahasiswa/profil/edit/' . $mahasiswa['nim']) ?>" class="btn btn-primary btn-sm mb-0">Ubah Profil</a>
                             </div>
-                        </div>
-
-                        <div class="row g-3 mt-3">
-
-                            <!-- Left Content -->
-                            <div class="col-12 col-md-4 my-0">
-
-                                <!-- AYAH -->
-                                <div class="card mb-3">
-                                    <div class="card-header pb-0">
-                                        <h6>Data Ayah</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nama_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nik_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_ayah'] ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Data Ibu -->
-                                <div class="card mb-3">
-                                    <div class="card-header p-3 pb-0">
-                                        <h6>Data Ibu</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nama_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nik_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_ibu'] ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Data Wali -->
-                                <div class="card mb-3">
-                                    <div class="card-header p-3 pb-0">
-                                        <h6>Data Wali</h6>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nama_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['nik_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_wali'] ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Right Content -->
-                            <div class="col-12 col-md-8 my-0">
+                            <div class="card-body row g-3 p-3 pt-0">
 
                                 <!-- Ayah -->
-                                <div class="card mb-3">
-
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Pekerjaan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pekerjaan_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Penghasilan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['penghasilan_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_ayah'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_ayah'] ?></p>
-                                        </div>
+                                <div class="col-12">
+                                    <h6 class="mb-0">Data Ayah</h6>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Induk Kependudukan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nik_ayah" class="form-control" placeholder="-" value="<?= $ortu['nik_ayah'] ?>" readonly>
                                     </div>
-
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nama Lengkap</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nama_ayah" class="form-control" placeholder="-" value="<?= $ortu['nama_ayah'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tanggal Lahir</label>
+                                    <div class="mb-3">
+                                        <input type="date" name="tanggal_lahir_ayah" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_ayah'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pendidikan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pendidikan_ayah" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_ayah'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pekerjaan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pekerjaan_ayah" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_ayah'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Penghasilan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="penghasilan_ayah" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_ayah'] ?>" readonly>
+                                    </div>
                                 </div>
 
                                 <!-- Ibu -->
-                                <div class="card mb-3">
-
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Pekerjaan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pekerjaan_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Penghasilan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['penghasilan_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_ibu'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_ibu'] ?></p>
-                                        </div>
+                                <div class="col-12">
+                                    <hr class="bg-dark">
+                                    <h6 class="mb-0">Data Ibu</h6>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Induk Kependudukan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nik_ibu" class="form-control" placeholder="-" value="<?= $ortu['nik_ibu'] ?>" readonly>
                                     </div>
-
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nama Lengkap</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nama_ibu" class="form-control" placeholder="-" value="<?= $ortu['nama_ibu'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tanggal Lahir</label>
+                                    <div class="mb-3">
+                                        <input type="date" name="tanggal_lahir_ibu" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_ibu'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pendidikan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pendidikan_ibu" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_ibu'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pekerjaan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_ibu'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Penghasilan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="penghasilan_ibu" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_ibu'] ?>" readonly>
+                                    </div>
                                 </div>
 
                                 <!-- Wali -->
-                                <div class="card mb-3">
-                                    <div class="card-body p-3">
-                                        <div class="row text-dark">
-                                            <p class="col-6 fs-6 fw-bold">Pekerjaan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pekerjaan_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Penghasilan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['penghasilan_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['tanggal_lahir_wali'] ?></p>
-                                            <p class="col-6 fs-6 fw-bold">Pendidikan</p>
-                                            <p class="col-6 fs-6">: &nbsp; <?= $ortu['pendidikan_wali'] ?></p>
-                                        </div>
+                                <div class="col-12">
+                                    <hr class="bg-dark">
+                                    <h6 class="mb-0">Data Wali</h6>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nomor Induk Kependudukan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nik_wali" class="form-control" placeholder="-" value="<?= $ortu['nik_wali'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Nama Lengkap</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="nama_wali" class="form-control" placeholder="-" value="<?= $ortu['nama_wali'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Tanggal Lahir</label>
+                                    <div class="mb-3">
+                                        <input type="date" name="tanggal_lahir_wali" class="form-control" placeholder="-" value="<?= $ortu['tanggal_lahir_wali'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pendidikan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pendidikan_wali" class="form-control" placeholder="-" value="<?= $ortu['pendidikan_wali'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Pekerjaan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="pekerjaan_wali" class="form-control" placeholder="-" value="<?= $ortu['pekerjaan_wali'] ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Penghasilan</label>
+                                    <div class="mb-3">
+                                        <input type="text" name="penghasilan_wali" class="form-control" placeholder="-" value="<?= $ortu['penghasilan_wali'] ?>" readonly>
                                     </div>
                                 </div>
                             </div>

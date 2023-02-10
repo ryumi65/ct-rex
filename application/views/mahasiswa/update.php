@@ -41,9 +41,7 @@
                             <div class="tab-pane fade show active" id="mahasiswa-tab-pane" role="tabpanel" aria-labelledby="mahasiswa-tab" tabindex="0">
 
                                 <!-- Judul -->
-                                <div class="mb-3">
-                                    <h5 class="mb-0">Ubah Profil Mahasiswa</h5>
-                                </div>
+                                <h5>Ubah Profil Mahasiswa</h5>
 
                                 <!-- Form -->
                                 <?= validation_errors() ?>
@@ -217,9 +215,7 @@
                             <div class="tab-pane fade" id="orangtua-tab-pane" role="tabpanel" aria-labelledby="orangtua-tab" tabindex="0">
 
                                 <!-- Judul -->
-                                <div class="mb-3">
-                                    <h5 class="mb-0">Ubah Profil Orang Tua/Wali</h5>
-                                </div>
+                                <h5>Ubah Profil Orang Tua/Wali</h5>
 
                                 <!-- Form -->
                                 <?= form_open('mahasiswa/update_ortu/' . $mahasiswa['nim']) ?>
@@ -227,9 +223,7 @@
 
                                     <!-- Ayah -->
                                     <div class="col-12">
-                                        <div class="mb-3">
-                                            <h6>Data Ayah</h6>
-                                        </div>
+                                        <h6 class="mb-0">Data Ayah</h6>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
@@ -289,10 +283,8 @@
 
                                     <!-- Ibu -->
                                     <div class="col-12">
-                                        <div class="mb-3">
-                                            <hr class="bg-dark">
-                                            <h6>Data Ibu</h6>
-                                        </div>
+                                        <hr class="bg-dark">
+                                        <h6 class="mb-0">Data Ibu</h6>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>
@@ -352,10 +344,8 @@
 
                                     <!-- Wali -->
                                     <div class="col-12">
-                                        <div class="mb-3">
-                                            <hr class="bg-dark">
-                                            <h6>Data Wali</h6>
-                                        </div>
+                                        <hr class="bg-dark">
+                                        <h6 class="mb-0">Data Wali</h6>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Nomor Induk Kependudukan</label>

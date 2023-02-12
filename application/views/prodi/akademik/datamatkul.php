@@ -103,17 +103,14 @@
         let table;
 
         $(document).ready(() => {
-
             table = $('#table').DataTable({
-
-                order: [2, 'asc'],
-
                 columnDefs: [{
                     targets: [0, 7],
                     orderable: false,
                     searchable: false,
                 }],
-
+                order: [2, 'asc'],
+                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

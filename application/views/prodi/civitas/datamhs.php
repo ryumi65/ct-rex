@@ -119,14 +119,14 @@
                                 });
                         });
                 },
-                stateSave: true,
-                order: [1, 'asc'],
-
                 columnDefs: [{
                     targets: [6],
                     orderable: false,
                     searchable: false,
                 }],
+                order: [1, 'asc'],
+                stateSave: true,
+                responsive: true,
             });
         });
     </script>

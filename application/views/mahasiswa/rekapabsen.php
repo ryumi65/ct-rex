@@ -72,17 +72,15 @@
         let table;
 
         $(document).ready(() => {
-
             table = $('#table').DataTable({
-
-                dom: "",
-                paging: false,
-
                 columnDefs: [{
                     targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
                     orderable: false,
                     searchable: false,
                 }],
+                dom: "",
+                paging: false,
+                responsive: true,
             });
         });
     </script>

@@ -87,16 +87,14 @@
             let table;
 
             $(document).ready(() => {
-
                 table = $(`#table${i}`).DataTable({
-
-                    order: [5, 'asc'],
-
                     columnDefs: [{
                         targets: [0, 7],
                         orderable: false,
                         searchable: false,
                     }],
+                    order: [5, 'asc'],
+                    responsive: true,
                 });
 
                 table.on('order.dt search.dt', () => {

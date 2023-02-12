@@ -111,15 +111,14 @@
                                 });
                         });
                 },
-                stateSave: true,
-                order: [1, 'asc'],
-
                 columnDefs: [{
                     targets: [5],
                     orderable: false,
                     searchable: false,
                 }],
-
+                order: [1, 'asc'],
+                responsive: true,
+                stateSave: true,
             });
         });
     </script>

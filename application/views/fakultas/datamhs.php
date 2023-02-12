@@ -7,7 +7,7 @@
                         <h5 class="mb-0">Daftar Mahasiswa</h5>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped align-items-center mb-0 ps-3" id="table">
+                        <table class="table align-items-center w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -28,7 +28,7 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-sm">
+                            <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listd as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
@@ -66,17 +66,15 @@
         let table;
 
         $(document).ready(() => {
-
             table = $('#table').DataTable({
-
-                deferRender: true,
-                order: [2, 'asc'],
-
                 columnDefs: [{
                     targets: [0],
                     orderable: false,
                     searchable: false,
                 }],
+                deferRender: true,
+                order: [2, 'asc'],
+                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

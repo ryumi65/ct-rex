@@ -310,18 +310,16 @@
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         $(document).ready(() => {
-
             $('#table').DataTable({
-
-                dom: "",
-                paging: false,
-                order: [0, 'asc'],
-
                 columnDefs: [{
                     targets: [],
                     orderable: false,
                     searchable: false,
                 }],
+                dom: "",
+                paging: false,
+                order: [0, 'asc'],
+                responsive: true,
             });
         });
     </script>

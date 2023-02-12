@@ -41,15 +41,14 @@
         $(document).ready(() => {
 
             table = $('#table').DataTable({
-
-                deferRender: true,
-                order: [2, 'asc'],
-
                 columnDefs: [{
                     targets: [0],
                     orderable: false,
                     searchable: false,
                 }],
+                deferRender: true,
+                order: [2, 'asc'],
+                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

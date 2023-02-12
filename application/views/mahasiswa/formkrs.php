@@ -172,18 +172,16 @@
                 let table;
 
                 $(document).ready(() => {
-
                     table = $(`#table${i}`).DataTable({
-
-                        dom: "",
-                        paging: false,
-                        order: [1, 'asc'],
-
                         columnDefs: [{
                             targets: [0, 8],
                             orderable: false,
                             searchable: false,
                         }],
+                        dom: "",
+                        paging: false,
+                        order: [1, 'asc'],
+                        responsive: true,
                     });
 
                     table.on('order.dt search.dt', () => {

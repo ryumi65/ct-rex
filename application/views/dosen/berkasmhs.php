@@ -279,19 +279,16 @@
             let tablekrs;
 
             $(document).ready(() => {
-
                 tablekrs = $(`#tablekrs${i}`).DataTable({
-
-                    dom: "",
-                    paging: false,
-                    order: [1, 'asc'],
-
                     columnDefs: [{
                         targets: [0],
                         orderable: false,
                         searchable: false,
                     }],
-
+                    dom: "",
+                    order: [1, 'asc'],
+                    paging: false,
+                    responsive: true,
                 });
 
                 tablekrs.on('order.dt search.dt', () => {
@@ -309,19 +306,16 @@
             let tablekhs;
 
             $(document).ready(() => {
-
                 tablekhs = $(`#tablekhs${i}`).DataTable({
-
-                    dom: "",
-                    paging: false,
-                    order: [1, 'asc'],
-
                     columnDefs: [{
                         targets: [0],
                         orderable: false,
                         searchable: false,
                     }],
-
+                    dom: "",
+                    order: [1, 'asc'],
+                    paging: false,
+                    responsive: true,
                 });
 
                 tablekhs.on('order.dt search.dt', () => {

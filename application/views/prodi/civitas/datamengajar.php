@@ -78,17 +78,15 @@
         for (let i = 0; i < 7; i++) {
 
             $(document).ready(() => {
-
                 $(`#table${i}`).DataTable({
-
-                    dom: "",
-                    order: [2, 'asc'],
-
                     columnDefs: [{
                         targets: [0, 4],
                         orderable: false,
                         searchable: false,
                     }],
+                    dom: "",
+                    order: [2, 'asc'],
+                    responsive: true,
                 });
             });
         }

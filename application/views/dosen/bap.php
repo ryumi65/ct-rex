@@ -118,16 +118,15 @@
         $(document).ready(() => {
 
             table = $('#table').DataTable({
-
-                dom: "",
-                paging: false,
-                order: [0, 'asc'],
-
                 columnDefs: [{
                     targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],
+                dom: "",
+                order: [0, 'asc'],
+                paging: false,
+                responsive: true,
             });
         });
     </script>

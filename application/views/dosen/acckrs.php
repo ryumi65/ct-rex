@@ -168,16 +168,14 @@
         let table;
 
         $(document).ready(() => {
-
             table = $('#table').DataTable({
-
-                order: [1, 'asc'],
-
                 columnDefs: [{
                     targets: [0, 5],
                     orderable: false,
                     searchable: false,
                 }],
+                order: [1, 'asc'],
+                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {
@@ -196,18 +194,16 @@
             let table<?= $mahasiswa['nim'] ?>;
 
             $(document).ready(() => {
-
                 table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
-
-                    dom: "",
-                    paging: false,
-                    order: [1, 'asc'],
-
                     columnDefs: [{
                         targets: [0, 7, 8],
                         orderable: false,
                         searchable: false,
                     }],
+                    dom: "",
+                    order: [1, 'asc'],
+                    paging: false,
+                    responsive: true,
                 });
 
                 table<?= $mahasiswa['nim'] ?>.on('order.dt search.dt', () => {

@@ -96,16 +96,14 @@
         let table;
 
         $(document).ready(() => {
-
             table = $('#table').DataTable({
-
-                order: [2, 'asc'],
-
                 columnDefs: [{
                     targets: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
                     orderable: false,
                     searchable: false,
                 }],
+                order: [2, 'asc'],
+                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

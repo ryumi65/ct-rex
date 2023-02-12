@@ -70,7 +70,14 @@
                                 <div class="modal-dialog modal-xl modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi <?= $mahasiswa['nama'] ?></h1>
+                                            <div>
+                                                <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi</h1>
+                                                <p class="mb-0"><?= $mahasiswa['nama'] ?></p>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0"><b>Total sks :</b> <?= $mahasiswa['sks'] ?></p>
+                                                <p class="mb-0"><b>IPK :</b> <?= $mahasiswa['ipk'] ?></p>
+                                            </div>
                                         </div>
                                         <?= form_open('KRS/acc') ?>
                                         <div class="modal-body">

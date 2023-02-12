@@ -26,10 +26,10 @@
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Tahun Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Total sks</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
@@ -39,10 +39,10 @@
                             <tbody class="bg-gray-100 text-dark text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
-                                        <td><?= $mahasiswa['jenis_kelamin'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-center"><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td><?= $mahasiswa['sks'] ?></td>
                                         <td><?= $mahasiswa['status'] ?></td>
                                         <td class="text-center">
                                             <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
@@ -61,10 +61,10 @@
                                         Nama Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Tahun Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        Total sks</th>
                                     <th class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Status Mahasiswa</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
@@ -90,7 +90,7 @@
             $('#table').DataTable({
                 initComplete: function() {
                     this.api()
-                        .columns(3)
+                        .columns(2)
                         .every(function() {
                             var column = this;
                             var select = $('<select class="form-select form-select-sm"><option value="">Seluruh Angkatan</option></select>')

@@ -446,8 +446,8 @@ class Dosen extends CI_Controller {
     //==================== BIMBINGAN ====================//
 
     public function bimbinganakademik() {
-        $lists = [];
         $listm = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+        $lists = [];
 
         foreach ($listm as $mhs) {
             $lists[] = [
@@ -475,11 +475,17 @@ class Dosen extends CI_Controller {
 
 
     public function acckrs() {
-        $lists = [];
         $listm = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+        $lists = [];
 
         foreach ($listm as $mhs) {
             $listj = $this->model_krs->get_krs($mhs['nim'], 'object');
+            $list_sks = $this->model_krs->get_sks($mhs['nim']);
+            $ip = [];
+            $krs = [];
+            $count_ipk = 0;
+            $ipk = 0;
+            $jumlah_sks = 0;
 
             if ($listj->num_rows() > 0) {
                 $result = $listj->result_array();
@@ -495,11 +501,56 @@ class Dosen extends CI_Controller {
                 }
             } else $krs = 'Belum KRS';
 
+            foreach ($list_sks as $value) {
+                if (isset($value['nilai'])) {
+                    if ($value['nilai'] >= 56 && $value['nilai'] <= 100) {
+                        $sks = intval($value['sks']);
+                        $jumlah_sks += $sks;
+                    }
+                }
+            }
+
+            for ($i = 1; $i <= 8; $i++) {
+                $jumlah_krs = 0;
+                $jumlah_ip = 0;
+                $list_krs = $this->model_krs->get_krs_smt($mhs['nim'], $i);
+
+                foreach ($list_krs as $value) {
+                    if (isset($value['nilai'])) {
+                        if ($value['nilai'] >= 80 && $value['nilai'] <= 100) $indeks = 4;
+                        elseif ($value['nilai'] >= 77 && $value['nilai'] < 80) $indeks = 3.75;
+                        elseif ($value['nilai'] >= 74 && $value['nilai'] < 77) $indeks = 3.5;
+                        elseif ($value['nilai'] >= 68 && $value['nilai'] < 74) $indeks = 3;
+                        elseif ($value['nilai'] >= 65 && $value['nilai'] < 68) $indeks = 2.75;
+                        elseif ($value['nilai'] >= 62 && $value['nilai'] < 65) $indeks = 2.5;
+                        elseif ($value['nilai'] >= 56 && $value['nilai'] < 62) $indeks = 2;
+                        elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
+                        elseif ($value['nilai'] < 41) $indeks = 0;
+
+                        $jumlah_krs++;
+                        $jumlah_ip += $indeks;
+                    }
+                }
+
+                if ($jumlah_krs > 0) {
+                    $total_ip = round($jumlah_ip / $jumlah_krs, 2);
+                    $ipk += $total_ip;
+                    $count_ipk++;
+                } else $total_ip = 0;
+
+                array_push($ip, $total_ip);
+            }
+
+            if ($count_ipk > 0) $total_ipk = round($ipk / $count_ipk, 2);
+            else $total_ipk = 0;
+
             $lists[] = [
                 'nim' => $mhs['nim'],
                 'nama' => $mhs['nama'],
                 'jenis_kelamin' => $mhs['jenis_kelamin'],
+                'ipk' => $total_ipk,
                 'krs' => $krs,
+                'sks' => $jumlah_sks,
                 'tahun_angkatan' => $mhs['tahun_angkatan'],
                 'status' => $mhs['status'],
                 'listj' => $this->model_krs->get_krs($mhs['nim']),
@@ -520,9 +571,34 @@ class Dosen extends CI_Controller {
     }
 
     public function daftarmhswali() {
+        $list_mhs = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
+        $mhs = [];
+
+        foreach ($list_mhs as $mahasiswa) {
+            $list_sks = $this->model_krs->get_sks($mahasiswa['nim']);
+            $jumlah_sks = 0;
+
+            foreach ($list_sks as $value) {
+                if (isset($value['nilai'])) {
+                    if ($value['nilai'] >= 56 && $value['nilai'] <= 100) {
+                        $sks = intval($value['sks']);
+                        $jumlah_sks += $sks;
+                    }
+                }
+            }
+
+            $mhs[] = [
+                'nim' => $mahasiswa['nim'],
+                'nama' => $mahasiswa['nama'],
+                'tahun_angkatan' => $mahasiswa['tahun_angkatan'],
+                'sks' => $jumlah_sks,
+                'status' => $mahasiswa['status'],
+            ];
+        }
+
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
-            'listm' => $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result'),
+            'listm' => $mhs,
         ];
 
         $this->load->view('_partials/head');

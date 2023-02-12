@@ -258,8 +258,10 @@ class Dosen extends CI_Controller {
         for ($i = 1; $i <= 16; $i++) {
             $listp = $this->model_dosen->get_presensi($id_matkul, $i);
 
-            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
-            else array_push($pertemuan_validation, 'false');
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) {
+                if (!$this->model_dosen->get_bap($id_matkul, $i)) array_push($pertemuan_validation, 'true');
+                else array_push($pertemuan_validation, 'false');
+            } else array_push($pertemuan_validation, 'false');
 
             foreach ($listp as $presensi) {
                 if ($presensi['pertemuan'] == $i) {
@@ -291,6 +293,11 @@ class Dosen extends CI_Controller {
     public function formbap($id_matkul, $pertemuan) {
         $matkul = $this->model_dosen->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
         if ($matkul['nik_dosen'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        if (!$this->model_dosen->get_presensi($id_matkul, $pertemuan, 'validation')) {
+            $this->session->set_userdata('bapnopresensi', 'Gagal membuat BAP. Tidak ada mahasiswa yang hadir pada presensi.');
+            redirect('dosen/perkuliahan/bap/' . $id_matkul);
+        }
 
         $data = [
             'matkul' => $matkul,

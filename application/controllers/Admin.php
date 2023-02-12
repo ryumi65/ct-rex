@@ -156,6 +156,19 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function listakunmhs() {
+        $data = [
+            'lista' => $this->model_admin->get_akun_mhs(),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/listakun', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
     public function durasikrs() {
         $data = [
             'listt' => $this->model_admin->get_db('ak_tahun'),

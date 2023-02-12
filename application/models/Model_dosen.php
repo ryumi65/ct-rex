@@ -174,11 +174,19 @@ class Model_dosen extends CI_Model {
         return $query->count_all_results();
     }
 
-    public function get_bap($id_matkul) {
-        $query = $this->db->from('ak_bap b')->join('ak_jadwal j', 'b.id_jadwal = j.id_jadwal')
-            ->join('ak_matkul m', 'j.id_matkul = m.id_matkul')->where(['j.id_tahun' => $this->session->tahun, 'm.id_matkul' => $id_matkul])->get();
+    public function get_bap($id_matkul, $pertemuan = '') {
+        if ($pertemuan === '') {
+            $query = $this->db->from('ak_bap b')->join('ak_jadwal j', 'b.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+                ->where(['j.id_tahun' => $this->session->tahun, 'm.id_matkul' => $id_matkul])->get();
 
-        return $query->result_array();
+            return $query->result_array();
+        }
+
+        $query = $this->db->from('ak_bap b')->join('ak_jadwal j', 'b.id_jadwal = j.id_jadwal')->join('ak_matkul m', 'j.id_matkul = m.id_matkul')
+            ->where(['j.id_tahun' => $this->session->tahun, 'm.id_matkul' => $id_matkul, 'b.pertemuan' => $pertemuan])->get();
+
+        if ($query->num_rows() > 0) return true;
+        return false;
     }
 
     public function set_bap($id_matkul, $pertemuan) {

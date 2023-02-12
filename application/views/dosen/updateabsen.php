@@ -44,22 +44,22 @@
                                     <tr class="bg-gradient-primary text-white">
                                         <th class="p-1">
                                             <div class="form-check d-flex justify-content-center">
-                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'table', 'Hadir')">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Hadir')">
                                             </div>
                                         </th>
                                         <th class="p-1">
                                             <div class="form-check d-flex justify-content-center">
-                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'table', 'Izin')">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Izin')">
                                             </div>
                                         </th>
                                         <th class="p-1">
                                             <div class="form-check d-flex justify-content-center">
-                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'table', 'Sakit')">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Sakit')">
                                             </div>
                                         </th>
                                         <th class="p-1">
                                             <div class="form-check d-flex justify-content-center">
-                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'table', 'Alfa')">
+                                                <input class="form-check-input" type="checkbox" name="cb" onchange="cbCheckAll(this, 'cb', 'table', 'Alfa')">
                                             </div>
                                         </th>
                                     </tr>

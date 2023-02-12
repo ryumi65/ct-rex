@@ -3,6 +3,10 @@
         $var = $_SESSION['updatefailed'];
         echo "<script>alert('{$var}')</script>";
         unset($_SESSION['updatefailed']);
+    } elseif (isset($_SESSION['bapnopresensi'])) {
+        $var = $_SESSION['bapnopresensi'];
+        echo "<script>alert('{$var}')</script>";
+        unset($_SESSION['bapnopresensi']);
     } ?>
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
@@ -20,7 +24,7 @@
                 </nav>
             </div>
 
-            <!-- Absensi -->
+            <!-- BAP -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between p-3 pb-0">

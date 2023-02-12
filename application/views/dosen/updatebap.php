@@ -20,34 +20,43 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Berita Acara Perkuliahan <?= $matkul['nama'] ?> Pertemuan <?= $pertemuan ?></h5>
                     </div>
-                    <div class="card-body p-3 pt-0">
-                        <?= form_open('dosen/updatebap/' . $matkul['id_matkul'] . '/' . $pertemuan . '/' . $bap['id_bap']) ?>
+                    <?= form_open('dosen/updatebap/' . $matkul['id_matkul'] . '/' . $pertemuan . '/' . $bap['id_bap']) ?>
+                    <div class="card-body px-3 py-0">
                         <div class="row g-3">
+                            <div class="col-12">
+                                <label>Metode</label>
+                                <select class="form-select" name="metode" required>
+                                    <option selected disabled value="">Pilih Metode Pembelajaran</option>
+                                    <?php $tm_selected = '';
+                                    $tg_selected = '';
+                                    $dr_selected = '';
+
+                                    if ($bap['metode'] === 'Tatap Muka') $tm_selected = 'selected';
+                                    elseif ($bap['metode'] === 'Tugas') $tg_selected = 'selected';
+                                    elseif ($bap['metode'] === 'Daring') $dr_selected = 'selected'; ?>
+                                    <option value="Tatap Muka" <?= $tm_selected ?>>Tatap Muka</option>
+                                    <option value="Tugas" <?= $tg_selected ?>>Tugas</option>
+                                    <option value="Daring" <?= $dr_selected ?>>Daring</option>
+                                </select>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <textarea name="pokok" class="form-control" placeholder="Pokok Bahasan" id="floatingTextPokok" style="height: 200px" required><?= $bap['pokok'] ?></textarea>
-                                    <label for="floatingTextPokok">Isi Pokok Bahasan</label>
+                                    <label for="floatingTextPokok">Pokok Bahasan</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <textarea name="metode" class="form-control" placeholder="Metode Pembelajaran" id="floatingTextMetode" style="height: 200px" required><?= $bap['metode'] ?></textarea>
-                                    <label for="floatingTextMetode">Isi Metode Pembelajaran</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
                                     <textarea name="evaluasi" class="form-control" placeholder="Evaluasi" id="floatingTextEvaluasi" style="height: 200px" required><?= $bap['evaluasi'] ?></textarea>
-                                    <label for="floatingTextEvaluasi">Isi Evaluasi</label>
+                                    <label for="floatingTextEvaluasi">Evaluasi</label>
                                 </div>
-                            </div>
-
-                            <div class="d-flex justify-content-end text-center">
-                                <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
                             </div>
                         </div>
-                        </form>
                     </div>
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button type="submit" class="btn btn-primary mt-2 mb-0">Simpan</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

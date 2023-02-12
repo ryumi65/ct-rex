@@ -39,16 +39,16 @@
                     </div>
                     <div class="d-none d-md-block">
                         <div class="d-flex d-inline ms-auto my-3 my-md-0">
-                            <div class="fs-6 fs-md-5">
+                            <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali') ?>">
                                 <h6 class="mx-3 my-0"><u>Mahasiswa Wali</u></h6>
                                 <h3 class="text-center my-0"><?= $mhswali ?></h3>
                                 <h6 class="text-center my-0">Mahasiswa</h6>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>">
                                 <h6 class="mx-3 my-0"><u>sks Mengajar</u></h6>
                                 <h3 class="text-center my-0"><?= $sks ?></h3>
                                 <h6 class="text-center my-0">sks</h6>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -74,20 +74,6 @@
 
             <!-- Content -->
             <div class="row g-3 mt-3">
-
-                <!-- Riwayat sks -->
-                <div class="col-12 mt-0 mb-3">
-                    <div class="card">
-                        <div class="card-header p-3 pb-0">
-                            <h5>Riwayat sks yang Diampu</h5>
-                        </div>
-                        <div class="card-body p-3 pt-0">
-                            <div class="chart">
-                                <canvas id="chart1" class="chart-canvas" height="300"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Jadwal Kuliah -->
                 <div class="col-12 mt-0 mb-3">
@@ -129,6 +115,20 @@
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Riwayat sks -->
+                <div class="col-12 mt-0 mb-3">
+                    <div class="card">
+                        <div class="card-header p-3 pb-0">
+                            <h5>Riwayat sks yang Diampu</h5>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="chart">
+                                <canvas id="chart1" class="chart-canvas" height="300"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
             data: {
                 labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
                 datasets: [{
-                    label: "Perempuan",
+                    label: "sks",
                     tension: 0.3,
                     borderWidth: 0,
                     pointRadius: 0,

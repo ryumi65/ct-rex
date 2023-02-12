@@ -55,6 +55,21 @@ class model_admin extends CI_Model {
         return $this->db->count_all_results();
     }
 
+    public function get_akun_mhs() {
+        $query = $this->db->select('m.nim, m.nama, m.tahun_angkatan, m.status as status_mhs, a.status as status_akun')
+            ->from('ak_akun a')->join('ak_mahasiswa m', 'a.id_akun = m.nim')->get();
+
+        return $query->result_array();
+    }
+
+    public function set_status_akun($id_akun) {
+        $data = [
+            'status' => $this->input->post('status'),
+        ];
+
+        return $this->db->update('ak_akun', $data, ['id_akun' => $id_akun]);
+    }
+
     public function set_durasi() {
         $listd = $this->model_admin->get_db('ak_durasi');
         $id_tahun = $this->input->post('id_tahun');

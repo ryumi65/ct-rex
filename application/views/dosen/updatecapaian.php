@@ -23,13 +23,17 @@
                     <?= form_open('dosen/updatecapaian/' . $matkul['id_matkul']) ?>
                     <div class="card-body px-3 py-0">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <label>CPL Prodi</label>
-                                <input type="text" name="cpl_prodi" class="form-control" placeholder="CPL Prodi" value="<?= $matkul['cpl_prodi'] ?>" required>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="cpl_prodi" class="form-control" placeholder="CPL Prodi" id="floatingTextCplProdi" style="height: 200px" required><?= $matkul['cpl_prodi'] ?></textarea>
+                                    <label for="floatingTextCplProdi">CPL Prodi</label>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label>CP Mata Kuliah</label>
-                                <input type="text" name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" value="<?= $matkul['cp_mk'] ?>" required>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="cp_mk" class="form-control" placeholder="CP Mata Kuliah" id="floatingTextCpMk" style="height: 200px" required><?= $matkul['cp_mk'] ?></textarea>
+                                    <label for="floatingTextCpMk">CP Mata Kuliah</label>
+                                </div>
                             </div>
                         </div>
                     </div>

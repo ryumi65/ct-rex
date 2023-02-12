@@ -23,28 +23,25 @@
                     <?= form_open('dosen/inputbap/' . $matkul['id_matkul'] . '/' . $pertemuan) ?>
                     <div class="card-body px-3 py-0">
                         <div class="row g-3">
+                            <div class="col-12">
+                                <label>Metode</label>
+                                <select class="form-select" name="metode" required>
+                                    <option selected disabled value="">Pilih Metode Pembelajaran</option>
+                                    <option value="Tatap Muka">Tatap Muka</option>
+                                    <option value="Tugas">Tugas</option>
+                                    <option value="Daring">Daring</option>
+                                </select>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <textarea name="pokok" class="form-control" placeholder="Pokok Bahasan" id="floatingTextPokok" style="height: 200px" required></textarea>
-                                    <label for="floatingTextPokok">Isi Pokok Bahasan</label>
+                                    <label for="floatingTextPokok">Pokok Bahasan</label>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Metode</label>
-                                <div class="mb-3">
-                                    <select class="form-select" name="metode" required>
-                                        <option selected disabled value="">Pilih Metode Pembelajaran</option>
-                                            <option value="Kuliah Tatap Muka">Kuliah Tatap Muka</option>
-                                            <option value="Tugas">Tugas</option>
-                                            <option value="Kuliah Daring">Kuliah Daring</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
+                            <div class="col-md-6">
                                 <div class="form-floating">
                                     <textarea name="evaluasi" class="form-control" placeholder="Evaluasi" id="floatingTextEvaluasi" style="height: 200px" required></textarea>
-                                    <label for="floatingTextEvaluasi">Isi Evaluasi</label>
+                                    <label for="floatingTextEvaluasi">Evaluasi</label>
                                 </div>
                             </div>
                         </div>

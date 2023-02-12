@@ -5,7 +5,7 @@
         <section>
             <div class="page-header pt-4">
                 <div class="container">
-                    <img src="<?= base_url() ?>/assets/img/logoumb-gradient.png" alt="logoumb" height="80" width="220">
+                    <img src="<?= base_url('assets/img/logoumb-gradient.png') ?>" alt="logoumb" height="80" width="220">
                     <div class="row">
 
                         <!-- Form -->
@@ -72,7 +72,7 @@
                         <!-- Gambar -->
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('<?= base_url() ?>/assets/img/gedunglogin.jpg'); background-position-y: 30%;">
+                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('<?= base_url('assets/img/gedunglogin.jpg') ?>'); background-position-y: 30%;">
                                     <span class="mask bg-gradient-primary opacity-3"></span>
                                 </div>
                             </div>
@@ -118,4 +118,4 @@
     </footer>
 
     <!-- Show Password -->
-    <script defer src="<?= base_url(); ?>assets/js/show-pass.js"></script>
+    <script src="<?= base_url('assets/js/show-pass.js') ?>"></script>

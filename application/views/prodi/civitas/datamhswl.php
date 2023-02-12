@@ -82,11 +82,10 @@
     </div>
 
     <!-- Alert -->
-    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
+    <script src="<?= base_url('assets/js/alert.js') ?>"></script>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         $(document).ready(() => {
             $('#table').DataTable({
@@ -112,7 +111,6 @@
                                 });
                         });
                 },
-                responsive: true,
                 stateSave: true,
                 order: [1, 'asc'],
 

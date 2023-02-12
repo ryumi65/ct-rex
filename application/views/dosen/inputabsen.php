@@ -128,10 +128,10 @@
     </div>
 
     <!-- Check All -->
-    <script defer src="<?= base_url(); ?>assets/js/check-all.js"></script>
+    <script src="<?= base_url('assets/js/check-all.js') ?>"></script>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         let table;
 
@@ -139,7 +139,6 @@
 
             table = $('#table').DataTable({
 
-                responsive: true,
                 order: [1, 'asc'],
 
                 columnDefs: [{

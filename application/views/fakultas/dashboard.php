@@ -2,13 +2,13 @@
         <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/uploads/header/' . $header) ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex justify-content-between flex-wrap">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
+                                <img src="<?= base_url('assets/img/uploads/profile/' . $profil) ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">
@@ -219,7 +219,7 @@
                                 <div class="col-lg-5 text-center">
                                     <div class="bg-gradient-primary border-radius-lg h-100">
                                         <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                            <img class="w-100 position-relative pt-4" src="<?= base_url('assets/img/illustrations/rocket-white.png') ?>" alt="rocket">
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
                                 <div class="col-lg-5 text-center">
                                     <div class="bg-gradient-primary border-radius-lg h-100">
                                         <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                            <img class="w-100 position-relative pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                            <img class="w-100 position-relative pt-4" src="<?= base_url('assets/img/illustrations/rocket-white.png') ?>" alt="rocket">
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +271,7 @@
     </div>
 
     <!--   Core JS Files   -->
-    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+    <script src="<?= base_url('assets/js/plugins/chartjs.min.js') ?>"></script>
     <script>
         var ctx2 = document.getElementById("chart1").getContext("2d");
 

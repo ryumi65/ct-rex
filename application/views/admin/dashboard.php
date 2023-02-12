@@ -9,7 +9,7 @@
        <div class="container-fluid pt-6 pt-xl-0">
 
            <!-- Header -->
-           <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/gedungdash.jpg'); background-position-y: 80%;"></div>
+           <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/uploads/header/gedungdash.jpg') ?>'); background-position-y: 80%;"></div>
            <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                <div class="d-flex align-items-center justify-content-between">
                    <div class="m-3">
@@ -245,7 +245,7 @@
                                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                                    <div class="bg-gradient-primary border-radius-lg h-100">
                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                           <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                           <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url('assets/img/illustrations/rocket-white.png') ?>" alt="rocket">
                                        </div>
                                    </div>
                                </div>
@@ -272,7 +272,7 @@
                                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                                    <div class="bg-gradient-primary border-radius-lg h-100">
                                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                                           <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url() ?>assets/img/illustrations/rocket-white.png" alt="rocket">
+                                           <img class="w-100 position-relative z-index-2 pt-4" src="<?= base_url('assets/img/illustrations/rocket-white.png') ?>" alt="rocket">
                                        </div>
                                    </div>
                                </div>
@@ -288,7 +288,7 @@
 
    <!--   Core JS Files   -->
 
-   <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+   <script src="<?= base_url('assets/js/plugins/chartjs.min.js') ?>"></script>
    <script>
        const mauData = [5, 5, 3, 4];
        const mau1Data = [15, 15, 13, 14];

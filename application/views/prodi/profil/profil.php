@@ -13,13 +13,13 @@
             </div>
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/uploads/header/' . $header) ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex align-content-center justify-content-between">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
+                                <img src="<?= base_url('assets/img/uploads/profile/' . $profil) ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">

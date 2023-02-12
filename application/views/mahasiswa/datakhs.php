@@ -28,7 +28,7 @@
                         <div class="row g-3">
                             <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                 <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                    <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
+                                    <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url('assets/img/shapes/s' . $i . '.png') ?>'); background-size: cover;">
                                         <div class="card-body">
                                             <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                             <div class="d-flex justify-content-between">
@@ -155,9 +155,8 @@
         <?php $this->load->view('_partials/footer') ?>
     </div>
 
-
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         for (let i = 1; i <= <?= $mahasiswa['semester'] ?>; i++) {
             let table;

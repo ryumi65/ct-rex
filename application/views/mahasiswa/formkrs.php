@@ -162,10 +162,10 @@
     </div>
 
     <!-- KRS -->
-    <script src="<?= base_url(); ?>assets/js/krs.js"></script>
+    <script src="<?= base_url('assets/js/krs.js') ?>"></script>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         for (let i = 1; i <= 8; i++) {
             if (i % 2 == <?= $semester ?>) {

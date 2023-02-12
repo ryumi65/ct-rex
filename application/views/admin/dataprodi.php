@@ -34,8 +34,7 @@
     </div>
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         let table;
 
@@ -43,28 +42,25 @@
 
             table = $('#table').DataTable({
 
-                "deferRender": true,
-                "responsive": true,
-                "serverSide": true,
-                "order": [],
+                deferRender: true,
+                order: [2, 'asc'],
 
-                "ajax": {
-                    "url": "<?= site_url('prodi/ajax_list/dosen') ?>",
-                    "type": "POST"
-                },
-
-                "columnDefs": [{
-                    "targets": [0],
-                    "orderable": false,
-                }, {
-                    "targets": [2],
-                    "data": null,
-                    "render": (data, type, row, meta) => {
-                        return '<a href="data-dosen/' + row['1'] + '">' + row['2'] + '</a>';
-                    }
+                columnDefs: [{
+                    targets: [0],
+                    orderable: false,
+                    searchable: false,
                 }],
-
             });
 
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
         });
     </script>

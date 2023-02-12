@@ -55,4 +55,4 @@
     </div>
 
     <!-- Alert -->
-    <script defer src="<?= base_url(); ?>assets/js/alert.js"></script>
+    <script src="<?= base_url('assets/js/alert.js') ?>"></script>

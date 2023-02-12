@@ -2,13 +2,13 @@
         <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/header-mhs.png'); background-position-y: 80%;"></div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/header-mhs.png') ?>'); background-position-y: 80%;"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex justify-content-between">
                     <div class="row gx-3 ">
                         <div class="col-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/curved-images/curved10.jpg" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
+                                <img src="<?= base_url('assets/img/curved-images/curved10.jpg') ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto my-auto">

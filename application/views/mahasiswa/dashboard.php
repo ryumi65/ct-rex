@@ -25,13 +25,13 @@
         <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Header -->
-            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url(); ?>assets/img/uploads/header/<?= $header ?>')"></div>
+            <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/uploads/header/' . $header) ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
                 <div class="d-flex align-content-center justify-content-between">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="<?= base_url(); ?>assets/img/uploads/profile/<?= $profil ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
+                                <img src="<?= base_url('assets/img/uploads/profile/' . $profil) ?>" alt="profile_image" class="w-75 h-75 border-radius-lg shadow-sm">
                             </div>
                         </div>
                         <div class="col-auto m-2 m-md-auto">
@@ -210,7 +210,7 @@
     </div>
 
     <!-- Chart -->
-    <script src="<?= base_url(); ?>assets/js/plugins/chartjs.min.js"></script>
+    <script src="<?= base_url('assets/js/plugins/chartjs.min.js') ?>"></script>
     <script>
         var ctx2 = document.getElementById("chart1").getContext("2d");
 
@@ -307,15 +307,14 @@
     </script>
 
     <!-- JQuery -->
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
         $(document).ready(() => {
 
             $('#table').DataTable({
 
                 dom: "",
-                responsive: true,
+                paging: false,
                 order: [0, 'asc'],
 
                 columnDefs: [{

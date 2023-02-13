@@ -15,8 +15,9 @@
             <!-- Beban Mengajar -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header p-3">
+                    <div class="card-header p-3 d-flex justify-content-between">
                         <h5 class="mb-0">Daftar Mahasiswa Wali <?= $dosen['nama'] ?></h5>
+                        <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Mahasiswa Wali</button>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <table class="table align-items-center w-100" id="table">

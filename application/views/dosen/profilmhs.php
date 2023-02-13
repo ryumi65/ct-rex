@@ -48,9 +48,18 @@
                                     <input type="date" name="tanggal_lahir" class="form-control" placeholder="-" value="<?= $mahasiswa['tanggal_lahir'] ?>" readonly>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Jenis Kelamin</label>
-                                <div class="mb-3">
+                        </div>
+                    </div>
+
+                    <!-- Kedua -->
+                    <div class="card mb-3 my-6">
+                        <div class="card-header p-3">
+                            <h4>Nama</h4>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="row text-dark">
+                                <p class="col-6 fs-6 fw-bold">Jenis Kelamin</p>
+                                <p class="col-6 fs-6">: &nbsp;
                                     <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
                                         <input type="text" name="jenis_kelamin" class="form-control" value="Laki-laki" readonly>
                                     <?php elseif ($mahasiswa['jenis_kelamin'] === 'P') : ?>
@@ -58,7 +67,16 @@
                                     <?php else : ?>
                                         <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" readonly>
                                     <?php endif ?>
-                                </div>
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Agama</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['agama'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Nomer Handphone</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['no_hp'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Email</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['email'] ?></p>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Agama</label>
@@ -86,17 +104,13 @@
                                             <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" readonly>
                                         <?php endif ?>
                                     <?php endforeach ?>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Tahun Angkatan</label>
-                                <div class="mb-3">
-                                    <input type="text" name="tahun_angkatan" class="form-control" placeholder="-" value="<?= $mahasiswa['tahun_angkatan'] ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Kewarganegaraan</label>
-                                <div class="mb-3">
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Tahun Angkatan</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['tahun_angkatan'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Kewarganegaraan</p>
+                                <p class="col-6 fs-6">: &nbsp;
                                     <?php if ($mahasiswa['kewarganegaraan'] === 'WNI') : ?>
                                         <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" readonly>
                                     <?php elseif ($mahasiswa['kewarganegaraan'] === 'WNA') : ?>
@@ -104,13 +118,35 @@
                                     <?php else : ?>
                                         <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" readonly>
                                     <?php endif ?>
-                                </div>
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Nomor Induk Kependudukan</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['nik'] ?></p>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Nomor Induk Kependudukan</label>
-                                <div class="mb-3">
-                                    <input type="text" name="nik" class="form-control" placeholder="-" value="<?= $mahasiswa['nik'] ?>" readonly>
-                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Kedua -->
+                    <div class="card mb-3">
+                        <div class="card-header p-3">
+                            <h4>Nama</h4>
+                        </div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="row text-dark">
+                                <p class="col-6 fs-6 fw-bold">Alamat Tempat Tinggal</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['alamat'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Desa/Kelurahan</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['kelurahan'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Kecamatan</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['kecamatan'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Kabupaten/Kota</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['kabupaten'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Provinsi</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $mahasiswa['provinsi'] ?></p>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Alamat Tempat Tinggal</label>

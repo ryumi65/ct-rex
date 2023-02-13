@@ -15,12 +15,15 @@
             <!-- Daftar Matkul dari KRS -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-inline d-flex justify-content-between p-3">
+                    <div class="card-header d-inline d-flex justify-content-between p-4 pb-2 ">
                         <h5 class="mb-0">Kartu Hasil Studi</h5>
                         <div>
                             <h6 class="d-inline mx-5 mb-0">IPK Saat Ini</h6>
                             <p class="d-inline mb-0"><?= $ipk ?></p>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end pt-0">
+                        <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
                     </div>
 
                     <!-- Card Semester -->
@@ -50,9 +53,6 @@
                                 </div>
                             <?php endfor ?>
                         </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-end p-3">
-                        <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
                     </div>
                 </div>
             </div>

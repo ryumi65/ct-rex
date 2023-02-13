@@ -40,12 +40,39 @@
                 </div>
             </div>
 
-            <!-- Profil -->
-            <div class="col-12 my-3">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between p-3">
-                        <h5 class="mb-0">Profil Anda</h5>
-                        <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>" class="btn btn-primary btn-sm mb-0">Edit Profil</a>
+            <!-- Judul -->
+            <div class="card my-3">
+                <div class="d-flex justify-content-between p-3">
+                    <h5 class="mb-0">Profil Anda</h5>
+                    <a href="<?= site_url('dosen/profil/edit/' . $dosen['nik']) ?>" class="btn btn-primary btn-sm mb-0">Ubah Profil</a>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-3">
+
+                <!-- Left Content -->
+                <div class="col-12 col-md-4 my-0">
+
+                    <!-- Pertama -->
+                    <div class="card mb-3">
+
+                        <div class="card-body p-3">
+                            <div class="row text-dark">
+
+                                <p class="col-6 fs-6 fw-bold">Nama Lengkap</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['nama'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['nik'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Tempat Lahir</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['tempat_lahir'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Tanggal Lahir</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['tanggal_lahir'] ?></p>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body p-3 pt-0">
                         <div class="row">
@@ -83,7 +110,16 @@
                                     <?php else : ?>
                                         <input type="text" name="jenis_kelamin" class="form-control" placeholder="-" readonly>
                                     <?php endif ?>
-                                </div>
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Agama</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['agama'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Nomer Handphone</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['no_hp'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Email</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['email'] ?></p>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Agama</label>
@@ -111,11 +147,10 @@
                                             <input type="text" name="id_prodi" class="form-control" placeholder="-" value="<?= $prodi['nama'] ?>" readonly>
                                         <?php endif ?>
                                     <?php endforeach ?>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <label>Kewarganegaraan</label>
-                                <div class="mb-3">
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Kewarganegaraan</p>
+                                <p class="col-6 fs-6">: &nbsp;
                                     <?php if ($dosen['kewarganegaraan'] === 'WNI') : ?>
                                         <input type="text" name="kewarganegaraan" class="form-control" value="Warga Negara Indonesia" readonly>
                                     <?php elseif ($dosen['kewarganegaraan'] === 'WNA') : ?>
@@ -123,7 +158,14 @@
                                     <?php else : ?>
                                         <input type="text" name="kewarganegaraan" class="form-control" placeholder="-" readonly>
                                     <?php endif ?>
-                                </div>
+                                </p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Nomor Induk Dosen</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['nidn_dosen'] ?></p>
+                                <hr class="bg-dark">
+                                <p class="col-6 fs-6 fw-bold">Alamat Tempat Tinggal</p>
+                                <p class="col-6 fs-6">: &nbsp; <?= $dosen['alamat'] ?></p>
+
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label>Alamat Tempat Tinggal</label>
@@ -149,6 +191,17 @@
                                     <input type="text" name="status_dosen" class="form-control" placeholder="-" value="<?= $dosen['status_kerja'] ?>" readonly>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Kedua -->
+                    <div class="card mb-3">
+                        <div class="card-body p-3">
+                            <p class="col-6 fs-6 fw-bold">Status Dosen</p>
+                            <p class="col-6 fs-6">: &nbsp; <?= $dosen['status_dosen'] ?></p>
+                            <hr class="bg-dark">
+                            <p class="col-6 fs-6 fw-bold">Status Kerja</p>
+                            <p class="col-6 fs-6">: &nbsp; <?= $dosen['status_kerja'] ?></p>
                         </div>
                     </div>
                 </div>

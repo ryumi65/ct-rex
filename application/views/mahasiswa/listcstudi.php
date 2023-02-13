@@ -38,21 +38,7 @@
                                         <td></td>
                                         <td>Sabtu, 26 Februari 2020</td>
                                         <td>Gapunya Duit</td>
-                                        <td>Main Slot</td>
-                                        <td class="text-center">
-                                            <a href="#" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </a>
-                                            <a class="badge bg-danger cursor-pointer px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick"">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Sabtu, 26 Februari 2020</td>
-                                        <td>Gapunya Duit</td>
-                                        <td>Main Slot</td>
+                                        <td>Menabung</td>
                                         <td class="text-center">
                                             <a href="#" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>

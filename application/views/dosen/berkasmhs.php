@@ -22,6 +22,8 @@
                             <p class="d-inline mb-0"><?= $ipk ?></p>
                         </div>
                     </div>
+
+
                     <div class="card-body p-3 pt-0">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -69,6 +71,10 @@
                             <!-- KHS -->
                             <div class="tab-pane fade" id="khs-tab-pane" role="tabpanel" aria-labelledby="khs-tab" tabindex="0">
                                 <div class="row g-3 pt-3">
+                                    <div class="card-footer d-flex justify-content-end pt-0">
+                                        <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak Transkrip</button>
+                                    </div>
+
                                     <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                         <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
                                             <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url('assets/img/shapes/s' . $i . '.png') ?>'); background-size: cover;">
@@ -91,9 +97,6 @@
                                             </div>
                                         </div>
                                     <?php endfor ?>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary btn-sm mb-0">Cetak Transkrip</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

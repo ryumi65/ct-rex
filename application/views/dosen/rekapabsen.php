@@ -37,7 +37,10 @@
                                     <?php endfor ?>
                                 </ul>
                             </div>
-                            <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
+                            <div>
+                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
+                                <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body px-3 py-0">
@@ -102,7 +105,6 @@
                                 <p class="mb-0"><span class="badge bg-danger">A</span> = Alfa</p>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
                     </div>
                 </div>
             </div>

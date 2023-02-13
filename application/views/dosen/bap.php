@@ -31,6 +31,7 @@
                         <h5 class="mb-0">Berita Acara Perkuliahan <?= $matkul['nama'] ?></h5>
                         <div class="d-flex d-inline">
                             <a href="<?= site_url('dosen/ubahcapaian/' . $matkul['id_matkul']) ?>" class="btn btn-primary btn-sm mx-2 mb-0">Ubah Capaian</a>
+                            <a class="btn btn-primary btn-sm mb-0 mx-2" href="#">Cetak</a>
                             <div class="dropdown">
                                 <a class="btn btn-primary btn-sm dropdown-toggle mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Buat BAP
@@ -96,9 +97,6 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="card-footer d-flex justify-content-end p-3">
-                        <a class="btn btn-primary btn-sm mb-0" href="#">Cetak</a>
                     </div>
                 </div>
             </div>

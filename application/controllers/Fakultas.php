@@ -94,6 +94,41 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function jadwalkuliah() {
+
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/jadwalkuliah');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function datamatkul() {
+
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/datamatkulprd');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function perkuliahan() {
+
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/perkuliahan');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+
+
     public function datadsn() {
         $data['fakultas'] = $this->model_fakultas->join_dosen('ak_fakultas', ['id_fakultas' => $this->session->id]);
         $data['listd'] = $this->model_fakultas->join_dosen('ak_dosen', ['nik' => $this->session->id]);
@@ -138,18 +173,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/profildsn', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function datamatkul() {
-        $data = [
-            'listm' => $this->model_fakultas->get_db('ak_matkul'),
-        ];
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamatkul', $data);
         $this->load->view('_partials/script');
     }
 }

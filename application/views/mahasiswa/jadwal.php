@@ -73,7 +73,7 @@
             $(document).ready(() => {
                 $(`#table${i}`).DataTable({
                     columnDefs: [{
-                        targets: [0, 4],
+                        targets: [4],
                         orderable: false,
                         searchable: false,
                     }],

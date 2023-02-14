@@ -120,5 +120,6 @@ $route['mahasiswa/perkuliahan/data-krs/tambah']            = 'mahasiswa/formkrs'
 $route['mahasiswa/perkuliahan/data-khs']                   = 'mahasiswa/datakhs';
 $route['mahasiswa/perkuliahan/jadwal-kuliah']              = 'mahasiswa/jadwalkuliah';
 $route['mahasiswa/perkuliahan/presensi/(:num)']            = 'mahasiswa/presensi/$1';
+$route['mahasiswa/biaya-kuliah']                           = 'mahasiswa/biayakuliah';
 $route['mahasiswa/profil/edit/foto']                       = 'mahasiswa/update_foto';
 $route['mahasiswa/profil/edit/(:num)']                     = 'mahasiswa/update/$1';

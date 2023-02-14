@@ -134,14 +134,21 @@
                 </li> -->
 
                 <!-- Pembayaran -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <?php if (fnmatch('mahasiswa/biaya*', uri_string())) {
+                    $navlinkBiaya = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkBiaya = 'nav-link';
+                    $color = '#000';
+                } ?>
+                <li class="nav-item">
+                    <a class="<?= $navlinkBiaya ?>" href="<?= site_url('mahasiswa/biaya-kuliah') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-money-check-dollar" style="color:#000"></i>
+                            <i class="fa-solid fa-money-check-dollar" style="color: <?= $color ?>"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Biaya Pendidikan</span>
+                        <span class="nav-link-text ms-1">Biaya Kuliah</span>
                     </a>
-                </li> -->
+                </li>
 
                 <!-- Pembatas Halaman Profil -->
                 <li class="nav-item mt-3">

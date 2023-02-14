@@ -9,6 +9,7 @@ class Mahasiswa extends CI_Controller {
         $this->load->model('model_mahasiswa');
         $this->load->model('model_jadwal');
         $this->load->model('model_krs');
+        $this->load->model('model_pembayaran');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 4) redirect(strtolower($this->session->access));
@@ -407,7 +408,8 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    // CATATAN STUDI
+    //==================== CATATAN STUDI ====================//
+
     public function catatanstudi() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarmhs');
@@ -422,6 +424,33 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/formcstudi');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    //==================== BIAYA ====================//
+
+    public function biayakuliah() {
+        $listb = $this->model_pembayaran->get_pembayaran();
+        $total_tunggakan = 0;
+        $total_terbayar = 0;
+
+        foreach ($listb as $bayar) {
+            $total_tunggakan += $bayar['BILLAM'];
+            $total_terbayar += $bayar['PAIDAM'];
+        }
+
+        $data = [
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
+            'terbayar' => $total_terbayar,
+            'tunggakan' => $total_tunggakan,
+            'listb' => $listb,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('mahasiswa/biaya', $data);
         $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }

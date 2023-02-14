@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -36,7 +37,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * Model Class
@@ -49,45 +50,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Model {
 
-	/**
-	 * Class constructor
-	 *
-	 * @link	https://github.com/bcit-ci/CodeIgniter/issues/5332
-	 * @return	void
-	 */
-	public function __construct() {}
-
-	/**
-	 * __get magic
-	 *
-	 * Allows models to access CI's loaded classes using the same
-	 * syntax as controllers.
-	 *
-	 * @param	string	$key
-	 */
-	public function __get($key)
-	{
-		// Debugging note:
-		//	If you're here because you're getting an error message
-		//	saying 'Undefined Property: system/core/Model.php', it's
-		//	most likely a typo in your model code.
-		return get_instance()->$key;
-	}
-
-    public function get_db($database, $data = null, $type = 'row') {
-        if ($data === null) return $this->db->get($database)->result_array();
-        elseif ($type === 'row') return $this->db->get_where($database, $data)->row_array();
-        elseif ($type === 'result') return $this->db->get_where($database, $data)->result_array();
+    /**
+     * Class constructor
+     *
+     * @link	https://github.com/bcit-ci/CodeIgniter/issues/5332
+     * @return	void
+     */
+    public function __construct() {
     }
 
-    public function get_db_count($database, $data) {
-        if ($data === null) $this->db->from($database);
+    /**
+     * __get magic
+     *
+     * Allows models to access CI's loaded classes using the same
+     * syntax as controllers.
+     *
+     * @param	string	$key
+     */
+    public function __get($key) {
+        // Debugging note:
+        //	If you're here because you're getting an error message
+        //	saying 'Undefined Property: system/core/Model.php', it's
+        //	most likely a typo in your model code.
+        return get_instance()->$key;
+    }
+
+    public function get_db($table, $data = null, $type = 'row') {
+        if ($data === null) return $this->db->get($table)->result_array();
+        elseif ($type === 'row') return $this->db->get_where($table, $data)->row_array();
+        elseif ($type === 'result') return $this->db->get_where($table, $data)->result_array();
+    }
+
+    public function get_db_count($table, $data) {
+        if ($data === null) $this->db->from($table);
         else {
-            $this->db->from($database);
+            $this->db->from($table);
             $this->db->where($data);
         }
 
         return $this->db->count_all_results();
     }
-
 }

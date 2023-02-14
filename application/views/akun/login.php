@@ -62,7 +62,7 @@
 
                                     <!-- Sign In -->
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-primary w-100 my-3">Masuk</button>
+                                        <button type="submit" class="btn bg-gradient-primary btn-lg w-100 my-3">Masuk</button>
                                     </div>
                                     </form>
                                 </div>

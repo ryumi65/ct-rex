@@ -74,7 +74,7 @@
                                                 <h1 class="modal-title fs-5" id="label-<?= $mahasiswa['nim'] ?>">Kartu Rencana Studi</h1>
                                                 <p class="mb-0"><?= $mahasiswa['nama'] ?></p>
                                             </div>
-                                            <div>
+                                            <div class="text-end">
                                                 <p class="mb-0"><b>Total sks :</b> <?= $mahasiswa['sks'] ?></p>
                                                 <p class="mb-0"><b>IPK :</b> <?= $mahasiswa['ipk'] ?></p>
                                             </div>

@@ -8,6 +8,15 @@ $input-focus-border-color: #8fc28f;
 $input-focus-width: 2px;
 $input-focus-box-shadow: 0 0 0 $input-focus-width #8fc28f;
 
+$btn-margin-bottom: 0rem;
+$btn-padding-y: .5rem;
+$btn-padding-y-lg: .75rem;
+$btn-padding-x-lg: 2rem;
+$btn-font-size-lg: .75rem;
+
+$table-color: #344767;
+$table-striped-color: #344767;
+
 $text-gradient-bg-primary: linear-gradient(310deg, #0c87f2, #2cb72c);
 
 @import "soft-ui-dashboard";

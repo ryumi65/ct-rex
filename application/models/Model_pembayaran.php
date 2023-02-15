@@ -9,4 +9,11 @@ class model_pembayaran extends CI_Model {
 
         return $query->result_array();
     }
+
+    public function get_va() {
+        $keuangan = $this->load->database('keuangan', TRUE);
+        $query = $keuangan->from('tb_mahasiswa')->where('NOCUST', $this->session->id)->get();
+
+        return $query->row_array();
+    }
 }

@@ -441,6 +441,7 @@ class Mahasiswa extends CI_Controller {
         }
 
         $data = [
+            'keuangan' => $this->model_pembayaran->get_va(),
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'terbayar' => $total_terbayar,
             'tunggakan' => $total_tunggakan,

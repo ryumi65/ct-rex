@@ -69,7 +69,7 @@ class Mahasiswa extends CI_Controller {
             'sks' => $jumlah_sks,
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'listip' => $ip,
-            'listj' => $this->model_krs->get_krs_mhs($this->session->id),
+            'listj' => $this->model_krs->get_krs_mhs($this->session->id, 'jadwal'),
         ];
 
         $this->load->view('_partials/head');
@@ -272,16 +272,9 @@ class Mahasiswa extends CI_Controller {
     //==================== PRESENSI ====================//
 
     public function jadwalkuliah() {
-        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-
-        foreach ($list_hari as $hari) {
-            $listj[$hari] = $this->model_krs->get_krs_mhs($this->session->id, $hari);
-        }
-
         $data = [
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
-            'listh' => $list_hari,
-            'listj' => $listj,
+            'listj' => $this->model_krs->get_krs_mhs($this->session->id),
         ];
 
         $this->load->view('_partials/head');
@@ -334,6 +327,8 @@ class Mahasiswa extends CI_Controller {
         $ip = [];
         $krs = [];
         $sks_smt = [];
+        $status_nilai = [];
+        $tidak_lulus = [];
 
         $count_ipk = 0;
         $ipk = 0;
@@ -342,6 +337,8 @@ class Mahasiswa extends CI_Controller {
             $jumlah_krs = 0;
             $jumlah_ip = 0;
             $jumlah_sks = 0;
+            $mk_tidaklulus = 0;
+            $status = false;
 
             $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i, 'Y');
 
@@ -357,9 +354,14 @@ class Mahasiswa extends CI_Controller {
                     elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
                     elseif ($value['nilai'] < 41) $indeks = 0;
 
+                    if ($indeks < 2) {
+                        $mk_tidaklulus++;
+                        $status = true;
+                    }
+
                     $jumlah_krs++;
                     $jumlah_ip += $indeks;
-                }
+                } else $status = false;
             }
 
             if ($jumlah_krs > 0) {
@@ -378,6 +380,8 @@ class Mahasiswa extends CI_Controller {
             array_push($ip, $total_ip);
             array_push($krs, $list_krs);
             array_push($sks_smt, $jumlah_sks);
+            array_push($status_nilai, $status);
+            array_push($tidak_lulus, $mk_tidaklulus);
         }
 
         if ($count_ipk > 0) $total_ipk = round($ipk / $count_ipk, 2);
@@ -388,7 +392,9 @@ class Mahasiswa extends CI_Controller {
             'ipk' => $total_ipk,
             'listip' => $ip,
             'listk' => $krs,
+            'listl' => $tidak_lulus,
             'lists' => $sks_smt,
+            'listst' => $status_nilai,
         ];
 
         $this->load->view('_partials/head');

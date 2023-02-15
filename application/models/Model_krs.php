@@ -49,13 +49,19 @@ class Model_krs extends CI_Model {
 
     public function get_krs_mhs($nim, $hari = '') {
         if ($hari === '') {
-            $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            $hari = $list_hari[date('w')];
-        }
+            $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'k.nim' => $nim, 'k.nilai' => null])->get();
+        } else {
+            if ($hari === 'jadwal') {
+                $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                $hari = $list_hari[date('w')];
+            }
 
-        $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
-            ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
-            ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'k.nim' => $nim, 'j.hari' => $hari])->get();
+            $query = $this->db->select('m.id_matkul, m.nama, d.nama as dosen, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_krs k', 'j.id_jadwal = k.id_jadwal')
+                ->where(['j.id_tahun' => $this->session->tahun, 'k.status' => 'Y', 'k.nim' => $nim, 'j.hari' => $hari, 'k.nilai' => null])->get();
+        }
 
         return $query->result_array();
     }

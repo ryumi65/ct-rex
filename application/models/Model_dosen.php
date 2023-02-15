@@ -97,7 +97,6 @@ class Model_dosen extends CI_Model {
             $semester_baru = $semester_lama + 1;
 
             $this->db->update('ak_mahasiswa', ['semester' => $semester_baru], ['nim' => $nim]);
-            $this->db->update('ak_akun', ['status' => 'N'], ['id_akun' => $nim]);
         }
     }
 

@@ -42,7 +42,7 @@
                                         <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
                                         <td>
-                                            <input type="text" name="nilai-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai'] ?>" required>
+                                            <input type="text" name="nilai-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai'] ?>">
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

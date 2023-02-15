@@ -123,7 +123,8 @@
                     orderable: false,
                     searchable: false,
                 }],
-                dom: 'Brt',
+                dom: '<"mb-3"B><rt>',
+                paging: false,
                 order: [1, 'asc'],
             });
 

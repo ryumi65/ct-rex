@@ -27,9 +27,9 @@
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
+                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        NIM</th>
                                     <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center">
                                         Nilai Akhir</th>
                                 </tr>
@@ -48,8 +48,8 @@
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-center"><?= $mahasiswa['nilai'] ?></td>
                                         <td class="text-center">
                                             <?php
@@ -115,7 +115,7 @@
                     orderable: false,
                     searchable: false,
                 }],
-                order: [1, 'asc'],
+                order: [2, 'asc'],
                 responsive: true,
             });
 

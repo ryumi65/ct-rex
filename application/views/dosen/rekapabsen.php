@@ -37,22 +37,17 @@
                                     <?php endfor ?>
                                 </ul>
                             </div>
-                            <div>
-                                <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
-                                <a href="" class="btn btn-primary btn-sm mb-0">Cetak Presensi</a>
-                            </div>
+                            <a href="<?= site_url('dosen/perkuliahan/presensi/' . $matkul['id_matkul'] . '/input') ?>" class="btn btn-primary btn-sm mb-0">Input Presensi</a>
                         </div>
                     </div>
                     <div class="card-body px-3 py-0">
-                        <table class="table align-items-center w-100" id="table">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
                                         No.</th>
                                     <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
                                         Nama Mahasiswa</th>
-                                    <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
                                     <th colspan="16" class="font-weight-bolder text-uppercase text-xs text-center">
                                         Pertemuan</th>
                                 </tr>
@@ -66,12 +61,18 @@
                                     <?php endfor ?>
                                 </tr>
                             </thead>
-                            <tbody class="bg-gray-100 text-dark text-sm">
+                            <tbody class="text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nama'] ?></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <td class="d-flex d-inline text-wrap">
+                                            <div hidden><?= $mahasiswa['nim'] ?></div>
+                                            <img src="<?= base_url('assets/img/uploads/profile/curved.jpg') ?>" class="avatar avatar-sm me-3">
+                                            <div>
+                                                <?= $mahasiswa['nama'] ?>
+                                                <p class="text-secondary text-xs mb-0"><?= $mahasiswa['nim'] ?></p>
+                                            </div>
+                                        </td>
                                         <?php for ($i = 0; $i < 16; $i++) {
                                             if (isset($presensi[$mahasiswa['id_krs']][$i])) {
                                                 switch ($presensi[$mahasiswa['id_krs']][$i]) {
@@ -121,12 +122,11 @@
         $(document).ready(() => {
             table = $('#table').DataTable({
                 columnDefs: [{
-                    targets: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                    targets: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
                     orderable: false,
                     searchable: false,
                 }],
-                order: [2, 'asc'],
-                responsive: true,
+                order: [1, 'asc'],
             });
 
             table.on('order.dt search.dt', () => {

@@ -5,7 +5,7 @@ class model_pembayaran extends CI_Model {
 
     public function get_pembayaran() {
         $keuangan = $this->load->database('keuangan', TRUE);
-        $query = $keuangan->from('tb_tagihan')->where('NOCUST', $this->session->id)->get();
+        $query = $keuangan->from('tb_tagihan')->where(['NOCUST' => $this->session->id, 'ENABLED' => 1])->get();
 
         return $query->result_array();
     }

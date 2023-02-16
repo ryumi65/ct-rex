@@ -19,16 +19,16 @@
                         <h5 class="mb-0">Persetujuan KRS Mahasiswa</h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table align-items-center w-100" id="table">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                         No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Nama Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Angkatan</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Status KRS</th>
@@ -36,12 +36,12 @@
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-gray-100 text-dark text-sm">
+                            <tbody class="text-sm">
                                 <?php foreach ($lists as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td class="text-center">
                                             <?php if ($mahasiswa['krs'] === 'Sudah KRS') : ?>
@@ -81,22 +81,22 @@
                                         </div>
                                         <?= form_open('KRS/acc') ?>
                                         <div class="modal-body">
-                                            <table class="table align-items-center w-100" id="table-<?= $mahasiswa['nim'] ?>">
+                                            <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table-<?= $mahasiswa['nim'] ?>">
                                                 <thead>
                                                     <tr class="bg-gradient-primary text-white">
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                                             No.</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Nama MK</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             sks</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Dosen Pengampu</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Hari</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Waktu</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Semester</th>
                                                         <th colspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
@@ -165,17 +165,32 @@
     <!-- JQuery -->
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
-        let table;
+        jQuery.fn.dataTable.ext.type.order['krs'] = function(data) {
+            if (!data) return 0;
+
+            const krsOrder = {
+                "Menunggu Persetujuan": 0,
+                "Belum KRS": 1,
+                "Sudah KRS": 2,
+            };
+            const krs = krsOrder[data];
+
+            return krs;
+        };
 
         $(document).ready(() => {
-            table = $('#table').DataTable({
+            const table = $('#table').DataTable({
                 columnDefs: [{
-                    targets: [0, 5],
-                    orderable: false,
-                    searchable: false,
-                }],
-                order: [1, 'asc'],
-                responsive: true,
+                        targets: [0, 5],
+                        orderable: false,
+                        searchable: false,
+                    },
+                    {
+                        targets: 4,
+                        type: 'krs',
+                    }
+                ],
+                order: [4, 'desc'],
             });
 
             table.on('order.dt search.dt', () => {
@@ -191,19 +206,16 @@
         });
 
         <?php foreach ($lists as $mahasiswa) : ?>
-            let table<?= $mahasiswa['nim'] ?>;
-
             $(document).ready(() => {
-                table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
+                const table<?= $mahasiswa['nim'] ?> = $('#table-<?= $mahasiswa['nim'] ?>').DataTable({
                     columnDefs: [{
                         targets: [0, 7, 8],
                         orderable: false,
                         searchable: false,
                     }],
-                    dom: "",
+                    dom: '',
                     order: [1, 'asc'],
                     paging: false,
-                    responsive: true,
                 });
 
                 table<?= $mahasiswa['nim'] ?>.on('order.dt search.dt', () => {

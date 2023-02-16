@@ -19,13 +19,19 @@ class Model_jadwal extends CI_Model {
 
     public function get_jadwal_dsn($nik, $hari = '') {
         if ($hari === '') {
-            $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            $hari = $list_hari[date('w')];
-        }
+            $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
+                ->where(['j.id_tahun' => $this->session->tahun, 'm.nik_dosen' => $nik])->get();
+        } else {
+            if ($hari === 'jadwal') {
+                $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                $hari = $list_hari[date('w')];
+            }
 
-        $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
-            ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
-            ->where(['j.id_tahun' => $this->session->tahun, 'm.nik_dosen' => $nik, 'j.hari' => $hari])->get();
+            $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')
+                ->where(['j.id_tahun' => $this->session->tahun, 'm.nik_dosen' => $nik, 'j.hari' => $hari])->get();
+        }
 
         return $query->result_array();
     }

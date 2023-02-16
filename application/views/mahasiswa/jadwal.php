@@ -137,8 +137,7 @@
                         type: 'hari',
                     }
                 ],
-                dom: '<"mb-3"B><rt>',
-                paging: false,
+                dom: '<"row"<"col-12 col-md-8"B><"col-12 col-md-4"fr>><t><"row"<"col-12 col-sm-6"i><"col-12 col-sm-6"p>>',
                 order: [3, 'desc'],
             });
 

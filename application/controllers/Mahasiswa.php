@@ -354,13 +354,11 @@ class Mahasiswa extends CI_Controller {
                     elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
                     elseif ($value['nilai'] < 41) $indeks = 0;
 
-                    if ($indeks < 2) {
-                        $mk_tidaklulus++;
-                        $status = true;
-                    }
+                    if ($indeks < 2) $mk_tidaklulus++;
 
                     $jumlah_krs++;
                     $jumlah_ip += $indeks;
+                    $status = true;
                 } else $status = false;
             }
 

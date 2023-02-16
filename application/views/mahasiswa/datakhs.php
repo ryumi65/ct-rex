@@ -36,7 +36,7 @@
                                                 <p class="font-weight-normal mb-0">IP</p>
                                                 <p class="text-white fw-bold mb-0"><?= $listip[$i - 1] ?></p>
                                             </div>
-                                            <!-- <?php if ($listst[$i - 1]) :
+                                            <?php if ($listst[$i - 1]) :
                                                 if ($listl[$i - 1] > 0) : ?>
                                                     <span class="badge bg-gradient-danger text-xs mt-1"><?= $listl[$i - 1] ?> Matkul Tidak Lulus</span>
                                                 <?php else : ?>
@@ -44,9 +44,7 @@
                                                 <?php endif ?>
                                             <?php else : ?>
                                                 <span class="badge bg-gradient-warning text-xs mt-1">Belum Diisi</span>
-                                            <?php endif ?> -->
-                                            <span class="badge bg-gradient-success text-xs mt-1">2 MK Lulus</span>
-                                            <span class="badge bg-gradient-danger text-xs mt-1">2 MK Tidak Lulus</span>
+                                            <?php endif ?>
                                         </div>
                                         <div class="card-footer pt-0">
                                             <a class="stretched-link text-body text-sm font-weight-bold icon-move-right" data-bs-toggle="modal" data-bs-target="#semester-<?= $i ?>">

@@ -34,7 +34,7 @@ class Dosen extends CI_Controller {
             'sks' => $jumlah_sks,
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
             'mhswali' => $this->model_dosen->get_db_count('ak_mahasiswa', ['dosen_wali' => $this->session->id]),
-            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id, 'jadwal'),
         ];
 
         $this->load->view('_partials/head');
@@ -64,16 +64,9 @@ class Dosen extends CI_Controller {
     }
 
     public function jadwalkuliah() {
-        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-
-        foreach ($list_hari as $hari) {
-            $listj[$hari] = $this->model_jadwal->get_jadwal_dsn($this->session->id, $hari);
-        }
-
         $data = [
             'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
-            'listh' => $list_hari,
-            'listj' => $listj,
+            'listj' => $this->model_jadwal->get_jadwal_dsn($this->session->id),
         ];
 
         $this->load->view('_partials/head');

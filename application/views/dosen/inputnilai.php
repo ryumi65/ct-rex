@@ -22,25 +22,25 @@
                     </div>
                     <?= form_open('dosen/setnilai/' . $matkul['id_matkul']) ?>
                     <div class="card-body px-3 py-0">
-                        <table class="table align-items-center w-100" id="table">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                         No.</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                        NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        NIM</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center" style="width: 10%">
                                         Nilai</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-gray-100 text-dark text-sm">
+                            <tbody class="text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td></td>
-                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
                                         <td>
                                             <input type="text" name="nilai-<?= $mahasiswa['id_krs'] ?>" class="form-control" value="<?= $mahasiswa['nilai'] ?>">
                                         </td>
@@ -63,17 +63,14 @@
     <!-- JQuery -->
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
-        let table;
-
         $(document).ready(() => {
-            table = $('#table').DataTable({
+            const table = $('#table').DataTable({
                 columnDefs: [{
                     targets: [0, 3],
                     orderable: false,
                     searchable: false,
                 }],
-                order: [1, 'asc'],
-                responsive: true,
+                order: [2, 'asc'],
             });
 
             table.on('order.dt search.dt', () => {

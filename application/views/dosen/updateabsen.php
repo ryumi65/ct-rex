@@ -29,14 +29,12 @@
                                 <label>Tanggal Pertemuan</label>
                                 <input type="date" name="tanggal" class="form-control" value="<?= $tanggal ?>">
                             </div>
-                            <table class="table align-items-center w-100" id="table">
+                            <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                             No.</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
-                                            NIM</th>
-                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Nama Mahasiswa</th>
                                         <th colspan="4" class="font-weight-bolder text-uppercase text-xs text-center" style="width: 10%">
                                             Presensi</th>
@@ -64,15 +62,15 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-gray-100 text-dark text-sm">
+                                <tbody class="text-sm">
                                     <?php foreach ($listm as $mahasiswa) :
+                                        $hadir_check = '';
+                                        $izin_check = '';
+                                        $sakit_check = '';
+                                        $alfa_check = '';
+
                                         foreach ($listp as $presensi) {
                                             if ($mahasiswa['id_krs'] === $presensi['id_krs']) {
-                                                $hadir_check = '';
-                                                $izin_check = '';
-                                                $sakit_check = '';
-                                                $alfa_check = '';
-
                                                 switch ($presensi['kehadiran']) {
                                                     case 'Hadir':
                                                         $hadir_check = 'checked';
@@ -91,8 +89,14 @@
                                         } ?>
                                         <tr>
                                             <td></td>
-                                            <td><?= $mahasiswa['nim'] ?></td>
-                                            <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                            <td class="d-flex d-inline text-wrap">
+                                                <div hidden><?= $mahasiswa['nim'] ?> - </div>
+                                                <img src="<?= base_url('assets/img/uploads/profile/curved.jpg') ?>" class="avatar avatar-sm me-3">
+                                                <div>
+                                                    <?= $mahasiswa['nama'] ?>
+                                                    <p class="text-secondary text-xs mb-0"><?= $mahasiswa['nim'] ?></p>
+                                                </div>
+                                            </td>
                                             <td class="text-center">
                                                 <input type="radio" class="btn-check" name="presensi-<?= $mahasiswa['nim'] ?>-<?= $mahasiswa['id_krs'] ?>" id="Hadir-<?= $mahasiswa['nim'] ?>" value="Hadir" required <?= $hadir_check ?>>
                                                 <label class="btn btn-outline-primary btn-sm px-2 py-1 m-0" for="Hadir-<?= $mahasiswa['nim'] ?>">H</label>
@@ -141,17 +145,14 @@
     <!-- JQuery -->
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
-        let table;
-
         $(document).ready(() => {
-            table = $('#table').DataTable({
+            const table = $('#table').DataTable({
                 columnDefs: [{
-                    targets: [0, 3, 4, 5, 6],
+                    targets: [0, 2, 3, 4, 5],
                     orderable: false,
                     searchable: false,
                 }],
                 order: [1, 'asc'],
-                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

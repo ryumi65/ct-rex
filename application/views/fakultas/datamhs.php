@@ -33,17 +33,17 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $mahasiswa['nim'] ?></td>
-                                        <td><a href="<?= site_url('fakultas/datamhs' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
+                                        <td><?= $mahasiswa['nama'] ?></td>
                                         <td><?= $mahasiswa['id_prodi'] ?></td>
                                         <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
                                         <td><?= $mahasiswa['tahun_angkatan'] ?></td>
                                         <td><?= ucwords($mahasiswa['status']) ?></td>
                                         <td>
                                             <div class="text-center">
-                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                <a href="<?= site_url('fakultas/profilmhs/'. $mahasiswa['nim'] .'') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
                                                     <i class="fa-solid fa-user"></i>
                                                 </a>
-                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $mahasiswa['nim'] . '/akademik') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
+                                                <a href="<?= site_url('fakultas/akademikmhs/' . $mahasiswa['nim'] . '') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
                                                     <i class="fa-solid fa-chalkboard-user"></i>
                                                 </a>
                                             </div>

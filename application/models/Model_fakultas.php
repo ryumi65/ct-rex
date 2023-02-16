@@ -30,9 +30,10 @@ class model_fakultas extends CI_Model {
     }
 
     public function join_mhs() {
-        $this->db->from('ak_prodi');
-        $this->db->join('ak_mahasiswa', 'ak_prodi.id_prodi = ak_mahasiswa.id_prodi');
-        $this->db->where('ak_prodi.id_fakultas', $this->session->id);
+        // $this->db->from('ak_mahasiswa');
+        // $this->db->join('ak_prodi', 'ak_mahasiswa.id_prodi = ak_prodi.id_prodi');
+        // $this->db->where('ak_prodi.id_fakultas', $this->session->id);
+        $this->db->from('ak_mahasiswa');
         $query = $this->db->get();
         return $query->result_array();
     }

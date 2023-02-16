@@ -7,6 +7,8 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('model_admin');
         $this->load->model('model_ruangan');
+        $this->load->model('model_pengumuman');
+
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 0) redirect(strtolower($this->session->access));
@@ -192,4 +194,53 @@ class Admin extends CI_Controller {
 
         redirect('admin');
     }
+
+        //==================== PENGUMUMAN ====================//
+
+        public function pengumuman() {
+            $data = [
+                'listp' => $this->model_admin->get_db('ak_pengumuman'),
+            ];
+    
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('admin/pengumuman/pengumuman', $data);
+            $this->load->view('_partials/script');
+        }
+    
+        public function inputpengumuman() {
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('admin/pengumuman/createpengumuman');
+            $this->load->view('_partials/script');
+        }
+    
+        public function ubahpengumuman($id_pengumuman) {
+            $data = [
+                'pengumuman' => $this->model_pengumuman->get_db('ak_pengumuman', ['id_pengumuman' => $id_pengumuman]),
+            ];
+    
+            $this->load->view('_partials/head');
+            $this->load->view('_partials/sidebarprd');
+            $this->load->view('_partials/header');
+            $this->load->view('admin/pengumuman/updatepengumuman', $data);
+            $this->load->view('_partials/script');
+        }
+    
+        public function setpengumuman() {
+            $this->model_pengumuman->set_pengumuman();
+            redirect('admin/pengumuman');
+        }
+    
+        public function updatepengumuman($id_pengumuman) {
+            $this->model_pengumuman->update_pengumuman($id_pengumuman);
+            redirect('admin/pengumuman');
+        }
+    
+        public function deletepengumuman($id_pengumuman) {
+            $this->model_pengumuman->delete_pengumuman($id_pengumuman);
+            redirect('admin/pengumuman');
+        }
 }

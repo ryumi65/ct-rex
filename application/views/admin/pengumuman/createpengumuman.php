@@ -1,4 +1,4 @@
-<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
             <!-- Navigasi -->
@@ -6,8 +6,8 @@
                 <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
-                        <li class="breadcrumb-item"><a href="<?= site_url('admin') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item"><a href="<?= site_url('admin/pengumuman') ?>"><u>Pengumuman</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('prodi/pengumuman') ?>"><u>Pengumuman</u></a></li>
                         <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Tambah</li>
                     </ol>
                 </nav>
@@ -19,7 +19,7 @@
                     <div class="card-header p-3">
                         <h5 class="mb-0">Form Pengisian Pengumuman</h5>
                     </div>
-                    <?= form_open('admin/setpengumuman') ?>
+                    <?= form_open('prodi/setpengumuman') ?>
                     <div class="card-body px-3 py-0">
                         <div class="row g-3">
                             <div class="col-sm-6 col-md-4">

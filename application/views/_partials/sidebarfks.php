@@ -119,8 +119,9 @@
                     </a>
                 </li>
 
-                <!-- pengumuman -->
-                <?php if (fnmatch('fakultas/pengumuman*', uri_string())) {
+
+                <!-- Pengumuman -->
+                <?php if (fnmatch('prodi/pengumuman*', uri_string())) {
                     $navlinkPgm = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
@@ -128,14 +129,13 @@
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a class="<?= $navlinkPgm ?>" href="<?= site_url('fakultas/pengumuman') ?>">
+                    <a class="<?= $navlinkPgm ?>" href="<?= site_url('fakultas/pengumuman/pengumuman') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-bullhorn" style="color: <?= $color ?>"></i>
                         </div>
                         <span class="nav-link-text ms-1">Pengumuman</span>
                     </a>
                 </li>
-
 
                 <!-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#datamahasiswa" class="nav-link" aria-controls="datamahasiswa" role="button" aria-expanded="false">

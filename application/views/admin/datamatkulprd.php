@@ -66,6 +66,7 @@ if (isset($_SESSION['createmksuccess'])) {
                             <<<<<<< Updated upstream:application/views/fakultas/datamatkul.php <tbody class="bg-gray-100 text-dark text-sm">
                                 =======
                                 <tbody class="text-sm">
+                                    >>>>>>> Stashed changes:application/views/fakultas/datamatkulprd.php
                                     <?php foreach ($listm as $matkul) : ?>
                                         <tr>
                                             <td></td>
@@ -93,69 +94,71 @@ if (isset($_SESSION['createmksuccess'])) {
         </div>
     </div>
 
-    <!-- Alert -->
-    <script src="<?= base_url('assets/js/alert.js') ?>"></script>
+    <<<<<<< Updated upstream:application/views/fakultas/datamatkul.php <!-- Alert -->
+        <script src="<?= base_url('assets/js/alert.js') ?>"></script>
 
-    <!-- JQuery -->
-    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
-    <script>
-        let table;
+        <!-- JQuery -->
+        <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
+        <script>
+            let table;
 
-        $(document).ready(() => {
-                    table = $('#table').DataTable({
-                        columnDefs: [{
-                            targets: [0, 7],
-                            orderable: false,
-                            searchable: false,
-                        }],
-                        deferRender: true,
-                        order: [2, 'asc'],
-                        responsive: true,
-                    });
+            $(document).ready(() => {
+                        table = $('#table').DataTable({
+                            columnDefs: [{
+                                targets: [0, 7],
+                                orderable: false,
+                                searchable: false,
+                            }],
+                            deferRender: true,
+                            order: [2, 'asc'],
+                            responsive: true,
+                        });
 
-                    table.on('order.dt search.dt', () => {
-                                let i = 1; ===
-                                ===
-                                =
-                                <?php $this->load->view('_partials/footer') ?>
-                                    <
-                                    /div>
+                        table.on('order.dt search.dt', () => {
+                                    let i = 1; ===
+                                    === =
+                                    <?php $this->load->view('_partials/footer') ?>
+                                        <
+                                        /div>
 
-                                    <
-                                    !--Alert-- >
-                                    <
-                                    script defer src = "<?= base_url(); ?>assets/js/alert.js" >
-    </script>
+                                        <
+                                        !--Alert-- >
+                                        <
+                                        script defer src = "<?= base_url(); ?>assets/js/alert.js" >
+        </script>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
-    <script>
-        let table;
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+        <script>
+            let table;
 
-        $(document).ready(() => {
+            $(document).ready(() => {
 
-            table = $('#table').DataTable({
+                table = $('#table').DataTable({
 
-                deferRender: true,
-                responsive: true,
-                order: [2, 'asc'],
+                    deferRender: true,
+                    responsive: true,
+                    order: [2, 'asc'],
 
-                columnDefs: [{
-                    targets: [0, 7],
-                    orderable: false,
-                    searchable: false,
-                }],
-            });
+                    columnDefs: [{
+                        targets: [0, 7],
+                        orderable: false,
+                        searchable: false,
+                    }],
+                    >>>
+                    >>> > Stashed changes: application / views / fakultas / datamatkulprd.php
 
-            table.on('order.dt search.dt', () => {
-                let i = 1;
-
-                table.cells(null, 0, {
-                    order: 'applied',
-                    search: 'applied',
-                }).every(function(cell) {
-                    this.data(i++);
                 });
-            }).draw();
-        });
-    </script>
+
+                table.on('order.dt search.dt', () => {
+                    let i = 1;
+
+                    table.cells(null, 0, {
+                        order: 'applied',
+                        search: 'applied',
+                    }).every(function(cell) {
+                        this.data(i++);
+                    });
+                }).draw();
+            });
+        </script>

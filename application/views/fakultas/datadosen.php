@@ -1,6 +1,17 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid pt-6 pt-xl-0">
 
+            <!-- Navigasi -->
+            <div class="d-flex d-inline mt-4 mb-3">
+                <a class="badge bg-primary cursor-pointer px-3 py-2" onclick="javascript:history.go(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-gray-100 my-0 py-0">
+                        <li class="breadcrumb-item"><a href="<?= site_url('fakultas') ?>"><u>Home</u></a></li>
+                        <li class="breadcrumb-item active text-primary fw-bold"><a href="<?= site_url('fakultasi/data-dosen') ?>"><u>Data Dosen</u></a></li>
+                    </ol>
+                </nav>
+            </div>
+
             <div class="col-12 my-4">
                 <div class="card">
                     <div class="card-header pb-0">
@@ -40,10 +51,10 @@
                                         <td><?= ucwords($dosen['status_dosen']) ?></td>
                                         <td>
                                             <div class="text-center">
-                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $dosen['nik'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
+                                                <a href="<?= site_url('fakultas/profildsn/' . $dosen['nik'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
                                                     <i class="fa-solid fa-user"></i>
                                                 </a>
-                                                <a href="<?= site_url('prodi/civitas/data-mahasiswa/' . $dosen['nik'] . '/jadwal') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Mengajar">
+                                                <a href="<?= site_url('fakultas/datamengajar/' . $dosen['nik'] . '/jadwal') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Mengajar">
                                                     <i class="fa-solid fa-chalkboard-user"></i>
                                                 </a>
                                                 <a class="badge bg-danger px-3 py-2" data-bs-toggle="tooltip" title="Hapus" onclick="deleteAlert('<?= site_url('fakultas/datadsn/delete/' . $dosen['nik']) ?>')">

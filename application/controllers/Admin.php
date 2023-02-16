@@ -30,24 +30,49 @@ class Admin extends CI_Controller {
 
 
     public function datafks() {
-        $data = [
-            'fakultas' => $this->model_admin->get_db('ak_prodi', ['id_fakultas' => $this->session->id]),
-            'listf' => $this->model_admin->get_db('ak_mahasiswa', ['id_fakultas' => $this->session->id], 'result'),
-        ];
 
         $this->load->model('model_admin');
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
-        $this->load->view('admin/datafakultas', $data);
+        $this->load->view('admin/datafakultas',);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
+
 
     public function dataprd() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/dataprodi');
+        $this->load->view('_partials/script');
+    }
+
+    public function jadwalkuliah() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/jadwalkuliah');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function datamatkul() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/datamatkul');
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function perkuliahan() {
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebaradmin');
+        $this->load->view('_partials/header');
+        $this->load->view('admin/perkuliahan');
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 

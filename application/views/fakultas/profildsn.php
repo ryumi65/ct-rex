@@ -38,7 +38,7 @@
                                 <p class="col-5 fs-6 fw-bold">Nama Lengkap</p>
                                 <p class="col-7 fs-6"> &nbsp; <?= $dosen['nama'] ?></p>
                                 <hr class="bg-dark">
-                                <p class="col-5 fs-6 fw-bold">Nomor Induk Mahasiswa</p>
+                                <p class="col-5 fs-6 fw-bold">Nomor Induk Kependudukan</p>
                                 <p class="col-7 fs-6"> &nbsp; <?= $dosen['nik'] ?></p>
                                 <hr class="bg-dark">
                                 <p class="col-5 fs-6 fw-bold">Tempat Lahir</p>

@@ -93,15 +93,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function jadwalkuliah() {
-
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/jadwalkuliah');
-        $this->load->view('_partials/script');
-    }
 
     public function datamatkul() {
 
@@ -113,13 +104,46 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function perkuliahan() {
+
+
+
+
+    public function jadwalkuliah() {
+
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
 
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/perkuliahan');
+        $this->load->view('fakultas/jadwalkuliah', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function datamatkul1() {
+
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
+
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/datamatkulprd', $data);
+        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function perkuliahan() {
+
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
+
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/perkuliahan', $data);
+        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -247,6 +271,19 @@ class Fakultas extends CI_Controller {
     //     $this->load->view('_partials/script');
     // }
 
+    public function berkasmhs($nim) {
+        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data['listm'] = $this->model_fakultas->join_mhs('ak_fakultas');
+        $data['mahasiswa'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/berkasmhs', $data);
+        $this->load->view('_partials/script');
+    }
+
+
     public function profildsn($nik) {
         $data['fakultas'] = $this->model_fakultas->join_dsn('ak_fakultas', ['id_fakultas' => $this->session->id]);
         $data['listd'] = $this->model_fakultas->join_dsn('ak_fakultas');
@@ -258,68 +295,29 @@ class Fakultas extends CI_Controller {
         $this->load->view('fakultas/profildsn', $data);
         $this->load->view('_partials/script');
     }
-<<<<<<< Updated upstream
-=======
-
-    public function datamatkul() {
-        $data = [
-            'listm' => $this->model_fakultas->get_db('ak_matkul'),
-        ];
+    public function pengumuman() {
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamatkul', $data);
+        $this->load->view('fakultas/pengumuman/pengumuman');
         $this->load->view('_partials/script');
     }
 
-     //==================== PENGUMUMAN ====================//
+    public function tambah() {
 
-     public function pengumuman() {
-        $data = [
-            'listp' => $this->model_fakultas->get_db('ak_pengumuman'),
-        ];
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/pengumuman/pengumuman', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function inputpengumuman() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/pengumuman/createpengumuman');
         $this->load->view('_partials/script');
     }
-
-    public function ubahpengumuman($id_pengumuman) {
-        $data = [
-            'pengumuman' => $this->model_pengumuman->get_db('ak_pengumuman', ['id_pengumuman' => $id_pengumuman]),
-        ];
+    public function updatepengumuman() {
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/pengumuman/updatepengumuman', $data);
+        $this->load->view('fakultas/pengumuman/updatepengumuman');
         $this->load->view('_partials/script');
     }
-
-    public function setpengumuman() {
-        $this->model_pengumuman->set_pengumuman();
-        redirect('fakultas/pengumuman');
-    }
-
-    public function updatepengumuman($id_pengumuman) {
-        $this->model_pengumuman->update_pengumuman($id_pengumuman);
-        redirect('fakultas/pengumuman');
-    }
-
-    public function deletepengumuman($id_pengumuman) {
-        $this->model_pengumuman->delete_pengumuman($id_pengumuman);
-        redirect('fakultas/pengumuman');
-    }
->>>>>>> Stashed changes
 }

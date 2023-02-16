@@ -86,6 +86,7 @@ $route['prodi/civitas/tambah-dosen']                       = 'prodi/inputdsn';
 $route['prodi/civitas/data-mahasiswa']                     = 'prodi/datamhs';
 $route['prodi/civitas/data-mahasiswa/(:num)/profil']       = 'prodi/profilmhs/$1';
 $route['prodi/civitas/data-mahasiswa/(:num)/akademik']     = 'prodi/berkasmhs/$1';
+$route['prodi/civitas/data-mahasiswa/(:num)/biaya']        = 'prodi/biayakuliah/$1';
 $route['prodi/civitas/data-dosen-wali']                    = 'prodi/datadsnwl';
 $route['prodi/civitas/data-dosen-wali/(:num)']             = 'prodi/datamhswl/$1';
 $route['prodi/civitas/data-dosen-wali/tambah-wali']        = 'prodi/createwali';

@@ -11,6 +11,7 @@ class Prodi extends CI_Controller {
         $this->load->model('model_krs');
         $this->load->model('model_mahasiswa');
         $this->load->model('model_matkul');
+        $this->load->model('model_pembayaran');
         $this->load->model('model_pengumuman');
 
         if (!$this->session->logged) redirect('login');
@@ -106,16 +107,9 @@ class Prodi extends CI_Controller {
     }
 
     public function datamengajar($nik) {
-        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-
-        foreach ($list_hari as $hari) {
-            $listj[$hari] = $this->model_jadwal->get_jadwal_dsn($nik, $hari);
-        }
-
         $data = [
             'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
-            'listh' => $list_hari,
-            'listj' => $listj,
+            'listj' => $this->model_jadwal->get_jadwal_dsn($nik),
         ];
 
         $this->load->view('_partials/head');
@@ -500,16 +494,9 @@ class Prodi extends CI_Controller {
     //==================== PERKULIAHAN ====================//
 
     public function perkuliahan() {
-        $list_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-
-        foreach ($list_hari as $hari) {
-            $listj[$hari] = $this->model_jadwal->get_jadwal($this->session->id, $hari);
-        }
-
         $data = [
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listh' => $list_hari,
-            'listj' => $listj,
+            'listj' => $this->model_jadwal->get_jadwal($this->session->id, 'jadwal'),
         ];
 
         $this->load->view('_partials/head');
@@ -591,6 +578,47 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function nilai($id_matkul) {
+        $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
+        if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $matkul,
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/akademik/nilai', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function biayakuliah($nim) {
+        $listb = $this->model_pembayaran->get_pembayaran($nim);
+        $total_tunggakan = 0;
+        $total_terbayar = 0;
+
+        foreach ($listb as $bayar) {
+            $total_tunggakan += $bayar['BILLAM'];
+            $total_terbayar += $bayar['PAIDAM'];
+        }
+
+        $data = [
+            'keuangan' => $this->model_pembayaran->get_va($nim),
+            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $nim]),
+            'terbayar' => $total_terbayar,
+            'tunggakan' => $total_tunggakan,
+            'listb' => $listb,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/header');
+        $this->load->view('prodi/civitas/biaya', $data);
+        $this->load->view('_partials/script');
+    }
+
     private function indonesian_date($date) {
         $month = [
             1 => 'Januari',
@@ -610,21 +638,5 @@ class Prodi extends CI_Controller {
         $exp = explode('-', $date);
 
         return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
-    }
-
-    public function nilai($id_matkul) {
-        $matkul = $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]);
-        if ($matkul['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
-
-        $data = [
-            'matkul' => $matkul,
-            'listm' => $this->model_dosen->get_mhs($id_matkul),
-        ];
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarprd');
-        $this->load->view('_partials/header');
-        $this->load->view('prodi/akademik/nilai', $data);
-        $this->load->view('_partials/script');
     }
 }

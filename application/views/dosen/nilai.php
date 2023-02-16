@@ -13,7 +13,7 @@
                 </nav>
             </div>
 
-            <!-- Absensi -->
+            <!-- Nilai -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between p-3">

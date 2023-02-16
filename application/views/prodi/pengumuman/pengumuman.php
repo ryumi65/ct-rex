@@ -20,24 +20,24 @@
                         <a href="<?= site_url('prodi/pengumuman/tambah') ?>" class="btn btn-primary btn-sm mb-0">Buat Pengumuman</a>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <table class="table align-items-center w-100" id="table">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                             <thead class="bg-gradient-primary text-white text-center">
-                                <th class=" font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                <th class=" font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                     No</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                     Judul</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                     Isi Pengumuman</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                     Tanggal Mulai</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                     Tenggang Waktu</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                     Target</th>
                                 <th class="font-weight-bolder text-uppercase text-xs text-center">
                                     Aksi</th>
                             </thead>
-                            <tbody class="bg-gray-100 text-dark text-sm">
+                            <tbody class="text-sm">
                                 <?php foreach ($listp as $pengumuman) : ?>
                                     <tr>
                                         <td></td>
@@ -72,17 +72,14 @@
     <!-- JQuery -->
     <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
-        let table;
-
         $(document).ready(() => {
-            table = $('#table').DataTable({
+            const table = $('#table').DataTable({
                 columnDefs: [{
                     targets: [0, 6],
                     orderable: false,
                     searchable: false,
                 }],
                 order: [3, 'asc'],
-                responsive: true,
             });
 
             table.on('order.dt search.dt', () => {

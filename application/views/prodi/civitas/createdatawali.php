@@ -31,24 +31,24 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
-                        <table class="table align-items-center w-100" id="table">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
                             <thead>
                                 <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Nama Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Angkatan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Status</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center" style="width: 5%">
                                         Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-gray-100 text-dark text-sm">
+                            <tbody class="text-sm">
                                 <?php foreach ($listm as $mahasiswa) : ?>
                                     <tr>
                                         <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
@@ -66,15 +66,15 @@
                             </tbody>
                             <tfoot>
                                 <tr class="bg-gradient-primary text-white">
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Nama Mahasiswa</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         NIM</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         JK</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center">
                                         Angkatan</th>
-                                    <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                         Status</th>
                                     <th class="font-weight-bolder text-uppercase text-xs text-center" style="width: 5%">
                                         Aksi</th>
@@ -103,7 +103,7 @@
                         .columns(3)
                         .every(function() {
                             var column = this;
-                            var select = $('<select class="form-select form-select-sm"><option value="">Seluruh Angkatan</option></select>')
+                            var select = $('<select class="form-select form-select-sm"><option value="">Angkatan</option></select>')
                                 .appendTo($(column.footer()).empty())
                                 .on('change', function() {
                                     var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -126,7 +126,6 @@
                     searchable: false,
                 }],
                 order: [1, 'asc'],
-                responsive: true,
                 stateSave: true,
             });
         });

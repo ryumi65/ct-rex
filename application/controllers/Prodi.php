@@ -516,7 +516,6 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/perkuliahan', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -549,7 +548,6 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/presensi', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -590,7 +588,6 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/bap', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -628,7 +625,6 @@ class Prodi extends CI_Controller {
         $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/akademik/nilai', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 }

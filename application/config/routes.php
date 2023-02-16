@@ -108,6 +108,7 @@ $route['dosen/perkuliahan/nilai/(:num)/input']             = 'dosen/inputnilai/$
 $route['dosen/bimbingan/mahasiswa-wali']                   = 'dosen/daftarmhswali';
 $route['dosen/bimbingan/mahasiswa-wali/(:num)']            = 'dosen/berkasmhs/$1';
 $route['dosen/bimbingan/mahasiswa-wali/(:num)/profil']     = 'dosen/profilmahasiswa/$1';
+$route['dosen/bimbingan/mahasiswa-wali/(:num)/biaya']      = 'dosen/biayakuliah/$1';
 $route['dosen/bimbingan/akademik']                         = 'dosen/bimbinganakademik';
 $route['dosen/bimbingan/akademik/krs']                     = 'dosen/acckrs';
 $route['dosen/profil/edit/foto']                           = 'dosen/update_foto';

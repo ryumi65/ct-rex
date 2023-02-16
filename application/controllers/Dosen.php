@@ -9,6 +9,7 @@ class Dosen extends CI_Controller {
         $this->load->model('model_dosen');
         $this->load->model('model_jadwal');
         $this->load->model('model_krs');
+        $this->load->model('model_pembayaran');
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 3) redirect(strtolower($this->session->access));
@@ -41,7 +42,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/dashboard', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -59,7 +59,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/profil', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -73,7 +72,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/jadwal', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -82,7 +80,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('akun/foto');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -127,7 +124,6 @@ class Dosen extends CI_Controller {
             $this->load->view('_partials/sidebardsn');
             $this->load->view('_partials/header');
             $this->load->view('dosen/update', $data);
-            $this->load->view('_partials/loader');
             $this->load->view('_partials/script');
         } else {
             $this->model_dosen->update_dosen($nik);
@@ -143,7 +139,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/absen');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -176,7 +171,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/rekapabsen', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -201,7 +195,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/inputabsen', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -224,7 +217,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/updateabsen', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -279,7 +271,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/bap', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -301,7 +292,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/formbap', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -319,7 +309,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/updatebap', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -355,7 +344,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/updatecapaian', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -400,7 +388,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/nilai', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -417,7 +404,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/inputnilai', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -432,7 +418,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/listmatkuldiampu');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -462,10 +447,8 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('dosen/bimbinganakademik', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
-
 
     public function acckrs() {
         $listm = $this->model_dosen->get_db('ak_mahasiswa', ['dosen_wali' => $this->session->id], 'result');
@@ -559,7 +542,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('_partials/sidebardsn');
         $this->load->view('dosen/acckrs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -598,7 +580,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/daftarmhswali', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -612,7 +593,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/listperwalian', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -626,7 +606,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/cstudimhs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -640,12 +619,9 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/formcstudi', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-
-    // profilmhs
     public function profilmahasiswa($nim) {
         $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
@@ -661,8 +637,6 @@ class Dosen extends CI_Controller {
         $this->load->view('dosen/profilmhs', $data);
         $this->load->view('_partials/script');
     }
-
-    // BERKAS MAHASISWA BIMBINGAN
 
     public function berkasmhs($nim) {
         $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
@@ -734,6 +708,31 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/sidebardsn');
         $this->load->view('_partials/header');
         $this->load->view('dosen/berkasmhs', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function biayakuliah($nim) {
+        $listb = $this->model_pembayaran->get_pembayaran($nim);
+        $total_tunggakan = 0;
+        $total_terbayar = 0;
+
+        foreach ($listb as $bayar) {
+            $total_tunggakan += $bayar['BILLAM'];
+            $total_terbayar += $bayar['PAIDAM'];
+        }
+
+        $data = [
+            'keuangan' => $this->model_pembayaran->get_va($nim),
+            'mahasiswa' => $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]),
+            'terbayar' => $total_terbayar,
+            'tunggakan' => $total_tunggakan,
+            'listb' => $listb,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebardsn');
+        $this->load->view('_partials/header');
+        $this->load->view('dosen/biaya', $data);
         $this->load->view('_partials/script');
     }
 }

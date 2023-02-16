@@ -23,7 +23,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/dashboard', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -39,7 +38,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/datafakultas', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -48,7 +46,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/dataprodi');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -57,7 +54,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/datanilaimhs');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -69,7 +65,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/datadsn', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -81,7 +76,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/datamhs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -94,7 +88,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/profilmhs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -107,7 +100,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/profildsn', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -120,7 +112,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/dataruangan', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -134,7 +125,6 @@ class Admin extends CI_Controller {
             $this->load->view('_partials/sidebaradmin');
             $this->load->view('_partials/header');
             $this->load->view('admin/createruangan', $data);
-            $this->load->view('_partials/loader');
             $this->load->view('_partials/script');
         } else {
             $this->model_ruangan->set_ruangan();
@@ -152,7 +142,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/listpengumuman');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -165,7 +154,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/listakun', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -178,7 +166,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/durasikrs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -197,7 +184,6 @@ class Admin extends CI_Controller {
         $this->load->view('_partials/sidebaradmin');
         $this->load->view('_partials/header');
         $this->load->view('admin/ubahtahun', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 

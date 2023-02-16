@@ -26,7 +26,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/dashboard', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -37,7 +36,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/profil', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -90,7 +88,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/dataprodi', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -101,7 +98,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/jadwalkuliah');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -112,7 +108,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/datamatkulprd');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -123,7 +118,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/perkuliahan');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -137,7 +131,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/datadosen', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 

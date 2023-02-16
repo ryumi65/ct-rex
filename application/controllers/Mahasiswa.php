@@ -76,7 +76,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/dashboard', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -108,7 +107,6 @@ class Mahasiswa extends CI_Controller {
             $this->load->view('_partials/sidebarmhs');
             $this->load->view('_partials/header');
             $this->load->view('mahasiswa/update', $data);
-            $this->load->view('_partials/loader');
             $this->load->view('_partials/script');
         } else {
             $this->model_mahasiswa->update_mahasiswa($nim);
@@ -139,7 +137,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/profil', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -148,7 +145,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('akun/foto');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -194,7 +190,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/datakrs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -238,7 +233,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/formkrs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -281,7 +275,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/jadwal', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -308,7 +301,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/rekapabsen', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -317,7 +309,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/rekapabsen');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -399,7 +390,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/datakhs', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -408,7 +398,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/transkrip');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -419,7 +408,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/listcstudi');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
@@ -428,14 +416,13 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/formcstudi');
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
     //==================== BIAYA ====================//
 
     public function biayakuliah() {
-        $listb = $this->model_pembayaran->get_pembayaran();
+        $listb = $this->model_pembayaran->get_pembayaran($this->session->id);
         $total_tunggakan = 0;
         $total_terbayar = 0;
 
@@ -445,7 +432,7 @@ class Mahasiswa extends CI_Controller {
         }
 
         $data = [
-            'keuangan' => $this->model_pembayaran->get_va(),
+            'keuangan' => $this->model_pembayaran->get_va($this->session->id),
             'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
             'terbayar' => $total_terbayar,
             'tunggakan' => $total_tunggakan,
@@ -456,7 +443,6 @@ class Mahasiswa extends CI_Controller {
         $this->load->view('_partials/sidebarmhs');
         $this->load->view('_partials/header');
         $this->load->view('mahasiswa/biaya', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 }

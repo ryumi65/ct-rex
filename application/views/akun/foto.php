@@ -12,7 +12,7 @@
                         <?= form_open_multipart('upload/upload_profil') ?>
                         <div class="card-body px-3 py-0">
                             <label class="d-flex d-inline justify-content-between">Foto Profil
-                                <p class="text-sm"> Ukuran Disarankan 1080 x1080</p>
+                                <p class="text-sm"> Ukuran Disarankan 500 x 500, Maks. 2MB</p>
                             </label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>
@@ -35,7 +35,7 @@
                         <?= form_open_multipart('upload/upload_header') ?>
                         <div class="card-body px-3 py-0">
                             <label class="d-flex d-inline justify-content-between">Foto Header
-                                <p class="text-sm"> Ukuran Disarankan 1080 x1080</p>
+                                <p class="text-sm"> Ukuran Disarankan 1000 x 300, Maks. 2MB</p>
                             </label>
                             <div class="mb-3">
                                 <input type="file" name="userfile" class="form-control" required>

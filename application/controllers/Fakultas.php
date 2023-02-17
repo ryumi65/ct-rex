@@ -6,8 +6,9 @@ class Fakultas extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('model_fakultas');
+        $this->load->model('model_jadwal');
+        $this->load->model('model_krs');
         $this->load->model('model_pengumuman');
-
 
         if (!$this->session->logged) redirect('login');
         if ($this->session->level != 1) redirect(strtolower($this->session->access));
@@ -19,9 +20,9 @@ class Fakultas extends CI_Controller {
         $akun = $this->model_fakultas->get_db('ak_akun', ['id_akun' => $this->session->id]);
 
         $data = [
-            'profil' => $akun['foto_profil'],
-            'header' => $akun['foto_header'],
             'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'header' => $akun['foto_header'],
+            'profil' => $akun['foto_profil'],
         ];
 
         $this->load->view('_partials/head');
@@ -32,7 +33,9 @@ class Fakultas extends CI_Controller {
     }
 
     public function profil() {
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -41,31 +44,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function create() {
-        $this->form_validation->set_rules('id_fakultas', 'id_fakultas', 'required');
-        $this->form_validation->set_rules('nama', 'nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('fakultas/create');
-        } else {
-            $this->model_fakultas->set_fakultas();
-            redirect('fakultas');
-        }
-    }
-
-    public function update() {
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
-        $this->form_validation->set_rules('id_fakultas', 'id_fakultas', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('fakultas/update', $data);
-        } else {
-            $this->model_fakultas->update_fakultas($this->session->id);
-            redirect('fakultas/profil');
-        }
-    }
+    //==================== PRODI ====================//
 
     public function dataprd() {
         $listp = $this->model_fakultas->get_db('ak_prodi', ['id_fakultas' => $this->session->id], 'result');
@@ -83,8 +62,10 @@ class Fakultas extends CI_Controller {
             $jumlah[] = $count;
         }
 
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listp'] = $jumlah;
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listp' => $jumlah,
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -93,65 +74,43 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-
     public function datamatkul() {
-
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamatkulprd');
-        $this->load->view('_partials/script');
-    }
-
-
-
-
-
-    public function jadwalkuliah() {
-
         $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/jadwalkuliah', $data);
-        $this->load->view('_partials/loader');
-        $this->load->view('_partials/script');
-    }
-
-    public function datamatkul1() {
-
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/datamatkulprd', $data);
-        $this->load->view('_partials/loader');
+        $this->load->view('_partials/script');
+    }
+
+    public function jadwalkuliah($id_prodi) {
+        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/jadwalkuliah', $data);
         $this->load->view('_partials/script');
     }
 
     public function perkuliahan() {
-
         $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/perkuliahan', $data);
-        $this->load->view('_partials/loader');
         $this->load->view('_partials/script');
     }
 
-
+    //==================== DOSEN ====================//
 
     public function datadsn() {
-        $data['fakultas'] = $this->model_fakultas->join_dosen('ak_fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->join_dosen('ak_dosen', ['nik' => $this->session->id]);
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listd' => $this->model_fakultas->get_dosen(),
+        ];
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
@@ -160,10 +119,47 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function profildsn($nik) {
+        $dosen = $this->model_fakultas->get_dosen($nik);
+        if ($dosen['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        if (isset($dosen['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($dosen['tanggal_lahir']);
+        else $tanggal_lahir = $dosen['tanggal_lahir'];
+
+        $data = [
+            'dosen' => $this->model_fakultas->get_db('ak_dosen', ['nik' => $nik]),
+            'prodi' => $this->model_fakultas->get_db('ak_prodi', ['id_prodi' => $dosen['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/profildsn', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function datamengajar($nik) {
+        $data = [
+            'dosen' => $this->model_fakultas->get_db('ak_dosen', ['nik' => $nik]),
+            'listj' => $this->model_jadwal->get_jadwal_dsn($nik),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/datamengajar', $data);
+        $this->load->view('_partials/script');
+    }
+
+    //==================== MAHASISWA ====================//
+
     public function datamhs() {
-        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listm'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->join_mhs('ak_dosen', ['id_fakultas' => $this->session->id]);
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listm' => $this->model_fakultas->get_mhs(),
+        ];
+
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
@@ -172,10 +168,18 @@ class Fakultas extends CI_Controller {
     }
 
     public function profilmhs($nim) {
+        $mahasiswa = $this->model_fakultas->get_mhs($nim);
+        if ($mahasiswa['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        if (isset($mahasiswa['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($mahasiswa['tanggal_lahir']);
+        else $tanggal_lahir = $mahasiswa['tanggal_lahir'];
+
         $data = [
-            'fakultas' => $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]),
-            'listp' => $this->model_fakultas->join_mhs('ak_prodi'),
-            'mahasiswa' => $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]),
+            'dosen' => $this->model_fakultas->get_db('ak_dosen', ['nik' => $mahasiswa['dosen_wali']]),
+            'mahasiswa' => $this->model_fakultas->get_db('ak_mahasiswa', ['nim' => $nim]),
+            'ortu' => $this->model_fakultas->get_db('ak_orang_tua', ['nim' => $nim]),
+            'prodi' => $this->model_fakultas->get_db('ak_prodi', ['id_prodi' => $mahasiswa['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');
@@ -185,9 +189,9 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function akademiksmhs($nim) {
-        $mahasiswa = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]);
-        if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+    public function berkasmhs($nim) {
+        $mahasiswa = $this->model_fakultas->get_mhs($nim);
+        if ($mahasiswa['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
 
         $ip = [];
         $krs = [];
@@ -243,7 +247,7 @@ class Fakultas extends CI_Controller {
         else $total_ipk = 0;
 
         $data = [
-            'mahasiswa' => $mahasiswa,
+            'mahasiswa' => $this->model_fakultas->get_db('ak_mahasiswa', ['nim' => $nim]),
             'ipk' => $total_ipk,
             'listip' => $ip,
             'listk' => $krs,
@@ -254,49 +258,13 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamhs/akademikmhs/nim', $data);
-        $this->load->view('_partials/script');
-    }
-
-
-    // public function profilmhs($nim) {
-    //     $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
-    //     $data['listm'] = $this->model_fakultas->join_mhs('ak_fakultas');
-    //     $data['mahasiswa'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]);
-
-    //     $this->load->view('_partials/head');
-    //     $this->load->view('_partials/sidebarprd');
-    //     $this->load->view('_partials/header');
-    //     $this->load->view('fakultas/profilmhs', $data);
-    //     $this->load->view('_partials/script');
-    // }
-
-    public function berkasmhs($nim) {
-        $data['fakultas'] = $this->model_fakultas->join_mhs('ak_fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listm'] = $this->model_fakultas->join_mhs('ak_fakultas');
-        $data['mahasiswa'] = $this->model_fakultas->join_mhs('ak_mahasiswa', ['nim' => $nim]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
         $this->load->view('fakultas/berkasmhs', $data);
         $this->load->view('_partials/script');
     }
 
+    //==================== PENGUMUMAN ====================//
 
-    public function profildsn($nik) {
-        $data['fakultas'] = $this->model_fakultas->join_dsn('ak_fakultas', ['id_fakultas' => $this->session->id]);
-        $data['listd'] = $this->model_fakultas->join_dsn('ak_fakultas');
-        $data['dosen'] = $this->model_fakultas->join_dsn('ak_dosen', ['nik' => $nik]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/profildsn', $data);
-        $this->load->view('_partials/script');
-    }
     public function pengumuman() {
-
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
@@ -304,20 +272,40 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
-    public function tambah() {
-
+    public function tambahpengumuman() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/pengumuman/createpengumuman');
         $this->load->view('_partials/script');
     }
-    public function updatepengumuman() {
 
+    public function updatepengumuman() {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/pengumuman/updatepengumuman');
         $this->load->view('_partials/script');
+    }
+
+    private function indonesian_date($date) {
+        $month = [
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        ];
+
+        $exp = explode('-', $date);
+
+        return $exp[2] . ' ' . $month[(int)$exp[1]] . ' ' . $exp[0];
     }
 }

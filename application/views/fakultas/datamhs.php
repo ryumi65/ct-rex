@@ -1,91 +1,148 @@
-<div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-    <div class="container-fluid pt-6 pt-xl-0">
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+        <div class="container-fluid pt-6 pt-xl-0">
 
-        <div class="col-12 my-4">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <h5 class="mb-0">Daftar Mahasiswa</h5>
-                </div>
-                <div class="card-body">
-                    <table class="table align-items-center w-100" id="table">
-                        <thead>
-                            <tr class="bg-gradient-primary text-white">
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
-                                    No.</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    NIM</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Nama Mahasiswa</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Prodi</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    JK</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Angkatan</th>
-                                <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                    Status</th>
-                                <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                    Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-gray-100 text-dark text-sm">
-                            <?php foreach ($listd as $mahasiswa) : ?>
-                                <tr>
-                                    <td></td>
-                                    <td><?= $mahasiswa['nim'] ?></td>
-                                    <td><a href="<?= site_url('fakultas/datamhs' . $mahasiswa['nim']) ?>"><?= $mahasiswa['nama'] ?></a></td>
-                                    <td><?= $mahasiswa['id_prodi'] ?></td>
-                                    <td><?= ucfirst($mahasiswa['jenis_kelamin']) ?></td>
-                                    <td><?= $mahasiswa['tahun_angkatan'] ?></td>
-                                    <td><?= ucwords($mahasiswa['status']) ?></td>
-                                    <td>
-                                        <div class="text-center">
+            <div class="col-12 my-3">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Daftar Mahasiswa</h5>
+                    </div>
+                    <div class="card-body p-3 pt-0">
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Program Studi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Status</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listm as $mahasiswa) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-wrap"><?= $mahasiswa['nama'] ?></td>
+                                        <td><?= $mahasiswa['nim'] ?></td>
+                                        <td><?= $mahasiswa['jenis_kelamin'] ?></td>
+                                        <td><?= $mahasiswa['nama_prodi'] ?></td>
+                                        <td class="text-center"><?= $mahasiswa['tahun_angkatan'] ?></td>
+                                        <td><?= $mahasiswa['status'] ?></td>
+                                        <td class="text-center">
                                             <a href="<?= site_url('fakultas/profilmhs/' . $mahasiswa['nim'] . '/profil') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Data Diri">
                                                 <i class="fa-solid fa-user"></i>
                                             </a>
                                             <a href="<?= site_url('fakultas/berkasmhs/' . $mahasiswa['nim'] . '/akademik') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Data Akademik">
                                                 <i class="fa-solid fa-chalkboard-user"></i>
                                             </a>
-                                        </div>
-                                    </td>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Nama Mahasiswa</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        NIM</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        JK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Program Studi</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Angkatan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Status</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
                                 </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <?php $this->load->view('_partials/footer') ?>
     </div>
 
-    <?php $this->load->view('_partials/footer') ?>
-</div>
+    <!-- JQuery -->
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
+    <script>
+        $(document).ready(() => {
+            const table = $('#table').DataTable({
+                initComplete: function() {
+                    this.api()
+                        .columns(4)
+                        .every(function() {
+                            var column = this;
+                            var select = $('<select class="form-select form-select-sm"><option value="">Program Studi</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-<!-- JQuery -->
-<script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
-<script>
-    let table;
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
 
-    $(document).ready(() => {
-        table = $('#table').DataTable({
-            columnDefs: [{
-                targets: [0],
-                orderable: false,
-                searchable: false,
-            }],
-            deferRender: true,
-            order: [2, 'asc'],
-            responsive: true,
-        });
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
 
-        table.on('order.dt search.dt', () => {
-            let i = 1;
+                    this.api()
+                        .columns(5)
+                        .every(function() {
+                            var column = this;
+                            var select = $('<select class="form-select form-select-sm"><option value="">Angkatan</option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function() {
+                                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-            table.cells(null, 0, {
-                order: 'applied',
-                search: 'applied',
-            }).every(function(cell) {
-                this.data(i++);
+                                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                                });
+
+                            column
+                                .data()
+                                .unique()
+                                .sort()
+                                .each(function(d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>');
+                                });
+                        });
+                },
+                columnDefs: [{
+                    targets: [0, 7],
+                    orderable: false,
+                    searchable: false,
+                }],
+                order: [2, 'asc'],
             });
-        }).draw();
-    });
-</script>
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
+        });
+    </script>

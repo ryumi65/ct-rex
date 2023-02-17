@@ -16,54 +16,53 @@
             <!-- Jadwal Kuliah -->
             <div class="col-12 my-3">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between p-3">
-                        <h5>Jadwal Mengajar <?= $dosen['nama'] ?></h5>
-                        <a href="#" class="btn btn-primary btn-sm mb-0">Cetak</a>
+                    <div class="card-header p-3">
+                        <h5 class="mb-0">Jadwal Mengajar <?= $dosen['nama'] ?></h5>
                     </div>
                     <div class="card-body p-3 pt-0">
-                        <?php for ($i = 0; $i < count($listh); $i++) : ?>
-                            <?php if (count($listj[$listh[$i]]) > 0) : ?>
-                                <h6><?= $listh[$i] ?></h6>
-                                <table class="table align-items-center w-100" id="table<?= $i ?>">
-                                    <thead>
-                                        <tr class="bg-gradient-primary text-white">
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Nama MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Kode MK</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Waktu</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs ps-2">
-                                                Ruangan</th>
-                                            <th class="font-weight-bolder text-uppercase text-xs text-center">
-                                                Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-gray-100 text-dark text-sm">
-                                        <?php foreach ($listj[$listh[$i]] as $jadwal) : ?>
-                                            <tr>
-                                                <td class="text-wrap w-50"><?= $jadwal['nama'] ?></td>
-                                                <td><?= $jadwal['kode'] ?></td>
-                                                <td><?= $jadwal['waktu'] ?></td>
-                                                <td><?= $jadwal['ruangan'] ?></td>
-                                                <td class="text-center">
-                                                    <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/presensi') ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
-                                                        <i class="fa-solid fa-book-bookmark"></i>
-                                                    </a>
-                                                    <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/bap') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Berita Acara Perkuliahan">
-                                                        <i class="fa-solid fa-receipt"></i>
-                                                    </a>
-                                                    <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/nilai') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
-                                                        <i class="fa-solid fa-clipboard-user"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
-                                </table>
-                                <hr class="bg-dark">
-                            <?php endif ?>
-                        <?php endfor ?>
+                        <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="table">
+                            <thead>
+                                <tr class="bg-gradient-primary text-white">
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
+                                        No.</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Nama MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Kode MK</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Hari</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Waktu</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs ps-1">
+                                        Ruangan</th>
+                                    <th class="font-weight-bolder text-uppercase text-xs text-center">
+                                        Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <?php foreach ($listj as $jadwal) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-wrap w-50"><?= $jadwal['nama'] ?></td>
+                                        <td><?= $jadwal['kode'] ?></td>
+                                        <td><?= $jadwal['hari'] ?></td>
+                                        <td><?= $jadwal['waktu'] ?></td>
+                                        <td><?= $jadwal['ruangan'] ?></td>
+                                        <td class="text-center">
+                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/presensi') ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                                <i class="fa-solid fa-book-bookmark"></i>
+                                            </a>
+                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/bap') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Berita Acara Perkuliahan">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </a>
+                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/nilai') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
+                                                <i class="fa-solid fa-clipboard-user"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -73,24 +72,27 @@
     </div>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.1/r-2.4.0/datatables.min.js"></script>
+    <script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
     <script>
-        for (let i = 0; i < 7; i++) {
-
-            $(document).ready(() => {
-
-                $(`#table${i}`).DataTable({
-
-                    dom: "",
-                    responsive: true,
-                    order: [2, 'asc'],
-
-                    columnDefs: [{
-                        targets: [0, 4],
-                        orderable: false,
-                        searchable: false,
-                    }],
-                });
+        $(document).ready(() => {
+            const table = $('#table').DataTable({
+                columnDefs: [{
+                    targets: [0, 6],
+                    orderable: false,
+                    searchable: false,
+                }],
+                order: [2, 'asc'],
             });
-        }
+
+            table.on('order.dt search.dt', () => {
+                let i = 1;
+
+                table.cells(null, 0, {
+                    order: 'applied',
+                    search: 'applied',
+                }).every(function(cell) {
+                    this.data(i++);
+                });
+            }).draw();
+        });
     </script>

@@ -138,7 +138,7 @@
                                     <select class="form-select" name="status_dosen" disabled>
                                         <option selected disabled>Pilih Status Dosen</option>
                                         <?php for ($i = 0; $i < count($status_dosen); $i++) : ?>
-                                            <?php if ($matkul['status_dosen'] === $status_dosen[$i]) : ?>
+                                            <?php if ($dosen['status_dosen'] === $status_dosen[$i]) : ?>
                                                 <option selected value="<?= $status_dosen[$i] ?>"><?= $status_dosen[$i] ?></option>
                                             <?php else : ?>
                                                 <option value="<?= $status_dosen[$i] ?>"><?= $status_dosen[$i] ?></option>
@@ -153,7 +153,7 @@
                                     <select class="form-select" name="status_kerja" disabled>
                                         <option selected disabled>Pilih Status Kerja</option>
                                         <?php for ($i = 0; $i < count($status_kerja); $i++) : ?>
-                                            <?php if ($matkul['status_kerja'] === $status_kerja[$i]) : ?>
+                                            <?php if ($dosen['status_kerja'] === $status_kerja[$i]) : ?>
                                                 <option selected value="<?= $status_kerja[$i] ?>"><?= $status_kerja[$i] ?></option>
                                             <?php else : ?>
                                                 <option value="<?= $status_kerja[$i] ?>"><?= $status_kerja[$i] ?></option>

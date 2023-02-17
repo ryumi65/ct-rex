@@ -81,20 +81,6 @@ class Mahasiswa extends CI_Controller {
 
     //==================== CRUD ====================//
 
-    public function create() {
-        $data['listp'] = $this->model_mahasiswa->get_db('ak_prodi');
-
-        $this->form_validation->set_rules('nim', 'NIM', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('mahasiswa/create', $data);
-        } else {
-            $this->model_mahasiswa->set_mahasiswa();
-            redirect('mahasiswa');
-        }
-    }
-
     public function update($nim) {
         $data['mahasiswa'] = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $nim]);
         $data['ortu'] = $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $nim]);
@@ -125,12 +111,19 @@ class Mahasiswa extends CI_Controller {
 
     public function profil() {
         $akun = $this->model_mahasiswa->get_db('ak_akun', ['id_akun' => $this->session->id]);
+        $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
+
+        if (isset($mahasiswa['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($mahasiswa['tanggal_lahir']);
+        else $tanggal_lahir = $mahasiswa['tanggal_lahir'];
+
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
-            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
+            'dosen' => $this->model_mahasiswa->get_db('ak_dosen', ['nik' => $mahasiswa['dosen_wali']]),
+            'mahasiswa' => $mahasiswa,
             'ortu' => $this->model_mahasiswa->get_db('ak_orang_tua', ['nim' => $this->session->id]),
-            'listp' => $this->model_mahasiswa->get_db('ak_prodi'),
+            'prodi' => $this->model_mahasiswa->get_db('ak_prodi', ['id_prodi' => $mahasiswa['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');

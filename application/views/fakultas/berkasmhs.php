@@ -22,6 +22,8 @@
                         <p class="d-inline mb-0"><?= $ipk ?></p>
                     </div>
                 </div>
+
+
                 <div class="card-body p-3 pt-0">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -43,7 +45,7 @@
                             <div class="row g-3 pt-3">
                                 <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                     <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
+                                        <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url('assets/img/shapes/s' . $i . '.png') ?>'); background-size: cover;">
                                             <div class="card-body">
                                                 <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                                 <div class="d-flex justify-content-between">
@@ -71,7 +73,7 @@
                             <div class="row g-3 pt-3">
                                 <?php for ($i = 1; $i <= $mahasiswa['semester']; $i++) : ?>
                                     <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url(); ?>assets/img/shapes/s<?= $i ?>.png'); background-size: cover;">
+                                        <div class="card h-100 shadow cursor-pointer" id="card-pop" style="background-image: url('<?= base_url('assets/img/shapes/s' . $i . '.png') ?>'); background-size: cover;">
                                             <div class="card-body">
                                                 <h5 class="card-title fw-bolder">Semester <?= $i ?></h5>
                                                 <div class="d-flex justify-content-between">
@@ -91,9 +93,6 @@
                                         </div>
                                     </div>
                                 <?php endfor ?>
-                                <div class="d-flex justify-content-end">
-                                    <button class="btn btn-primary btn-sm mb-0">Cetak Transkrip</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,30 +111,30 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <table class="table align-items-center w-100" id="tablekrs<?= $i ?>">
+                            <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="tablekrs<?= $i ?>">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1" style="width: 5%">
                                             No.</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Kode MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Nama MK</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             SKS</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Dosen Pengampu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Hari</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Waktu</th>
-                                        <th class="font-weight-bolder text-uppercase text-xs ps-2">
+                                        <th class="font-weight-bolder text-uppercase text-xs ps-1">
                                             Ruangan</th>
                                         <th class="font-weight-bolder text-uppercase text-xs text-center">
                                             Status</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-gray-100 text-dark text-sm">
+                                <tbody class="text-sm">
                                     <?php foreach ($listk[$i - 1] as $krs) : ?>
                                         <tr>
                                             <td></td>
@@ -166,7 +165,6 @@
                             </table>
                         </div>
                         <div class="modal-footer d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                             <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -182,7 +180,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <table class="table align-items-center w-100" id="tablekhs<?= $i ?>">
+                            <table class="table table-sm table-striped align-items-center dt-responsive w-100" id="tablekhs<?= $i ?>">
                                 <thead>
                                     <tr class="bg-gradient-primary text-white">
                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-2" style="width: 5%">
@@ -205,7 +203,7 @@
                                             Keterangan</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-gray-100 text-dark text-sm">
+                                <tbody class="text-sm">
                                     <?php foreach ($listk[$i - 1] as $krs) : ?>
                                         <tr>
                                             <td></td>
@@ -260,7 +258,6 @@
                             </table>
                         </div>
                         <div class="modal-footer d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary btn-sm mb-0" data-bs-dismiss="modal">Cetak</button>
                             <button type="button" class="btn btn-secondary btn-sm mb-0" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>

@@ -62,20 +62,20 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tempat Lahir</label>
                                         <div class="mb-3">
-                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>">
+                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?= $mahasiswa['tempat_lahir'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Tanggal Lahir</label>
                                         <div class="mb-3">
-                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>">
+                                            <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir" value="<?= $mahasiswa['tanggal_lahir'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <label>Jenis Kelamin</label>
                                         <div class="mb-3">
-                                            <select class="form-select" name="jenis_kelamin">
-                                                <option selected disabled>Pilih Jenis Kelamin</option>
+                                            <select class="form-select" name="jenis_kelamin" required>
+                                                <option selected disabled value="">Pilih Jenis Kelamin</option>
                                                 <?php if ($mahasiswa['jenis_kelamin'] === 'L') : ?>
                                                     <option selected value="L">Laki-laki</option>
                                                     <option value="P">Perempuan</option>
@@ -92,14 +92,43 @@
                                     <div class="col-md-4 col-sm-6">
                                         <label>Agama</label>
                                         <div class="mb-3">
-                                            <select class="form-select" name="jenis_kelamin">
-                                                <option selected disabled>Pilih Agama</option>
-                                                <option value="Islam">Islam</option>
-                                                <option value="Kristen">Kristen</option>
-                                                <option value="Katolik">Katolik</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Budha">Budha</option>
-                                                <option value="Khonghucu">Khonghucu</option>
+                                            <?php
+                                            $is_selected = '';
+                                            $kr_selected = '';
+                                            $kt_selected = '';
+                                            $hd_selected = '';
+                                            $bd_selected = '';
+                                            $kc_selected = '';
+
+                                            switch ($mahasiswa['agama']) {
+                                                case 'Islam':
+                                                    $is_selected = 'selected';
+                                                    break;
+                                                case 'Kristen':
+                                                    $kr_selected = 'selected';
+                                                    break;
+                                                case 'Katolik':
+                                                    $kt_selected = 'selected';
+                                                    break;
+                                                case 'Hindu':
+                                                    $hd_selected = 'selected';
+                                                    break;
+                                                case 'Budha':
+                                                    $bd_selected = 'selected';
+                                                    break;
+                                                case 'Khonghucu':
+                                                    $kc_selected = 'selected';
+                                                    break;
+                                            }
+                                            ?>
+                                            <select class="form-select" name="agama" required>
+                                                <option selected disabled value="">Pilih Agama</option>
+                                                <option value="Islam" <?= $is_selected ?>>Islam</option>
+                                                <option value="Kristen" <?= $kr_selected ?>>Kristen</option>
+                                                <option value="Katolik" <?= $kt_selected ?>>Katolik</option>
+                                                <option value="Hindu" <?= $hd_selected ?>>Hindu</option>
+                                                <option value="Budha" <?= $bd_selected ?>>Budha</option>
+                                                <option value="Khonghucu" <?= $kc_selected ?>>Khonghucu</option>
                                             </select>
                                         </div>
                                     </div>

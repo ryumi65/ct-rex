@@ -47,12 +47,26 @@ class Dosen extends CI_Controller {
 
     public function profil() {
         $akun = $this->model_dosen->get_db('ak_akun', ['id_akun' => $this->session->id]);
+        $dosen = $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]);
+        $list_sks = $this->model_krs->get_sks_dosen($this->session->id);
+        $jumlah_sks = 0;
+
+        for ($i = 0; $i < count($list_sks); $i++) {
+            $sks = intval($list_sks[$i]['sks']);
+            $jumlah_sks += $sks;
+        }
+
+        if (isset($dosen['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($dosen['tanggal_lahir']);
+        else $tanggal_lahir = $dosen['tanggal_lahir'];
+
         $data = [
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
-            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $this->session->id]),
+            'sks' => $jumlah_sks,
+            'dosen' => $dosen,
             'mhswali' => $this->model_dosen->get_db_count('ak_mahasiswa', ['dosen_wali' => $this->session->id]),
-            'listp' => $this->model_dosen->get_db('ak_prodi'),
+            'prodi' => $this->model_dosen->get_db('ak_prodi', ['id_prodi' => $dosen['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');
@@ -81,32 +95,6 @@ class Dosen extends CI_Controller {
         $this->load->view('_partials/header');
         $this->load->view('akun/foto');
         $this->load->view('_partials/script');
-    }
-
-    public function create() {
-        $data['listp'] = $this->model_dosen->get_db('ak_prodi');
-
-        $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
-        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('no_hp', 'No Hp', 'required');
-        $this->form_validation->set_rules('kewarganegaraan', 'kewarganegaraan', 'required');
-        $this->form_validation->set_rules('agama', 'Agama', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('id_prodi', 'ID Prodi', 'required');
-        $this->form_validation->set_rules('nidn_dosen', 'NIDN Dosen', 'required');
-        $this->form_validation->set_rules('status_dosen', 'Status Dosen', 'required');
-        $this->form_validation->set_rules('status_kerja', 'Status Kerja', 'required');
-
-        if (!$this->form_validation->run()) {
-            $this->load->view('dosen/create', $data);
-        } else {
-            $this->model_dosen->set_dosen();
-            redirect('dosen');
-        }
     }
 
     public function update($nik) {
@@ -626,9 +614,15 @@ class Dosen extends CI_Controller {
         $mahasiswa = $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['dosen_wali'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        if (isset($mahasiswa['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($mahasiswa['tanggal_lahir']);
+        else $tanggal_lahir = $mahasiswa['tanggal_lahir'];
+
         $data = [
-            'mahasiswa' => $this->model_dosen->get_db('ak_mahasiswa', ['nim' => $nim]),
-            'listp' => $this->model_dosen->get_db('ak_prodi'),
+            'dosen' => $this->model_dosen->get_db('ak_dosen', ['nik' => $mahasiswa['dosen_wali']]),
+            'mahasiswa' => $mahasiswa,
+            'ortu' => $this->model_dosen->get_db('ak_orang_tua', ['nim' => $nim]),
+            'prodi' => $this->model_dosen->get_db('ak_prodi', ['id_prodi' => $mahasiswa['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');

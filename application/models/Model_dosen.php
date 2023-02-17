@@ -19,7 +19,6 @@ class Model_dosen extends CI_Model {
             'nidn_dosen' => $this->input->post('nidn_dosen'),
             'status_dosen' => $this->input->post('status_dosen'),
             'status_kerja' => $this->input->post('status_kerja'),
-
         ];
 
         return $this->db->insert('ak_dosen', $data);

@@ -12,7 +12,7 @@ class Upload extends CI_Controller {
         $config['upload_path']   = './assets/img/uploads/header/';
         $config['file_name']     = $this->session->id;
         $config['allowed_types'] = 'jpeg|jpg|png';
-        // $config['max_size']      = 2048;
+        $config['max_size']      = 2048;
         // $config['max_width']     = 1000;
         // $config['max_height']    = 300;
         $config['overwrite']     = true;
@@ -29,7 +29,7 @@ class Upload extends CI_Controller {
         $config['upload_path']   = './assets/img/uploads/profile/';
         $config['file_name']     = $this->session->id;
         $config['allowed_types'] = 'jpeg|jpg|png';
-        // $config['max_size']      = 2048;
+        $config['max_size']      = 2048;
         // $config['max_width']     = 500;
         // $config['max_height']    = 500;
         $config['overwrite']     = true;

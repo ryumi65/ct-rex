@@ -93,10 +93,16 @@ class Prodi extends CI_Controller {
     }
 
     public function profildsn($nik) {
+        $dosen = $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]);
+        if ($dosen['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        if (isset($dosen['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($dosen['tanggal_lahir']);
+        else $tanggal_lahir = $dosen['tanggal_lahir'];
+
         $data = [
-            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listp' => $this->model_prodi->get_db('ak_prodi'),
-            'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $nik]),
+            'dosen' => $dosen,
+            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $dosen['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');
@@ -181,10 +187,15 @@ class Prodi extends CI_Controller {
         $mahasiswa = $this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        if (isset($mahasiswa['tanggal_lahir'])) $tanggal_lahir = $this->indonesian_date($mahasiswa['tanggal_lahir']);
+        else $tanggal_lahir = $mahasiswa['tanggal_lahir'];
+
         $data = [
-            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'listp' => $this->model_prodi->get_db('ak_prodi'),
-            'mahasiswa' => $this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim]),
+            'dosen' => $this->model_prodi->get_db('ak_dosen', ['nik' => $mahasiswa['dosen_wali']]),
+            'mahasiswa' => $mahasiswa,
+            'ortu' => $this->model_prodi->get_db('ak_orang_tua', ['nim' => $nim]),
+            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $mahasiswa['id_prodi']]),
+            'tanggal_lahir' => $tanggal_lahir,
         ];
 
         $this->load->view('_partials/head');

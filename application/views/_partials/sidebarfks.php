@@ -34,102 +34,76 @@
                     </a>
                 </li>
 
-                <!-- Data Prodi -->
-                <?php if (fnmatch('fakultas/dataprd*', uri_string())) {
-                    $navlinkDataprodi = 'nav-link active shadow';
+                <!-- Akademik -->
+                <?php if (fnmatch('fakultas/akademik*', uri_string())) {
+                    $navlinkAkd = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
-                    $navlinkDataprodi = 'nav-link';
+                    $navlinkAkd = 'nav-link';
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a class="<?= $navlinkDataprodi ?>" href="<?= site_url('fakultas/dataprd') ?>">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <a data-bs-toggle="collapse" href="#akademik" class="<?= $navlinkAkd ?>" aria-controls="akademik" role="button" aria-expanded="false">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                            <i class="fa-solid fa-chalkboard-user" style="color: <?= $color ?>"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Akademik</span>
+                    </a>
+                    <div class="collapse" id="akademik">
+                        <ul class="nav ms-4 ps-3">
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/akademik/data-matkul') ?>">Mata Kuliah</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/akademik/jadwal-kuliah') ?>">Jadwal Kuliah</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/akademik/perkuliahan') ?>">Data Perkuliahan</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Data Civitas -->
+                <?php if (fnmatch('fakultas/civitas*', uri_string())) {
+                    $navlinkCiv = 'nav-link active shadow';
+                    $color = '#fff';
+                } else {
+                    $navlinkCiv = 'nav-link';
+                    $color = '#000';
+                } ?>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#datacivitas" class="<?= $navlinkCiv ?>" aria-controls="datacivitas" role="button" aria-expanded="false">
+                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                             <i class="fa-solid fa-book" style="color: <?= $color ?>"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Data Prodi</span>
+                        <span class="nav-link-text ms-1">Data Civitas</span>
                     </a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#dataprodi" class="nav-link" aria-controls="dataprodi" role="button" aria-expanded="false">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-book" style="color: #000"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Prodi</span>
-                    </a>
-                    <div class="collapse" id="dataprodi">
+                    <div class="collapse" id="datacivitas">
                         <ul class="nav ms-4 ps-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('fakultas/dataprd') ?>">
-                                    Lihat Data Prodi
-                                </a>
-                        </ul>
-                    </div>
-                </li> -->
-
-                <!-- Data Dosen  -->
-                <?php if (fnmatch('fakultas/datadsn*', uri_string())) {
-                    $navlinkDatadsn = 'nav-link active shadow';
-                    $color = '#fff';
-                } else {
-                    $navlinkDatadsn = 'nav-link';
-                    $color = '#000';
-                } ?>
-                <li class="nav-item">
-                    <a class="<?= $navlinkDatadsn ?>" href="<?= site_url('fakultas/datadsn') ?>">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-graduation-cap" style=" color: <?= $color ?>"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Dosen</span>
-                    </a>
-                </li>
-
-
-                <!-- <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#datadosen" class="nav-link" aria-controls="datadosen" role="button" aria-expanded="false">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                            <i class="fa-solid fa-graduation-cap" style="color: #000"></i>
-                        </div>
-                        <span class=" nav-link-text ms-1">Data Dosen</span>
-                    </a>
-                    <div class="collapse" id="datadosen">
-                        <ul class="nav ms-4 ps-3">
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/civitas/data-prodi') ?>">Data Prodi</a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= site_url('fakultas/datadsn') ?>">
-                                    Lihat Data Dosen
-                                </a>
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/civitas/data-dosen') ?>">Data Dosen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-secondary" href="<?= site_url('fakultas/civitas/data-mahasiswa') ?>">Data Mahasiswa</a>
+                            </li>
                         </ul>
                     </div>
-                </li> -->
-
-                <!-- Data Mahasiswa -->
-                <?php if (fnmatch('fakultas/datamhs*', uri_string())) {
-                    $navlinkDatamhs = 'nav-link active shadow';
-                    $color = '#fff';
-                } else {
-                    $navlinkDatamhs = 'nav-link';
-                    $color = '#000';
-                } ?>
-                <li class="nav-item">
-                    <a class="<?= $navlinkDatamhs ?>" href="<?= site_url('fakultas/datamhs') ?>">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-chalkboard-user" " style=" color: <?= $color ?>"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Mahasiswa</span>
-                    </a>
                 </li>
-
 
                 <!-- Pengumuman -->
-                <?php if (fnmatch('prodi/pengumuman*', uri_string())) {
-                    $navlinkPgm = 'nav-link active shadow';
+                <?php if (fnmatch('fakultas/pengumuman*', uri_string())) {
+                    $navlinkPengumuman = 'nav-link active shadow';
                     $color = '#fff';
                 } else {
-                    $navlinkPgm = 'nav-link';
+                    $navlinkPengumuman = 'nav-link';
                     $color = '#000';
                 } ?>
                 <li class="nav-item">
-                    <a class="<?= $navlinkPgm ?>" href="<?= site_url('fakultas/pengumuman/pengumuman') ?>">
+                    <a class="<?= $navlinkPengumuman ?>" href="<?= site_url('fakultas/pengumuman') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-bullhorn" style="color: <?= $color ?>"></i>
                         </div>

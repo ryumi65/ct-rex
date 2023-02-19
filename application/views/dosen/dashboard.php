@@ -58,16 +58,16 @@
             <div class="col-12 my-3 d-block d-md-none">
                 <div class="card z-index-2 flex-wrap">
                     <div class="card-body d-flex d-inline justify-content-around p-1">
-                        <div class="text-center text-dark">
+                        <a href="<?= site_url('dosen/bimbingan/mahasiswa-wali') ?>" class="text-center text-dark">
                             <p class="fs-6 fw-bold my-0"><u>Mahasiswa Wali</u></p>
                             <h3 class="text-center my-0"><?= $mhswali ?></h3>
                             <p class="fs-6 fw-bold my-0">Mahasiswa</p>
-                        </div>
-                        <div class="text-center text-dark">
+                        </a>
+                        <a href="<?= site_url('dosen/perkuliahan/mata-kuliah') ?>" class="text-center text-dark">
                             <p class="fs-6 fw-bold my-0"><u>sks Mengajar</u></p>
                             <h3 class="text-center my-0"><?= $sks ?></h3>
                             <p class="fs-6 fw-bold my-0">sks</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ class Fakultas extends CI_Controller {
         $this->load->model('model_fakultas');
         $this->load->model('model_jadwal');
         $this->load->model('model_krs');
+        $this->load->model('model_matkul');
         $this->load->model('model_pengumuman');
 
         if (!$this->session->logged) redirect('login');
@@ -18,11 +19,25 @@ class Fakultas extends CI_Controller {
         if (uri_string() === 'fakultas/index') return redirect('fakultas');
 
         $akun = $this->model_fakultas->get_db('ak_akun', ['id_akun' => $this->session->id]);
+        $listp = $this->model_fakultas->get_db('ak_prodi', ['id_fakultas' => $this->session->id], 'result');
+        $jdosen = 0;
+        $jmhs = 0;
+
+        foreach ($listp as $prodi) {
+            $jumlah_dosen = $this->model_fakultas->get_db_count('ak_dosen', ['id_prodi' => $prodi['id_prodi'], 'status_dosen' => 'Aktif']);
+            $jumlah_mhs = $this->model_fakultas->get_db_count('ak_mahasiswa', ['id_prodi' => $prodi['id_prodi'], 'status' => 'Aktif']);
+
+            $jdosen += $jumlah_dosen;
+            $jmhs += $jumlah_mhs;
+        }
 
         $data = [
-            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
             'header' => $akun['foto_header'],
             'profil' => $akun['foto_profil'],
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'jdosen' => $jdosen,
+            'jmhs' => $jmhs,
+            'jprodi' => $this->model_fakultas->get_db_count('ak_prodi', ['id_fakultas' => $this->session->id]),
         ];
 
         $this->load->view('_partials/head');
@@ -40,7 +55,22 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/profil', $data);
+        $this->load->view('fakultas/profil/profil', $data);
+        $this->load->view('_partials/script');
+    }
+
+    //==================== AKADEMIK ====================//
+
+    public function datamatkul() {
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listm' => $this->model_matkul->get_matkul_fks($this->session->id),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/datamatkul', $data);
         $this->load->view('_partials/script');
     }
 
@@ -48,10 +78,11 @@ class Fakultas extends CI_Controller {
 
     public function dataprd() {
         $listp = $this->model_fakultas->get_db('ak_prodi', ['id_fakultas' => $this->session->id], 'result');
+        $jumlah = [];
 
         foreach ($listp as $prodi) {
-            $jumlah_dosen = $this->model_fakultas->count_dosen($prodi['id_prodi']);
-            $jumlah_mhs = $this->model_fakultas->count_mhs($prodi['id_prodi']);
+            $jumlah_dosen = $this->model_fakultas->get_db_count('ak_dosen', ['id_prodi' => $prodi['id_prodi'], 'status_dosen' => 'Aktif']);
+            $jumlah_mhs = $this->model_fakultas->get_db_count('ak_mahasiswa', ['id_prodi' => $prodi['id_prodi'], 'status' => 'Aktif']);
 
             $count = [
                 'nama' => $prodi['nama'],
@@ -70,17 +101,17 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/dataprodi', $data);
+        $this->load->view('fakultas/civitas/dataprodi', $data);
         $this->load->view('_partials/script');
     }
 
-    public function datamatkul() {
+    public function datamatkulprd() {
         $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamatkulprd', $data);
+        $this->load->view('fakultas/civitas/datamatkulprd', $data);
         $this->load->view('_partials/script');
     }
 
@@ -90,7 +121,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/jadwalkuliah', $data);
+        $this->load->view('fakultas/civitas/jadwalkuliah', $data);
         $this->load->view('_partials/script');
     }
 
@@ -100,7 +131,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/perkuliahan', $data);
+        $this->load->view('fakultas/civitas/perkuliahan', $data);
         $this->load->view('_partials/script');
     }
 
@@ -115,7 +146,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datadosen', $data);
+        $this->load->view('fakultas/civitas/datadosen', $data);
         $this->load->view('_partials/script');
     }
 
@@ -135,7 +166,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/profildsn', $data);
+        $this->load->view('fakultas/civitas/profildsn', $data);
         $this->load->view('_partials/script');
     }
 
@@ -148,7 +179,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamengajar', $data);
+        $this->load->view('fakultas/civitas/datamengajar', $data);
         $this->load->view('_partials/script');
     }
 
@@ -163,7 +194,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/datamhs', $data);
+        $this->load->view('fakultas/civitas/datamhs', $data);
         $this->load->view('_partials/script');
     }
 
@@ -185,7 +216,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/profilmhs', $data);
+        $this->load->view('fakultas/civitas/profilmhs', $data);
         $this->load->view('_partials/script');
     }
 
@@ -258,7 +289,7 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
-        $this->load->view('fakultas/berkasmhs', $data);
+        $this->load->view('fakultas/civitas/berkasmhs', $data);
         $this->load->view('_partials/script');
     }
 

@@ -60,6 +60,14 @@ $route['logout']                                           = 'akun/logout';
 
 //==================== FAKULTAS ====================//
 
+$route['fakultas/akademik/data-matkul']                    = 'fakultas/datamatkul';
+$route['fakultas/civitas/data-prodi']                      = 'fakultas/dataprd';
+$route['fakultas/civitas/data-dosen']                      = 'fakultas/datadsn';
+$route['fakultas/civitas/data-dosen/(:num)/profil']        = 'fakultas/profildsn/$1';
+$route['fakultas/civitas/data-dosen/(:num)/jadwal']        = 'fakultas/datamengajar/$1';
+$route['fakultas/civitas/data-mahasiswa']                  = 'fakultas/datamhs';
+$route['fakultas/civitas/data-mahasiswa/(:num)/profil']    = 'fakultas/profilmhs/$1';
+$route['fakultas/civitas/data-mahasiswa/(:num)/akademik']  = 'fakultas/berkasmhs/$1';
 $route['fakultas/profil/edit']                             = 'fakultas/update';
 
 //==================== PRODI ====================//

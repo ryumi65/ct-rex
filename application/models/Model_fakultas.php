@@ -48,18 +48,4 @@ class model_fakultas extends CI_Model {
             return $query->row_array();
         }
     }
-
-    public function count_dosen($id_prodi) {
-        $this->db->from('ak_dosen');
-        $this->db->where('id_prodi', $id_prodi);
-
-        return $this->db->count_all_results();
-    }
-
-    public function count_mhs($id_prodi) {
-        $this->db->from('ak_mahasiswa');
-        $this->db->where('id_prodi', $id_prodi);
-
-        return $this->db->count_all_results();
-    }
 }

@@ -28,11 +28,11 @@ class Prodi extends CI_Controller {
             'profil' => $akun['foto_profil'],
             'header' => $akun['foto_header'],
             'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
-            'dsnaktif' => $this->model_prodi->get_db_count('ak_dosen', ['id_prodi' => $this->session->id, 'status_dosen' => 'aktif']),
-            'mhsaktif' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'aktif']),
-            'mhslulus' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'lulus']),
-            'mhscuti' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'cuti']),
-            'mhskeluar' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'keluar']),
+            'dsnaktif' => $this->model_prodi->get_db_count('ak_dosen', ['id_prodi' => $this->session->id, 'status_dosen' => 'Aktif']),
+            'mhsaktif' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'Aktif']),
+            'mhslulus' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'Lulus']),
+            'mhscuti' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'Cuti']),
+            'mhskeluar' => $this->model_prodi->get_db_count('ak_mahasiswa', ['id_prodi' => $this->session->id, 'status' => 'Keluar']),
         ];
 
         $this->load->view('_partials/head');
@@ -624,7 +624,7 @@ class Prodi extends CI_Controller {
         ];
 
         $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarmhs');
+        $this->load->view('_partials/sidebarprd');
         $this->load->view('_partials/header');
         $this->load->view('prodi/civitas/biaya', $data);
         $this->load->view('_partials/script');

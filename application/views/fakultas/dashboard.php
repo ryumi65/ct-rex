@@ -4,7 +4,7 @@
             <!-- Header -->
             <div class="page-header height-200 border-radius-xl mt-3" style="background-image: url('<?= base_url('assets/img/uploads/header/' . $header) ?>')"></div>
             <div class="card card-body blur shadow-blur mx-4 p-1 mt-n5 overflow-hidden">
-                <div class="d-flex justify-content-between flex-wrap">
+                <div class="d-flex justify-content-between">
                     <div class="row gx-3">
                         <div class="col-auto my-auto">
                             <div class="avatar avatar-xl position-relative">
@@ -18,31 +18,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex d-inline ms-auto my-3 my-md-0">
-                        <div class="fs-6 fs-md-5">
-                            <h6 class="mx-3 my-0"><u>Mahasiswa Aktif</u></h6>
-                            <h3 class="text-center my-0">1</h3>
-                            <h6 class="font-weight- text-center my-0">Mahasiswa</h6>
-                        </div>
-                        <div>
-                            <h6 class="mx-3 my-0"><u>Dosen Aktif</u></h6>
-                            <h3 class="text-center my-0">1</h3>
-                            <h6 class="font-weight- text-center my-0">Dosen</h6>
-                        </div>
-                        <div>
-                            <h6 class="mx-3 my-0"><u>Prodi</u></h6>
-                            <h3 class="text-center my-0">1</h3>
-                            <h6 class="font-weight- text-center my-0">Prodi</h6>
+                    <div class="d-none d-md-block">
+                        <div class="d-flex d-inline ms-auto my-3 my-md-0">
+                            <a href="<?= site_url('fakultas/civitas/data-mahasiswa') ?>">
+                                <h6 class="mx-3 my-0"><u>Mahasiswa Aktif</u></h6>
+                                <h3 class="text-center my-0"><?= $jmhs ?></h3>
+                                <h6 class="text-center my-0">Mahasiswa</h6>
+                            </a>
+                            <a href="<?= site_url('fakultas/civitas/data-dosen') ?>">
+                                <h6 class="mx-3 my-0"><u>Dosen Aktif</u></h6>
+                                <h3 class="text-center my-0"><?= $jdosen ?></h3>
+                                <h6 class="text-center my-0">Dosen</h6>
+                            </a>
+                            <a href="<?= site_url('fakultas/civitas/data-prodi') ?>">
+                                <h6 class="mx-3 my-0"><u>Prodi</u></h6>
+                                <h3 class="text-center my-0"><?= $jprodi ?></h3>
+                                <h6 class="text-center my-0">Prodi</h6>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Info Small -->
+            <div class="col-12 my-3 d-block d-md-none">
+                <div class="card z-index-2 flex-wrap">
+                    <div class="card-body d-flex d-inline justify-content-around p-1">
+                        <a href="<?= site_url('fakultas/civitas/data-mahasiswa') ?>" class="text-center text-dark">
+                            <p class="fs-6 fw-bold my-0"><u>Mahasiswa Aktif</u></p>
+                            <h3 class="text-center my-0"><?= $jmhs ?></h3>
+                            <p class="fs-6 fw-bold my-0">Mahasiswa</p>
+                        </a>
+                        <a href="<?= site_url('fakultas/civitas/data-dosen') ?>" class="text-center text-dark">
+                            <p class="fs-6 fw-bold my-0"><u>Dosen Aktif</u></p>
+                            <h3 class="text-center my-0"><?= $jdosen ?></h3>
+                            <p class="fs-6 fw-bold my-0">Dosen</p>
+                        </a>
+                        <a href="<?= site_url('fakultas/civitas/data-prodi') ?>" class="text-center text-dark">
+                            <p class="fs-6 fw-bold my-0"><u>Prodi</u></p>
+                            <h3 class="text-center my-0"><?= $jprodi ?></h3>
+                            <p class="fs-6 fw-bold my-0">Prodi</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Content -->
-            <div class="row g-3 mt-1">
+            <div class="row g-3 mt-3">
 
                 <!-- Grafik 1 -->
-                <div class="col-12">
+                <div class="col-12 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Jumlah Mahasiswa dan Dosen</h5>
@@ -56,7 +81,7 @@
                 </div>
 
                 <!-- Grafik 2 -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Rerata Indeks Perkuliahan Kumulatif</h5>
@@ -70,7 +95,7 @@
                 </div>
 
                 <!-- Grafik 3 -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Penghasilan Orang Tua Mahasiswa</h5>
@@ -84,7 +109,7 @@
                 </div>
 
                 <!-- Beban Mengajar -->
-                <div class="col-12">
+                <div class="col-12 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Beban Dosen Mengajar Tahun Akademik 2022 - 2023 Ganjil</h5>
@@ -142,7 +167,7 @@
                 </div>
 
                 <!-- Jadwal Kuliah -->
-                <div class="col-12">
+                <div class="col-12 mt-0 mb-3">
                     <div class="card">
                         <div class="card-header p-3 pb-0">
                             <h5>Jadwal Perkuliahan Dosen Hari ini</h5>
@@ -212,7 +237,7 @@
                 </div>
 
                 <!-- Pengumuman Universitas -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">
@@ -239,7 +264,7 @@
                 </div>
 
                 <!-- Pengumuman Fakultas -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-0 mb-3">
                     <div class="card" id="card-pop">
                         <div class="card-body p-3">
                             <div class="row">

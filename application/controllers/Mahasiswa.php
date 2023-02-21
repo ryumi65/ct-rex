@@ -144,9 +144,11 @@ class Mahasiswa extends CI_Controller {
     //==================== KRS ====================//
 
     public function datakrs() {
+        $id_tahun = [];
         $krs = [];
         $mk = [];
         $sks_smt = [];
+        $mahasiswa = $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]);
         $tahun = $this->model_mahasiswa->get_db('ak_durasi', ['id_tahun' => $this->session->tahun]);
 
         $create_tanggal_awal = date_create($tahun['tanggal_awal']);
@@ -154,28 +156,35 @@ class Mahasiswa extends CI_Controller {
         $tanggal_awal = date_format($create_tanggal_awal, 'Y-m-d');
         $tanggal_akhir = date_format($create_tanggal_akhir, 'Y-m-d');
 
-        for ($i = 1; $i <= 8; $i++) {
+        for ($i = 1; $i <= $mahasiswa['semester']; $i++) {
             $jumlah_sks = 0;
             $list_sks = $this->model_krs->get_sks($this->session->id, $i);
+            $list_krs = $this->model_krs->get_krs_smt($this->session->id, $i);
 
             for ($j = 0; $j < count($list_sks); $j++) {
                 $sks = intval($list_sks[$j]['sks']);
                 $jumlah_sks += $sks;
             }
 
-            array_push($krs, $this->model_krs->get_krs_smt($this->session->id, $i));
+            if (isset($list_krs)) {
+                isset($list_krs[0]) ? $idt = $this->model_mahasiswa->get_db('ak_tahun', ['id_tahun' => $list_krs[0]['id_tahun']]) : $idt = null;
+                array_push($id_tahun, $idt);
+            }
+
+            array_push($krs, $list_krs);
             array_push($mk, $this->model_krs->get_mk($this->session->id, $i));
             array_push($sks_smt, $jumlah_sks);
         }
 
         $data = [
-            'mahasiswa' => $this->model_mahasiswa->get_db('ak_mahasiswa', ['nim' => $this->session->id]),
+            'mahasiswa' => $mahasiswa,
             'tanggal' => date('Y-m-d'),
             'tanggal_awal' => $this->indonesian_date($tanggal_awal),
             'tanggal_akhir' => $this->indonesian_date($tanggal_akhir),
             'tahun' => $tahun,
             'listk' => $krs,
             'listm' => $mk,
+            'listt' => $id_tahun,
             'lists' => $sks_smt,
         ];
 
@@ -204,6 +213,7 @@ class Mahasiswa extends CI_Controller {
                 6 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 6),
                 8 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 8),
             ];
+
             $semester = 0;
         } elseif ($mahasiswa['semester'] % 2 === 1) {
             $krs = [
@@ -212,6 +222,7 @@ class Mahasiswa extends CI_Controller {
                 5 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 5),
                 7 => $this->model_krs->get_list_krs($mahasiswa['id_prodi'], 7),
             ];
+
             $semester = 1;
         }
 

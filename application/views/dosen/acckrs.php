@@ -88,7 +88,7 @@
                                                             No.</th>
                                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Nama MK</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                                             sks</th>
                                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Dosen Pengampu</th>
@@ -96,7 +96,7 @@
                                                             Hari</th>
                                                         <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
                                                             Waktu</th>
-                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs ps-1">
+                                                        <th rowspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Semester</th>
                                                         <th colspan="2" class="font-weight-bolder text-uppercase text-xs text-center">
                                                             Aksi</th>
@@ -120,11 +120,11 @@
                                                             <tr>
                                                                 <td></td>
                                                                 <td class="text-wrap"><?= $krs['nama'] ?></td>
-                                                                <td><?= $krs['sks'] ?></td>
+                                                                <td class="text-center"><?= $krs['sks'] ?></td>
                                                                 <td class="text-wrap"><?= $krs['dosen'] ?></td>
                                                                 <td><?= $krs['hari'] ?></td>
                                                                 <td><?= $krs['waktu'] ?></td>
-                                                                <td><?= $krs['semester'] ?></td>
+                                                                <td class="text-center"><?= $krs['semester'] ?></td>
                                                                 <td class="text-center">
                                                                     <input type="radio" class="btn-check" name="<?= $krs['id_krs'] ?>" id="acc-<?= $krs['id_krs'] ?>" value="Y">
                                                                     <label class="btn btn-outline-primary px-2 py-1 m-0" for="acc-<?= $krs['id_krs'] ?>"><i class="fa-solid fa-check"></i></label>

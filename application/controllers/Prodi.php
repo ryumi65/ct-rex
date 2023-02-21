@@ -209,18 +209,23 @@ class Prodi extends CI_Controller {
         $mahasiswa = $this->model_prodi->get_db('ak_mahasiswa', ['nim' => $nim]);
         if ($mahasiswa['id_prodi'] !== $this->session->id) redirect(strtolower($this->session->access));
 
+        $id_tahun = [];
         $ip = [];
         $krs = [];
         $mk = [];
         $sks_smt = [];
+        $status_nilai = [];
+        $tidak_lulus = [];
 
         $count_ipk = 0;
         $ipk = 0;
 
-        for ($i = 1; $i <= 8; $i++) {
+        for ($i = 1; $i <= $mahasiswa['semester']; $i++) {
             $jumlah_krs = 0;
             $jumlah_ip = 0;
             $jumlah_sks = 0;
+            $mk_tidaklulus = 0;
+            $status = false;
             $list_krs = $this->model_krs->get_krs_smt($nim, $i);
 
             foreach ($list_krs as $value) {
@@ -235,9 +240,12 @@ class Prodi extends CI_Controller {
                     elseif ($value['nilai'] >= 41 && $value['nilai'] < 56) $indeks = 1;
                     elseif ($value['nilai'] < 41) $indeks = 0;
 
+                    if ($indeks < 2) $mk_tidaklulus++;
+
                     $jumlah_krs++;
                     $jumlah_ip += $indeks;
-                }
+                    $status = true;
+                } else $status = false;
             }
 
             if ($jumlah_krs > 0) {
@@ -253,10 +261,17 @@ class Prodi extends CI_Controller {
                 $jumlah_sks += $sks;
             }
 
+            if (isset($list_krs)) {
+                isset($list_krs[0]) ? $idt = $this->model_dosen->get_db('ak_tahun', ['id_tahun' => $list_krs[0]['id_tahun']]) : $idt = null;
+                array_push($id_tahun, $idt);
+            }
+
             array_push($ip, $total_ip);
             array_push($krs, $list_krs);
             array_push($mk, $this->model_krs->get_mk($nim, $i));
             array_push($sks_smt, $jumlah_sks);
+            array_push($status_nilai, $status);
+            array_push($tidak_lulus, $mk_tidaklulus);
         }
 
         if ($count_ipk > 0) $total_ipk = round($ipk / $count_ipk, 2);
@@ -267,8 +282,11 @@ class Prodi extends CI_Controller {
             'ipk' => $total_ipk,
             'listip' => $ip,
             'listk' => $krs,
+            'listl' => $tidak_lulus,
             'listm' => $mk,
+            'listt' => $id_tahun,
             'lists' => $sks_smt,
+            'listst' => $status_nilai,
         ];
 
         $this->load->view('_partials/head');

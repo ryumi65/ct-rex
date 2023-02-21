@@ -43,28 +43,36 @@
                             </div>
                             <div class="card-body text-dark p-3 pt-0">
                                 <div class="d-flex justify-content-center mb-5">
-                                    <img src="<?= base_url('assets/img/uploads/profile/curved.jpg') ?>" class="border-radius-lg w-50">
+                                    <img src="<?= base_url('assets/img/uploads/profile/curved.jpg') ?>" class="border-radius-lg" style="width: 40%">
                                 </div>
                                 <div class="row">
                                     <p class="col-5 fs-6 fw-bolder text-sm">Nama Lengkap</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['nama'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['nama'] ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Jenis Kelamin</p>
+                                    <div class="col-1">:</div>
                                     <?php if ($mahasiswa['jenis_kelamin'] === 'L') $jenis_kelamin = 'Laki-laki';
                                     elseif ($mahasiswa['jenis_kelamin'] === 'P') $jenis_kelamin = 'Perempuan';
                                     else $jenis_kelamin = ''; ?>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $jenis_kelamin ?></p>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $jenis_kelamin ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Tempat, Tanggal Lahir</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['tempat_lahir'] . ', ' . $tanggal_lahir ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['tempat_lahir'] . ', ' . $tanggal_lahir ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Agama</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['agama'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['agama'] ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Kependudukan</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['nik'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['nik'] ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Kewarganegaraan</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['kewarganegaraan'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['kewarganegaraan'] ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Nomor Handphone</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['no_hp'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['no_hp'] ?></p>
                                     <p class="col-5 fs-6 fw-bolder text-sm">Email</p>
-                                    <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['email'] ?></p>
+                                    <div class="col-1">:</div>
+                                    <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['email'] ?></p>
                                 </div>
                             </div>
                         </div>
@@ -80,15 +88,20 @@
                             </div>
                             <div class="card-body row text-dark p-3 pt-0">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Mahasiswa</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['nim'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['nim'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Program Studi</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $prodi['nama'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $prodi['nama'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Tahun Angkatan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['tahun_angkatan'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['tahun_angkatan'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Dosen Wali</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['nama'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['nama'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Semester</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['semester'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['semester'] ?></p>
                             </div>
                         </div>
 
@@ -99,17 +112,23 @@
                             </div>
                             <div class="card-body row text-dark p-3 pt-0">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Alamat Tempat Tinggal</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['alamat'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['alamat'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Desa/Kelurahan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['kelurahan'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['kelurahan'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Kecamatan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['kecamatan'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['kecamatan'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Kabupaten/Kota</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['kabupaten'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['kabupaten'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Provinsi</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['provinsi'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['provinsi'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Kode Pos</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $mahasiswa['kode_pos'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $mahasiswa['kode_pos'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -129,17 +148,23 @@
                             </div>
                             <div class="card-body row text-dark p-3 pt-0">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nama Lengkap</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nama_ayah'] ?></p>
-                                <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Kependudukan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nik_ayah'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nama_ayah'] ?></p>
+                                <p class="col-5 fs-6 fw-bolder text-sm">NIK</p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nik_ayah'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Tanggal Lahir</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['tanggal_lahir_ayah'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['tanggal_lahir_ayah'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pendidikan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pendidikan_ayah'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pendidikan_ayah'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pekerjaan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pekerjaan_ayah'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pekerjaan_ayah'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Penghasilan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['penghasilan_ayah'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['penghasilan_ayah'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -152,17 +177,23 @@
                             </div>
                             <div class="card-body row text-dark p-3 pt-0">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nama Lengkap</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nama_ibu'] ?></p>
-                                <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Kependudukan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nik_ibu'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nama_ibu'] ?></p>
+                                <p class="col-5 fs-6 fw-bolder text-sm">NIK</p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nik_ibu'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Tanggal Lahir</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['tanggal_lahir_ibu'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['tanggal_lahir_ibu'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pendidikan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pendidikan_ibu'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pendidikan_ibu'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pekerjaan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pekerjaan_ibu'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pekerjaan_ibu'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Penghasilan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['penghasilan_ibu'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['penghasilan_ibu'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -175,17 +206,23 @@
                             </div>
                             <div class="card-body row text-dark p-3 pt-0">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nama Lengkap</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nama_wali'] ?></p>
-                                <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Kependudukan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['nik_wali'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nama_wali'] ?></p>
+                                <p class="col-5 fs-6 fw-bolder text-sm">NIK</p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['nik_wali'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Tanggal Lahir</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['tanggal_lahir_wali'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['tanggal_lahir_wali'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pendidikan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pendidikan_wali'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pendidikan_wali'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Pekerjaan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['pekerjaan_wali'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['pekerjaan_wali'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Penghasilan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $ortu['penghasilan_wali'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $ortu['penghasilan_wali'] ?></p>
                             </div>
                         </div>
                     </div>

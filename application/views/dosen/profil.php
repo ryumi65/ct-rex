@@ -67,28 +67,36 @@
                         </div>
                         <div class="card-body text-dark p-3 pt-0">
                             <div class="d-flex justify-content-center mb-5">
-                                <img src="<?= base_url('assets/img/uploads/profile/' . $profil) ?>" class="border-radius-lg w-50">
+                                <img src="<?= base_url('assets/img/uploads/profile/' . $profil) ?>" class="border-radius-lg" style="width: 40%">
                             </div>
                             <div class="row">
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nama Lengkap</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['nama'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['nama'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Jenis Kelamin</p>
+                                <div class="col-1">:</div>
                                 <?php if ($dosen['jenis_kelamin'] === 'L') $jenis_kelamin = 'Laki-laki';
                                 elseif ($dosen['jenis_kelamin'] === 'P') $jenis_kelamin = 'Perempuan';
                                 else $jenis_kelamin = ''; ?>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $jenis_kelamin ?></p>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $jenis_kelamin ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Tempat, Tanggal Lahir</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['tempat_lahir'] . ', ' . $tanggal_lahir ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['tempat_lahir'] . ', ' . $tanggal_lahir ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Agama</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['agama'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['agama'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nomor Induk Kependudukan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['nik'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['nik'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Kewarganegaraan</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['kewarganegaraan'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['kewarganegaraan'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Nomor Handphone</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['no_hp'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['no_hp'] ?></p>
                                 <p class="col-5 fs-6 fw-bolder text-sm">Email</p>
-                                <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['email'] ?></p>
+                                <div class="col-1">:</div>
+                                <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['email'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -104,13 +112,17 @@
                         </div>
                         <div class="card-body row text-dark p-3 pt-0">
                             <p class="col-5 fs-6 fw-bolder text-sm">NIDN</p>
-                            <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['nidn_dosen'] ?></p>
+                            <div class="col-1">:</div>
+                            <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['nidn_dosen'] ?></p>
                             <p class="col-5 fs-6 fw-bolder text-sm">Program Studi</p>
-                            <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $prodi['nama'] ?></p>
+                            <div class="col-1">:</div>
+                            <p class="col-6 fs-6 ps-0 text-sm"><?= $prodi['nama'] ?></p>
                             <p class="col-5 fs-6 fw-bolder text-sm">Status Dosen</p>
-                            <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['status_dosen'] ?></p>
+                            <div class="col-1">:</div>
+                            <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['status_dosen'] ?></p>
                             <p class="col-5 fs-6 fw-bolder text-sm">Status Kerja</p>
-                            <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['status_kerja'] ?></p>
+                            <div class="col-1">:</div>
+                            <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['status_kerja'] ?></p>
                         </div>
                     </div>
 
@@ -121,7 +133,8 @@
                         </div>
                         <div class="card-body row text-dark p-3 pt-0">
                             <p class="col-5 fs-6 fw-bolder text-sm">Alamat Tempat Tinggal</p>
-                            <p class="col-7 fs-6 text-sm">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $dosen['alamat'] ?></p>
+                            <div class="col-1">:</div>
+                            <p class="col-6 fs-6 ps-0 text-sm"><?= $dosen['alamat'] ?></p>
                         </div>
                     </div>
                 </div>

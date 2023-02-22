@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 17, 2023 at 01:59 AM
+-- Generation Time: Feb 22, 2023 at 06:08 AM
 -- Server version: 10.4.27-MariaDB-log
 -- PHP Version: 7.4.33
 
@@ -46,6 +46,7 @@ INSERT INTO `ak_akun` (`id_akun`, `username`, `password`, `status`, `level`, `fo
 ('108098897', 'asdasdasd', '$2y$10$r23eZuimhMxm19x06gvO0OL55QbQpqHdwWhxfPPFir8wkhDoXF0YK', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200101002', 'Andi', '$2y$10$RzSfWzZTD5gVrC5KhYBltucKJ0m7SQDHVYlYFu3cgyWrr8Bzv70fe', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200101010', 'nlyhrlmrzh_', '$2y$10$JaiWXz8sAh4cICL/ufQyV.Dj8RQh4Nq7CBujnsFEgNdsWeLz5IZGS', 'Y', 4, 'curved.jpg', '200101010.JPG'),
+('200101017', 'sugiono', '$2y$10$jwDBlMotX0uNRtAd2rPON.Ft0lCm8ecIUO2NwPSh0sSjRgCJpLAWG', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200101052', 'Wenda Dadang S', '$2y$10$ESCS7MNTdGwR2cUckQIXDOUzvK6wEdiv/c5I1DMNmu.jm8edqdCrK', 'Y', 4, '200101052.jpg', '200101052.png'),
 ('200102001', 'alif', '$2y$10$t2CR3Dv66twcrijYmrOVE.QSi1QTb1yJtIBp4KcLxTu0pjZ7/35HW', 'Y', 4, 'curved.jpg', 'default.png'),
 ('200102009', 'sandra', '$2y$10$uFKZVIefRnm1Kv4jCgsF4Ozj2xsmDRIft1A76RkXPmvnuSFRsGJAG', 'Y', 4, 'curved.jpg', 'default.png'),
@@ -70,7 +71,10 @@ INSERT INTO `ak_akun` (`id_akun`, `username`, `password`, `status`, `level`, `fo
 ('2016020564210047', 'dosen_ktf', '$2y$10$xIwZORTEEYMFjjnJi5t.QuMz5vc2TpWcvfMJwi0J1WyeMqyBZZbeS', 'Y', 4, 'curved.jpg', 'default.png'),
 ('2016050569110016', 'dosenktf', '$2y$10$w2gZHAWWOAAFECTO8xsFHuKFxfUUZlaL0hKV1hTSb67g7XuoiltfK', 'Y', 3, 'curved.jpg', 'default.png'),
 ('2016090888110051', 'dosen2', '$2y$10$J9OLR4xjcewL6PgOit52iO/2t/JEvyxbh3/bD/EUozXZClH4d2xvC', 'Y', 3, 'curved.jpg', 'default.png'),
+('2016090987110027', 'dosen_afit', '$2y$10$B/cwHnFKF6i8DmTffWpsO.33gAmwPnBM88zquko4t/s3zBqnrCn6u', 'Y', 3, 'curved.jpg', 'default.png'),
+('2016220778110002', 'dosen_adi', '$2y$10$XwNUgxe.DnlLWxJdW7G/yeTprXOh2TQoAnV3sPwHxHxHfLyok99Yi', 'Y', 3, 'curved.jpg', 'default.png'),
 ('201809041991210078', 'dosen', '$2y$10$eQSU4wtzNK7nSQQW9RlYSOzpq2L69VgvJubjF7afJDskAsIvNlFIO', 'Y', 3, 'curved.jpg', 'default.png'),
+('201922121959110102', 'dosen_masri', '$2y$10$SxisW/E1jYdhyX3inLh23.ya9GjNpGE6UUGVhr6huw4ERb/NoULoK', 'Y', 3, 'curved.jpg', 'default.png'),
 ('210102017', 'ndeniars', '$2y$10$7oIsQ1SENLIcIAqtTlTfvu6zGsoFLtF7tLFITKUn6x7HiJfzwDKQO', 'Y', 4, '210102017.jpeg', 'default.png'),
 ('210209033', 'shafa', '$2y$10$7rqd04lKea/PkSkkQ5Gh6e1IhHF0udSqOJZTr2a7VbdWrRqzVy3jW', 'Y', 4, 'curved.jpg', 'default.png'),
 ('210312074', 'mochraffi00', '$2y$10$PtBZ/TkR82X7mJtcVqvZnOjc1OF5kAto9jyIuTGXZxpQO/NAkZG1W', 'Y', 4, 'WhatsApp Image 2023-01-31 at 09_56_02.jpeg', 'default.png'),
@@ -125,7 +129,39 @@ CREATE TABLE `ak_bap` (
 --
 
 INSERT INTO `ak_bap` (`id_bap`, `id_jadwal`, `pertemuan`, `pokok`, `metode`, `evaluasi`, `jumlah_mhs_hadir`) VALUES
-(13, 209, 1, 'Test', 'Tugas', 'Test', 2);
+(13, 209, 1, 'Test', 'Tugas', 'Test', 2),
+(14, 198, 1, '1', 'Tatap Muka', '1', 1),
+(15, 198, 2, '2', 'Tatap Muka', '2', 1),
+(16, 198, 3, '3', 'Tatap Muka', '3', 1),
+(17, 198, 4, '4', 'Tatap Muka', '4', 1),
+(18, 198, 5, '5', 'Tatap Muka', '5', 1),
+(19, 198, 6, '6', 'Tatap Muka', '6', 1),
+(20, 198, 7, '7', 'Tatap Muka', '7', 1),
+(21, 198, 8, '8', 'Tatap Muka', '8', 1),
+(22, 198, 9, '9', 'Tatap Muka', '9', 1),
+(24, 198, 11, '11', 'Tatap Muka', '11', 1),
+(25, 198, 10, '10', 'Tatap Muka', '10', 1),
+(26, 198, 12, '12', 'Tatap Muka', '12', 1),
+(27, 198, 13, '13', 'Tatap Muka', '13', 1),
+(28, 198, 14, '14', 'Tatap Muka', '14', 1),
+(29, 198, 15, '15', 'Tatap Muka', '15', 1),
+(30, 198, 16, '16', 'Tatap Muka', '16', 1),
+(31, 158, 1, 'penuh', 'Tatap Muka', 'penuh\r\n', 1),
+(32, 158, 2, 'pen uh', 'Daring', '123', 1),
+(33, 158, 3, 'weqwer', 'Daring', 'wfnsm', 1),
+(34, 158, 5, 'aya', 'Tugas', 'eweuh', 1),
+(35, 158, 4, 'ada', 'Tugas', 'ada', 1),
+(36, 158, 6, 'siap', 'Daring', 'siap\r\n', 1),
+(37, 158, 7, 'libur', 'Daring', 'libur\r\n', 1),
+(38, 158, 8, 'botram', 'Tugas', 'botram', 1),
+(39, 158, 16, 'qurban', 'Daring', 'qurban\r\n', 1),
+(40, 158, 9, 'sapi', 'Daring', 'sapi\r\n', 1),
+(41, 158, 10, 'ayam', 'Daring', 'ayam\r\n', 1),
+(42, 158, 14, 'mata', 'Tugas', 'mata\r\n', 1),
+(43, 158, 15, 'upin', 'Tugas', 'ipin', 1),
+(44, 158, 11, 'yaya', 'Tugas', 'YAYU', 1),
+(45, 158, 12, 'mamah', 'Tatap Muka', 'bapa\r\n', 1),
+(46, 158, 13, 'demo', 'Daring', 'gratis', 1);
 
 -- --------------------------------------------------------
 
@@ -367,8 +403,8 @@ CREATE TABLE `ak_durasi` (
 INSERT INTO `ak_durasi` (`id_tahun`, `tanggal_awal`, `tanggal_akhir`) VALUES
 ('20202', '2023-02-05', '2023-02-06'),
 ('20212', '2023-02-07', '2023-02-08'),
-('20221', '2023-02-12', '2023-02-28'),
-('20222', '2023-02-11', '2023-02-12');
+('20221', '2023-02-20', '2023-02-25'),
+('20222', '2023-02-21', '2023-02-28');
 
 -- --------------------------------------------------------
 
@@ -588,6 +624,7 @@ INSERT INTO `ak_jadwal` (`id_jadwal`, `hari`, `pukul`, `id_matkul`, `id_ruangan`
 CREATE TABLE `ak_krs` (
   `id_krs` int(11) NOT NULL,
   `nim` varchar(20) NOT NULL,
+  `semester_mhs` int(2) DEFAULT NULL,
   `id_jadwal` int(11) NOT NULL,
   `status` enum('Y','N','T') NOT NULL DEFAULT 'N',
   `nilai` int(3) DEFAULT NULL
@@ -597,19 +634,15 @@ CREATE TABLE `ak_krs` (
 -- Dumping data for table `ak_krs`
 --
 
-INSERT INTO `ak_krs` (`id_krs`, `nim`, `id_jadwal`, `status`, `nilai`) VALUES
-(23, '200102011', 209, 'Y', 90),
-(24, '200102011', 195, 'Y', NULL),
-(25, '200102011', 109, 'T', NULL),
-(26, '200102011', 94, 'T', NULL),
-(28, '200102015', 102, 'Y', 70),
-(29, '200102015', 111, 'Y', NULL),
-(30, '200102015', 209, 'Y', 80),
-(31, '200102015', 195, 'Y', NULL),
-(34, '200102083', 209, 'Y', NULL),
-(36, '200102011', 98, 'Y', NULL),
-(38, '200102083', 102, 'Y', 80),
-(40, '200102045', 111, 'N', NULL);
+INSERT INTO `ak_krs` (`id_krs`, `nim`, `semester_mhs`, `id_jadwal`, `status`, `nilai`) VALUES
+(45, '200102083', 5, 109, 'Y', NULL),
+(46, '200102083', 5, 94, 'Y', NULL),
+(47, '200102083', 5, 98, 'Y', NULL),
+(48, '200102083', 5, 102, 'Y', NULL),
+(49, '200102083', 5, 111, 'Y', NULL),
+(50, '200102083', 5, 209, 'Y', NULL),
+(51, '200102083', 5, 213, 'Y', NULL),
+(52, '200102083', 5, 195, 'Y', NULL);
 
 -- --------------------------------------------------------
 
@@ -658,7 +691,7 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200101014', 'Jajang Abdul Maulana', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '202007031978110137', 5),
 ('200101015', 'Jujun Kurnia', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '2016090987110027', 5),
 ('200101016', 'M. Rapi Ulul Azmi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '2016220778110002', 5),
-('200101017', 'MOH. SUGIONO', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '201922121959110102', 5),
+('200101017', 'MOH. SUGIONO', 'L', 'Tokyo', '2023-02-20', '2020', '', '', NULL, 'Khonghucu', '', '', '', '', '', '', '', 'TE', 'Aktif', '201922121959110102', 6),
 ('200101018', 'Muhammad Atiqi Razzaq Noza', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '2016090987110027', 5),
 ('200101019', 'MUHAMMAD SYAHRUL ADAM SYAHPUTRA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '202009041986110153', 5),
 ('200101023', 'Tio Samudra Ramadhan', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TE', 'Aktif', '2016220778110002', 5),
@@ -746,7 +779,7 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200102080', 'MOCH RAIHAN RIZKIA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016230290210041', 5),
 ('200102081', 'Mohamad Rizqy Alghifari', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016261088210042', 5),
 ('200102082', 'Muh. Rivandy Setiawan', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '201809041991210078', 5),
-('200102083', 'Muhamad Reza Putra Aditya', 'L', '', '2002-02-09', '2020', '', '', NULL, NULL, '', '', '', '', '', '', '', 'IF', 'Aktif', '201809041991210078', 5),
+('200102083', 'Muhamad Reza Putra Aditya', 'L', 'Bandung', '2002-02-09', '2020', 'mrezaputraa@gmail.com', '085156950573', 'WNI', 'Islam', '3204150902020003', 'Kp. Los Cimaung RT 04/RW 19', 'Margamukti', 'Pangalengan', 'Bandung', 'Jawa Barat', '40378', 'IF', 'Aktif', '201809041991210078', 5),
 ('200102084', 'MUHAMAD RIDWAN AL AZZAM', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016230290210041', 5),
 ('200102085', 'Muhammad Fadhlan Akhbari Wildhan', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '202015031967110151', 5),
 ('200102086', 'Muhammad Faisal Nugroho', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IF', 'Aktif', '2016261088210042', 5),
@@ -943,9 +976,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200106008', 'Mukorrobin ahmad ali', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016290792210007', 5),
 ('200106009', 'Aghisna Dhia Aulia', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016260190210015', 5),
 ('200106011', 'AHMAD NUR ALIF', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '201926121985210116', 5),
-('200106013', 'Alzahra Salsabilla', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '201904061980210089 ', 5),
-('200106014', 'Alaida Khoerul Azmi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016260190210015', 5);
+('200106013', 'Alzahra Salsabilla', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '201904061980210089 ', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200106014', 'Alaida Khoerul Azmi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016260190210015', 5),
 ('200106015', 'Alam Nurjamil', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016290792210007', 5),
 ('200106016', 'Alifia Nur Rahmah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202007081991210142', 5),
 ('200106017', 'AMANDA NUR AMALIA PUTRI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '2016260190210015', 5),
@@ -1242,9 +1275,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200207107', 'Heny Adiska', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016160985210043', 5),
 ('200207108', 'Hestina Nurhaeti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '202008061980210140', 5),
 ('200207114', 'Hizam Fairuzy Al-zahidy', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201807101989210062', 5),
-('200207115', 'Huda Jalaludin', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016160985210043', 5),
-('200207116', 'Ika Santika', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016281279210045', 5);
+('200207115', 'Huda Jalaludin', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016160985210043', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200207116', 'Ika Santika', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016281279210045', 5),
 ('200207117', 'Ikhsan Nurkholiq', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201923081990210088', 5),
 ('200207118', 'Ilmi Joehary Akbar', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016160985210043', 5),
 ('200207119', 'Indah Handayanti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201924021989110093', 5),
@@ -1538,9 +1571,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200208152', 'Syifa Hilmi Salsabila', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202018031986210138', 5),
 ('200208153', 'SYIFA MEIRA AZZAAHRA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201807011983210084 ', 5),
 ('200208154', 'Taufik Hidayat', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201917031975110098', 5),
-('200208155', 'Taufik Imanulloh', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201914011957210096', 5),
-('200208156', 'Thaariq Basthun Nafsi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201807011983210084 ', 5);
+('200208155', 'Taufik Imanulloh', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201914011957210096', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200208156', 'Thaariq Basthun Nafsi', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201807011983210084 ', 5),
 ('200208157', 'TITA NADIA NURUL AROPAH', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202027091978110124', 5),
 ('200208158', 'Toby Saldiansah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202027071955110129 ', 5),
 ('200208159', 'Tommy ardiansyah shiddiq', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201807011983210084 ', 5),
@@ -1838,9 +1871,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200313098', 'Deka Fadhillah Subagja', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202006041980210168', 5),
 ('200313099', 'Della Cantika Hapsah', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 5),
 ('200313100', 'Desty Suciana Ramadhan', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202014121955110156', 5),
-('200313101', 'Dinar Tjitra Aprianti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202012101962110157', 5),
-('200313102', 'Dini Aulia Rizki', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 5);
+('200313101', 'Dinar Tjitra Aprianti', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202012101962110157', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200313102', 'Dini Aulia Rizki', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 5),
 ('200313103', 'Dirgantara Wardana', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202006041980210168', 5),
 ('200313104', 'Dwi Satria Nugraha', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202009101965210160', 5),
 ('200313105', 'DYLLAN SATRYA RAHMAN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 5),
@@ -2137,9 +2170,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200414026', 'ASEP NURMAN', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
 ('200414027', 'AULIYA NURANIS', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
 ('200414028', 'CITRA MARYAM AKBAR', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '197412182005011006', 5),
-('200414029', 'DANDI SUPRIATNA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
-('200414030', 'DELA JULAIDAH SELFIYANI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5);
+('200414029', 'DANDI SUPRIATNA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200414030', 'DELA JULAIDAH SELFIYANI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
 ('200414031', 'DEWI SITI FATIMAH', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '197412182005011006', 5),
 ('200414032', 'DIAH ANGGRAENI SAFARINA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
 ('200414033', 'DIAN SULISTIAWATI HARTI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PAI', 'Aktif', '327322801600000', 5),
@@ -2436,9 +2469,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('200416123', 'RIZAL FAISAL', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3329034610910007', 5),
 ('200416124', 'MUTIARA ARDITA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3211094101880000', 5),
 ('200416125', 'LAILA ZAKIYYAH FUADA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273244809730001', 5),
-('200416126', 'IKA KAMILATUL MUKAROMAH', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273227110650010', 5),
-('200416127', 'FATHURROHMAN ANNAJMI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3211094101880000', 5);
+('200416126', 'IKA KAMILATUL MUKAROMAH', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273227110650010', 5);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('200416127', 'FATHURROHMAN ANNAJMI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3211094101880000', 5),
 ('200416128', 'DALIK DARIZKI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273234211820001', 5),
 ('200416129', 'AI AAM AMANAH AMELIA', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3329034610910007', 5),
 ('200416130', 'IMAS ROHAENI', NULL, NULL, NULL, '2020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273227110650010', 5),
@@ -2736,9 +2769,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('210105019', 'Cusiyani Aprillia', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016310784210034', 3),
 ('210105020', 'Erlya Nisa Thaliah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201825101990110065', 3),
 ('210105021', 'Selvy Lavia Putri Pricilla', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016300887210029', 3),
-('210105023', 'Anggi Andriani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '202024121985210123', 3),
-('210105024', 'Elina Lupiani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016310784210034', 3);
+('210105023', 'Anggi Andriani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '202024121985210123', 3);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('210105024', 'Elina Lupiani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016310784210034', 3),
 ('210105025', 'Muhamad Farid Maksum', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016300887210029', 3),
 ('210105026', 'Ninit Kania', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201827041991110082', 3),
 ('210105027', 'Pipit Maryam', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201825101990110065', 3),
@@ -3034,9 +3067,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('210207109', 'Reni Martini', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016281279210045', 3),
 ('210207110', 'Reni Setiaasih', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201926091971210091', 3),
 ('210207111', 'Resta aulia kiranti', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '2016101186210035', 3),
-('210207112', 'Riezka Rahmaditha Zahra', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201924021989110093', 3),
-('210207113', 'Rifda Fawwaz Noor Rizqiya', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201923081990210088', 3);
+('210207112', 'Riezka Rahmaditha Zahra', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201924021989110093', 3);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('210207113', 'Rifda Fawwaz Noor Rizqiya', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201923081990210088', 3),
 ('210207114', 'Risa Roisatus Sholihah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201923081990210088', 3),
 ('210207115', 'Risma Suci Nabilah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Keluar', '201930111984210109', 3),
 ('210207116', 'Romeo Phadlya Agusta Caniago', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PS', 'Aktif', '201923081990210088', 3),
@@ -3334,9 +3367,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('210312099', 'Fitriani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
 ('210312100', 'Hanifah Nur Halimah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
 ('210312101', 'Indah Kurniasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202129091973110185', 3),
-('210312102', 'Irfan Fauzi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
-('210312103', 'Jesica Ellenasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3);
+('210312102', 'Irfan Fauzi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('210312103', 'Jesica Ellenasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
 ('210312104', 'Joice patricia angelica hasibuan', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202012071971210170', 3),
 ('210312105', 'Jundulloh Abdul Matin', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
 ('210312106', 'Kania Nurjanah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202103011992120206', 3),
@@ -3633,9 +3666,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('210313255', 'Muhammad Ilham Alimasduki', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 3),
 ('210313256', 'Muhammad Iqbal Syarif', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202014121955110156', 3),
 ('210313257', 'Muhammad Noval Fauzi', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202012101962110157', 3),
-('210313258', 'Muhammad osama nur hidayat', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 3),
-('210313259', 'Muhammad Reza Firdaus', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202006041980210168', 3);
+('210313258', 'Muhammad osama nur hidayat', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 3);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('210313259', 'Muhammad Reza Firdaus', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202006041980210168', 3),
 ('210313260', 'Mulyana', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202009101965210160', 3),
 ('210313261', 'Nabilla apriliani ariezta', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202003011966210152', 3),
 ('210313262', 'Nadine Zahra Shalehah Sudjana', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202017021967110158', 3),
@@ -3934,9 +3967,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('210416006', 'Siti Aisyah Sa\'diyah', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273244809730001', 3),
 ('210416007', 'Sri Handayani', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273234211820001', 3),
 ('210416008', 'Ana Tri Rahayu', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3329034610910007', 3),
-('210416009', 'Avia A. Ibrahim', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3329034610910007', 3),
-('210416010', 'Cici Daniati', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273234211820001', 3);
+('210416009', 'Avia A. Ibrahim', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3329034610910007', 3);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('210416010', 'Cici Daniati', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273234211820001', 3),
 ('210416011', 'Citra Nisa Hanifah,S.Sos', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273244809730001', 3),
 ('210416012', 'Cut Wildan Intan Zulan', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273280604820003', 3),
 ('210416013', 'Dewi Komalasari', NULL, NULL, NULL, '2021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PIAUD', 'Aktif', '3273234211820001', 3),
@@ -4231,9 +4264,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('220105003', 'Aizan firmanda futra', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201901061953210115', 1),
 ('220105004', 'Alifah mustari mukti wibawa', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201827041991110082', 1),
 ('220105005', 'Almaydha Na\'im Sulasikin', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '2016310784210034', 1),
-('220105007', 'Anbar Rania Salsabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201825101990110065', 1),
-('220105008', 'Aulia Putri Salsabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '202024121985210123', 1);
+('220105007', 'Anbar Rania Salsabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201825101990110065', 1);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('220105008', 'Aulia Putri Salsabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '202024121985210123', 1),
 ('220105009', 'Cahya Arsya luthfi', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '202029121985110126 ', 1),
 ('220105010', 'Danny Yuneo Tedjo Winoto', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201825101990110065', 1),
 ('220105011', 'Danu Pratama', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BE', 'Aktif', '201827041991110082', 1),
@@ -4527,9 +4560,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('220106265', 'Syafana Maulida Rahma', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202025061996210146', 1),
 ('220106266', 'SYAHWAL ZAHARA TANISA ALAMSYAH', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202025061996210146', 1),
 ('220106267', 'Syairabanu', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202027081992210147', 1),
-('220106268', 'Syifa Aulia Putri', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202027081992210147', 1),
-('220106269', 'Syifa Nur Khoiriyah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202029111995210148', 1);
+('220106268', 'Syifa Aulia Putri', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202027081992210147', 1);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('220106269', 'Syifa Nur Khoiriyah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202029111995210148', 1),
 ('220106270', 'Tari aprilliani', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202027081992210147', 1),
 ('220106271', 'Thalita salsabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202025061996210146', 1),
 ('220106272', 'Tiara Gusmitasari', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FA', 'Aktif', '202027081992210147', 1),
@@ -4823,9 +4856,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('220208023', 'Daffa Irsya Rabbani', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202027071955110129 ', 1),
 ('220208024', 'Dhiya Najmah Gusti', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202018031986210138', 1),
 ('220208025', 'Diandra Gita Iskandar', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201917031975110098', 1),
-('220208026', 'DIMASTISIO CANDRA YOPTI NUGROHO', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202123071989110183', 1),
-('220208027', 'Dinda amalia nurjanah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202107021972110182', 1);
+('220208026', 'DIMASTISIO CANDRA YOPTI NUGROHO', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202123071989110183', 1);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('220208027', 'Dinda amalia nurjanah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202107021972110182', 1),
 ('220208028', 'Dinda Nabila', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '201917031975110098', 1),
 ('220208029', 'Dinda Nihayatul Kamilah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202018031986210138', 1),
 ('220208030', 'Enie Karimah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IK', 'Aktif', '202027071955110129 ', 1),
@@ -5121,9 +5154,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('220312042', 'Putri Utami', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
 ('220312043', 'Raihan Mughny Al Ghiffari', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
 ('220312044', 'REFA EKA NASARIDA', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
-('220312045', 'RENI SITI ROSMIATI', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202130061985120205', 1),
-('220312046', 'Resa Mustafa Alawiyah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1);
+('220312045', 'RENI SITI ROSMIATI', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202130061985120205', 1);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('220312046', 'Resa Mustafa Alawiyah', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
 ('220312047', 'RESTY FAZRYANTI', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
 ('220312048', 'REYHAN ARIF PRIANTAMA', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202129091973110185', 1),
 ('220312049', 'Ridwan soleh', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AK', 'Aktif', '202108021972110184', 1),
@@ -5420,9 +5453,9 @@ INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tan
 ('220313264', 'TASYA FAHMI MAHARANI', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202125021971110203', 1),
 ('220313265', 'Tiara Apriani', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202124051982110195', 1),
 ('220313266', 'Tria raisya agustina', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202118051974110196', 1),
-('220313267', 'Triana Rusliana', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202126011995110207', 1),
-('220313268', 'Trie Ayu Lestari', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202125021971110203', 1);
+('220313267', 'Triana Rusliana', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202126011995110207', 1);
 INSERT INTO `ak_mahasiswa` (`nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `tahun_angkatan`, `email`, `no_hp`, `kewarganegaraan`, `agama`, `nik`, `alamat`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_prodi`, `status`, `dosen_wali`, `semester`) VALUES
+('220313268', 'Trie Ayu Lestari', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202125021971110203', 1),
 ('220313269', 'Tristia Nugraha', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202118051974110196', 1),
 ('220313270', 'Tsania Tripwandani', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202124051982110195', 1),
 ('220313271', 'Wahidah Nazmi Lailia', NULL, NULL, NULL, '2022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MJ', 'Aktif', '202125021971110203', 1),
@@ -5801,7 +5834,7 @@ INSERT INTO `ak_matkul` (`id_matkul`, `kode_matkul`, `nama`, `nama_inggris`, `je
 (83, 'TE02004', 'Praktikum Menggambar dan Instalasi Listrik', NULL, 'Wajib Prodi', 'Praktikum', 1, NULL, 'TE', '2', NULL, NULL),
 (84, 'MWU02004', 'Teknologi (Teknologi Kelistrikan)', '', 'Wajib Prodi', 'Teori', 3, '202009041986110153', 'TE', '2', NULL, NULL),
 (85, 'MWU01002', 'Islamic Technopreneurship', '', 'Wajib Umum', 'Teori', 3, '201923031983110111', 'TE', '2', NULL, NULL),
-(86, 'TE01001', 'Matematika Teknik', '', 'Wajib Umum', 'Teori', 3, '2016090987110027', 'TE', '3', NULL, NULL),
+(86, 'TE01001', 'Matematika Teknik', '', 'Wajib Umum', 'Teori', 3, '2016090987110027', 'TE', '3', 'WRR', 'QWER\r\n'),
 (87, 'TE01002', 'Organisasi dan Arsitektur Komputer', '', 'Wajib Prodi', 'Teori', 3, '2017070188110060', 'TE', '3', NULL, NULL),
 (88, 'TE01003', 'Elektronika I', '', 'Wajib Prodi', 'Teori', 3, '201922121959110102', 'TE', '3', NULL, NULL),
 (89, 'TE01004', 'Praktikum Elektronika I', '', 'Wajib Prodi', 'Praktikum', 1, '2016090987110027', 'TE', '3', NULL, NULL),
@@ -6917,7 +6950,7 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('200101014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200101015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200101016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200101017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('200101017', '', 'Test', '0000-00-00', NULL, '', NULL, '', 'Testssssssssssssssssssssssssssssssssssssssssssssss', '0000-00-00', NULL, '', NULL, '', '', '0000-00-00', NULL, '', NULL),
 ('200101018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200101019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200101023', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -7313,9 +7346,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('200106159', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200106161', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200106162', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200106164', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200106165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('200106164', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('200106165', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200106166', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200106168', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200106175', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -7724,9 +7757,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('200208065', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200208066', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200208067', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200208068', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200208069', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('200208068', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('200208069', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200208070', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200208071', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200208072', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -8135,9 +8168,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('200313141', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200313142', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200313143', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200313144', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200313145', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('200313144', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('200313145', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200313146', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200313148', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200313149', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -8546,9 +8579,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('200415034', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200415035', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200415036', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200415037', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('200415038', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('200415037', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('200415038', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200415039', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200415040', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('200415041', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -8957,9 +8990,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('210104028', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210104029', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210104030', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210104031', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210104032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('210104031', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('210104032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210104033', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210104034', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210104035', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -9368,9 +9401,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('210209029', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210209030', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210209031', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210209032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210209033', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('210209032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('210209033', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210209034', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210209035', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210209036', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -9779,9 +9812,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('210313145', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210313146', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210313147', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210313148', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210313149', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('210313148', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('210313149', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210313150', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210313151', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210313152', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -10190,9 +10223,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('210416006', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210416007', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210416008', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210416009', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('210416010', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('210416009', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('210416010', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210416011', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210416012', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('210416013', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -10601,9 +10634,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('220106082', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220106083', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220106084', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220106085', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220106086', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('220106085', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('220106086', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220106087', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220106088', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220106089', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -11012,9 +11045,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('220207166', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220207167', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220207168', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220207169', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220207170', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('220207169', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('220207170', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220207171', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220207172', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220207173', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -11423,9 +11456,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('220313011', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220313012', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220313013', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220313014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220313015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('220313014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('220313015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220313016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220313017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220313018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -11834,9 +11867,9 @@ INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`
 ('220416015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220416016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220416017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220416018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('220416019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('220416018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `ak_orang_tua` (`nim`, `nik_ayah`, `nama_ayah`, `tanggal_lahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ibu`, `nama_ibu`, `tanggal_lahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_wali`, `nama_wali`, `tanggal_lahir_wali`, `pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`) VALUES
+('220416019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220416020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220416021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('220416022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -11974,35 +12007,6 @@ CREATE TABLE `ak_presensi` (
   `id_krs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `ak_presensi`
---
-
-INSERT INTO `ak_presensi` (`id_presensi`, `kehadiran`, `tanggal`, `pertemuan`, `id_krs`) VALUES
-(25, 'Hadir', '2023-01-31', 1, 23),
-(26, 'Hadir', '2023-01-31', 1, 30),
-(27, 'Hadir', '2023-01-31', 13, 23),
-(28, 'Hadir', '2023-01-31', 13, 30),
-(29, 'Izin', '2023-01-25', 6, 23),
-(30, 'Hadir', '2023-01-25', 6, 30),
-(31, 'Hadir', '2023-01-31', 9, 23),
-(32, 'Hadir', '2023-01-31', 9, 30),
-(33, 'Izin', '2022-12-04', 2, 23),
-(34, 'Sakit', '2022-12-04', 2, 30),
-(35, 'Hadir', '2023-03-14', 12, 23),
-(36, 'Hadir', '2023-03-14', 12, 30),
-(37, 'Alfa', '2023-02-07', 3, 23),
-(38, 'Sakit', '2023-02-07', 3, 30),
-(39, 'Izin', '2023-01-31', 7, 23),
-(40, 'Izin', '2023-01-31', 7, 30),
-(41, 'Izin', '2023-02-01', 4, 23),
-(42, 'Hadir', '2023-02-01', 4, 30),
-(43, 'Izin', '2023-02-10', 8, 23),
-(44, 'Izin', '2023-02-10', 8, 30),
-(45, 'Hadir', '2023-02-10', 5, 23),
-(46, 'Izin', '2023-02-10', 5, 30),
-(47, 'Izin', '2023-02-10', 5, 34);
-
 -- --------------------------------------------------------
 
 --
@@ -12083,7 +12087,8 @@ INSERT INTO `ak_remember_me` (`id`, `selector`, `hashedValidator`, `id_akun`, `e
 (15, '0r1EDkhMDPCa8YDz', '887a2e638b08cb585a0886e04313ecf0d6d2cb806a00017dcbca105413ce3842', '201809041991210078', '2023-03-02 13:50:00'),
 (16, 'yb6AYHBtdVZO0c7w', 'd18020bd637fdcc21ede31f40e0e71c8c640eeb855a26747333bdf063df304a5', '201809041991210078', '2023-03-02 13:50:03'),
 (17, '2JIj/l+4SWbEyB8u', 'ed5477327fdb573882c55e10dd53b8570cc40d72dac03f228b5c2d71efc84b03', '201809041991210078', '2023-03-02 13:50:20'),
-(18, 'pPv5BVFIlB2XINUM', '548afc91acf1dafdb5890f3a08b72db1974df40abc862d377bae61d7c83f8d56', 'AK', '2023-03-03 09:08:12');
+(18, 'pPv5BVFIlB2XINUM', '548afc91acf1dafdb5890f3a08b72db1974df40abc862d377bae61d7c83f8d56', 'AK', '2023-03-03 09:08:12'),
+(19, 'hO1WMz020HY/YdDw', '2d970bc02171434684a1cc5775e58360a25d38e48cad50706d6aea331aa4359d', '200101017', '2023-03-22 02:16:33');
 
 -- --------------------------------------------------------
 
@@ -12182,6 +12187,7 @@ CREATE TABLE `ak_tahun` (
 --
 
 INSERT INTO `ak_tahun` (`id_tahun`, `nama`, `tahun_ajaran`, `status`) VALUES
+('20201', 'Ganjil', '2020/2021', 'N'),
 ('20202', 'Genap', '2020/2021', 'N'),
 ('20211', 'Ganjil', '2021/2022', 'N'),
 ('20212', 'Genap', '2021/2022', 'N'),
@@ -12309,25 +12315,25 @@ ALTER TABLE `ak_tahun`
 -- AUTO_INCREMENT for table `ak_bap`
 --
 ALTER TABLE `ak_bap`
-  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `ak_jadwal`
 --
 ALTER TABLE `ak_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
 --
 -- AUTO_INCREMENT for table `ak_krs`
 --
 ALTER TABLE `ak_krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `ak_matkul`
 --
 ALTER TABLE `ak_matkul`
-  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1178;
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1179;
 
 --
 -- AUTO_INCREMENT for table `ak_pengumuman`
@@ -12339,13 +12345,13 @@ ALTER TABLE `ak_pengumuman`
 -- AUTO_INCREMENT for table `ak_presensi`
 --
 ALTER TABLE `ak_presensi`
-  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `ak_remember_me`
 --
 ALTER TABLE `ak_remember_me`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

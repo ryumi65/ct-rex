@@ -7,7 +7,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('fakultas') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item"><a href="<?= site_url('fakultas/civitas/data-dosen') ?>"><u>Data Dosen</u></a></li>
+                        <li class="breadcrumb-item"><a href="<?= site_url('fakultas/civfakultasdata-dosen') ?>"><u>Data Dosen</u></a></li>
                         <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Data Mengajar</li>
                     </ol>
                 </nav>
@@ -49,13 +49,13 @@
                                         <td><?= $jadwal['waktu'] ?></td>
                                         <td><?= $jadwal['ruangan'] ?></td>
                                         <td class="text-center">
-                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/presensi') ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
+                                            <a href="<?= site_url('fakultas/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/presensi') ?>" class="badge bg-warning px-3 py-2" data-bs-toggle="tooltip" title="Presensi">
                                                 <i class="fa-solid fa-book-bookmark"></i>
                                             </a>
-                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/bap') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Berita Acara Perkuliahan">
+                                            <a href="<?= site_url('fakultas/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/bap') ?>" class="badge bg-primary px-3 py-2" data-bs-toggle="tooltip" title="Berita Acara Perkuliahan">
                                                 <i class="fa-solid fa-receipt"></i>
                                             </a>
-                                            <a href="<?= site_url('prodi/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/nilai') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
+                                            <a href="<?= site_url('fakultas/akademik/perkuliahan/' . $jadwal['id_matkul'] . '/nilai') ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Nilai">
                                                 <i class="fa-solid fa-clipboard-user"></i>
                                             </a>
                                         </td>

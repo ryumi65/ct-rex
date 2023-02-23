@@ -5,6 +5,7 @@ class Fakultas extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('model_dosen');
         $this->load->model('model_fakultas');
         $this->load->model('model_jadwal');
         $this->load->model('model_krs');
@@ -74,6 +75,136 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/script');
     }
 
+    public function detailmatkul($id_matkul) {
+        $matkul = $this->model_fakultas->get_matkul($id_matkul);
+        if ($matkul['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $this->model_fakultas->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
+            'listd' => $this->model_fakultas->get_db('ak_dosen'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/detailmatkul', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function jadwalkuliah() {
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal_fks($this->session->id),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/jadwalkuliah', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function perkuliahan() {
+        $data = [
+            'fakultas' => $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]),
+            'listj' => $this->model_jadwal->get_jadwal_fks($this->session->id, 'jadwal'),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarfks');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/perkuliahan', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function presensi($id_matkul) {
+        $matkul = $this->model_fakultas->get_matkul($id_matkul);
+        if ($matkul['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $pertemuan = [];
+        $pertemuan_validation = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_dosen->get_presensi($id_matkul, $i);
+
+            foreach ($listp as $presensi) {
+                $pertemuan[$presensi['id_krs']][$i - 1] = $presensi['kehadiran'];
+            }
+
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+        }
+
+        $data = [
+            'matkul' => $this->model_fakultas->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
+            'pertemuan' => $pertemuan_validation,
+            'presensi' => $pertemuan,
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/presensi', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function bap($id_matkul) {
+        $matkul = $this->model_fakultas->get_matkul($id_matkul);
+        if ($matkul['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $list_hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $pertemuan_validation = [];
+        $list_presensi = [];
+
+        for ($i = 1; $i <= 16; $i++) {
+            $listp = $this->model_dosen->get_presensi($id_matkul, $i);
+
+            if ($this->model_dosen->get_presensi($id_matkul, $i, 'validation')) array_push($pertemuan_validation, 'true');
+            else array_push($pertemuan_validation, 'false');
+
+            foreach ($listp as $presensi) {
+                if ($presensi['pertemuan'] == $i) {
+                    $create = date_create($presensi['tanggal']);
+                    $date = date_format($create, 'Y-m-d');
+                    $day = date('w', strtotime($date));
+
+                    $list_presensi[$i] = $list_hari[$day] . ', ' . $this->indonesian_date($date) . ' (' . $presensi['pukul'] . ')';
+                    break;
+                }
+            }
+        }
+
+        $data = [
+            'matkul' => $this->model_fakultas->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
+            'pertemuan' => $pertemuan_validation,
+            'tanggal' => $list_presensi,
+            'listb' => $this->model_dosen->get_bap($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/bap', $data);
+        $this->load->view('_partials/script');
+    }
+
+    public function nilai($id_matkul) {
+        $matkul = $this->model_fakultas->get_matkul($id_matkul);
+        if ($matkul['id_fakultas'] !== $this->session->id) redirect(strtolower($this->session->access));
+
+        $data = [
+            'matkul' => $this->model_fakultas->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
+            'listm' => $this->model_dosen->get_mhs($id_matkul),
+        ];
+
+        $this->load->view('_partials/head');
+        $this->load->view('_partials/sidebarprd');
+        $this->load->view('_partials/header');
+        $this->load->view('fakultas/akademik/nilai', $data);
+        $this->load->view('_partials/script');
+    }
+
     //==================== PRODI ====================//
 
     public function dataprd() {
@@ -102,36 +233,6 @@ class Fakultas extends CI_Controller {
         $this->load->view('_partials/sidebarfks');
         $this->load->view('_partials/header');
         $this->load->view('fakultas/civitas/dataprodi', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function datamatkulprd() {
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/civitas/datamatkulprd', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function jadwalkuliah($id_prodi) {
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/civitas/jadwalkuliah', $data);
-        $this->load->view('_partials/script');
-    }
-
-    public function perkuliahan() {
-        $data['fakultas'] = $this->model_fakultas->get_db('ak_fakultas', ['id_fakultas' => $this->session->id]);
-
-        $this->load->view('_partials/head');
-        $this->load->view('_partials/sidebarfks');
-        $this->load->view('_partials/header');
-        $this->load->view('fakultas/civitas/perkuliahan', $data);
         $this->load->view('_partials/script');
     }
 

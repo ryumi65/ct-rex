@@ -36,7 +36,7 @@
                                                 <p class="mb-0"><?= $prodi['jmhs'] ?></p>
                                             </div>
                                         </div>
-                                        <div class="card-footer d-flex justify-content-end">
+                                        <!-- <div class="card-footer d-flex justify-content-end">
                                             <div class="dropdown">
                                                 <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     Lihat Detail
@@ -47,7 +47,7 @@
                                                     <li><a class="dropdown-item" href="<?= site_url('fakultas/perkuliahan/') ?>">Data Perkuliahan</a></li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             <?php endforeach ?>

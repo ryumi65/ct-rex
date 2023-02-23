@@ -20,7 +20,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-gray-100 my-0 py-0">
                         <li class="breadcrumb-item"><a href="<?= site_url('fakultas') ?>"><u>Home</u></a></li>
-                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Daftar Mata Kuliah</li>
+                        <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">Mata Kuliah</li>
                     </ol>
                 </nav>
             </div>
@@ -69,7 +69,7 @@
                                         <td class="text-center"><?= $matkul['sks'] ?></td>
                                         <td class="text-center"><?= $matkul['semester'] ?></td>
                                         <td class="text-center">
-                                            <a href="#" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Detail">
+                                            <a href="<?= site_url('fakultas/akademik/data-matkul/' . $matkul['id_matkul']) ?>" class="badge bg-info px-3 py-2" data-bs-toggle="tooltip" title="Detail">
                                                 <i class="fa-solid fa-book-open"></i>
                                             </a>
                                         </td>

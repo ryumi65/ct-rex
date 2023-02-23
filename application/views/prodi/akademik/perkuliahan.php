@@ -12,7 +12,7 @@
                 </nav>
             </div>
 
-            <!-- Jadwal Kuliah -->
+            <!-- Perkuliahan -->
             <div class="col-12 my-3">
                 <div class="card">
                     <div class="card-header p-3">

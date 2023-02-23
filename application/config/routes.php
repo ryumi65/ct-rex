@@ -61,6 +61,12 @@ $route['logout']                                           = 'akun/logout';
 //==================== FAKULTAS ====================//
 
 $route['fakultas/akademik/data-matkul']                    = 'fakultas/datamatkul';
+$route['fakultas/akademik/data-matkul/(:num)']             = 'fakultas/detailmatkul/$1';
+$route['fakultas/akademik/jadwal-kuliah']                  = 'fakultas/jadwalkuliah';
+$route['fakultas/akademik/perkuliahan']                    = 'fakultas/perkuliahan';
+$route['fakultas/akademik/perkuliahan/(:num)/presensi']    = 'fakultas/presensi/$1';
+$route['fakultas/akademik/perkuliahan/(:num)/bap']         = 'fakultas/bap/$1';
+$route['fakultas/akademik/perkuliahan/(:num)/nilai']       = 'fakultas/nilai/$1';
 $route['fakultas/civitas/data-prodi']                      = 'fakultas/dataprd';
 $route['fakultas/civitas/data-dosen']                      = 'fakultas/datadsn';
 $route['fakultas/civitas/data-dosen/(:num)/profil']        = 'fakultas/profildsn/$1';

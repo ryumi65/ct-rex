@@ -48,4 +48,18 @@ class model_fakultas extends CI_Model {
             return $query->row_array();
         }
     }
+
+    public function get_matkul($id_matkul = '') {
+        if ($id_matkul === '') {
+            $query = $this->db->from('ak_matkul m')->join('ak_prodi p', 'm.id_prodi = p.id_prodi')
+                ->where('p.id_fakultas', $this->session->id)->get();
+
+            return $query->result_array();
+        } else {
+            $query = $this->db->from('ak_matkul m')->join('ak_prodi p', 'm.id_prodi = p.id_prodi')
+                ->where(['p.id_fakultas' => $this->session->id, 'm.id_matkul' => $id_matkul])->get();
+
+            return $query->row_array();
+        }
+    }
 }

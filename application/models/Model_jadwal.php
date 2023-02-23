@@ -17,6 +17,20 @@ class Model_jadwal extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_jadwal_fks($id_fakultas, $type = '') {
+        if ($type === 'jadwal') {
+            $query = $this->db->select('j.id_jadwal as id, m.id_matkul, m.kode_matkul as kode, m.nama, m.sks, m.semester, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_prodi p', 'p.id_prodi = m.id_prodi')
+                ->where(['j.id_tahun' => $this->session->tahun, 'p.id_fakultas' => $id_fakultas])->get();
+        } else {
+            $query = $this->db->select('j.id_jadwal as id, m.id_matkul, m.kode_matkul as kode, m.nama, m.sks, m.semester, d.nama as dosen, j.hari, j.pukul as waktu, j.id_ruangan as ruangan')
+                ->from('ak_dosen d')->join('ak_matkul m', 'd.nik = m.nik_dosen')->join('ak_jadwal j', 'm.id_matkul = j.id_matkul')->join('ak_prodi p', 'p.id_prodi = m.id_prodi')
+                ->where('p.id_fakultas', $id_fakultas)->get();
+        }
+
+        return $query->result_array();
+    }
+
     public function get_jadwal_dsn($nik, $hari = '') {
         if ($hari === '') {
             $query = $this->db->select('m.id_matkul, m.kode_matkul as kode, m.nama, j.pukul as waktu, j.id_ruangan as ruangan, j.hari')

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer py-5">
+<footer class="footer pt-4 pb-5">
 
     <!-- Logo Medsos -->
     <div class="container mx-auto text-center my-2">

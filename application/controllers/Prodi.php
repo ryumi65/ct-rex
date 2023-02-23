@@ -428,7 +428,6 @@ class Prodi extends CI_Controller {
 
     public function detailmatkul($id_matkul) {
         $data = [
-            'prodi' => $this->model_prodi->get_db('ak_prodi', ['id_prodi' => $this->session->id]),
             'matkul' => $this->model_prodi->get_db('ak_matkul', ['id_matkul' => $id_matkul]),
             'listd' => $this->model_prodi->get_db('ak_dosen', ['id_prodi' => $this->session->id], 'result'),
         ];
